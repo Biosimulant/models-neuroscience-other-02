@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: ABiophysicalModelOfVestibularGanglionNeuro244202Model'
+description: '{"value": "A single compartment model in Matlab to represent vestibular
+  ganglion neurons'' somatic ion channels and their influence on firing patterns.
+  Model is connected to a synthetic synaptic conduc'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:244202
+  source_db: modeldb
+  source_id: '244202'
+  standard: other
+  original_url: https://modeldb.science/244202
+  download_url: https://modeldb.science/download/244202
+  license: ''
+bsim:
+  entrypoint: src.a_biophysical_model_of_vestibular_ganglion_neuro_244202_model:ABiophysicalModelOfVestibularGanglionNeuro244202Model
+  init_kwargs:
+    model_path: data/244202.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

@@ -1,0 +1,34 @@
+schema_version: '2.0'
+title: 'Neuroscience: Model244848244848Model'
+description: Active dendrites shape signaling microdomains in hippocampal neurons
+  (Basak & Narayanan 2018)
+standard: other
+tags:
+- neuroscience
+- other
+- opensourcebrain
+- faithful
+authors:
+- Biosimulant Team
+- Open Source Brain
+upstream:
+  id: opensourcebrain:244848
+  source_db: opensourcebrain
+  source_id: '244848'
+  standard: other
+  original_url: https://github.com/OpenSourceBrain/244848
+  download_url: https://github.com/OpenSourceBrain/244848.git
+  license: ''
+bsim:
+  entrypoint: src.model_244848_244848_model:Model244848244848Model
+  init_kwargs:
+    model_path: data/repo
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

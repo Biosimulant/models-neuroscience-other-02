@@ -1,0 +1,3 @@
+load_file("nrngui.hoc")
+load_file(1, "init4")
+load_file(1, "Figure8Blong.ses")

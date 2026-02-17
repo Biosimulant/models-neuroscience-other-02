@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: AMathematicalModelOfEvokedCalciumDynamics189344Model'
+description: '{"value": "\" ...Here we present a qualitative analysis of a recent
+  mathematical model of astrocyte calcium responses. We show how the major response
+  types are generated in the model as a result of th'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:189344
+  source_db: modeldb
+  source_id: '189344'
+  standard: other
+  original_url: https://modeldb.science/189344
+  download_url: https://modeldb.science/download/189344
+  license: ''
+bsim:
+  entrypoint: src.a_mathematical_model_of_evoked_calcium_dynamics_189344_model:AMathematicalModelOfEvokedCalciumDynamics189344Model
+  init_kwargs:
+    model_path: data/189344.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

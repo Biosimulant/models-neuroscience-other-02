@@ -1,0 +1,34 @@
+schema_version: '2.0'
+title: 'Neuroscience: Model237326237326Model'
+description: Active dendritic integration in robust and precise grid cell firing (Schmidt-Hieber
+  et al 2017)
+standard: other
+tags:
+- neuroscience
+- other
+- opensourcebrain
+- faithful
+authors:
+- Biosimulant Team
+- Open Source Brain
+upstream:
+  id: opensourcebrain:237326
+  source_db: opensourcebrain
+  source_id: '237326'
+  standard: other
+  original_url: https://github.com/OpenSourceBrain/237326
+  download_url: https://github.com/OpenSourceBrain/237326.git
+  license: ''
+bsim:
+  entrypoint: src.model_237326_237326_model:Model237326237326Model
+  init_kwargs:
+    model_path: data/repo
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

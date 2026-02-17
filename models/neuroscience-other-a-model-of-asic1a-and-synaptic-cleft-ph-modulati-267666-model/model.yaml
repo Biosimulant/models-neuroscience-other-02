@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: AModelOfAsic1aAndSynapticCleftPhModulati267666Model'
+description: '{"value": "We introduce a model of ASIC1a homomeric (and heteromeric)
+  ion channel inserted into a pre-existing model of wide dynamic range (WDR) neuron
+  of the spinal cord together with a novel synapti'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:267666
+  source_db: modeldb
+  source_id: '267666'
+  standard: other
+  original_url: https://modeldb.science/267666
+  download_url: https://modeldb.science/download/267666
+  license: ''
+bsim:
+  entrypoint: src.a_model_of_asic1a_and_synaptic_cleft_ph_modulati_267666_model:AModelOfAsic1aAndSynapticCleftPhModulati267666Model
+  init_kwargs:
+    model_path: data/267666.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

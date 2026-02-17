@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: ANeuronalCircuitSimulatorForNonMonteCarlo239146Model'
+description: '{"value": "cirsiumNeuron is a neuronal circuit simulator that can directly
+  and efficiently compute characterizations of stochastic behavior, i.e., noise, for
+  multi-neuron circuits. In cirsiumNeuron, w'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:239146
+  source_db: modeldb
+  source_id: '239146'
+  standard: other
+  original_url: https://modeldb.science/239146
+  download_url: https://modeldb.science/download/239146
+  license: ''
+bsim:
+  entrypoint: src.a_neuronal_circuit_simulator_for_non_monte_carlo_239146_model:ANeuronalCircuitSimulatorForNonMonteCarlo239146Model
+  init_kwargs:
+    model_path: data/239146.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

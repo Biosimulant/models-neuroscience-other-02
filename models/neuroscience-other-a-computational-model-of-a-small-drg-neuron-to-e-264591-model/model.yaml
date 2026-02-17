@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: AComputationalModelOfASmallDrgNeuronToE264591Model'
+description: '{"value": "This is a Hodgkin-Huxley type model for a small DRG neuron
+  consisting of four voltage-gated ion channels: sodium channels 1.7 and 1.8, delayed
+  rectifier potassium, and A-type transient pota'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:264591
+  source_db: modeldb
+  source_id: '264591'
+  standard: other
+  original_url: https://modeldb.science/264591
+  download_url: https://modeldb.science/download/264591
+  license: ''
+bsim:
+  entrypoint: src.a_computational_model_of_a_small_drg_neuron_to_e_264591_model:AComputationalModelOfASmallDrgNeuronToE264591Model
+  init_kwargs:
+    model_path: data/264591.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

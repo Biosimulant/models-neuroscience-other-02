@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: AComputationalModelForFastSkeletalMuscleK267738Model'
+description: '{"value": "A computational framework for investigating the dynamic variation
+  in the calcium-force relationship during force generation under physiological conditions
+  of neural excitation and muscle le'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:267738
+  source_db: modeldb
+  source_id: '267738'
+  standard: other
+  original_url: https://modeldb.science/267738
+  download_url: https://modeldb.science/download/267738
+  license: ''
+bsim:
+  entrypoint: src.a_computational_model_for_fast_skeletal_muscle_k_267738_model:AComputationalModelForFastSkeletalMuscleK267738Model
+  init_kwargs:
+    model_path: data/267738.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

@@ -1,0 +1,33 @@
+schema_version: '2.0'
+title: 'Neuroscience: Model143635143635Model'
+description: Active dendritic action potential propagation (Casale & McCormick 2011)
+standard: other
+tags:
+- neuroscience
+- other
+- opensourcebrain
+- faithful
+authors:
+- Biosimulant Team
+- Open Source Brain
+upstream:
+  id: opensourcebrain:143635
+  source_db: opensourcebrain
+  source_id: '143635'
+  standard: other
+  original_url: https://github.com/OpenSourceBrain/143635
+  download_url: https://github.com/OpenSourceBrain/143635.git
+  license: ''
+bsim:
+  entrypoint: src.model_143635_143635_model:Model143635143635Model
+  init_kwargs:
+    model_path: data/repo
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

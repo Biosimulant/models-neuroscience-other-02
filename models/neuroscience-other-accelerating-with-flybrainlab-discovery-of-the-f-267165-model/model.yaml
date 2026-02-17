@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: AcceleratingWithFlybrainlabDiscoveryOfTheF267165Model'
+description: '{"value": "In recent years, a wealth of Drosophila neuroscience data
+  have become available including cell type and connectome/synaptome datasets for
+  both the larva and adult fly. To facilitate integra'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:267165
+  source_db: modeldb
+  source_id: '267165'
+  standard: other
+  original_url: https://modeldb.science/267165
+  download_url: https://modeldb.science/download/267165
+  license: ''
+bsim:
+  entrypoint: src.accelerating_with_flybrainlab_discovery_of_the_f_267165_model:AcceleratingWithFlybrainlabDiscoveryOfTheF267165Model
+  init_kwargs:
+    model_path: data/267165.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

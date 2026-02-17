@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: AFullScaleCorticalMicrocircuitSpikingNetwo244261Model'
+description: '{"value": "Reimplementation in BRIAN 2 simulator of a full-scale cortical
+  microcircuit containing two cell types (excitatory and inhibitory) distributed in
+  four layers, and represents the cortical net'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:244261
+  source_db: modeldb
+  source_id: '244261'
+  standard: other
+  original_url: https://modeldb.science/244261
+  download_url: https://modeldb.science/download/244261
+  license: ''
+bsim:
+  entrypoint: src.a_full_scale_cortical_microcircuit_spiking_netwo_244261_model:AFullScaleCorticalMicrocircuitSpikingNetwo244261Model
+  init_kwargs:
+    model_path: data/244261.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

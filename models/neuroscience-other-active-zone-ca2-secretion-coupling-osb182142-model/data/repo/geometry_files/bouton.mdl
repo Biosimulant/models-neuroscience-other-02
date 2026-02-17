@@ -1,0 +1,20 @@
+/* ===========================================================
+
+        Author: Daniel Keller
+	Institution: Ecole Polytechnique Federale de Lausanne
+
+	"An exclusion zone for Ca2+ channels around docked vesicles explains 
+	release control by multiple channels at a CNS synapse"
+	PLoS Computational Biology, 2015
+
+============================================================= */
+
+/* --- Define Presynaptic Bouton ---- */
+
+bouton BOX {
+  CORNERS=[0,0,0],[bouton_width,bouton_width,bouton_height]
+  REMOVE_ELEMENTS{ELEMENT_LIST= [BOTTOM]}
+
+  /*FULLY_CLOSED=YES*/
+  TRANSLATE=[-0.5*bouton_width,-0.5*bouton_width,0.5*gap_size]
+}

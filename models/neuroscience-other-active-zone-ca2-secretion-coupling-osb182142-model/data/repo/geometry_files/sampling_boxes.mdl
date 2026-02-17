@@ -1,0 +1,166 @@
+
+
+DEFINE_SURFACE_CLASSES {
+  transparent_class{
+  TRANSPARENT=Ca
+  TRANSPARENT=Glu
+  TRANSPARENT=fluo_four_sp.B
+  TRANSPARENT=fluo_four_sp.U
+  TRANSPARENT=calmodulin.B0
+  TRANSPARENT=calmodulin.B1
+  TRANSPARENT=calmodulin.B2
+  TRANSPARENT=calmodulin.B3
+  TRANSPARENT=slow_sp.B
+  TRANSPARENT=slow_sp.U
+  TRANSPARENT=medium_sp.B
+  TRANSPARENT=medium_sp.U
+  TRANSPARENT=fast_sp.B
+  TRANSPARENT=fast_sp.U
+  TRANSPARENT=cal_green_sp.B
+  TRANSPARENT=parvalbumin.U 
+  TRANSPARENT=parvalbumin.B
+  TRANSPARENT=parvalbumin.M
+  }
+transparent_class_withATP{
+  TRANSPARENT=Ca
+  TRANSPARENT=Glu
+  TRANSPARENT=fluo_four_sp.B
+  TRANSPARENT=fluo_four_sp.U
+  TRANSPARENT=calmodulin.B0
+  TRANSPARENT=calmodulin.B1
+  TRANSPARENT=calmodulin.B2
+  TRANSPARENT=calmodulin.B3
+  TRANSPARENT=slow_sp.B
+  TRANSPARENT=slow_sp.U
+  TRANSPARENT=medium_sp.B
+  TRANSPARENT=medium_sp.U
+  TRANSPARENT=fast_sp.B
+  TRANSPARENT=fast_sp.U
+  TRANSPARENT=cal_green_sp.B
+  TRANSPARENT=parvalbumin.U 
+  TRANSPARENT=parvalbumin.B
+  TRANSPARENT=parvalbumin.M
+  TRANSPARENT=ATP.MgB
+  TRANSPARENT=ATP.CaB
+  TRANSPARENT=ATP.U
+  }
+}
+
+/* -------- Define synaptic sampling box ------- */
+
+/*synapse_box BOX {
+  CORNERS=[0,0,0],[spine_head_size,spine_head_size,gap_size-4*fuzz]
+  FULLY_CLOSED=YES
+  TRANSPARENT{
+    LIGAND = Ca
+    ELEMENT = ALL_ELEMENTS
+  }
+  TRANSPARENT{
+    LIGAND = Glu
+    ELEMENT = ALL_ELEMENTS
+  }
+  TRANSLATE=[-0.5*spine_head_size,
+             -0.5*spine_head_size,
+             -0.5*gap_size+2*fuzz]
+}
+synapse_box_volume=spine_head_size*spine_head_size*(gap_size-2*fuzz)
+printf("synapse_box_volume = %.9g\n",synapse_box_volume)*/
+
+apparatus_box BOX {
+
+  CORNERS = [0,0,0], [0.45*spine_head_size-2*fuzz, 0.45*spine_head_size-2*fuzz, 0.45*spine_head_size-2*fuzz] 
+
+    DEFINE_SURFACE_REGIONS{
+    apparatus_sampling_surf{
+      ELEMENT_LIST=[ALL_ELEMENTS]
+      SURFACE_CLASS=transparent_class_withATP
+    }
+}
+
+  TRANSLATE=[-0.225*spine_head_size+fuzz,
+             -0.225*spine_head_size+fuzz,
+             -0.8*spine_head_size-0.5*gap_size+fuzz] 
+}
+
+dendrite_box BOX {
+  CORNERS=[0,0,0],[spine_head_width-2*fuzz,spine_head_width-2*fuzz,spine_head_length-2*fuzz]
+
+  DEFINE_SURFACE_REGIONS{
+    dendrite_sampling_surf{
+      ELEMENT_LIST=[ALL_ELEMENTS]
+      SURFACE_CLASS=transparent_class_withATP
+    }
+   }
+
+  TRANSLATE=[-0.5*spine_head_width+fuzz,           -0.5*spine_head_width+fuzz,      fuzz-dendrite_width/2-spine_head_length/2-head_n_neck_size-0.5*gap_size]
+}
+
+spine_head_box BOX {
+  CORNERS=[0,0,0],[spine_head_width-2*fuzz,spine_head_width-2*fuzz,spine_head_length-2*fuzz]
+
+  DEFINE_SURFACE_REGIONS{
+    dendrite_sampling_surf{
+      ELEMENT_LIST=[ALL_ELEMENTS]
+      SURFACE_CLASS=transparent_class_withATP
+    }
+   }
+
+
+  TRANSLATE=[-0.5*spine_head_width+fuzz,           -0.5*spine_head_width+fuzz,      -spine_head_length-0.5*gap_size+fuzz]
+}
+
+small_sampling_box BOX {
+  CORNERS=[-0.02,-0.02,-0.02],[0.02,0.02,0.02]
+
+  DEFINE_SURFACE_REGIONS{
+    small_box_sampling_surf{
+      ELEMENT_LIST=[ALL_ELEMENTS]
+      SURFACE_CLASS=transparent_class_withATP
+    }
+   }
+  TRANSLATE=[0,0,0]
+}
+
+psd_box BOX {
+  CORNERS=[0,0,0],[psd_size,psd_size,gap_size-2*fuzz]
+  DEFINE_SURFACE_REGIONS{
+    sample_psd_box_surf{
+      ELEMENT_LIST=[ALL_ELEMENTS]
+      SURFACE_CLASS=transparent_class_withATP
+    }
+  }
+
+  TRANSLATE=[-0.5*psd_size,
+             -0.5*psd_size,
+             -1.5 * gap_size-fuzz]
+}
+psd_box_volume=psd_size*psd_size*(gap_size-2*fuzz)
+printf("psd_box_volume = %.9g\n",psd_box_volume)
+
+
+
+bouton_box BOX {
+  CORNERS=[0,0,0],[bouton_width-2 * fuzz,bouton_width-2 *fuzz,bouton_height-2 * fuzz]
+  DEFINE_SURFACE_REGIONS{
+    bouton_sampling_surf{
+      ELEMENT_LIST=[ALL_ELEMENTS]
+      SURFACE_CLASS=transparent_class_withATP
+    }
+   }
+
+  /*FULLY_CLOSED=YES*/
+  TRANSLATE=[-0.5*bouton_width+fuzz,-0.5*bouton_width+fuzz,0.5*gap_size+fuzz]
+}
+
+bouton_box_top BOX {
+  CORNERS=[0+2*fuzz,0+2*fuzz,0+2*fuzz],[bouton_width-2 * fuzz,bouton_width-2 *fuzz,0.1* bouton_height-2 * fuzz]
+  DEFINE_SURFACE_REGIONS{
+    bouton_sampling_surf{
+      ELEMENT_LIST=[ALL_ELEMENTS]
+      SURFACE_CLASS=transparent_class
+    }
+   }
+
+  /*FULLY_CLOSED=YES*/
+  TRANSLATE=[-0.5*bouton_width+fuzz,-0.5*bouton_width+fuzz,0.5*gap_size+fuzz]
+}

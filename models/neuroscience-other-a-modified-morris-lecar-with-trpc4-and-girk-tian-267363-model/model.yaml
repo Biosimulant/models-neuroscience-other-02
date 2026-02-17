@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: AModifiedMorrisLecarWithTrpc4AndGirkTian267363Model'
+description: '{"value": "Simulates differential activation of TRPC4 and GIRK channel
+  to reproduce various spiking patterns underlying Gq/11\u2013Gi/o coincidence signals.\r\nThe
+  attached code reproduces Fig.5B-F in'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:267363
+  source_db: modeldb
+  source_id: '267363'
+  standard: other
+  original_url: https://modeldb.science/267363
+  download_url: https://modeldb.science/download/267363
+  license: ''
+bsim:
+  entrypoint: src.a_modified_morris_lecar_with_trpc4_and_girk_tian_267363_model:AModifiedMorrisLecarWithTrpc4AndGirkTian267363Model
+  init_kwargs:
+    model_path: data/267363.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: AModelOfCerebellarLtdIncludingRkipInactiv222732Model'
+description: '{"value": "An updated stochastic model of cerebellar Long Term Depression
+  (LTD) with improved realism. Dissociation of Raf kinase inhibitor protein (RKIP)
+  from Mitogen-activated protein kinase kinase '
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:222732
+  source_db: modeldb
+  source_id: '222732'
+  standard: other
+  original_url: https://modeldb.science/222732
+  download_url: https://modeldb.science/download/222732
+  license: ''
+bsim:
+  entrypoint: src.a_model_of_cerebellar_ltd_including_rkip_inactiv_222732_model:AModelOfCerebellarLtdIncludingRkipInactiv222732Model
+  init_kwargs:
+    model_path: data/222732.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

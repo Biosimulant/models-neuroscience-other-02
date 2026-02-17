@@ -1,0 +1,41 @@
+<html>
+    <body>
+        <p>
+            This is an alternative implementation of:<br/>
+            <div style="margin-left: 2em">
+            Fleidervish IA, Lasser-Ross N, Gutnick MJ, Ross WN (2010) Na+ imaging
+            reveals little difference in action potential-evoked Na+ influx
+            between axon and soma. Nat Neurosci 13:852-60.
+            doi:<a href="http://doi.org/10.1038/nn.2574">10.1038/nn.2574</a>.
+            </div>
+        </p>
+        <p>
+            The author's version is available at
+            <a href="http://modeldb.yale.edu/136715">http://modeldb.yale.edu/136715</a>.
+        </p>
+        <p>
+            The main differences are:
+            <ul>
+                <li>The original was implemented mostly using NEURON's gui tools with a little HOC; this version is implemented in a Python script for NEURON.</li>
+                <li>The original uses a MOD file to handle sodium accumulation and diffusion; this version use NEURON's reaction-diffusion support.</li>
+                <li>The original has two additional simulations using a reduced model with no dendrites.</li>
+            </ul>
+        </p>
+        <p>
+            Two of the three mod files used (<tt>kv</tt>, <tt>Kv1</tt>) have been retained unmodified from the author's version.
+            The third, <tt>nacurrent</tt> is a simplified version of the original author's <tt>hh_Cs_scaled</tt> after removing the 
+            potassium and leak currents from that file which are not used in this model. The name has been changed to deemphasize the file's historical connection to <tt>hh.mod</tt> as the temperature dependence and rate functions are not intended to be appropriate for modeling a squid.
+        </p>
+        <p>
+            To run, compile the mod files in this directory (on Linux or Mac by changing to this directory and typing <tt>nrnivmodl</tt>; on Windows by dragging this folder to the <tt>mknrndll</tt> icon), then run <tt>mosinit.py</tt> via either:<br/>
+            <tt>&nbsp;&nbsp;&nbsp;&nbsp;python -i mosinit.py</tt><br/>
+            or<br/>
+            <tt>&nbsp;&nbsp;&nbsp;&nbsp;python3 -i mosinit.py</tt><br/>
+            depending on your Python setup. Choose either "Fig 3A" or "Fig 6B" from the popup, and click "Init &amp; Run". When the simulations complete you should see the respective images below:
+        </p>Fig 3A:<p/>
+	<img src="./screenshot3.png">
+<p/>Fig 6B:<p/>
+<img src="./screenshot6.png">
+<p/>
+    </body>
+</html>

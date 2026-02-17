@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: ACorticoCerebelloThalamoCorticalLoopModel257028Model'
+description: '{"value": "We investigated the origins of oscillations under essential
+  tremor (ET) by building a computational model of the cortico-cerebello-thalamo-cortical
+  loop. It showed that an alteration of amp'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:257028
+  source_db: modeldb
+  source_id: '257028'
+  standard: other
+  original_url: https://modeldb.science/257028
+  download_url: https://modeldb.science/download/257028
+  license: ''
+bsim:
+  entrypoint: src.a_cortico_cerebello_thalamo_cortical_loop_model_257028_model:ACorticoCerebelloThalamoCorticalLoopModel257028Model
+  init_kwargs:
+    model_path: data/257028.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

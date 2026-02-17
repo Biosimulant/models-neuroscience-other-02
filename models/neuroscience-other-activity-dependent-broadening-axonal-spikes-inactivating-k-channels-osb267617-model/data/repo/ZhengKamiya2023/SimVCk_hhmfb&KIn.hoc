@@ -1,0 +1,20 @@
+load_file("nrngui.hoc")
+
+create s
+forall Ra = 110
+forall cm = 1
+access s
+    nseg = 7
+	diam = 7
+	L    = 7
+forall insert hhmfb
+       insert KIn
+forall gnabar_hhmfb = 0   /* S/cm^2 */
+       gkbar_hhmfb = 0   /* S/cm^2 */
+       gl_hhmfb = 0.0001 /* S/cm^2 */
+	   gkbar_KIn = 0.036   /* S/cm^2 */
+       celsius = 25
+
+load_file("stimVCk_hhmfb&KIn.ses")
+
+

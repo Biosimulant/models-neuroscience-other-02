@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: ASystemsModelOfParkinsonSDiseaseUsingBio237466Model'
+description: '{"value": "Major pathways involving in Parkinson''s disease (PD) such
+  as alphasynuclein aggregation, dopamine \r\nsynthesis, lewy body formation, tau
+  phosphorylation, parkin, and apoptosis were modeled'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:237466
+  source_db: modeldb
+  source_id: '237466'
+  standard: other
+  original_url: https://modeldb.science/237466
+  download_url: https://modeldb.science/download/237466
+  license: ''
+bsim:
+  entrypoint: src.a_systems_model_of_parkinson_s_disease_using_bio_237466_model:ASystemsModelOfParkinsonSDiseaseUsingBio237466Model
+  init_kwargs:
+    model_path: data/237466.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

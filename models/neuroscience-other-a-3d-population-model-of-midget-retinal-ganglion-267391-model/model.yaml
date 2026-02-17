@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: A3dPopulationModelOfMidgetRetinalGanglion267391Model'
+description: '{"value": "A robust means of generating eccentricity-dependent and morphologically
+  realistic and three-dimensional populations of midget retinal ganglion cells at
+  the central human retina (specificall'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:267391
+  source_db: modeldb
+  source_id: '267391'
+  standard: other
+  original_url: https://modeldb.science/267391
+  download_url: https://modeldb.science/download/267391
+  license: ''
+bsim:
+  entrypoint: src.a_3d_population_model_of_midget_retinal_ganglion_267391_model:A3dPopulationModelOfMidgetRetinalGanglion267391Model
+  init_kwargs:
+    model_path: data/267391.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

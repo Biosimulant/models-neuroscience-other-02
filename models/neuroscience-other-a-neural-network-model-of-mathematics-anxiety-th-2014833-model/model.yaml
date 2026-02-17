@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: ANeuralNetworkModelOfMathematicsAnxietyTh2014833Model'
+description: '{"value": "Anxiety about performing numerical calculations is becoming
+  an increasingly important issue. Termed mathematics anxiety, this condition negatively
+  impacts performance in numerical tasks whi'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:2014833
+  source_db: modeldb
+  source_id: '2014833'
+  standard: other
+  original_url: https://modeldb.science/2014833
+  download_url: https://modeldb.science/download/2014833
+  license: ''
+bsim:
+  entrypoint: src.a_neural_network_model_of_mathematics_anxiety_th_2014833_model:ANeuralNetworkModelOfMathematicsAnxietyTh2014833Model
+  init_kwargs:
+    model_path: data/2014833.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: ADendriticDisinhibitoryCircuitMechanismFor206227Model'
+description: '{"value": "\"While reading a book in a noisy caf\u00e9, how does your
+  brain \u2018gate in\u2019 visual information while filtering out auditory stimuli?
+  Here we propose a mechanism for such flexible r'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:206227
+  source_db: modeldb
+  source_id: '206227'
+  standard: other
+  original_url: https://modeldb.science/206227
+  download_url: https://modeldb.science/download/206227
+  license: ''
+bsim:
+  entrypoint: src.a_dendritic_disinhibitory_circuit_mechanism_for_206227_model:ADendriticDisinhibitoryCircuitMechanismFor206227Model
+  init_kwargs:
+    model_path: data/206227.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

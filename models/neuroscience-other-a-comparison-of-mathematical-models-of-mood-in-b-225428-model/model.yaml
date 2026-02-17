@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: AComparisonOfMathematicalModelsOfMoodInB225428Model'
+description: '{"value": "\" ... we evaluated existing models of mood in BP (Bipolar
+  Disorder) (...) and two new models we proposed here (...). Each model makes different
+  assumptions about mood dynamics. Our objecti'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:225428
+  source_db: modeldb
+  source_id: '225428'
+  standard: other
+  original_url: https://modeldb.science/225428
+  download_url: https://modeldb.science/download/225428
+  license: ''
+bsim:
+  entrypoint: src.a_comparison_of_mathematical_models_of_mood_in_b_225428_model:AComparisonOfMathematicalModelsOfMoodInB225428Model
+  init_kwargs:
+    model_path: data/225428.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

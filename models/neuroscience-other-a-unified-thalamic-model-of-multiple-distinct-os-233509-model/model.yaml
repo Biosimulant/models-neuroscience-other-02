@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: AUnifiedThalamicModelOfMultipleDistinctOs233509Model'
+description: '{"value": "We present a unified model of the thalamus that is capable
+  of independently generating multiple distinct oscillations (delta, spindle, alpha
+  and gamma oscillations) under different levels o'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:233509
+  source_db: modeldb
+  source_id: '233509'
+  standard: other
+  original_url: https://modeldb.science/233509
+  download_url: https://modeldb.science/download/233509
+  license: ''
+bsim:
+  entrypoint: src.a_unified_thalamic_model_of_multiple_distinct_os_233509_model:AUnifiedThalamicModelOfMultipleDistinctOs233509Model
+  init_kwargs:
+    model_path: data/233509.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

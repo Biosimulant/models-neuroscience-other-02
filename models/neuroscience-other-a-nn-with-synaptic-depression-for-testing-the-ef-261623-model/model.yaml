@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: ANnWithSynapticDepressionForTestingTheEf261623Model'
+description: '{"value": "Here we used a 10,000 neuron model. The neurons are a mixture
+  of excitatory and inhibitory integrate-and-fire neurons connected with synapses
+  that exhibit synaptic depression. Three differe'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:261623
+  source_db: modeldb
+  source_id: '261623'
+  standard: other
+  original_url: https://modeldb.science/261623
+  download_url: https://modeldb.science/download/261623
+  license: ''
+bsim:
+  entrypoint: src.a_nn_with_synaptic_depression_for_testing_the_ef_261623_model:ANnWithSynapticDepressionForTestingTheEf261623Model
+  init_kwargs:
+    model_path: data/261623.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: ASpikingNeuralNetworkModelOfTheLateralGe234118Model'
+description: '{"value": "Using Izhikevich''s spiking neuron models, to build a network
+  with a biologically informed synaptic layout emulating the Lateral Geniculate Nucleus.",
+  "attr_id": 24}'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:234118
+  source_db: modeldb
+  source_id: '234118'
+  standard: other
+  original_url: https://modeldb.science/234118
+  download_url: https://modeldb.science/download/234118
+  license: ''
+bsim:
+  entrypoint: src.a_spiking_neural_network_model_of_the_lateral_ge_234118_model:ASpikingNeuralNetworkModelOfTheLateralGe234118Model
+  init_kwargs:
+    model_path: data/234118.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

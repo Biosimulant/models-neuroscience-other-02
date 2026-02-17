@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: AModelOfRodentMechanoreceptorsLtmrsMedlock2016218Model'
+description: '{"value": "\"... unlike the dichotomous frequency preference characteristic
+  of RA1 and RA2/Pacinian afferents in other species, rodent RAs fell along a continuum.
+  Fitting generalized linear models (GL'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:2016218
+  source_db: modeldb
+  source_id: '2016218'
+  standard: other
+  original_url: https://modeldb.science/2016218
+  download_url: https://modeldb.science/download/2016218
+  license: ''
+bsim:
+  entrypoint: src.a_model_of_rodent_mechanoreceptors_ltmrs_medlock_2016218_model:AModelOfRodentMechanoreceptorsLtmrsMedlock2016218Model
+  init_kwargs:
+    model_path: data/2016218.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

@@ -1,0 +1,437 @@
+/* --------- Onion skin for intracellular Ca Buffering ------------- */
+
+/* ------------ CBPs in Spine Head -------------------- */
+spine_apparatus_neck_volume=0
+spine_apparatus_head_volume=0
+
+printf("spine_head_volume = %.9g\n",spine_head_volume)
+
+DEFINE_RELEASE_PATTERN release_pattern_ca {
+  DELAY = 0.0
+  RELEASE_INTERVAL = dt
+  TRAIN_INTERVAL = dt
+  TRAIN_DURATION = dt
+  NUMBER_OF_TRAINS = 1
+}
+
+head_cbp_template OBJECT{
+
+head_cbp_template0b CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -spine_head_size/2-0.5*gap_size]
+  MOLECULE= Ca
+  NUMBER_TO_RELEASE=0 /*density is in number per cubic micron*/
+  SITE_DIAMETER = 0
+  RELEASE_PATTERN = release_pattern_ca
+}
+
+
+head_cbp_template3 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -spine_head_size/2-0.5*gap_size]
+  MOLECULE= fast_sp.B
+  NUMBER_TO_RELEASE=(spine_head_volume)* fast_cbp_concentration *(bound_cbp_fraction_spine) /*density is in number per cubic micron*/
+   SITE_DIAMETER=[spine_head_size,spine_head_size,spine_head_size]
+}
+
+head_cbp_template4 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -spine_head_size/2-0.5*gap_size]
+  MOLECULE= fast_sp.U
+  NUMBER_TO_RELEASE=(spine_head_volume)* fast_cbp_concentration *(unbound_cbp_fraction_spine) /*density is in number per cubic micron*/
+   SITE_DIAMETER=[spine_head_size,spine_head_size,spine_head_size]
+}
+
+head_cbp_template5 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -spine_head_size/2-0.5*gap_size]
+  MOLECULE= medium_sp.B
+  NUMBER_TO_RELEASE=(spine_head_volume)* medium_cbp_concentration *bound_cbp_fraction_spine /*density is in number per cubic micron*/
+   SITE_DIAMETER=[spine_head_size,spine_head_size,spine_head_size]
+}
+
+head_cbp_template6 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -spine_head_size/2-0.5*gap_size]
+  MOLECULE= medium_sp.U
+  NUMBER_TO_RELEASE=(spine_head_volume)* medium_cbp_concentration * (unbound_cbp_fraction_spine) /*density is in number per cubic micron*/
+   SITE_DIAMETER=[spine_head_size,spine_head_size,spine_head_size]
+}
+
+head_cbp_template7 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -spine_head_size/2-0.5*gap_size]
+  MOLECULE= slow_sp.B
+  NUMBER_TO_RELEASE=(spine_head_volume)* slow_cbp_concentration *bound_cbp_fraction_spine /*density is in number per cubic micron*/
+   SITE_DIAMETER=[spine_head_size,spine_head_size,spine_head_size]
+}
+
+head_cbp_template8 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -spine_head_size/2-0.5*gap_size]
+  MOLECULE= slow_sp.U
+  NUMBER_TO_RELEASE=(spine_head_volume)*slow_cbp_concentration *(unbound_cbp_fraction_spine) /*density is in number per cubic micron*/
+   SITE_DIAMETER=[spine_head_size,spine_head_size,spine_head_size]
+}
+
+head_cbp_template9 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -spine_head_size/2-0.5*gap_size]
+  MOLECULE=v_slow_sp.U
+  NUMBER_TO_RELEASE=(spine_head_volume)*unbound_cbp_fraction_spine*v_slow_cbp_concentration /*density is in number per cubic micron*/
+   SITE_DIAMETER=[spine_head_size,spine_head_size,spine_head_size]
+}
+
+head_cbp_template10 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -spine_head_size/2-0.5*gap_size]
+  MOLECULE=v_slow_sp.B
+  NUMBER_TO_RELEASE=(spine_head_volume)* v_slow_cbp_concentration *bound_cbp_fraction_spine /*density is in number per cubic micron*/
+   SITE_DIAMETER=[spine_head_size,spine_head_size,spine_head_size]
+}
+
+head_cbp_template11 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -spine_head_size/2-0.5*gap_size]
+  MOLECULE=calmodulin.B1
+  NUMBER_TO_RELEASE=(spine_head_volume)* calmodulin_concentration_head *bound_calmodulin_1_fraction /*density is in number per cubic micron*/
+   SITE_DIAMETER=[spine_head_size,spine_head_size,spine_head_size]
+}
+
+head_cbp_template12 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -spine_head_size/2-0.5*gap_size]
+  MOLECULE=calbindin.high0medium0
+NUMBER_TO_RELEASE=(spine_head_volume)* calbindin_concentration *bound_calbindin_H0M0_fraction
+   SITE_DIAMETER=[spine_head_size,spine_head_size,spine_head_size]
+}
+
+head_cbp_template13 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -spine_head_size/2-0.5*gap_size]
+  MOLECULE=calbindin.high0medium1
+  NUMBER_TO_RELEASE=(spine_head_volume)* calbindin_concentration *(bound_calbindin_H0M1_fraction)/*density is in number per cubic micron*/
+   SITE_DIAMETER=[spine_head_size,spine_head_size,spine_head_size]
+}
+
+head_cbp_template14 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -spine_head_size/2-0.5*gap_size]
+  MOLECULE=calbindin.high0medium2
+  NUMBER_TO_RELEASE=(spine_head_volume)* calbindin_concentration *(bound_calbindin_H0M2_fraction)/*density is in number per cubic micron*/
+   SITE_DIAMETER=[spine_head_size,spine_head_size,spine_head_size]
+}
+
+head_cbp_template15 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -spine_head_size/2-0.5*gap_size]
+  MOLECULE=calbindin.high1medium0
+  NUMBER_TO_RELEASE=(spine_head_volume)* calbindin_concentration *(bound_calbindin_H1M0_fraction)/*density is in number per cubic micron*/
+   SITE_DIAMETER=[spine_head_size,spine_head_size,spine_head_size]
+}
+
+head_cbp_template16 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -spine_head_size/2-0.5*gap_size]
+  MOLECULE=calbindin.high1medium1
+  NUMBER_TO_RELEASE=(spine_head_volume)* calbindin_concentration *(bound_calbindin_H1M1_fraction)/*density is in number per cubic micron*/
+   SITE_DIAMETER=[spine_head_size,spine_head_size,spine_head_size]
+}
+
+head_cbp_template17 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -spine_head_size/2-0.5*gap_size]
+  MOLECULE=calbindin.high1medium2
+  NUMBER_TO_RELEASE=(spine_head_volume)* calbindin_concentration *(bound_calbindin_H1M2_fraction)/*density is in number per cubic micron*/
+   SITE_DIAMETER=[spine_head_size,spine_head_size,spine_head_size]
+}
+
+head_cbp_template18 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -spine_head_size/2-0.5*gap_size]
+  MOLECULE=calbindin.high2medium0
+  NUMBER_TO_RELEASE=(spine_head_volume)* calbindin_concentration *(bound_calbindin_H2M0_fraction)/*density is in number per cubic micron*/
+   SITE_DIAMETER=[spine_head_size,spine_head_size,spine_head_size]
+}
+
+head_cbp_template19 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -spine_head_size/2-0.5*gap_size]
+  MOLECULE=calbindin.high2medium1
+  NUMBER_TO_RELEASE=(spine_head_volume)* calbindin_concentration *(bound_calbindin_H2M1_fraction)/*density is in number per cubic micron*/
+   SITE_DIAMETER=[spine_head_size,spine_head_size,spine_head_size]
+}
+
+head_cbp_template20 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -spine_head_size/2-0.5*gap_size]
+  MOLECULE=calbindin.high2medium2
+  NUMBER_TO_RELEASE=(spine_head_volume)* calbindin_concentration *(bound_calbindin_H2M2_fraction)/*density is in number per cubic micron*/
+   SITE_DIAMETER=[spine_head_size,spine_head_size,spine_head_size]
+}
+
+head_cbp_template21 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -spine_head_size/2-0.5*gap_size]
+  MOLECULE=calmodulin.B0
+  NUMBER_TO_RELEASE=(spine_head_volume)* calmodulin_concentration_head *(1-bound_calmodulin_1_fraction) /*density is in number per cubic micron*/
+   SITE_DIAMETER=[spine_head_size,spine_head_size,spine_head_size]
+}
+
+}
+
+neck_cbp_template OBJECT{
+
+neck_cbp_template3 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -head_n_neck_size/2-0.5*gap_size]
+  MOLECULE= fast_sp.B  
+  NUMBER_TO_RELEASE=(spine_neck_volume)* fast_cbp_concentration *(bound_cbp_fraction_spine) /*density is in number per cubic micron*/
+   SITE_DIAMETER=[spine_neck_width,spine_neck_width,spine_neck_length]
+}
+
+neck_cbp_template4 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -head_n_neck_size/2-0.5*gap_size]
+  MOLECULE= fast_sp.U
+  NUMBER_TO_RELEASE=(spine_neck_volume)* fast_cbp_concentration *(unbound_cbp_fraction_spine) /*density is in number per cubic micron*/
+   SITE_DIAMETER=[spine_neck_width,spine_neck_width,spine_neck_length]
+}
+
+neck_cbp_template5 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -head_n_neck_size/2-0.5*gap_size]
+  MOLECULE= medium_sp.B
+  NUMBER_TO_RELEASE=(spine_neck_volume)* medium_cbp_concentration *(bound_cbp_fraction_spine) /*density is in number per cubic micron*/
+   SITE_DIAMETER=[spine_neck_width,spine_neck_width,spine_neck_length]
+}
+
+neck_cbp_template6 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -head_n_neck_size/2-0.5*gap_size]
+  MOLECULE= medium_sp.U
+  NUMBER_TO_RELEASE=(spine_neck_volume)* medium_cbp_concentration *(unbound_cbp_fraction_spine) /*density is in number per cubic micron*/
+   SITE_DIAMETER=[spine_neck_width,spine_neck_width,spine_neck_length]
+}
+
+neck_cbp_template7 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -head_n_neck_size/2-0.5*gap_size]
+  MOLECULE= slow_sp.B
+  NUMBER_TO_RELEASE=(spine_neck_volume)* slow_cbp_concentration *(bound_cbp_fraction_spine) /*density is in number per cubic micron*/
+   SITE_DIAMETER=[spine_neck_width,spine_neck_width,spine_neck_length]
+}
+
+neck_cbp_template8 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -head_n_neck_size/2-0.5*gap_size]
+  MOLECULE= slow_sp.U
+  NUMBER_TO_RELEASE=(spine_neck_volume)* slow_cbp_concentration *(unbound_cbp_fraction_spine) /*density is in number per cubic micron*/
+   SITE_DIAMETER=[spine_neck_width,spine_neck_width,spine_neck_length]
+}
+
+neck_cbp_template9 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -head_n_neck_size/2-0.5*gap_size]
+  MOLECULE=v_slow_sp.U
+  NUMBER_TO_RELEASE=(spine_neck_volume)* v_slow_cbp_concentration *(unbound_cbp_fraction_spine) /*density is in number per cubic micron*/
+   SITE_DIAMETER=[spine_neck_width,spine_neck_width,spine_neck_length]
+}
+
+neck_cbp_template10 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -head_n_neck_size/2-0.5*gap_size]
+  MOLECULE=v_slow_sp.B
+  NUMBER_TO_RELEASE=(spine_neck_volume)* v_slow_cbp_concentration *(bound_cbp_fraction_spine) /*density is in number per cubic micron*/
+   SITE_DIAMETER=[spine_neck_width,spine_neck_width,spine_neck_length]
+}
+
+neck_cbp_template11 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -head_n_neck_size/2-0.5*gap_size]
+  MOLECULE=calmodulin.B1
+  NUMBER_TO_RELEASE=(spine_neck_volume)* calmodulin_concentration_head *bound_calmodulin_1_fraction /*density is in number per cubic micron*/
+   SITE_DIAMETER=[spine_neck_width,spine_neck_width,spine_neck_length]
+}
+
+neck_cbp_template12 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -head_n_neck_size/2-0.5*gap_size]
+  MOLECULE=calbindin.high0medium0
+NUMBER_TO_RELEASE=(spine_head_volume)* calbindin_concentration *bound_calbindin_H0M0_fraction
+   SITE_DIAMETER=[spine_neck_width,spine_neck_width,spine_neck_length]
+}
+
+neck_cbp_template13 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -head_n_neck_size/2-0.5*gap_size]
+  MOLECULE=calbindin.high0medium1
+  NUMBER_TO_RELEASE=(spine_head_volume)* calbindin_concentration *(bound_calbindin_H0M1_fraction)/*density is in number per cubic micron*/
+   SITE_DIAMETER=[spine_neck_width,spine_neck_width,spine_neck_length]
+}
+
+neck_cbp_template14 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -head_n_neck_size/2-0.5*gap_size]
+  MOLECULE=calbindin.high0medium2
+  NUMBER_TO_RELEASE=(spine_head_volume)* calbindin_concentration *(bound_calbindin_H0M2_fraction)/*density is in number per cubic micron*/
+   SITE_DIAMETER=[spine_neck_width,spine_neck_width,spine_neck_length]
+}
+
+neck_cbp_template15 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -head_n_neck_size/2-0.5*gap_size]
+  MOLECULE=calbindin.high1medium0
+  NUMBER_TO_RELEASE=(spine_head_volume)* calbindin_concentration *(bound_calbindin_H1M0_fraction)/*density is in number per cubic micron*/
+   SITE_DIAMETER=[spine_neck_width,spine_neck_width,spine_neck_length]
+}
+
+neck_cbp_template16 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -head_n_neck_size/2-0.5*gap_size]
+  MOLECULE=calbindin.high1medium1
+  NUMBER_TO_RELEASE=(spine_head_volume)* calbindin_concentration *(bound_calbindin_H1M1_fraction)/*density is in number per cubic micron*/
+   SITE_DIAMETER=[spine_neck_width,spine_neck_width,spine_neck_length]
+}
+
+neck_cbp_template17 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -head_n_neck_size/2-0.5*gap_size]
+  MOLECULE=calbindin.high1medium2
+  NUMBER_TO_RELEASE=(spine_head_volume)* calbindin_concentration *(bound_calbindin_H1M2_fraction)/*density is in number per cubic micron*/
+   SITE_DIAMETER=[spine_neck_width,spine_neck_width,spine_neck_length]
+}
+
+neck_cbp_template18 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -head_n_neck_size/2-0.5*gap_size]
+  MOLECULE=calbindin.high2medium0
+  NUMBER_TO_RELEASE=(spine_head_volume)* calbindin_concentration *(bound_calbindin_H2M0_fraction)/*density is in number per cubic micron*/
+   SITE_DIAMETER=[spine_neck_width,spine_neck_width,spine_neck_length]
+}
+
+neck_cbp_template19 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -head_n_neck_size/2-0.5*gap_size]
+  MOLECULE=calbindin.high2medium1
+  NUMBER_TO_RELEASE=(spine_head_volume)* calbindin_concentration *(bound_calbindin_H2M1_fraction)/*density is in number per cubic micron*/
+   SITE_DIAMETER=[spine_neck_width,spine_neck_width,spine_neck_length]
+}
+
+neck_cbp_template20 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -head_n_neck_size/2-0.5*gap_size]
+  MOLECULE=calbindin.high2medium2
+  NUMBER_TO_RELEASE=(spine_head_volume)* calbindin_concentration *(bound_calbindin_H2M2_fraction)/*density is in number per cubic micron*/
+   SITE_DIAMETER=[spine_neck_width,spine_neck_width,spine_neck_length]
+}
+
+neck_cbp_template21 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -head_n_neck_size/2-0.5*gap_size]
+  MOLECULE=calmodulin.B0
+  NUMBER_TO_RELEASE=(spine_neck_volume)* calmodulin_concentration_head *(1-bound_calmodulin_1_fraction) /*density is in number per cubic micron*/
+   SITE_DIAMETER=[spine_neck_width,spine_neck_width,spine_neck_length]
+}
+
+}
+
+
+dendrite_cbp_template OBJECT{
+
+dendrite_cbp_template3 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -dendrite_width/2-head_n_neck_size-0.5*gap_size]
+  MOLECULE= fast_sp.B  
+  NUMBER_TO_RELEASE=(dendrite_volume)* fast_cbp_concentration *(bound_cbp_fraction_spine) /*density is in number per cubic micron*/
+   SITE_DIAMETER=[dendrite_length,dendrite_width,dendrite_width]
+}
+
+dendrite_cbp_template4 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -dendrite_width/2-head_n_neck_size-0.5*gap_size]
+  MOLECULE= fast_sp.U
+  NUMBER_TO_RELEASE=(dendrite_volume)* fast_cbp_concentration *(unbound_cbp_fraction_spine) /*density is in number per cubic micron*/
+   SITE_DIAMETER=[dendrite_length,dendrite_width,dendrite_width]
+}
+
+dendrite_cbp_template5 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -dendrite_width/2-head_n_neck_size-0.5*gap_size]
+  MOLECULE= medium_sp.B
+  NUMBER_TO_RELEASE=(dendrite_volume)* medium_cbp_concentration *(bound_cbp_fraction_spine) /*density is in number per cubic micron*/
+SITE_DIAMETER=[dendrite_length,dendrite_width,dendrite_width]
+}
+
+dendrite_cbp_template6 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -dendrite_width/2-head_n_neck_size-0.5*gap_size]
+  MOLECULE= medium_sp.U
+  NUMBER_TO_RELEASE=(dendrite_volume)* medium_cbp_concentration *(unbound_cbp_fraction_spine) /*density is in number per cubic micron*/
+   SITE_DIAMETER=[dendrite_length,dendrite_width,dendrite_width]
+}
+
+dendrite_cbp_template7 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -dendrite_width/2-head_n_neck_size-0.5*gap_size]
+  MOLECULE= slow_sp.B
+  NUMBER_TO_RELEASE=(dendrite_volume)* slow_cbp_concentration *(bound_cbp_fraction_spine) /*density is in number per cubic micron*/
+   SITE_DIAMETER=[dendrite_width,dendrite_width,dendrite_length]
+}
+
+dendrite_cbp_template8 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -dendrite_width/2-head_n_neck_size-0.5*gap_size]
+  MOLECULE= slow_sp.U
+  NUMBER_TO_RELEASE=(dendrite_volume)* slow_cbp_concentration *(unbound_cbp_fraction_spine) /*density is in number per cubic micron*/
+   SITE_DIAMETER=[dendrite_length,dendrite_width,dendrite_width]
+}
+
+dendrite_cbp_template9 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -dendrite_width/2-head_n_neck_size-0.5*gap_size]
+  MOLECULE=v_slow_sp.U
+  NUMBER_TO_RELEASE=(dendrite_volume)* v_slow_cbp_concentration *(unbound_cbp_fraction_spine) /*density is in number per cubic micron*/
+   SITE_DIAMETER=[dendrite_length,dendrite_width,dendrite_width]
+}
+
+dendrite_cbp_template10 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -dendrite_width/2-head_n_neck_size-0.5*gap_size]
+  MOLECULE=v_slow_sp.B
+  NUMBER_TO_RELEASE=(dendrite_volume)* v_slow_cbp_concentration *(bound_cbp_fraction_spine) /*density is in number per cubic micron*/
+   SITE_DIAMETER=[dendrite_length,dendrite_width,dendrite_width]
+}
+
+dendrite_cbp_template11 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -dendrite_width/2-head_n_neck_size-0.5*gap_size]
+  MOLECULE=calmodulin.B1
+  NUMBER_TO_RELEASE=(dendrite_volume)* calmodulin_concentration_head *bound_calmodulin_1_fraction /*density is in number per cubic micron*/
+   SITE_DIAMETER=[dendrite_length,dendrite_width,dendrite_width]
+}
+
+dendrite_cbp_template12 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -dendrite_width/2-head_n_neck_size-0.5*gap_size]
+  MOLECULE=calbindin.high0medium0
+NUMBER_TO_RELEASE=(dendrite_volume)* calbindin_concentration *bound_calbindin_H0M0_fraction
+   SITE_DIAMETER=[dendrite_length,dendrite_width,dendrite_width]
+}
+
+dendrite_cbp_template13 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -dendrite_width/2-head_n_neck_size-0.5*gap_size]
+  MOLECULE=calbindin.high0medium1
+  NUMBER_TO_RELEASE=(dendrite_volume)* calbindin_concentration *(bound_calbindin_H0M1_fraction)/*density is in number per cubic micron*/
+   SITE_DIAMETER=[dendrite_length,dendrite_width,dendrite_width]
+}
+
+dendrite_cbp_template14 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -dendrite_width/2-head_n_neck_size-0.5*gap_size]
+  MOLECULE=calbindin.high0medium2
+  NUMBER_TO_RELEASE=(dendrite_volume)* calbindin_concentration *(bound_calbindin_H0M2_fraction)/*density is in number per cubic micron*/
+   SITE_DIAMETER=[dendrite_length,dendrite_width,dendrite_width]
+}
+
+dendrite_cbp_template15 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -dendrite_width/2-head_n_neck_size-0.5*gap_size]
+  MOLECULE=calbindin.high1medium0
+  NUMBER_TO_RELEASE=(dendrite_volume)* calbindin_concentration *(bound_calbindin_H1M0_fraction)/*density is in number per cubic micron*/
+   SITE_DIAMETER=[dendrite_length,dendrite_width,dendrite_width]
+}
+
+dendrite_cbp_template16 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -dendrite_width/2-head_n_neck_size-0.5*gap_size]
+  MOLECULE=calbindin.high1medium1
+  NUMBER_TO_RELEASE=(dendrite_volume)* calbindin_concentration *(bound_calbindin_H1M1_fraction)/*density is in number per cubic micron*/
+   SITE_DIAMETER=[dendrite_length,dendrite_width,dendrite_width]
+}
+
+dendrite_cbp_template17 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -dendrite_width/2-head_n_neck_size-0.5*gap_size]
+  MOLECULE=calbindin.high1medium2
+  NUMBER_TO_RELEASE=(dendrite_volume)* calbindin_concentration *(bound_calbindin_H1M2_fraction)/*density is in number per cubic micron*/
+   SITE_DIAMETER=[dendrite_length,dendrite_width,dendrite_width]
+}
+
+dendrite_cbp_template18 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -dendrite_width/2-head_n_neck_size-0.5*gap_size]
+  MOLECULE=calbindin.high2medium0
+  NUMBER_TO_RELEASE=(dendrite_volume)* calbindin_concentration *(bound_calbindin_H2M0_fraction)/*density is in number per cubic micron*/
+   SITE_DIAMETER=[dendrite_length,dendrite_width,dendrite_width]
+}
+
+dendrite_cbp_template19 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -dendrite_width/2-head_n_neck_size-0.5*gap_size]
+  MOLECULE=calbindin.high2medium1
+  NUMBER_TO_RELEASE=(dendrite_volume)* calbindin_concentration *(bound_calbindin_H2M1_fraction)/*density is in number per cubic micron*/
+   SITE_DIAMETER=[dendrite_length,dendrite_width,dendrite_width]
+}
+
+dendrite_cbp_template20 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -dendrite_width/2-head_n_neck_size-0.5*gap_size]
+  MOLECULE=calbindin.high2medium2
+  NUMBER_TO_RELEASE=(dendrite_volume)* calbindin_concentration *(bound_calbindin_H2M2_fraction)/*density is in number per cubic micron*/
+   SITE_DIAMETER=[dendrite_length,dendrite_width,dendrite_width]
+}
+
+dendrite_cbp_template21 CUBIC_RELEASE_SITE{
+  LOCATION = [0,0, -dendrite_width/2-head_n_neck_size-0.5*gap_size]
+  MOLECULE=calmodulin.B0
+  NUMBER_TO_RELEASE=(dendrite_volume)* calmodulin_concentration_head *(1-bound_calmodulin_1_fraction) /*density is in number per cubic micron*/
+   SITE_DIAMETER=[dendrite_length,dendrite_width,dendrite_width]
+}
+
+
+}

@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: AModelForRecurrentSpreadingDepolarizations235377Model'
+description: '{"value": "A detailed biophysical model for a neuron/astrocyte network
+  is developed in order to explore mechanisms responsible for cortical spreading depolarizations.
+  This includes a model for the Na+'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:235377
+  source_db: modeldb
+  source_id: '235377'
+  standard: other
+  original_url: https://modeldb.science/235377
+  download_url: https://modeldb.science/download/235377
+  license: ''
+bsim:
+  entrypoint: src.a_model_for_recurrent_spreading_depolarizations_235377_model:AModelForRecurrentSpreadingDepolarizations235377Model
+  init_kwargs:
+    model_path: data/235377.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

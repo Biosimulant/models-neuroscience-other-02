@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: ANovelMechanismForRampingBurstsBasedOnSl2016216Model'
+description: '{"value": "Recordings from pre-Botzinger complex neurons responsible
+  for the inspiratory phase of the respiratory rhythm reveal a ramping burst pattern,
+  starting around the time that the transition fr'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:2016216
+  source_db: modeldb
+  source_id: '2016216'
+  standard: other
+  original_url: https://modeldb.science/2016216
+  download_url: https://modeldb.science/download/2016216
+  license: ''
+bsim:
+  entrypoint: src.a_novel_mechanism_for_ramping_bursts_based_on_sl_2016216_model:ANovelMechanismForRampingBurstsBasedOnSl2016216Model
+  init_kwargs:
+    model_path: data/2016216.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

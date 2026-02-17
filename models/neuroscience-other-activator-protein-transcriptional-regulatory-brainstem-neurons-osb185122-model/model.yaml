@@ -1,0 +1,34 @@
+schema_version: '2.0'
+title: 'Neuroscience: Model185122185122Model'
+description: Activator protein 1(AP-1) transcriptional regulatory model in brainstem
+  neurons (Makadia et al 2015)
+standard: other
+tags:
+- neuroscience
+- other
+- opensourcebrain
+- faithful
+authors:
+- Biosimulant Team
+- Open Source Brain
+upstream:
+  id: opensourcebrain:185122
+  source_db: opensourcebrain
+  source_id: '185122'
+  standard: other
+  original_url: https://github.com/OpenSourceBrain/185122
+  download_url: https://github.com/OpenSourceBrain/185122.git
+  license: ''
+bsim:
+  entrypoint: src.model_185122_185122_model:Model185122185122Model
+  init_kwargs:
+    model_path: data/repo
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

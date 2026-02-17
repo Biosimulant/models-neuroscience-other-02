@@ -1,0 +1,29 @@
+/* ===========================================================
+
+        Author: Daniel Keller
+	Institution: Ecole Polytechnique Federale de Lausanne
+
+	"An exclusion zone for Ca2+ channels around docked vesicles explains 
+	release control by multiple channels at a CNS synapse"
+	PLoS Computational Biology, 2015
+
+============================================================= */
+
+/* ----- Glutamate Release in Cleft -------- */
+
+DEFINE_RELEASE_PATTERN release_pattern_1 {
+  DELAY = epsp_time
+  RELEASE_INTERVAL = dt
+  TRAIN_INTERVAL = dt
+  TRAIN_DURATION = dt
+  NUMBER_OF_TRAINS = 1
+}
+
+Glu_release_site_1 SPHERICAL_RELEASE_SITE {
+  LOCATION = [0,0,0]
+  LIGAND = Glu
+  NUMBER_TO_RELEASE = n_Glu
+  SITE_DIAMETER = 0
+  RELEASE_PATTERN = release_pattern_1
+}
+

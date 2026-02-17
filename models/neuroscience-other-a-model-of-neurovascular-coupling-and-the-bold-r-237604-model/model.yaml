@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: AModelOfNeurovascularCouplingAndTheBoldR237604Model'
+description: '{"value": "Here a lumped parameter numerical model of a neurovascular
+  unit is presented, representing an intercellular communication system based on ion
+  exchange through pumps and channels between neu'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:237604
+  source_db: modeldb
+  source_id: '237604'
+  standard: other
+  original_url: https://modeldb.science/237604
+  download_url: https://modeldb.science/download/237604
+  license: ''
+bsim:
+  entrypoint: src.a_model_of_neurovascular_coupling_and_the_bold_r_237604_model:AModelOfNeurovascularCouplingAndTheBoldR237604Model
+  init_kwargs:
+    model_path: data/237604.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

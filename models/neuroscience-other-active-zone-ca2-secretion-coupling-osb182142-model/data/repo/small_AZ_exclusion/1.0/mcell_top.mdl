@@ -1,0 +1,331 @@
+/* ===========================================================
+
+        Author: Daniel Keller
+	e-mail: daniel.keller@epfl.ch 
+	Institution: Ecole Polytechnique Federale de Lausanne
+	Reference: Keller D, Babai N, Kochubey O, Han Y, Markram H, Schürmann F, et al. (2015) An Exclusion Zone for Ca2+ Channels around Docked Vesicles Explains Release Control by Multiple Channels at a CNS Synapse. PLoS Comput Biol 11(5): e1004253. doi:10.1371/journal.pcbi.1004253
+
+============================================================= */
+
+NOTIFICATIONS
+{
+  VARYING_PROBABILITY_REPORT=FALSE
+}
+
+//for AP titration, select as needed
+/*sprintf(data_header_str,"../data_files/linearap0.1/")
+sprintf(data_header_str,"../data_files/linearap0.2/")
+sprintf(data_header_str,"../data_files/linearap0.4/")
+sprintf(data_header_str,"../data_files/linearap0.6/")
+sprintf(data_header_str,"../data_files/linearap0.8/")*/
+sprintf(data_header_str,"../data_files/linearap1.0/")
+/*sprintf(data_header_str,"../data_files/linearap20/")
+sprintf(data_header_str,"../data_files/linearap40/")
+sprintf(data_header_str,"../data_files/linearap80/")*/
+
+
+sprintf(seed_str,"%04g",SEED)
+INCLUDE_FILE="../../rates/rates.mdl"
+INCLUDE_FILE="variables.mdl"
+
+TIME_STEP = dt
+
+ITERATIONS = it
+EFFECTOR_GRID_DENSITY = grid_density
+
+ACCURATE_3D_REACTIONS = TRUE
+MICROSCOPIC_REVERSIBILITY=TRUE
+
+INCLUDE_FILE="../../parameters/geometry_parameters.mdl"
+INCLUDE_FILE="../../parameters/epspstart.mdl"
+
+SPACE_STEP= 0.001
+ITERATIONS = it
+EFFECTOR_GRID_DENSITY = grid_density
+INTERACTION_RADIUS=0.002
+
+PARTITION_X=[[-dendrite_length/2-0.05 TO dendrite_length/2+0.05 STEP 0.03]]
+PARTITION_Y=[[-dendrite_width/2-0.05 TO dendrite_width/2+0.05 STEP 0.03]]
+PARTITION_Z=[[-2.0001 TO 2.0001 STEP 0.03]]
+
+
+/* --------- Mechanisms ------------- */
+
+INCLUDE_FILE="../../molecules/molecules.mdl"
+INCLUDE_FILE="../../mechanisms/mechanisms.mdl"
+
+/* ----- Define Physical Objects ------- */
+
+
+INCLUDE_FILE="../../geometry_files/bbp_sphere2.mdl"
+INCLUDE_FILE="../../geometry_files/sampling_boxes.mdl"
+INCLUDE_FILE="../../geometry_files/cbp_sheets.mdl"
+INCLUDE_FILE="../../release_events_files/glutamate_release.mdl"
+
+INCLUDE_FILE="../../geometry_files/bouton2.mdl"
+INCLUDE_FILE="../../geometry_files/bouton_sensor.mdl"
+
+INSTANTIATE tissue OBJECT {
+sphere1 OBJECT sphere1 {
+  SCALE=[2.5,2.5,2.5]
+  TRANSLATE=[   -0.0992 ,  0.0267 ,  0.0435+0.5*gap_size]
+  }
+sphere2 OBJECT sphere1 {
+  SCALE=[2.5,2.5,2.5]
+  TRANSLATE=[   -0.0992 ,  0.0965  , 0.0834+0.5*gap_size]
+  }
+sphere3 OBJECT sphere1 {
+  SCALE=[2.0,2.0,2.0]
+  TRANSLATE=[   -0.0496 ,  0.0447 ,  0.0223+0.5*gap_size]
+  }
+sphere4 OBJECT sphere1 {
+  SCALE=[2.5,2.5,2.5]
+  TRANSLATE=[   -0.0496 , -0.0079  , 0.0304+0.5*gap_size]
+  }
+sphere5 OBJECT sphere1 {
+  SCALE=[2.5,2.5,2.5]
+  TRANSLATE=[   -0.0496 ,  0.0154  , 0.0700+0.5*gap_size]
+  }
+sphere6 OBJECT sphere1 {
+  SCALE=[2.5,2.5,2.5]
+  TRANSLATE=[   -0.0496 ,  0.0811 ,  0.0723+0.5*gap_size]
+  }
+sphere7 OBJECT sphere1 {
+  SCALE=[2.5,2.5,2.5]
+  TRANSLATE=[         0 ,  0.0528 ,  0.0328+0.5*gap_size]
+  }
+sphere8 OBJECT sphere1 {
+  SCALE=[2.5,2.5,2.5]
+  TRANSLATE=[         0 , -0.0003 ,  0.0324+0.5*gap_size]
+  }
+sphere9 OBJECT sphere1 {
+  SCALE=[2.5,2.5,2.5]
+  TRANSLATE=[         0  , 0.1101 ,  0.0669+0.5*gap_size]
+  }
+sphere10 OBJECT sphere1 {
+  SCALE=[2.5,2.5,2.5]
+  TRANSLATE=[         0 ,  0.0600 ,  0.0706+0.5*gap_size]
+  }
+sphere11 OBJECT sphere1 {
+  SCALE=[2.5,2.5,2.5]
+  TRANSLATE=[         0 , -0.0818 ,  0.0802+0.5*gap_size]
+  }
+sphere12 OBJECT sphere1 {
+  SCALE=[2.5,2.5,2.5]
+  TRANSLATE=[         0 ,  -0.0475 ,   0.0639+0.5*gap_size]
+  }
+sphere13 OBJECT sphere1 {
+  SCALE=[2.5,2.5,2.5]
+  TRANSLATE=[         0  , 0.1101 ,  0.0797+0.5*gap_size]
+  }
+sphere14 OBJECT sphere1 {
+  SCALE=[2.0,2.0,2.0]
+  TRANSLATE=[    0.0496 ,  0.0151  , 0.0227+0.5*gap_size]
+  }
+sphere15 OBJECT sphere1 {
+  SCALE=[2.5,2.5,2.5]
+  TRANSLATE=[    0.0496 , -0.0299 ,  0.0289+0.5*gap_size]
+  }
+sphere16 OBJECT sphere1 {
+  SCALE=[2.5,2.5,2.5]
+  TRANSLATE=[    0.0496 ,  0.0140 ,  0.0791+0.5*gap_size]
+  }
+sphere17 OBJECT sphere1 {
+  SCALE=[2.5,2.5,2.5]
+  TRANSLATE=[    0.0496 , -0.0329  , 0.0714+0.5*gap_size]
+  }
+sphere18 OBJECT sphere1 {
+  SCALE=[2.5,2.5,2.5]
+  TRANSLATE=[    0.0992 ,  0.0140 ,  0.0864+0.5*gap_size]
+  }
+sphere19 OBJECT sphere1 {
+  SCALE=[2.5,2.5,2.5]
+  TRANSLATE=[    0.0992 ,  0.0537 ,  0.0361+0.5*gap_size]
+  }
+sphere20 OBJECT sphere1 {
+  SCALE=[2.5,2.5,2.5]
+  TRANSLATE=[    0.0992 , -0.0908 ,  0.0529+0.5*gap_size]
+  }
+sphere21 OBJECT sphere1 {
+  SCALE=[2.5,2.5,2.5]
+  TRANSLATE=[    0.0992 ,  0.1107 ,  0.0793+0.5*gap_size]
+  }
+
+
+  bouton OBJECT bouton {}
+  bouton_box OBJECT bouton_box {}
+  bouton_box_top OBJECT bouton_box_top {}
+
+  boutonactivezone OBJECT boutonactivezone {}
+
+
+  Glu_release_site_1 OBJECT Glu_release_site_1 {}
+
+  RELEASE_active  RELEASE_SITE
+  {
+
+      SHAPE=LIST
+	MOLECULE_POSITIONS {
+           Ca_HH.C0' [   -0.0368 , -0.0711,0.5*gap_size]
+           Ca_HH.C0' [   -0.1133 ,  0.0171,0.5*gap_size]
+           Ca_HH.C0' [    0.0866 , -0.0728,0.5*gap_size]
+           Ca_HH.C0' [    0.1075 , -0.0627,0.5*gap_size]
+           Ca_HH.C0' [    0.0941 ,  0.0768,0.5*gap_size]
+           Ca_HH.C0' [   -0.0062 , -0.0963,0.5*gap_size]
+           Ca_HH.C0' [    0.0998 ,  0.0235,0.5*gap_size]
+           Ca_HH.C0' [    0.1189 ,  0.0999,0.5*gap_size]
+           Ca_HH.C0' [    0.0869 , -0.0742,0.5*gap_size]
+           Ca_HH.C0' [    0.1100 ,  0.0280,0.5*gap_size]
+           Ca_HH.C0' [    0.0886 ,  0.1074,0.5*gap_size]
+           Ca_HH.C0' [   -0.0248 ,  0.0972,0.5*gap_size]
+           Ca_HH.C0' [    0.0972 , -0.0503,0.5*gap_size]
+           Ca_HH.C0' [   -0.0639 ,  0.1029,0.5*gap_size] 
+ 	}
+    SITE_DIAMETER = 0.005
+
+  }
+
+
+RELEASE_boutonsensoraz0 CUBIC_RELEASE_SITE {
+  LOCATION = [ -0.0496 ,  0.0447 ,0.5*gap_size+1.5 *fuzz+0.002]
+  LIGAND =  release_sensor0.a.x0
+  NUMBER_TO_RELEASE = 1
+  SITE_DIAMETER = [0.001,0.001,0.001]
+}
+RELEASE_boutonsensoraz1 CUBIC_RELEASE_SITE {
+  LOCATION = [  -0.0496 ,  -0.0079,0.5*gap_size+1.5 *fuzz+0.002]
+  LIGAND =  release_sensor1.a.x0
+  NUMBER_TO_RELEASE = 1
+  SITE_DIAMETER = [0.001,0.001,0.001]
+}
+RELEASE_boutonsensoraz2 CUBIC_RELEASE_SITE {
+  LOCATION = [    0 ,  0.0528 ,0.5*gap_size+1.5 *fuzz+0.002]
+  LIGAND =  release_sensor2.a.x0
+  NUMBER_TO_RELEASE = 1
+  SITE_DIAMETER = [0.001,0.001,0.001]
+}
+RELEASE_boutonsensoraz3 CUBIC_RELEASE_SITE {
+  LOCATION = [  0 ,  -0.0003  ,0.5*gap_size+1.5 *fuzz+0.002]
+  LIGAND =  release_sensor3.a.x0
+  NUMBER_TO_RELEASE = 1
+  SITE_DIAMETER = [0.001,0.001,0.001]
+}
+RELEASE_boutonsensoraz4 CUBIC_RELEASE_SITE {
+  LOCATION = [ 0.0496 ,  0.0151 ,0.5*gap_size+1.5 *fuzz+0.002]
+  LIGAND =  release_sensor4.a.x0
+  NUMBER_TO_RELEASE = 1
+  SITE_DIAMETER = [0.001,0.001,0.001]
+}
+RELEASE_boutonsensoraz5 CUBIC_RELEASE_SITE {
+  LOCATION = [ 0.0496 ,  -0.0299,0.5*gap_size+1.5 *fuzz+0.002]
+  LIGAND =  release_sensor5.a.x0
+  NUMBER_TO_RELEASE = 1
+  SITE_DIAMETER = [0.001,0.001,0.001]
+}
+  RELEASE_pumps  RELEASE_SITE
+  {
+    SHAPE = tissue.bouton.bouton0[topandbottom]
+    MOLECULE = generic_pump.U'
+    NUMBER_TO_RELEASE=0
+  }
+
+  RELEASE_ATP.CaB  RELEASE_SITE
+  {
+    SHAPE = tissue.bouton_box_top[ALL]
+    MOLECULE = ATP.CaB
+    CONCENTRATION=atp_concentration * bound_atp_fraction
+  }
+  RELEASE_ATP.MgB  RELEASE_SITE
+  {
+    SHAPE = tissue.bouton_box_top[ALL]
+    MOLECULE = ATP.MgB
+    CONCENTRATION=atp_concentration * mgbound_atp_fraction
+  }
+  RELEASE_ATP.U  RELEASE_SITE
+  {
+    SHAPE = tissue.bouton_box_top[ALL]
+    MOLECULE = ATP.U
+    CONCENTRATION=atp_concentration * unbound_atp_fraction
+  }
+
+  RELEASE_EGTA.B  RELEASE_SITE
+  {
+    SHAPE = tissue.bouton.bouton0[ALL]
+    MOLECULE = EGTA.B
+    CONCENTRATION=EGTA_concentration * EGTA_bound_fraction
+  }
+  RELEASE_EGTA.U  RELEASE_SITE
+  {
+    SHAPE = tissue.bouton.bouton0[ALL]
+    MOLECULE = EGTA.U
+    CONCENTRATION=EGTA_concentration * EGTA_unbound_fraction
+  }
+
+  RELEASE_BAPTA.B  RELEASE_SITE
+  {
+    SHAPE = tissue.bouton.bouton0[ALL]
+    MOLECULE = BAPTA.B
+    CONCENTRATION=BAPTA_concentration * BAPTA_bound_fraction
+  }
+  RELEASE_BAPTA.U  RELEASE_SITE
+  {
+    SHAPE = tissue.bouton.bouton0[ALL]
+    MOLECULE = BAPTA.U
+    CONCENTRATION=BAPTA_concentration * BAPTA_unbound_fraction
+  }
+
+
+  RELEASE_bouton_slowB  RELEASE_SITE
+  {
+    SHAPE = tissue.bouton.bouton0[ALL]
+    MOLECULE = slow_sp.B
+    CONCENTRATION=slow_cbp_concentration * bound_cbp_fraction
+  }
+
+  RELEASE_bouton_slowU  RELEASE_SITE
+  {
+    SHAPE = tissue.bouton.bouton0[ALL]
+    MOLECULE = slow_sp.U
+    CONCENTRATION=slow_cbp_concentration * unbound_cbp_fraction
+  }
+
+  RELEASE_bouton_parvalbuminB  RELEASE_SITE
+  {
+    SHAPE = tissue.bouton.bouton0[ALL]
+    MOLECULE = parvalbumin.B
+    CONCENTRATION=parvalbumin_concentration * bound_parvalbumin_fraction
+  }
+  RELEASE_bouton_parvalbuminU  RELEASE_SITE
+  {
+    SHAPE = tissue.bouton.bouton0[ALL]
+    MOLECULE = parvalbumin.U
+    CONCENTRATION=parvalbumin_concentration * unbound_parvalbumin_fraction
+  }
+  RELEASE_bouton_parvalbuminM  RELEASE_SITE
+  {
+    SHAPE = tissue.bouton.bouton0[ALL]
+    MOLECULE = parvalbumin.M
+    CONCENTRATION=parvalbumin_concentration * mgbound_parvalbumin_fraction
+  }
+
+
+}
+
+
+REACTION_DATA_OUTPUT {
+  OUTPUT_BUFFER_SIZE=10
+  STEP = freq
+  { COUNT[ Ca_HH.O,WORLD] } => "Cachan.O." & seed_str
+
+  { COUNT[ release_sensor0.a.x6, WORLD]+ COUNT[ release_sensor0.b.x6, WORLD]+ COUNT[ release_sensor0.c.x6, WORLD]+ COUNT[ release_sensor0.d, WORLD] } => "x0." & seed_str
+  { COUNT[ release_sensor1.a.x6, WORLD]+ COUNT[ release_sensor1.b.x6, WORLD]+ COUNT[ release_sensor1.c.x6, WORLD]+ COUNT[ release_sensor1.d, WORLD] } => "x1." & seed_str
+  { COUNT[ release_sensor2.a.x6, WORLD]+ COUNT[ release_sensor2.b.x6, WORLD]+ COUNT[ release_sensor2.c.x6, WORLD]+ COUNT[ release_sensor2.d, WORLD] } => "x2." & seed_str
+  { COUNT[ release_sensor3.a.x6, WORLD]+ COUNT[ release_sensor3.b.x6, WORLD]+ COUNT[ release_sensor3.c.x6, WORLD]+ COUNT[ release_sensor3.d, WORLD] } => "x3." & seed_str
+  { COUNT[ release_sensor4.a.x6, WORLD]+ COUNT[ release_sensor4.b.x6, WORLD]+ COUNT[ release_sensor4.c.x6, WORLD]+ COUNT[ release_sensor4.d, WORLD] } => "x4." & seed_str
+  { COUNT[ release_sensor5.a.x6, WORLD]+ COUNT[ release_sensor5.b.x6, WORLD]+ COUNT[ release_sensor5.c.x6, WORLD]+ COUNT[ release_sensor5.d, WORLD] } => "x5." & seed_str
+
+ { COUNT[ io_hh,WORLD] } => "ica." & seed_str
+
+
+}
+

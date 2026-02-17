@@ -1,0 +1,20 @@
+load_file("nrngui.hoc")
+objref ampa, spgen, nc, ampa_list, spgen_list, nc_list
+ampa_list = new List()
+spgen_list = new List() 
+nc_list = new List()
+
+forall for (x) if (x>0 && x<1) {  // loop on all compartments
+  local_area = area(x)          // get local area
+  ampa = new AMPA_S(x) // define a new AMPA synapse in compartment
+  ampa_list.append(ampa)
+  spgen = new SpikeGenerator(x) // also a generator (can be anywhere) 
+  spgen_list.append(spgen) 
+  nc = new NetCon(spgen, ampa)
+   nc_list.append(nc)
+  ampa.gmax = 0.000712 * local_area // calculate gmax
+  
+nc.delay = 0
+  nc.weight = 1
+}
+

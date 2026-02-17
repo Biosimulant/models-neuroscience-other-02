@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: ActiveDendritesShapeSignalingMicrodomainsIn244848Model'
+description: '{"value": "The spatiotemporal spread of biochemical signals in neurons
+  and other cells regulate signaling specificity, tuning of signal propagation, along
+  with specificity and clustering of adaptive p'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:244848
+  source_db: modeldb
+  source_id: '244848'
+  standard: other
+  original_url: https://modeldb.science/244848
+  download_url: https://modeldb.science/download/244848
+  license: ''
+bsim:
+  entrypoint: src.active_dendrites_shape_signaling_microdomains_in_244848_model:ActiveDendritesShapeSignalingMicrodomainsIn244848Model
+  init_kwargs:
+    model_path: data/244848.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

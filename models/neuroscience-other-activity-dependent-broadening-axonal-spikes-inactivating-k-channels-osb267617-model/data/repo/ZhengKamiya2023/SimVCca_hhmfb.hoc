@@ -1,0 +1,21 @@
+load_file("nrngui.hoc")
+
+create s
+forall Ra = 110
+forall cm = 1
+access s
+    nseg = 7
+	diam = 7
+	L    = 7
+forall insert mfbpqca
+forall insert mfbnca
+forall insert mfbrca
+forall gcabar_mfbpqca = 0.0020  /* S/cm2 */
+forall gcabar_mfbnca = 0.0008  /* S/cm2 */
+forall gcabar_mfbrca = 0.0004  /* S/cm2 */
+    eca = 60
+    celsius = 25
+
+load_file("stimVCca_hhmfb.ses")
+
+

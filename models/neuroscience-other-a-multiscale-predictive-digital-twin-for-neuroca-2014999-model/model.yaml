@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: AMultiscalePredictiveDigitalTwinForNeuroca2014999Model'
+description: '{"value": "Cardiac function is tightly regulated by the autonomic nervous
+  system (ANS). Activation of the sympathetic nervous system increases cardiac output
+  by increasing heart rate and stroke volume'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:2014999
+  source_db: modeldb
+  source_id: '2014999'
+  standard: other
+  original_url: https://modeldb.science/2014999
+  download_url: https://modeldb.science/download/2014999
+  license: ''
+bsim:
+  entrypoint: src.a_multiscale_predictive_digital_twin_for_neuroca_2014999_model:AMultiscalePredictiveDigitalTwinForNeuroca2014999Model
+  init_kwargs:
+    model_path: data/2014999.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

@@ -1,0 +1,116 @@
+objectvar save_window_, rvp_
+objectvar scene_vector_[12]
+objectvar ocbox_, ocbox_list_, scene_, scene_list_
+{ocbox_list_ = new List()  scene_list_ = new List()}
+{
+save_window_ = new Graph(0)
+save_window_.size(0,365,-80,40)
+scene_vector_[11] = save_window_
+{save_window_.view(0, -80, 365, 120, 12, 293, 300.48, 200.32)}
+flush_list.append(save_window_)
+save_window_.save_name("flush_list.")
+objectvar rvp_
+rvp_ = new RangeVarPlot("Width_mhw")
+soma rvp_.begin(0)
+dend rvp_.end(1)
+rvp_.origin(0)
+save_window_.addobject(rvp_, 2, 1, 0.8, 0.9)
+}
+{
+save_window_ = new PlotShape(0)
+save_window_.size(7.16666,351.833,-172.333,172.333)
+save_window_.variable("Width_mhw")
+scene_vector_[10] = save_window_
+{save_window_.view(7.16666, -172.333, 344.667, 344.667, 37, 565, 200.64, 200.32)}
+fast_flush_list.append(save_window_)
+save_window_.save_name("fast_flush_list.")
+}
+{
+save_window_ = new Graph(0)
+save_window_.size(0,365,-80,40)
+scene_vector_[9] = save_window_
+{save_window_.view(0, -80, 365, 120, 275, 283, 300.48, 200.32)}
+flush_list.append(save_window_)
+save_window_.save_name("flush_list.")
+objectvar rvp_
+rvp_ = new RangeVarPlot("Risetime_mhw")
+soma rvp_.begin(0)
+dend rvp_.end(1)
+rvp_.origin(0)
+save_window_.addobject(rvp_, 2, 1, 0.8, 0.9)
+}
+{
+save_window_ = new PlotShape(0)
+save_window_.size(7.16666,351.833,-172.333,172.333)
+save_window_.variable("Risetime_mhw")
+scene_vector_[8] = save_window_
+{save_window_.view(7.16666, -172.333, 344.667, 344.667, 386, 558, 200.64, 200.32)}
+fast_flush_list.append(save_window_)
+save_window_.save_name("fast_flush_list.")
+}
+{
+save_window_ = new Graph(0)
+save_window_.size(0,365,-80,40)
+scene_vector_[7] = save_window_
+{save_window_.view(0, -80, 365, 120, 594, 283, 300.48, 200.32)}
+flush_list.append(save_window_)
+save_window_.save_name("flush_list.")
+objectvar rvp_
+rvp_ = new RangeVarPlot("Falltime_mhw")
+soma rvp_.begin(0)
+dend rvp_.end(1)
+rvp_.origin(0)
+save_window_.addobject(rvp_, 2, 1, 0.8, 0.9)
+}
+{
+save_window_ = new PlotShape(0)
+save_window_.size(7.16666,351.833,-172.333,172.333)
+save_window_.variable("Falltime_mhw")
+scene_vector_[6] = save_window_
+{save_window_.view(7.16666, -172.333, 344.667, 344.667, 698, 559, 200.64, 200.32)}
+fast_flush_list.append(save_window_)
+save_window_.save_name("fast_flush_list.")
+}
+{
+save_window_ = new Graph(0)
+save_window_.size(0,365,-80,40)
+scene_vector_[5] = save_window_
+{save_window_.view(0, -80, 365, 120, 920, 283, 300.48, 200.32)}
+flush_list.append(save_window_)
+save_window_.save_name("flush_list.")
+objectvar rvp_
+rvp_ = new RangeVarPlot("Vthresh_mhw")
+soma rvp_.begin(0)
+dend rvp_.end(1)
+rvp_.origin(0)
+save_window_.addobject(rvp_, 2, 1, 0.675399, 0.751438)
+objectvar rvp_
+rvp_ = new RangeVarPlot("thresh10_mhw")
+soma rvp_.begin(0)
+dend rvp_.end(1)
+rvp_.origin(0)
+save_window_.addobject(rvp_, 3, 1, 0.681789, 0.8377)
+objectvar rvp_
+rvp_ = new RangeVarPlot("thresh90_mhw")
+soma rvp_.begin(0)
+dend rvp_.end(1)
+rvp_.origin(0)
+save_window_.addobject(rvp_, 4, 1, 0.684984, 0.914377)
+objectvar rvp_
+rvp_ = new RangeVarPlot("Peak_mhw")
+soma rvp_.begin(0)
+dend rvp_.end(1)
+rvp_.origin(0)
+save_window_.addobject(rvp_, 5, 1, 0.684984, 0.995847)
+}
+{
+save_window_ = new PlotShape(0)
+save_window_.size(7.16666,351.833,-172.333,172.333)
+save_window_.variable("Peak_mhw")
+scene_vector_[4] = save_window_
+{save_window_.view(7.16666, -172.333, 344.667, 344.667, 916, 563, 200.64, 200.32)}
+fast_flush_list.append(save_window_)
+save_window_.save_name("fast_flush_list.")
+}
+objectvar scene_vector_[1]
+{doNotify()}

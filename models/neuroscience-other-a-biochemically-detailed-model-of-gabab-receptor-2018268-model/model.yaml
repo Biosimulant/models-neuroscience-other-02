@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: ABiochemicallyDetailedModelOfGababReceptor2018268Model'
+description: '{"value": "Mass-action-law based model of GABAB-receptor activation
+  and its effects on GIRK channel and N-type Ca2+ channel activity. The model is simulated
+  as a single compartment model and integrate'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:2018268
+  source_db: modeldb
+  source_id: '2018268'
+  standard: other
+  original_url: https://modeldb.science/2018268
+  download_url: https://modeldb.science/download/2018268
+  license: ''
+bsim:
+  entrypoint: src.a_biochemically_detailed_model_of_gabab_receptor_2018268_model:ABiochemicallyDetailedModelOfGababReceptor2018268Model
+  init_kwargs:
+    model_path: data/2018268.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

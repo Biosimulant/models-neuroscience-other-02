@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: ABasalGangliaModelOfAberrantLearningUrsin239530Model'
+description: '{"value": "A comprehensive, biologically inspired neurocomputational
+  model of action selection in the Basal Ganglia allows simulation of dopamine induced
+  aberrant learning in Parkinsonian subjects. In'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:239530
+  source_db: modeldb
+  source_id: '239530'
+  standard: other
+  original_url: https://modeldb.science/239530
+  download_url: https://modeldb.science/download/239530
+  license: ''
+bsim:
+  entrypoint: src.a_basal_ganglia_model_of_aberrant_learning_ursin_239530_model:ABasalGangliaModelOfAberrantLearningUrsin239530Model
+  init_kwargs:
+    model_path: data/239530.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

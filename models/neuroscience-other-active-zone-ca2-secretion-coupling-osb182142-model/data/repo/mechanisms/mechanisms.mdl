@@ -1,0 +1,964 @@
+/* ===========================================================
+
+        Author: Daniel Keller
+	Institution: Ecole Polytechnique Federale de Lausanne
+	Reference: Keller D, Babai N, Kochubey O, Han Y, Markram H, Schürmann F, et al. (2015) An Exclusion Zone for Ca2+ Channels around Docked Vesicles Explains Release Control by Multiple Channels at a CNS Synapse. PLoS Comput Biol 11(5): e1004253. doi:10.1371/journal.pcbi.1004253
+
+============================================================= */
+
+/* ------ Inserts unchanging mechanisms ----- */
+
+/* generic calcium removal */
+DEFINE_REACTIONS{
+  generic_pump.U' + Ca, -> generic_pump.B' [3e6]
+  generic_pump.B' -> generic_pump.U' [1e8]
+}
+
+/* Hodgkin Huxley models */
+/*based on Borst and Sakmann 1998 */
+/*J physiology 506.1 p 143-157 */
+
+sprintf(file_str19,"%s%s",data_header_str,"twoalpham.dat")
+sprintf(file_str20,"%s%s",data_header_str,"alpham.dat")
+sprintf(file_str21,"%s%s",data_header_str,"twobetam.dat")
+sprintf(file_str22,"%s%s",data_header_str,"betam.dat")
+sprintf(file_kopencurrent,"%s%s",data_header_str,"kCav2_2calciumchannelcurrent.dat")
+
+DEFINE_REACTIONS {
+  Ca_HH.C0 ' ->Ca_HH.C1' [file_str19]
+  Ca_HH.C1 ' ->Ca_HH.O' [file_str20]
+  Ca_HH.O ' ->Ca_HH.C1' [file_str21]
+  Ca_HH.C1 ' ->Ca_HH.C0' [file_str22]
+  Ca_HH.O ' ->Ca_HH.O' + Ca, [file_kopencurrent] : io_hh
+}
+
+/* --------- LVA Calcium channels ---------- */
+
+sprintf(file_str3,"%s%s",data_header_str,"LVA_activation_rate.dat")
+sprintf(file_str4,"%s%s",data_header_str,"lva_IV.dat")
+DEFINE_REACTIONS {
+
+  Ca_LVA_head.C' ->Ca_LVA_head.O'[file_str3]
+
+  Ca_LVA_head.O' ->Ca_LVA_head.O' +Ca,[file_str4]
+  Ca_LVA_head.O'  ->Ca_LVA_head.C'[1000]
+
+  Ca_LVA_neck.C' ->Ca_LVA_neck.O'[file_str3]
+
+  Ca_LVA_neck.O' ->Ca_LVA_neck.O' +Ca,[file_str4]
+  Ca_LVA_neck.O'  ->Ca_LVA_neck.C'[1000]
+
+}
+
+
+/* -------- HVA Calcium channels ---------- */
+/* based on Bischofberger and Jonas 2002 */
+
+sprintf(file_str10,"%s%s",data_header_str,"hva_a1.dat")
+sprintf(file_str11,"%s%s",data_header_str,"hva_b1.dat")
+sprintf(file_str12,"%s%s",data_header_str,"hva_a2.dat")
+sprintf(file_str13,"%s%s",data_header_str,"hva_b2.dat")
+sprintf(file_str14,"%s%s",data_header_str,"hva_a3.dat")
+sprintf(file_str15,"%s%s",data_header_str,"hva_b3.dat")
+sprintf(file_str16,"%s%s",data_header_str,"hva_a4.dat")
+sprintf(file_str17,"%s%s",data_header_str,"hva_b4.dat")
+sprintf(file_str18,"%s%s",data_header_str,"hva_IV_2.5.dat")
+
+
+DEFINE_REACTIONS  {
+  Ca_HVA.C1' ->Ca_HVA.C2'[file_str10]
+  Ca_HVA.C2' ->Ca_HVA.C1'[file_str11]
+  Ca_HVA.C2' ->Ca_HVA.C3'[file_str12]
+  Ca_HVA.C3' ->Ca_HVA.C2'[file_str13]
+  Ca_HVA.C3' ->Ca_HVA.C4'[file_str14]
+  Ca_HVA.C4' ->Ca_HVA.C3'[file_str15]
+  Ca_HVA.C4' ->Ca_HVA.O5'[file_str16]
+  Ca_HVA.O5' ->Ca_HVA.C4'[file_str17]
+  Ca_HVA.O5' ->Ca_HVA.O5'+Ca,[file_str18] :hva_create
+
+}
+
+/* release events according to Schneggennerger */
+DEFINE_REACTIONS {
+  release_sensor0.a.x0 -> release_sensor0.a.x6 [kx06]
+  release_sensor0.a.x0 +Ca <-> release_sensor0.a.x1 [>kx01,<kx10]
+  release_sensor0.a.x1 -> release_sensor0.a.x6 [kx16]
+  release_sensor0.a.x1 +Ca <-> release_sensor0.a.x2 [>kx12,<kx21]
+  release_sensor0.a.x2 -> release_sensor0.a.x6 [kx26]
+  release_sensor0.a.x2 +Ca <-> release_sensor0.a.x3 [>kx23,<kx32]
+  release_sensor0.a.x3 -> release_sensor0.a.x6 [kx36]
+  release_sensor0.a.x3 +Ca <-> release_sensor0.a.x4 [>kx34,<kx43]
+  release_sensor0.a.x4 -> release_sensor0.a.x6 [kx46]
+  release_sensor0.a.x4 +Ca <-> release_sensor0.a.x5 [>kx45,<kx54]
+  release_sensor0.a.x5 -> release_sensor0.a.x6 [kx56]
+
+  release_sensor1.a.x0 -> release_sensor1.a.x6 [kx06]
+  release_sensor1.a.x0 +Ca <-> release_sensor1.a.x1 [>kx01,<kx10]
+  release_sensor1.a.x1 -> release_sensor1.a.x6 [kx16]
+  release_sensor1.a.x1 +Ca <-> release_sensor1.a.x2 [>kx12,<kx21]
+  release_sensor1.a.x2 -> release_sensor1.a.x6 [kx26]
+  release_sensor1.a.x2 +Ca <-> release_sensor1.a.x3 [>kx23,<kx32]
+  release_sensor1.a.x3 -> release_sensor1.a.x6 [kx36]
+  release_sensor1.a.x3 +Ca <-> release_sensor1.a.x4 [>kx34,<kx43]
+  release_sensor1.a.x4 -> release_sensor1.a.x6 [kx46]
+  release_sensor1.a.x4 +Ca <-> release_sensor1.a.x5 [>kx45,<kx54]
+  release_sensor1.a.x5 -> release_sensor1.a.x6 [kx56]
+
+  release_sensor2.a.x0 -> release_sensor2.a.x6 [kx06]
+  release_sensor2.a.x0 +Ca <-> release_sensor2.a.x1 [>kx01,<kx10]
+  release_sensor2.a.x1 -> release_sensor2.a.x6 [kx16]
+  release_sensor2.a.x1 +Ca <-> release_sensor2.a.x2 [>kx12,<kx21]
+  release_sensor2.a.x2 -> release_sensor2.a.x6 [kx26]
+  release_sensor2.a.x2 +Ca <-> release_sensor2.a.x3 [>kx23,<kx32]
+  release_sensor2.a.x3 -> release_sensor2.a.x6 [kx36]
+  release_sensor2.a.x3 +Ca <-> release_sensor2.a.x4 [>kx34,<kx43]
+  release_sensor2.a.x4 -> release_sensor2.a.x6 [kx46]
+  release_sensor2.a.x4 +Ca <-> release_sensor2.a.x5 [>kx45,<kx54]
+  release_sensor2.a.x5 -> release_sensor2.a.x6 [kx56]
+
+  release_sensor3.a.x0 -> release_sensor3.a.x6 [kx06]
+  release_sensor3.a.x0 +Ca <-> release_sensor3.a.x1 [>kx01,<kx10]
+  release_sensor3.a.x1 -> release_sensor3.a.x6 [kx16]
+  release_sensor3.a.x1 +Ca <-> release_sensor3.a.x2 [>kx12,<kx21]
+  release_sensor3.a.x2 -> release_sensor3.a.x6 [kx26]
+  release_sensor3.a.x2 +Ca <-> release_sensor3.a.x3 [>kx23,<kx32]
+  release_sensor3.a.x3 -> release_sensor3.a.x6 [kx36]
+  release_sensor3.a.x3 +Ca <-> release_sensor3.a.x4 [>kx34,<kx43]
+  release_sensor3.a.x4 -> release_sensor3.a.x6 [kx46]
+  release_sensor3.a.x4 +Ca <-> release_sensor3.a.x5 [>kx45,<kx54]
+  release_sensor3.a.x5 -> release_sensor3.a.x6 [kx56]
+
+  release_sensor4.a.x0 -> release_sensor4.a.x6 [kx06]
+  release_sensor4.a.x0 +Ca <-> release_sensor4.a.x1 [>kx01,<kx10]
+  release_sensor4.a.x1 -> release_sensor4.a.x6 [kx16]
+  release_sensor4.a.x1 +Ca <-> release_sensor4.a.x2 [>kx12,<kx21]
+  release_sensor4.a.x2 -> release_sensor4.a.x6 [kx26]
+  release_sensor4.a.x2 +Ca <-> release_sensor4.a.x3 [>kx23,<kx32]
+  release_sensor4.a.x3 -> release_sensor4.a.x6 [kx36]
+  release_sensor4.a.x3 +Ca <-> release_sensor4.a.x4 [>kx34,<kx43]
+  release_sensor4.a.x4 -> release_sensor4.a.x6 [kx46]
+  release_sensor4.a.x4 +Ca <-> release_sensor4.a.x5 [>kx45,<kx54]
+  release_sensor4.a.x5 -> release_sensor4.a.x6 [kx56]
+
+  release_sensor5.a.x0 -> release_sensor5.a.x6 [kx06]
+  release_sensor5.a.x0 +Ca <-> release_sensor5.a.x1 [>kx01,<kx10]
+  release_sensor5.a.x1 -> release_sensor5.a.x6 [kx16]
+  release_sensor5.a.x1 +Ca <-> release_sensor5.a.x2 [>kx12,<kx21]
+  release_sensor5.a.x2 -> release_sensor5.a.x6 [kx26]
+  release_sensor5.a.x2 +Ca <-> release_sensor5.a.x3 [>kx23,<kx32]
+  release_sensor5.a.x3 -> release_sensor5.a.x6 [kx36]
+  release_sensor5.a.x3 +Ca <-> release_sensor5.a.x4 [>kx34,<kx43]
+  release_sensor5.a.x4 -> release_sensor5.a.x6 [kx46]
+  release_sensor5.a.x4 +Ca <-> release_sensor5.a.x5 [>kx45,<kx54]
+  release_sensor5.a.x5 -> release_sensor5.a.x6 [kx56]
+
+  release_sensor6.a.x0 -> release_sensor6.a.x6 [kx06]
+  release_sensor6.a.x0 +Ca <-> release_sensor6.a.x1 [>kx01,<kx10]
+  release_sensor6.a.x1 -> release_sensor6.a.x6 [kx16]
+  release_sensor6.a.x1 +Ca <-> release_sensor6.a.x2 [>kx12,<kx21]
+  release_sensor6.a.x2 -> release_sensor6.a.x6 [kx26]
+  release_sensor6.a.x2 +Ca <-> release_sensor6.a.x3 [>kx23,<kx32]
+  release_sensor6.a.x3 -> release_sensor6.a.x6 [kx36]
+  release_sensor6.a.x3 +Ca <-> release_sensor6.a.x4 [>kx34,<kx43]
+  release_sensor6.a.x4 -> release_sensor6.a.x6 [kx46]
+  release_sensor6.a.x4 +Ca <-> release_sensor6.a.x5 [>kx45,<kx54]
+  release_sensor6.a.x5 -> release_sensor6.a.x6 [kx56]
+
+  release_sensor7.a.x0 -> release_sensor7.a.x6 [kx06]
+  release_sensor7.a.x0 +Ca <-> release_sensor7.a.x1 [>kx01,<kx10]
+  release_sensor7.a.x1 -> release_sensor7.a.x6 [kx16]
+  release_sensor7.a.x1 +Ca <-> release_sensor7.a.x2 [>kx12,<kx21]
+  release_sensor7.a.x2 -> release_sensor7.a.x6 [kx26]
+  release_sensor7.a.x2 +Ca <-> release_sensor7.a.x3 [>kx23,<kx32]
+  release_sensor7.a.x3 -> release_sensor7.a.x6 [kx36]
+  release_sensor7.a.x3 +Ca <-> release_sensor7.a.x4 [>kx34,<kx43]
+  release_sensor7.a.x4 -> release_sensor7.a.x6 [kx46]
+  release_sensor7.a.x4 +Ca <-> release_sensor7.a.x5 [>kx45,<kx54]
+  release_sensor7.a.x5 -> release_sensor7.a.x6 [kx56]
+
+  release_sensor8.a.x0 -> release_sensor8.a.x6 [kx06]
+  release_sensor8.a.x0 +Ca <-> release_sensor8.a.x1 [>kx01,<kx10]
+  release_sensor8.a.x1 -> release_sensor8.a.x6 [kx16]
+  release_sensor8.a.x1 +Ca <-> release_sensor8.a.x2 [>kx12,<kx21]
+  release_sensor8.a.x2 -> release_sensor8.a.x6 [kx26]
+  release_sensor8.a.x2 +Ca <-> release_sensor8.a.x3 [>kx23,<kx32]
+  release_sensor8.a.x3 -> release_sensor8.a.x6 [kx36]
+  release_sensor8.a.x3 +Ca <-> release_sensor8.a.x4 [>kx34,<kx43]
+  release_sensor8.a.x4 -> release_sensor8.a.x6 [kx46]
+  release_sensor8.a.x4 +Ca <-> release_sensor8.a.x5 [>kx45,<kx54]
+  release_sensor8.a.x5 -> release_sensor8.a.x6 [kx56]
+
+  release_sensor9.a.x0 -> release_sensor9.a.x6 [kx06]
+  release_sensor9.a.x0 +Ca <-> release_sensor9.a.x1 [>kx01,<kx10]
+  release_sensor9.a.x1 -> release_sensor9.a.x6 [kx16]
+  release_sensor9.a.x1 +Ca <-> release_sensor9.a.x2 [>kx12,<kx21]
+  release_sensor9.a.x2 -> release_sensor9.a.x6 [kx26]
+  release_sensor9.a.x2 +Ca <-> release_sensor9.a.x3 [>kx23,<kx32]
+  release_sensor9.a.x3 -> release_sensor9.a.x6 [kx36]
+  release_sensor9.a.x3 +Ca <-> release_sensor9.a.x4 [>kx34,<kx43]
+  release_sensor9.a.x4 -> release_sensor9.a.x6 [kx46]
+  release_sensor9.a.x4 +Ca <-> release_sensor9.a.x5 [>kx45,<kx54]
+  release_sensor9.a.x5 -> release_sensor9.a.x6 [kx56]
+
+
+  release_sensor10.a.x0 -> release_sensor10.a.x6 [kx06]
+  release_sensor10.a.x0 +Ca <-> release_sensor10.a.x1 [>kx01,<kx10]
+  release_sensor10.a.x1 -> release_sensor10.a.x6 [kx16]
+  release_sensor10.a.x1 +Ca <-> release_sensor10.a.x2 [>kx12,<kx21]
+  release_sensor10.a.x2 -> release_sensor10.a.x6 [kx26]
+  release_sensor10.a.x2 +Ca <-> release_sensor10.a.x3 [>kx23,<kx32]
+  release_sensor10.a.x3 -> release_sensor10.a.x6 [kx36]
+  release_sensor10.a.x3 +Ca <-> release_sensor10.a.x4 [>kx34,<kx43]
+  release_sensor10.a.x4 -> release_sensor10.a.x6 [kx46]
+  release_sensor10.a.x4 +Ca <-> release_sensor10.a.x5 [>kx45,<kx54]
+  release_sensor10.a.x5 -> release_sensor10.a.x6 [kx56]
+
+  release_sensor11.a.x0 -> release_sensor11.a.x6 [kx06]
+  release_sensor11.a.x0 +Ca <-> release_sensor11.a.x1 [>kx01,<kx10]
+  release_sensor11.a.x1 -> release_sensor11.a.x6 [kx16]
+  release_sensor11.a.x1 +Ca <-> release_sensor11.a.x2 [>kx12,<kx21]
+  release_sensor11.a.x2 -> release_sensor11.a.x6 [kx26]
+  release_sensor11.a.x2 +Ca <-> release_sensor11.a.x3 [>kx23,<kx32]
+  release_sensor11.a.x3 -> release_sensor11.a.x6 [kx36]
+  release_sensor11.a.x3 +Ca <-> release_sensor11.a.x4 [>kx34,<kx43]
+  release_sensor11.a.x4 -> release_sensor11.a.x6 [kx46]
+  release_sensor11.a.x4 +Ca <-> release_sensor11.a.x5 [>kx45,<kx54]
+  release_sensor11.a.x5 -> release_sensor11.a.x6 [kx56]
+
+  release_sensor12.a.x0 -> release_sensor12.a.x6 [kx06]
+  release_sensor12.a.x0 +Ca <-> release_sensor12.a.x1 [>kx01,<kx10]
+  release_sensor12.a.x1 -> release_sensor12.a.x6 [kx16]
+  release_sensor12.a.x1 +Ca <-> release_sensor12.a.x2 [>kx12,<kx21]
+  release_sensor12.a.x2 -> release_sensor12.a.x6 [kx26]
+  release_sensor12.a.x2 +Ca <-> release_sensor12.a.x3 [>kx23,<kx32]
+  release_sensor12.a.x3 -> release_sensor12.a.x6 [kx36]
+  release_sensor12.a.x3 +Ca <-> release_sensor12.a.x4 [>kx34,<kx43]
+  release_sensor12.a.x4 -> release_sensor12.a.x6 [kx46]
+  release_sensor12.a.x4 +Ca <-> release_sensor12.a.x5 [>kx45,<kx54]
+  release_sensor12.a.x5 -> release_sensor12.a.x6 [kx56]
+
+  release_sensor13.a.x0 -> release_sensor13.a.x6 [kx06]
+  release_sensor13.a.x0 +Ca <-> release_sensor13.a.x1 [>kx01,<kx10]
+  release_sensor13.a.x1 -> release_sensor13.a.x6 [kx16]
+  release_sensor13.a.x1 +Ca <-> release_sensor13.a.x2 [>kx12,<kx21]
+  release_sensor13.a.x2 -> release_sensor13.a.x6 [kx26]
+  release_sensor13.a.x2 +Ca <-> release_sensor13.a.x3 [>kx23,<kx32]
+  release_sensor13.a.x3 -> release_sensor13.a.x6 [kx36]
+  release_sensor13.a.x3 +Ca <-> release_sensor13.a.x4 [>kx34,<kx43]
+  release_sensor13.a.x4 -> release_sensor13.a.x6 [kx46]
+  release_sensor13.a.x4 +Ca <-> release_sensor13.a.x5 [>kx45,<kx54]
+  release_sensor13.a.x5 -> release_sensor13.a.x6 [kx56]
+
+  release_sensor14.a.x0 -> release_sensor14.a.x6 [kx06]
+  release_sensor14.a.x0 +Ca <-> release_sensor14.a.x1 [>kx01,<kx10]
+  release_sensor14.a.x1 -> release_sensor14.a.x6 [kx16]
+  release_sensor14.a.x1 +Ca <-> release_sensor14.a.x2 [>kx12,<kx21]
+  release_sensor14.a.x2 -> release_sensor14.a.x6 [kx26]
+  release_sensor14.a.x2 +Ca <-> release_sensor14.a.x3 [>kx23,<kx32]
+  release_sensor14.a.x3 -> release_sensor14.a.x6 [kx36]
+  release_sensor14.a.x3 +Ca <-> release_sensor14.a.x4 [>kx34,<kx43]
+  release_sensor14.a.x4 -> release_sensor14.a.x6 [kx46]
+  release_sensor14.a.x4 +Ca <-> release_sensor14.a.x5 [>kx45,<kx54]
+  release_sensor14.a.x5 -> release_sensor14.a.x6 [kx56]
+
+  release_sensor15.a.x0 -> release_sensor15.a.x6 [kx06]
+  release_sensor15.a.x0 +Ca <-> release_sensor15.a.x1 [>kx01,<kx10]
+  release_sensor15.a.x1 -> release_sensor15.a.x6 [kx16]
+  release_sensor15.a.x1 +Ca <-> release_sensor15.a.x2 [>kx12,<kx21]
+  release_sensor15.a.x2 -> release_sensor15.a.x6 [kx26]
+  release_sensor15.a.x2 +Ca <-> release_sensor15.a.x3 [>kx23,<kx32]
+  release_sensor15.a.x3 -> release_sensor15.a.x6 [kx36]
+  release_sensor15.a.x3 +Ca <-> release_sensor15.a.x4 [>kx34,<kx43]
+  release_sensor15.a.x4 -> release_sensor15.a.x6 [kx46]
+  release_sensor15.a.x4 +Ca <-> release_sensor15.a.x5 [>kx45,<kx54]
+  release_sensor15.a.x5 -> release_sensor15.a.x6 [kx56]
+
+  release_sensor16.a.x0 -> release_sensor16.a.x6 [kx06]
+  release_sensor16.a.x0 +Ca <-> release_sensor16.a.x1 [>kx01,<kx10]
+  release_sensor16.a.x1 -> release_sensor16.a.x6 [kx16]
+  release_sensor16.a.x1 +Ca <-> release_sensor16.a.x2 [>kx12,<kx21]
+  release_sensor16.a.x2 -> release_sensor16.a.x6 [kx26]
+  release_sensor16.a.x2 +Ca <-> release_sensor16.a.x3 [>kx23,<kx32]
+  release_sensor16.a.x3 -> release_sensor16.a.x6 [kx36]
+  release_sensor16.a.x3 +Ca <-> release_sensor16.a.x4 [>kx34,<kx43]
+  release_sensor16.a.x4 -> release_sensor16.a.x6 [kx46]
+  release_sensor16.a.x4 +Ca <-> release_sensor16.a.x5 [>kx45,<kx54]
+  release_sensor16.a.x5 -> release_sensor16.a.x6 [kx56]
+
+  release_sensor17.a.x0 -> release_sensor17.a.x6 [kx06]
+  release_sensor17.a.x0 +Ca <-> release_sensor17.a.x1 [>kx01,<kx10]
+  release_sensor17.a.x1 -> release_sensor17.a.x6 [kx16]
+  release_sensor17.a.x1 +Ca <-> release_sensor17.a.x2 [>kx12,<kx21]
+  release_sensor17.a.x2 -> release_sensor17.a.x6 [kx26]
+  release_sensor17.a.x2 +Ca <-> release_sensor17.a.x3 [>kx23,<kx32]
+  release_sensor17.a.x3 -> release_sensor17.a.x6 [kx36]
+  release_sensor17.a.x3 +Ca <-> release_sensor17.a.x4 [>kx34,<kx43]
+  release_sensor17.a.x4 -> release_sensor17.a.x6 [kx46]
+  release_sensor17.a.x4 +Ca <-> release_sensor17.a.x5 [>kx45,<kx54]
+  release_sensor17.a.x5 -> release_sensor17.a.x6 [kx56]
+
+  release_sensor18.a.x0 -> release_sensor18.a.x6 [kx06]
+  release_sensor18.a.x0 +Ca <-> release_sensor18.a.x1 [>kx01,<kx10]
+  release_sensor18.a.x1 -> release_sensor18.a.x6 [kx16]
+  release_sensor18.a.x1 +Ca <-> release_sensor18.a.x2 [>kx12,<kx21]
+  release_sensor18.a.x2 -> release_sensor18.a.x6 [kx26]
+  release_sensor18.a.x2 +Ca <-> release_sensor18.a.x3 [>kx23,<kx32]
+  release_sensor18.a.x3 -> release_sensor18.a.x6 [kx36]
+  release_sensor18.a.x3 +Ca <-> release_sensor18.a.x4 [>kx34,<kx43]
+  release_sensor18.a.x4 -> release_sensor18.a.x6 [kx46]
+  release_sensor18.a.x4 +Ca <-> release_sensor18.a.x5 [>kx45,<kx54]
+  release_sensor18.a.x5 -> release_sensor18.a.x6 [kx56]
+
+  release_sensor19.a.x0 -> release_sensor19.a.x6 [kx06]
+  release_sensor19.a.x0 +Ca <-> release_sensor19.a.x1 [>kx01,<kx10]
+  release_sensor19.a.x1 -> release_sensor19.a.x6 [kx16]
+  release_sensor19.a.x1 +Ca <-> release_sensor19.a.x2 [>kx12,<kx21]
+  release_sensor19.a.x2 -> release_sensor19.a.x6 [kx26]
+  release_sensor19.a.x2 +Ca <-> release_sensor19.a.x3 [>kx23,<kx32]
+  release_sensor19.a.x3 -> release_sensor19.a.x6 [kx36]
+  release_sensor19.a.x3 +Ca <-> release_sensor19.a.x4 [>kx34,<kx43]
+  release_sensor19.a.x4 -> release_sensor19.a.x6 [kx46]
+  release_sensor19.a.x4 +Ca <-> release_sensor19.a.x5 [>kx45,<kx54]
+  release_sensor19.a.x5 -> release_sensor19.a.x6 [kx56]
+
+  release_sensor20.a.x0 -> release_sensor20.a.x6 [kx06]
+  release_sensor20.a.x0 +Ca <-> release_sensor20.a.x1 [>kx01,<kx10]
+  release_sensor20.a.x1 -> release_sensor20.a.x6 [kx16]
+  release_sensor20.a.x1 +Ca <-> release_sensor20.a.x2 [>kx12,<kx21]
+  release_sensor20.a.x2 -> release_sensor20.a.x6 [kx26]
+  release_sensor20.a.x2 +Ca <-> release_sensor20.a.x3 [>kx23,<kx32]
+  release_sensor20.a.x3 -> release_sensor20.a.x6 [kx36]
+  release_sensor20.a.x3 +Ca <-> release_sensor20.a.x4 [>kx34,<kx43]
+  release_sensor20.a.x4 -> release_sensor20.a.x6 [kx46]
+  release_sensor20.a.x4 +Ca <-> release_sensor20.a.x5 [>kx45,<kx54]
+  release_sensor20.a.x5 -> release_sensor20.a.x6 [kx56]
+
+  release_sensor21.a.x0 -> release_sensor21.a.x6 [kx06]
+  release_sensor21.a.x0 +Ca <-> release_sensor21.a.x1 [>kx01,<kx10]
+  release_sensor21.a.x1 -> release_sensor21.a.x6 [kx16]
+  release_sensor21.a.x1 +Ca <-> release_sensor21.a.x2 [>kx12,<kx21]
+  release_sensor21.a.x2 -> release_sensor21.a.x6 [kx26]
+  release_sensor21.a.x2 +Ca <-> release_sensor21.a.x3 [>kx23,<kx32]
+  release_sensor21.a.x3 -> release_sensor21.a.x6 [kx36]
+  release_sensor21.a.x3 +Ca <-> release_sensor21.a.x4 [>kx34,<kx43]
+  release_sensor21.a.x4 -> release_sensor21.a.x6 [kx46]
+  release_sensor21.a.x4 +Ca <-> release_sensor21.a.x5 [>kx45,<kx54]
+  release_sensor21.a.x5 -> release_sensor21.a.x6 [kx56]
+
+  release_sensor22.a.x0 -> release_sensor22.a.x6 [kx06]
+  release_sensor22.a.x0 +Ca <-> release_sensor22.a.x1 [>kx01,<kx10]
+  release_sensor22.a.x1 -> release_sensor22.a.x6 [kx16]
+  release_sensor22.a.x1 +Ca <-> release_sensor22.a.x2 [>kx12,<kx21]
+  release_sensor22.a.x2 -> release_sensor22.a.x6 [kx26]
+  release_sensor22.a.x2 +Ca <-> release_sensor22.a.x3 [>kx23,<kx32]
+  release_sensor22.a.x3 -> release_sensor22.a.x6 [kx36]
+  release_sensor22.a.x3 +Ca <-> release_sensor22.a.x4 [>kx34,<kx43]
+  release_sensor22.a.x4 -> release_sensor22.a.x6 [kx46]
+  release_sensor22.a.x4 +Ca <-> release_sensor22.a.x5 [>kx45,<kx54]
+  release_sensor22.a.x5 -> release_sensor22.a.x6 [kx56]
+
+  release_sensor23.a.x0 -> release_sensor23.a.x6 [kx06]
+  release_sensor23.a.x0 +Ca <-> release_sensor23.a.x1 [>kx01,<kx10]
+  release_sensor23.a.x1 -> release_sensor23.a.x6 [kx16]
+  release_sensor23.a.x1 +Ca <-> release_sensor23.a.x2 [>kx12,<kx21]
+  release_sensor23.a.x2 -> release_sensor23.a.x6 [kx26]
+  release_sensor23.a.x2 +Ca <-> release_sensor23.a.x3 [>kx23,<kx32]
+  release_sensor23.a.x3 -> release_sensor23.a.x6 [kx36]
+  release_sensor23.a.x3 +Ca <-> release_sensor23.a.x4 [>kx34,<kx43]
+  release_sensor23.a.x4 -> release_sensor23.a.x6 [kx46]
+  release_sensor23.a.x4 +Ca <-> release_sensor23.a.x5 [>kx45,<kx54]
+  release_sensor23.a.x5 -> release_sensor23.a.x6 [kx56]
+
+  release_sensor24.a.x0 -> release_sensor24.a.x6 [kx06]
+  release_sensor24.a.x0 +Ca <-> release_sensor24.a.x1 [>kx01,<kx10]
+  release_sensor24.a.x1 -> release_sensor24.a.x6 [kx16]
+  release_sensor24.a.x1 +Ca <-> release_sensor24.a.x2 [>kx12,<kx21]
+  release_sensor24.a.x2 -> release_sensor24.a.x6 [kx26]
+  release_sensor24.a.x2 +Ca <-> release_sensor24.a.x3 [>kx23,<kx32]
+  release_sensor24.a.x3 -> release_sensor24.a.x6 [kx36]
+  release_sensor24.a.x3 +Ca <-> release_sensor24.a.x4 [>kx34,<kx43]
+  release_sensor24.a.x4 -> release_sensor24.a.x6 [kx46]
+  release_sensor24.a.x4 +Ca <-> release_sensor24.a.x5 [>kx45,<kx54]
+  release_sensor24.a.x5 -> release_sensor24.a.x6 [kx56]
+
+  release_sensor25.a.x0 -> release_sensor25.a.x6 [kx06]
+  release_sensor25.a.x0 +Ca <-> release_sensor25.a.x1 [>kx01,<kx10]
+  release_sensor25.a.x1 -> release_sensor25.a.x6 [kx16]
+  release_sensor25.a.x1 +Ca <-> release_sensor25.a.x2 [>kx12,<kx21]
+  release_sensor25.a.x2 -> release_sensor25.a.x6 [kx26]
+  release_sensor25.a.x2 +Ca <-> release_sensor25.a.x3 [>kx23,<kx32]
+  release_sensor25.a.x3 -> release_sensor25.a.x6 [kx36]
+  release_sensor25.a.x3 +Ca <-> release_sensor25.a.x4 [>kx34,<kx43]
+  release_sensor25.a.x4 -> release_sensor25.a.x6 [kx46]
+  release_sensor25.a.x4 +Ca <-> release_sensor25.a.x5 [>kx45,<kx54]
+  release_sensor25.a.x5 -> release_sensor25.a.x6 [kx56]
+
+  release_sensor26.a.x0 -> release_sensor26.a.x6 [kx06]
+  release_sensor26.a.x0 +Ca <-> release_sensor26.a.x1 [>kx01,<kx10]
+  release_sensor26.a.x1 -> release_sensor26.a.x6 [kx16]
+  release_sensor26.a.x1 +Ca <-> release_sensor26.a.x2 [>kx12,<kx21]
+  release_sensor26.a.x2 -> release_sensor26.a.x6 [kx26]
+  release_sensor26.a.x2 +Ca <-> release_sensor26.a.x3 [>kx23,<kx32]
+  release_sensor26.a.x3 -> release_sensor26.a.x6 [kx36]
+  release_sensor26.a.x3 +Ca <-> release_sensor26.a.x4 [>kx34,<kx43]
+  release_sensor26.a.x4 -> release_sensor26.a.x6 [kx46]
+  release_sensor26.a.x4 +Ca <-> release_sensor26.a.x5 [>kx45,<kx54]
+  release_sensor26.a.x5 -> release_sensor26.a.x6 [kx56]
+
+  release_sensor27.a.x0 -> release_sensor27.a.x6 [kx06]
+  release_sensor27.a.x0 +Ca <-> release_sensor27.a.x1 [>kx01,<kx10]
+  release_sensor27.a.x1 -> release_sensor27.a.x6 [kx16]
+  release_sensor27.a.x1 +Ca <-> release_sensor27.a.x2 [>kx12,<kx21]
+  release_sensor27.a.x2 -> release_sensor27.a.x6 [kx26]
+  release_sensor27.a.x2 +Ca <-> release_sensor27.a.x3 [>kx23,<kx32]
+  release_sensor27.a.x3 -> release_sensor27.a.x6 [kx36]
+  release_sensor27.a.x3 +Ca <-> release_sensor27.a.x4 [>kx34,<kx43]
+  release_sensor27.a.x4 -> release_sensor27.a.x6 [kx46]
+  release_sensor27.a.x4 +Ca <-> release_sensor27.a.x5 [>kx45,<kx54]
+  release_sensor27.a.x5 -> release_sensor27.a.x6 [kx56]
+
+  release_sensor28.a.x0 -> release_sensor28.a.x6 [kx06]
+  release_sensor28.a.x0 +Ca <-> release_sensor28.a.x1 [>kx01,<kx10]
+  release_sensor28.a.x1 -> release_sensor28.a.x6 [kx16]
+  release_sensor28.a.x1 +Ca <-> release_sensor28.a.x2 [>kx12,<kx21]
+  release_sensor28.a.x2 -> release_sensor28.a.x6 [kx26]
+  release_sensor28.a.x2 +Ca <-> release_sensor28.a.x3 [>kx23,<kx32]
+  release_sensor28.a.x3 -> release_sensor28.a.x6 [kx36]
+  release_sensor28.a.x3 +Ca <-> release_sensor28.a.x4 [>kx34,<kx43]
+  release_sensor28.a.x4 -> release_sensor28.a.x6 [kx46]
+  release_sensor28.a.x4 +Ca <-> release_sensor28.a.x5 [>kx45,<kx54]
+  release_sensor28.a.x5 -> release_sensor28.a.x6 [kx56]
+
+  release_sensor29.a.x0 -> release_sensor29.a.x6 [kx06]
+  release_sensor29.a.x0 +Ca <-> release_sensor29.a.x1 [>kx01,<kx10]
+  release_sensor29.a.x1 -> release_sensor29.a.x6 [kx16]
+  release_sensor29.a.x1 +Ca <-> release_sensor29.a.x2 [>kx12,<kx21]
+  release_sensor29.a.x2 -> release_sensor29.a.x6 [kx26]
+  release_sensor29.a.x2 +Ca <-> release_sensor29.a.x3 [>kx23,<kx32]
+  release_sensor29.a.x3 -> release_sensor29.a.x6 [kx36]
+  release_sensor29.a.x3 +Ca <-> release_sensor29.a.x4 [>kx34,<kx43]
+  release_sensor29.a.x4 -> release_sensor29.a.x6 [kx46]
+  release_sensor29.a.x4 +Ca <-> release_sensor29.a.x5 [>kx45,<kx54]
+  release_sensor29.a.x5 -> release_sensor29.a.x6 [kx56]
+
+  release_sensor30.a.x0 -> release_sensor30.a.x6 [kx06]
+  release_sensor30.a.x0 +Ca <-> release_sensor30.a.x1 [>kx01,<kx10]
+  release_sensor30.a.x1 -> release_sensor30.a.x6 [kx16]
+  release_sensor30.a.x1 +Ca <-> release_sensor30.a.x2 [>kx12,<kx21]
+  release_sensor30.a.x2 -> release_sensor30.a.x6 [kx26]
+  release_sensor30.a.x2 +Ca <-> release_sensor30.a.x3 [>kx23,<kx32]
+  release_sensor30.a.x3 -> release_sensor30.a.x6 [kx36]
+  release_sensor30.a.x3 +Ca <-> release_sensor30.a.x4 [>kx34,<kx43]
+  release_sensor30.a.x4 -> release_sensor30.a.x6 [kx46]
+  release_sensor30.a.x4 +Ca <-> release_sensor30.a.x5 [>kx45,<kx54]
+  release_sensor30.a.x5 -> release_sensor30.a.x6 [kx56]
+
+  release_sensor31.a.x0 -> release_sensor31.a.x6 [kx06]
+  release_sensor31.a.x0 +Ca <-> release_sensor31.a.x1 [>kx01,<kx10]
+  release_sensor31.a.x1 -> release_sensor31.a.x6 [kx16]
+  release_sensor31.a.x1 +Ca <-> release_sensor31.a.x2 [>kx12,<kx21]
+  release_sensor31.a.x2 -> release_sensor31.a.x6 [kx26]
+  release_sensor31.a.x2 +Ca <-> release_sensor31.a.x3 [>kx23,<kx32]
+  release_sensor31.a.x3 -> release_sensor31.a.x6 [kx36]
+  release_sensor31.a.x3 +Ca <-> release_sensor31.a.x4 [>kx34,<kx43]
+  release_sensor31.a.x4 -> release_sensor31.a.x6 [kx46]
+  release_sensor31.a.x4 +Ca <-> release_sensor31.a.x5 [>kx45,<kx54]
+  release_sensor31.a.x5 -> release_sensor31.a.x6 [kx56]
+
+  release_sensor32.a.x0 -> release_sensor32.a.x6 [kx06]
+  release_sensor32.a.x0 +Ca <-> release_sensor32.a.x1 [>kx01,<kx10]
+  release_sensor32.a.x1 -> release_sensor32.a.x6 [kx16]
+  release_sensor32.a.x1 +Ca <-> release_sensor32.a.x2 [>kx12,<kx21]
+  release_sensor32.a.x2 -> release_sensor32.a.x6 [kx26]
+  release_sensor32.a.x2 +Ca <-> release_sensor32.a.x3 [>kx23,<kx32]
+  release_sensor32.a.x3 -> release_sensor32.a.x6 [kx36]
+  release_sensor32.a.x3 +Ca <-> release_sensor32.a.x4 [>kx34,<kx43]
+  release_sensor32.a.x4 -> release_sensor32.a.x6 [kx46]
+  release_sensor32.a.x4 +Ca <-> release_sensor32.a.x5 [>kx45,<kx54]
+  release_sensor32.a.x5 -> release_sensor32.a.x6 [kx56]
+
+  release_sensor33.a.x0 -> release_sensor33.a.x6 [kx06]
+  release_sensor33.a.x0 +Ca <-> release_sensor33.a.x1 [>kx01,<kx10]
+  release_sensor33.a.x1 -> release_sensor33.a.x6 [kx16]
+  release_sensor33.a.x1 +Ca <-> release_sensor33.a.x2 [>kx12,<kx21]
+  release_sensor33.a.x2 -> release_sensor33.a.x6 [kx26]
+  release_sensor33.a.x2 +Ca <-> release_sensor33.a.x3 [>kx23,<kx32]
+  release_sensor33.a.x3 -> release_sensor33.a.x6 [kx36]
+  release_sensor33.a.x3 +Ca <-> release_sensor33.a.x4 [>kx34,<kx43]
+  release_sensor33.a.x4 -> release_sensor33.a.x6 [kx46]
+  release_sensor33.a.x4 +Ca <-> release_sensor33.a.x5 [>kx45,<kx54]
+  release_sensor33.a.x5 -> release_sensor33.a.x6 [kx56]
+
+  release_sensor_surface0.a.x0' -> release_sensor_surface0.a.x6' [kx06]
+  release_sensor_surface0.a.x0' +Ca, <-> release_sensor_surface0.a.x1' [>kx01,<kx10]
+  release_sensor_surface0.a.x1' -> release_sensor_surface0.a.x6' [kx16]
+  release_sensor_surface0.a.x1' +Ca, <-> release_sensor_surface0.a.x2' [>kx12,<kx21]
+  release_sensor_surface0.a.x2' -> release_sensor_surface0.a.x6' [kx26]
+  release_sensor_surface0.a.x2' +Ca, <-> release_sensor_surface0.a.x3' [>kx23,<kx32]
+  release_sensor_surface0.a.x3' -> release_sensor_surface0.a.x6' [kx36]
+  release_sensor_surface0.a.x3' +Ca, <-> release_sensor_surface0.a.x4' [>kx34,<kx43]
+  release_sensor_surface0.a.x4' -> release_sensor_surface0.a.x6' [kx46]
+  release_sensor_surface0.a.x4' +Ca, <-> release_sensor_surface0.a.x5' [>kx45,<kx54]
+  release_sensor_surface0.a.x5' -> release_sensor_surface0.a.x6' [kx56]
+
+}
+
+/* ------- AMPA mechanism from Jonas et al. J Physiol. 1993 Dec;472:615-63  -------- */
+
+DEFINE_REACTIONS {
+  AMPA.C0' +Glu'->AMPA.C1'[AMPA_kC0C1]
+  AMPA.C1' +Glu'->AMPA.C2'[AMPA_kC1C2]
+  AMPA.C1' ->AMPA.C3'[AMPA_kC1C3]
+  AMPA.C1' ->AMPA.C0'+Glu'[AMPA_kC1C0]
+  AMPA.C2' ->AMPA.O'[AMPA_kC2O]
+  AMPA.C2' ->AMPA.C4'[AMPA_kC2C4]
+  AMPA.C2' ->AMPA.C1'+Glu'[AMPA_kC2C1]
+  AMPA.C3' +Glu'->AMPA.C4'[AMPA_kC3C4]
+  AMPA.C3' ->AMPA.C1'[AMPA_kC3C1]
+  AMPA.C4' ->AMPA.C5'[AMPA_kC4C5]
+  AMPA.C4' ->AMPA.C2'[AMPA_kC4C2]
+  AMPA.C4' ->AMPA.C3'+Glu'[AMPA_kC4C3]
+  AMPA.C5' ->AMPA.C4'[AMPA_kC5C4]
+  AMPA.C5' ->AMPA.O'[AMPA_kC5O]
+  AMPA.O'  ->AMPA.C2'[AMPA_kOC2]
+  AMPA.O'  ->AMPA.C5'[AMPA_kOC5]
+}
+
+/* A model based on Popescu Robert Howe Auerbach Nature 2004 */
+DEFINE_REACTIONS  {
+  NMDA_H.CU' + Glu' -> NMDA_H.CM'[NMDA_H_CU_CM ]
+  NMDA_H.CM' + Glu' -> NMDA_H.C1'[NMDA_H_CM_C1 ]
+  NMDA_H.CM'  -> NMDA_H.CU'[NMDA_H_CM_CU ]
+  NMDA_H.C1'  -> NMDA_H.CM'[NMDA_H_C1_CM ]
+  NMDA_H.C1'  -> NMDA_H.C2'[NMDA_H_C1_C2 ]
+  NMDA_H.C2'  -> NMDA_H.C1'[NMDA_H_C2_C1 ]
+  NMDA_H.C2'  -> NMDA_H.C3'[NMDA_H_C2_C3 ]
+  NMDA_H.C3'  -> NMDA_H.C2'[NMDA_H_C3_C2 ]
+  NMDA_H.C3'  -> NMDA_H.O1'[NMDA_H_C3_O1 ]
+  NMDA_H.O1'  -> NMDA_H.O2'[NMDA_H_O1_O2 ]
+  NMDA_H.O1'  -> NMDA_H.C3'[NMDA_H_O1_C3 ]
+  NMDA_H.O2'  -> NMDA_H.O1'[NMDA_H_O2_O1 ]
+  NMDA_H.O1'  -> NMDA_H.O1'+Ca,[NMDA_GENERATE_CA]
+  NMDA_H.O2'  -> NMDA_H.O2'+Ca,[NMDA_GENERATE_CA]
+
+  NMDA_M.CU' + Glu' -> NMDA_M.CM'[NMDA_M_CU_CM ]
+  NMDA_M.CM' + Glu' -> NMDA_M.C1'[NMDA_M_CM_C1 ]
+  NMDA_M.CM'  -> NMDA_M.CU'[NMDA_M_CM_CU ]
+  NMDA_M.C1'  -> NMDA_M.CM'[NMDA_M_C1_CM ]
+  NMDA_M.C1'  -> NMDA_M.C2'[NMDA_M_C1_C2 ]
+  NMDA_M.C2'  -> NMDA_M.C1'[NMDA_M_C2_C1 ]
+  NMDA_M.C2'  -> NMDA_M.C3'[NMDA_M_C2_C3 ]
+  NMDA_M.C3'  -> NMDA_M.C2'[NMDA_M_C3_C2 ]
+  NMDA_M.C3'  -> NMDA_M.O1'[NMDA_M_C3_O1 ]
+  NMDA_M.O1'  -> NMDA_M.O2'[NMDA_M_O1_O2 ]
+  NMDA_M.O1'  -> NMDA_M.C3'[NMDA_M_O1_C3 ]
+  NMDA_M.O2'  -> NMDA_M.O1'[NMDA_M_O2_O1 ]
+  NMDA_M.O1'  -> NMDA_M.O1'+Ca,[NMDA_GENERATE_CA]
+  NMDA_M.O2'  -> NMDA_M.O2'+Ca,[NMDA_GENERATE_CA]
+
+  NMDA_L.CU' + Glu' -> NMDA_L.CM'[NMDA_L_CU_CM ]
+  NMDA_L.CM' + Glu' -> NMDA_L.C1'[NMDA_L_CM_C1 ]
+  NMDA_L.CM'  -> NMDA_L.CU'[NMDA_L_CM_CU ]
+  NMDA_L.C1'  -> NMDA_L.CM'[NMDA_L_C1_CM ]
+  NMDA_L.C1'  -> NMDA_L.C2'[NMDA_L_C1_C2 ]
+  NMDA_L.C1'  -> NMDA_L.D'[NMDA_L_C1_D ]
+  NMDA_L.D'  -> NMDA_L.C1'[NMDA_L_D_C1 ]
+  NMDA_L.C2'  -> NMDA_L.C1'[NMDA_L_C2_C1 ]
+  NMDA_L.C2'  -> NMDA_L.C3'[NMDA_L_C2_C3 ]
+  NMDA_L.C3'  -> NMDA_L.C2'[NMDA_L_C3_C2 ]
+  NMDA_L.C3'  -> NMDA_L.O1'[NMDA_L_C3_O1 ]
+  NMDA_L.O1'  -> NMDA_L.O2'[NMDA_L_O1_O2 ]
+  NMDA_L.O1'  -> NMDA_L.C3'[NMDA_L_O1_C3 ]
+  NMDA_L.O2'  -> NMDA_L.O1'[NMDA_L_O2_O1 ]
+  NMDA_L.O1'  -> NMDA_L.O1'+Ca,[NMDA_GENERATE_CA]
+  NMDA_L.O2'  -> NMDA_L.O2'+Ca,[NMDA_GENERATE_CA]
+
+  NMDA_L.CUB' + Glu' -> NMDA_L.CMB'[NMDA_L_CU_CM ]
+  NMDA_L.CMB' + Glu' -> NMDA_L.C1B'[NMDA_L_CM_C1 ]
+  NMDA_L.CMB'  -> NMDA_L.CUB'[NMDA_L_CM_CU ]
+  NMDA_L.C1B'  -> NMDA_L.CMB'[NMDA_L_C1_CM ]
+  NMDA_L.C1B'  -> NMDA_L.C2B'[NMDA_L_C1_C2 ]
+  NMDA_L.C1B'  -> NMDA_L.DB'[NMDA_L_C1_D ]
+  NMDA_L.DB'  -> NMDA_L.C1B'[NMDA_L_D_C1 ]
+  NMDA_L.C2B'  -> NMDA_L.C1B'[NMDA_L_C2_C1 ]
+  NMDA_L.C2B'  -> NMDA_L.C3B'[NMDA_L_C2_C3 ]
+  NMDA_L.C3B'  -> NMDA_L.C2B'[NMDA_L_C3_C2 ]
+  NMDA_L.C3B'  -> NMDA_L.O1B'[NMDA_L_C3_O1 ]
+  NMDA_L.O1B'  -> NMDA_L.O2B'[NMDA_L_O1_O2 ]
+  NMDA_L.O1B'  -> NMDA_L.C3B'[NMDA_L_O1_C3 ]
+  NMDA_L.O2B'  -> NMDA_L.O1B'[NMDA_L_O2_O1 ]
+
+  NMDA_L.CU'  -> NMDA_L.CUB'[NMDA_kB]
+  NMDA_L.CM'  -> NMDA_L.CMB'[NMDA_kB]
+  NMDA_L.C1'  -> NMDA_L.C1B'[NMDA_kB]
+  NMDA_L.C2'  -> NMDA_L.C2B'[NMDA_kB]
+  NMDA_L.C3'  -> NMDA_L.C3B'[NMDA_kB]
+  NMDA_L.O1'  -> NMDA_L.O1B'[NMDA_kB]
+  NMDA_L.O2'  -> NMDA_L.O2B'[NMDA_kB]
+  NMDA_L.D'  -> NMDA_L.DB'[NMDA_kB]
+
+  NMDA_L.CUB'  -> NMDA_L.CU'[NMDA_kU]
+  NMDA_L.CMB'  -> NMDA_L.CM'[NMDA_kU]
+  NMDA_L.C1B'  -> NMDA_L.C1'[NMDA_kU]
+  NMDA_L.C2B'  -> NMDA_L.C2'[NMDA_kU]
+  NMDA_L.C3B'  -> NMDA_L.C3'[NMDA_kU]
+  NMDA_L.O1B'  -> NMDA_L.O1'[NMDA_kU]
+  NMDA_L.O2B'  -> NMDA_L.O2'[NMDA_kU]
+  NMDA_L.DB'  -> NMDA_L.D'[NMDA_kU]
+}
+
+/*A reduced Lester and Jahr mechanism */
+DEFINE_REACTIONS  {
+  NMDA_ljsimple.C2'  ->NMDA_ljsimple.O'[91.6]
+  NMDA_ljsimple.O'  ->NMDA_ljsimple.C2'[46.5]
+  NMDA_ljsimple.O'  ->NMDA_ljsimple.O'+Ca,[1.42e6/15]
+  NMDA_ljsimple.O'  ->NMDA_ljsimple.C1'[2*4.7]
+  NMDA_ljsimple.C2'  ->NMDA_ljsimple.C1'[2*4.7]
+}
+
+
+/* ----- NMDA mechanism Destexhe et al.,  Comput Neurosci. 1994 Aug;1(3):195-230  -------- */
+DEFINE_REACTIONS  {
+  NMDA_simple.C0' +Glu' ->NMDA_simple.C1'[NMDA_kC0C1]
+  NMDA_simple.C1' +Glu' ->NMDA_simple.C2'[NMDA_kC1C2]
+  NMDA_simple.C1'  ->NMDA_simple.C0'+Glu'[NMDA_kC1C0]
+  NMDA_simple.C2'  ->NMDA_simple.O'[NMDA_kC2O]
+  NMDA_simple.C2' ->NMDA_simple.C1'+Glu'[NMDA_kC2C1]
+  NMDA_simple.C2' ->NMDA_simple.D'[NMDA_kC2D]
+  NMDA_simple.D'   ->NMDA_simple.C2'[NMDA_kDC2]
+  NMDA_simple.O'   ->NMDA_simple.C2'[NMDA_kOC2]
+}
+
+/* ----- NMDA mechanism w/ Mg2+-block  ------*/
+
+DEFINE_REACTIONS {
+  NMDA.C0'+Glu'->NMDA.C1'[NMDA_kC0C1]
+  NMDA.C1'+Glu'->NMDA.C2'[NMDA_kC1C2]
+  NMDA.C1'   ->NMDA.C0'+Glu'[NMDA_kC1C0]
+  NMDA.C2'   ->NMDA.O'[NMDA_kC2O]
+  NMDA.C2'   ->NMDA.C1'+Glu'[NMDA_kC2C1]
+  NMDA.C2'   ->NMDA.D'[NMDA_kC2D]
+  NMDA.D'    ->NMDA.C2'[NMDA_kDC2]
+  NMDA.O'    ->NMDA.C2'[NMDA_kOC2]
+  NMDA.O'    ->NMDA.OB'[NMDA_kB]
+  NMDA.O'    ->NMDA.O'+Ca,[NMDA_GENERATE_CA]
+  NMDA.C0B'+Glu' ->NMDA.C1B'[NMDA_kC0C1]
+  NMDA.C1B'+Glu' ->NMDA.C2B'[NMDA_kC1C2]
+  NMDA.C1B' ->NMDA.C0B'+Glu'[NMDA_kC1C0]
+  NMDA.C2B' ->NMDA.OB'[NMDA_kC2Ob]
+  NMDA.C2B' ->NMDA.C1B'+Glu'[NMDA_kC2C1]
+  NMDA.C2B'->NMDA.DB'[NMDA_kC2D]
+  NMDA.DB'  ->NMDA.C2B'[NMDA_kDC2]
+  NMDA.OB'  ->NMDA.C2B'[NMDA_kOC2b]
+  NMDA.OB'  ->NMDA.O'[NMDA_kU]
+}
+
+/* NR2B Banke and Traynelis, 2003 */
+DEFINE_REACTIONS {
+  NR2B.R' + Glu'  ->NR2B.RA' [kRRA]
+  NR2B.RA' -> NR2B.R' + Glu' [kRAR]
+  NR2B.RA' + Glu' -> NR2B.RA2' [kRARA2]
+  NR2B.RA2' -> NR2B.RA' + Glu'[kRA2RA]
+  NR2B.RA2' -> NR2B.RA2d1' [kRA2RA2d1]
+  NR2B.RA2' -> NR2B.RA2d2' [kRA2RA2d2]
+  NR2B.RA2' -> NR2B.RA2f' [kRA2RA2f]
+  NR2B.RA2' -> NR2B.RA2s'[kRA2RA2s]
+  NR2B.RA2d1' -> NR2B.RA2' [kRA2d1RA2]
+  NR2B.RA2d2' -> NR2B.RA2' [kRA2d2RA2]
+  NR2B.RA2f' -> NR2B.RA2' [kRA2fRA2]
+  NR2B.RA2f' -> NR2B.RA2o' [kRA2fRA2o]
+  NR2B.RA2s' -> NR2B.RA2' [kRA2sRA2]
+  NR2B.RA2s' -> NR2B.RA2o' [kRA2sRA2o]
+  NR2B.RA2o' -> NR2B.RA2f' [kRA2oRA2f]
+  NR2B.RA2o' -> NR2B.RA2s' [kRA2oRA2s]
+  NR2B.RA2o'  -> NR2B.RA2o'+Ca,[NMDA_GENERATE_CA]
+
+  NR2B.B.R' + Glu'  ->NR2B.B.RA' [kRRA]
+  NR2B.B.RA' -> NR2B.B.R' + Glu' [kRAR]
+  NR2B.B.RA' + Glu' -> NR2B.B.RA2' [kRARA2]
+  NR2B.B.RA2' -> NR2B.B.RA' + Glu'[kRA2RA]
+  NR2B.B.RA2' -> NR2B.B.RA2d1' [kRA2RA2d1]
+  NR2B.B.RA2' -> NR2B.B.RA2d2' [kRA2RA2d2]
+  NR2B.B.RA2' -> NR2B.B.RA2f' [kRA2RA2f]
+  NR2B.B.RA2' -> NR2B.B.RA2s'[kRA2RA2s]
+  NR2B.B.RA2d1' -> NR2B.B.RA2' [kRA2d1RA2]
+  NR2B.B.RA2d2' -> NR2B.B.RA2' [kRA2d2RA2]
+  NR2B.B.RA2f' -> NR2B.B.RA2' [kRA2fRA2]
+  NR2B.B.RA2f' -> NR2B.B.RA2o' [kRA2fRA2o]
+  NR2B.B.RA2s' -> NR2B.B.RA2' [kRA2sRA2]
+  NR2B.B.RA2s' -> NR2B.B.RA2o' [kRA2sRA2o]
+  NR2B.B.RA2o' -> NR2B.B.RA2f' [kRA2oRA2f]
+  NR2B.B.RA2o' -> NR2B.B.RA2s' [kRA2oRA2s]
+
+  NR2B.R'  ->  NR2B.B.R' [NMDA_kB]
+  NR2B.RA' ->  NR2B.B.RA' [NMDA_kB]
+  NR2B.RA2' ->  NR2B.B.RA2' [NMDA_kB]
+  NR2B.RA2d1' ->  NR2B.B.RA2d1' [NMDA_kB]
+  NR2B.RA2d2' ->  NR2B.B.RA2d2' [NMDA_kB]
+  NR2B.RA2f' ->  NR2B.B.RA2f' [NMDA_kB]
+  NR2B.RA2s' ->  NR2B.B.RA2s' [NMDA_kB]
+  NR2B.RA2o' ->  NR2B.B.RA2o' [NMDA_kB]
+
+  NR2B.B.R'  ->  NR2B.R' [NMDA_kU]
+  NR2B.B.RA' ->  NR2B.RA' [NMDA_kU]
+  NR2B.B.RA2' ->  NR2B.RA2' [NMDA_kU]
+  NR2B.B.RA2d1' ->  NR2B.RA2d1' [NMDA_kU] 
+  NR2B.B.RA2d2' ->  NR2B.RA2d2' [NMDA_kU]  
+  NR2B.B.RA2f' ->  NR2B.RA2f' [NMDA_kU]
+  NR2B.B.RA2s' ->  NR2B.RA2s' [NMDA_kU]
+  NR2B.B.RA2o' ->  NR2B.RA2o' [NMDA_kU]
+
+
+}
+
+/* -----  Glutamate uptake mechanism  after Diamond and Jahr J Neurosci. 1997 Jun 15;17(12):4672-87.-------- */
+
+
+DEFINE_REACTIONS {
+  GluT.T1' +Glu'->GluT.T2'[GluT_kT1T2]
+  GluT.T2' ->GluT.T3'[GluT_kT2T3]
+  GluT.T2' ->GluT.T1'+Glu'[GluT_kT2T1]
+  GluT.T3' ->GluT.T1'[GluT_kT3T1]
+}
+
+/* -------- Calcium Binding Protein Calbindin ------ */
+
+DEFINE_REACTIONS {
+  calbindin.high0medium0+Ca->calbindin.high1medium0[calbindin_high_on]
+  calbindin.high1medium0->calbindin.high0medium0+Ca[calbindin_high_off]
+  calbindin.high1medium0+Ca->calbindin.high2medium0[calbindin_high_on]
+  calbindin.high2medium0->calbindin.high1medium0+Ca[calbindin_high_off]
+  calbindin.high0medium1+Ca->calbindin.high1medium1[calbindin_high_on]
+  calbindin.high1medium1->calbindin.high0medium1+Ca[calbindin_high_off]
+  calbindin.high1medium1+Ca->calbindin.high2medium1[calbindin_high_on]
+  calbindin.high2medium1->calbindin.high1medium1+Ca[calbindin_high_off]
+  calbindin.high0medium2+Ca->calbindin.high1medium2[calbindin_high_on]
+  calbindin.high1medium2->calbindin.high0medium2+Ca[calbindin_high_off]
+  calbindin.high1medium2+Ca->calbindin.high2medium2[calbindin_high_on]
+  calbindin.high2medium2->calbindin.high1medium2+Ca[calbindin_high_off]
+
+  calbindin.high0medium0+Ca->calbindin.high0medium1[calbindin_medium_on]
+  calbindin.high0medium1->calbindin.high0medium0+Ca[calbindin_medium_off]
+  calbindin.high0medium1+Ca->calbindin.high0medium2[calbindin_medium_on]
+  calbindin.high0medium2->calbindin.high0medium1+Ca[calbindin_medium_off]
+  calbindin.high1medium0+Ca->calbindin.high1medium1[calbindin_medium_on]
+  calbindin.high1medium1->calbindin.high1medium0+Ca[calbindin_medium_off]
+  calbindin.high1medium1+Ca->calbindin.high1medium2[calbindin_medium_on]
+  calbindin.high1medium2->calbindin.high1medium1+Ca[calbindin_medium_off]
+  calbindin.high2medium0+Ca->calbindin.high2medium1[calbindin_medium_on]
+  calbindin.high2medium1->calbindin.high2medium0+Ca[calbindin_medium_off]
+  calbindin.high2medium1+Ca->calbindin.high2medium2[calbindin_medium_on]
+  calbindin.high2medium2->calbindin.high2medium1+Ca[calbindin_medium_off]
+
+
+}
+
+DEFINE_REACTIONS{
+  caremover+Ca->caremover[1e9]
+}
+
+/* --------- CBPs; fast, medium, slow & v_slow -------- */
+
+DEFINE_REACTIONS{
+  fast_sp.U+Ca->fast_sp.B[fast_on]
+  fast_sp.B->fast_sp.U+Ca[fast_off]
+}
+
+DEFINE_REACTIONS  {
+  medium_sp.U+Ca->medium_sp.B[medium_on]
+  medium_sp.B->medium_sp.U+Ca[medium_off]
+}
+
+DEFINE_REACTIONS {
+  slow_sp.U+Ca->slow_sp.B[slow_on]
+  slow_sp.B->slow_sp.U+Ca[slow_off]
+}
+
+DEFINE_REACTIONS {
+  parvalbumin.U+Ca->parvalbumin.B[4e8] 
+  parvalbumin.U->parvalbumin.M[Mgbase * (1e6)] 
+  parvalbumin.B->parvalbumin.U+Ca[4]
+  parvalbumin.M->parvalbumin.U[30]
+}
+
+DEFINE_REACTIONS  {
+  v_slow_sp.U+Ca->v_slow_sp.B[v_slow_on]
+  v_slow_sp.B->v_slow_sp.U+Ca[v_slow_off]
+}
+
+
+DEFINE_REACTIONS {
+  fluo_four_ff.U+Ca->fluo_four_ff.B[fluo_four_ff_on]
+  fluo_four_ff.B->fluo_four_ff.U+Ca[fluo_four_ff_off]
+}
+
+DEFINE_REACTIONS {
+  fluo_four_ff.10xmobile.U+Ca->fluo_four_ff.10xmobile.B[fluo_four_ff_on]
+  fluo_four_ff.10xmobile.B->fluo_four_ff.10xmobile.U+Ca[fluo_four_ff_off]
+}
+
+/* -------- Calcium sensor; Fluo-4ff ------ */
+
+DEFINE_REACTIONS {
+  fluo_four_sp.U+Ca->fluo_four_sp.B[fluo_four_on]
+  fluo_four_sp.B->fluo_four_sp.U+Ca[fluo_four_off]
+}
+
+/* -------- Calcium sensor; Calcium Green ------ */
+
+DEFINE_REACTIONS  {
+  cal_green_sp.U+Ca->cal_green_sp.B[cal_green_on]
+  cal_green_sp.B->cal_green_sp.U+Ca[cal_green_off]
+}
+
+/* -------- Calcium sensor; Oregon Green - BAPTA-2 ------ */
+  
+
+DEFINE_REACTIONS  {
+  OG_B_1_sp.U+Ca->OG_B_1_sp.B[OG_B_1_on]
+  OG_B_1_sp.B->OG_B_1_sp.U+Ca[OG_B_1_off]
+}
+
+DEFINE_REACTIONS  {
+  OG_B_1_sp.10xmobile.U+Ca->OG_B_1_sp.10xmobile.B[OG_B_1_on]
+  OG_B_1_sp.10xmobile.B->OG_B_1_sp.10xmobile.U+Ca[OG_B_1_off]
+}
+
+
+DEFINE_REACTIONS  {
+  OG_B_5_sp.U+Ca->OG_B_5_sp.B[OG_B_5_on]
+  OG_B_5_sp.B->OG_B_5_sp.U+Ca[OG_B_5_off]
+}
+
+DEFINE_REACTIONS  {
+  NCX_pump_spine.U'+Ca,->NCX_pump_spine.B'[NCX_pump_for]
+  NCX_pump_spine.B'->NCX_pump_spine.U'+Ca,[NCX_pump_back]
+  NCX_pump_spine.B' ->NCX_pump_spine.U'[NCX_pump_kill] :ncxex
+  NCX_pump_spine.U' ->NCX_pump_spine.U'+Ca,[I_leak_NCX] :ncxin
+
+  NCX_pump_neck.U'+Ca,->NCX_pump_neck.B'[NCX_pump_for]
+  NCX_pump_neck.B'->NCX_pump_neck.U'+Ca,[NCX_pump_back]
+  NCX_pump_neck.B' ->NCX_pump_neck.U'[NCX_pump_kill]
+  NCX_pump_neck.U' ->NCX_pump_neck.U'+Ca,[I_leak_NCX]
+
+  NCX_pump_dendrite.U'+Ca,->NCX_pump_dendrite.B'[NCX_pump_for]
+  NCX_pump_dendrite.B'->NCX_pump_dendrite.U'+Ca,[NCX_pump_back]
+  NCX_pump_dendrite.B' ->NCX_pump_dendrite.U'[NCX_pump_kill]
+  NCX_pump_dendrite.U' ->NCX_pump_dendrite.U'+Ca,[I_leak_NCX]
+}
+
+/* ------ Extracellular extrusion pumps -------- */
+
+DEFINE_REACTIONS  {
+  ex_Ca_pump_spine.U'+Ca,->ex_Ca_pump_spine.B'[pump_for]
+  ex_Ca_pump_spine.B'->ex_Ca_pump_spine.U'+Ca,[pump_back]
+  ex_Ca_pump_spine.B' ->ex_Ca_pump_spine.U'[pump_kill] : pmcaex
+  ex_Ca_pump_spine.U' ->ex_Ca_pump_spine.U'+Ca,[I_leak_PMCA] : pmcain
+
+  ex_Ca_pump_neck.U'+Ca,->ex_Ca_pump_neck.B'[pump_for]
+  ex_Ca_pump_neck.B'->ex_Ca_pump_neck.U'+Ca,[pump_back]
+  ex_Ca_pump_neck.B' ->ex_Ca_pump_neck.U'[pump_kill]
+  ex_Ca_pump_neck.U' ->ex_Ca_pump_neck.U'+Ca,[I_leak_PMCA]
+}
+
+/* -------- Intracellular sequestration pump ------*/
+/* 6-step Buffering SERCA Pump */
+/* From Higgins et al, 2006, Biophys. J. */
+/* Note: ignores Ca in the ER, assume constant Ca in ER */
+
+DEFINE_REACTIONS  {
+   Ca' + SERCA_X1' <-> SERCA_X1A' [>2*k_SERCA_X1_X1A, <k_SERCA_X1A_X1]
+   Ca' + SERCA_X1A' <-> SERCA_X2' [>k_SERCA_X1A_X2, <2*k_SERCA_X2_X1A]
+   SERCA_X2' <-> SERCA_Y2' [>k_SERCA_X2_Y2, <k_SERCA_Y2_X2]
+   SERCA_Y2' <-> SERCA_Y1A' [>2*k_SERCA_Y2_Y1A, <k_SERCA_Y1A_Y2]
+   SERCA_Y1A' <-> SERCA_Y1' [>k_SERCA_Y1A_Y1, <2*k_SERCA_Y1_Y1A]
+   SERCA_Y1' -> SERCA_X1'  [k_SERCA_Y1_X1] :finalreturn
+   SERCA_X1' -> SERCA_Y1'  [k_SERCA_X1_Y1]
+   
+   SERCA_X1' -> SERCA_X1' + Ca' [k_ER_leak]
+   SERCA_X1A' -> SERCA_X1A' + Ca' [k_ER_leak]
+   SERCA_X2' -> SERCA_X2' + Ca' [k_ER_leak]
+   SERCA_Y2' -> SERCA_Y2' + Ca' [k_ER_leak]
+   SERCA_Y1' -> SERCA_Y1' + Ca' [k_ER_leak]
+   SERCA_Y1A' -> SERCA_Y1A' + Ca' [k_ER_leak]
+
+}
+
+/*simpler SERCA model */
+
+DEFINE_REACTIONS  {
+  SERCA.U'+Ca,->SERCA.B'[k_SERCA_for]
+  SERCA.B'->SERCA.U'+Ca,[k_SERCA_back]
+  SERCA.B' ->SERCA.U'[k_SERCA_kill] 
+  SERCA.U' ->SERCA.U'+Ca,[k_SERCA_leak]
+  SERCA.B' ->SERCA.B'+Ca,[k_SERCA_leak]
+}
+
+DEFINE_REACTIONS{
+  ATP.U+Ca->ATP.CaB[katpCafor]
+  ATP.CaB->ATP.U+Ca[katpCaback]
+  ATP.U->ATP.MgB[Mgbase * katpMgfor]
+  ATP.MgB->ATP.U[katpMgback]
+}
+
+/* -------- Intracellular sequestration pump ------*/
+
+DEFINE_REACTIONS  {
+  int_Ca_pump_spine.U,+Ca,->int_Ca_pump_spine.B,[pump_for]
+  int_Ca_pump_spine.B,->int_Ca_pump_spine.U,+Ca,[pump_back]
+  int_Ca_pump_spine.B, ->int_Ca_pump_spine.K,[pump_kill]
+  int_Ca_pump_spine.K,->int_Ca_pump_spine.U,[pump_return]
+
+  int_Ca_pump_neck.U,+Ca,->int_Ca_pump_neck.B,[pump_for]
+  int_Ca_pump_neck.B,->int_Ca_pump_neck.U,+Ca,[pump_back]
+  int_Ca_pump_neck.B, ->int_Ca_pump_neck.K,[pump_kill]
+  int_Ca_pump_neck.K,->int_Ca_pump_neck.U,[pump_return]
+
+}
+
+/*  Calcium leak mechanism */
+
+
+DEFINE_REACTIONS {
+  Ca_leak.O' ->Ca_leak.O'+Ca,[I_leak]
+}
+
+
+/* ------- Define Calmodulin Reaction ------- */
+
+DEFINE_REACTIONS  {
+  calmodulin.B0+Ca ->calmodulin.B1[cam_for_1]
+  calmodulin.B1    ->calmodulin.B0+Ca[cam_back_1]
+  calmodulin.B1 +Ca  ->calmodulin.B2[cam_for_2]
+  calmodulin.B2    ->calmodulin.B1+Ca[cam_back_2]
+  calmodulin.B2 +Ca   ->calmodulin.B3[cam_for_3]
+  calmodulin.B3    ->calmodulin.B2+Ca[cam_back_3]
+  calmodulin.B3 +Ca  ->calmodulin.B4[cam_for_4]
+  calmodulin.B4    ->calmodulin.B3+Ca[cam_back_4]
+}
+
+DEFINE_REACTIONS  {
+  calmodulin_immobile.B0+Ca ->calmodulin_immobile.B1[cam_for_1]
+  calmodulin_immobile.B1    ->calmodulin_immobile.B0+Ca[cam_back_1]
+  calmodulin_immobile.B1 +Ca  ->calmodulin_immobile.B2[cam_for_2]
+  calmodulin_immobile.B2    ->calmodulin_immobile.B1+Ca[cam_back_2]
+  calmodulin_immobile.B2 +Ca   ->calmodulin_immobile.B3[cam_for_3]
+  calmodulin_immobile.B3    ->calmodulin_immobile.B2+Ca[cam_back_3]
+  calmodulin_immobile.B3 +Ca  ->calmodulin_immobile.B4[cam_for_4]
+  calmodulin_immobile.B4    ->calmodulin_immobile.B3+Ca[cam_back_4]
+}
+
+DEFINE_REACTIONS {
+  EGTA.U + Ca ->EGTA.B [EGTA_on]
+  EGTA.B -> EGTA.U + Ca [EGTA_off]
+}
+
+DEFINE_REACTIONS {
+  EGTAimmobile.U + Ca ->EGTAimmobile.B [EGTA_on]
+  EGTAimmobile.B -> EGTAimmobile.U + Ca [EGTA_off]
+}
+
+DEFINE_REACTIONS {
+  BAPTA.U + Ca -> BAPTA.B [BAPTA_on]
+  BAPTA.B -> BAPTA.U + Ca [BAPTA_off]
+}

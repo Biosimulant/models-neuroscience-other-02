@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: AStateSpaceModelToQuantifyCommonInputTo238912Model'
+description: '{"value": "\"... We introduce a space-state model in which the discharge
+  activity\r\nof motor neurons is modeled as inhomogeneous Poisson processes\r\nand
+  propose a method to quantify an abstract late'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:238912
+  source_db: modeldb
+  source_id: '238912'
+  standard: other
+  original_url: https://modeldb.science/238912
+  download_url: https://modeldb.science/download/238912
+  license: ''
+bsim:
+  entrypoint: src.a_state_space_model_to_quantify_common_input_to_238912_model:AStateSpaceModelToQuantifyCommonInputTo238912Model
+  init_kwargs:
+    model_path: data/238912.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

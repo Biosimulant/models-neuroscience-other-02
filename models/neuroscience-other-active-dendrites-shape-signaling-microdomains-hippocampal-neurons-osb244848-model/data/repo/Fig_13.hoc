@@ -1,0 +1,1419 @@
+//This HOC file was used to generate Figure 13 of the article. The parameters for generating other figures may be found in Table S1 of the article.
+// The most important procedures in terms of adding calcium handling mechanisms, spines, recording species etc are:
+// addspine()
+//createspines()
+//spineconnect()
+//AddSynapse2()
+//Record_species()
+//defaultgrad_Dependent():run this to get the results in .txt format
+//the calcium handling .mod file is called modcamechs, which is inserted in apical[59], as well as all the spines originating from it
+
+//**************************************************************//
+load_file("stdlib.hoc")
+load_file("ObliquePath.hoc")
+load_file("nrngui.hoc")
+objref f2, f3, f4, f7
+//**************************************************************//
+// Current clamp Parameters
+//**************************************************************//
+
+objref cvode
+cvode=new CVode()
+cvode.active(0)
+
+steps_per_ms = 40
+dt = 0.025
+
+stamp=2		// Stimulus Amplitude and Delay
+stdur=1
+stdel=2
+
+//**************************************************************//
+// Synaptic Parameters
+//**************************************************************//
+NAR=1.5
+//P1 =20e-7//20e-7
+//**************************************************************//
+// Resistances and Capacitances
+//**************************************************************//
+//or just keep ra flat to 80 and gh just 20 fold increase
+rasoma  = 120			
+raend   = 70
+raaxon = rasoma
+ra=rasoma
+
+rm     = 125000
+rmsoma = rm
+rmdend = rm
+rmend=85000
+rmaxon = rm
+
+c_m       = 1
+cmsoma    = c_m
+cmdend    = c_m
+cmaxon    = c_m
+
+v_init    = -65
+celsius   = 34
+//**************************************************************//
+// Active conductance densities and other related parameters
+//**************************************************************//
+//these values account for the bAP, Rin after getting ek=-90
+Ek = -90
+Ena = 55
+Eh=-30
+// for lovey16
+gh=25e-6	// Base value of gh
+caT=80e-6 
+gna=0.016
+gnais=gna	//0.008
+gkdr=0.01
+gka=0.0031
+gkagrad=8
+gka_pfactor=1
+gka_dfactor=1
+//**************************************************************//
+// oblique conductances
+//**************************************************************//
+gka_oblique=0
+
+//**************************************************************//
+create axon[2]
+objref sh, st, apc, vec, g[20], i_vec, v_vec, stdstt, fitvec
+strdef str1, str2, str3
+objref SD, AXON, SA, Basal, Trunk, AIS
+objref s, ampasyn[1], nmdasyn[1]
+objref bpropampasyn, bpropnmdasyn
+objref LM, RAD, RADt, LUC, PSA, PSB, ORI
+objref secref, f1
+objref netlist
+objref apamp[1], ampvec[1]
+objref sapamp, sampvec
+objref g1, nc
+objref r, st1, st2
+objref Trial
+objref local_trunk
+objref pl[150],opl[150]
+objref v3, v4
+strdef str1, rntfilename
+
+create soma[1], apical[1], basal[1]
+
+//**********************************************************************/
+// Passive Conductances 
+/**********************************************************************/
+
+proc setpassive() {
+	forall {
+	  	insert pas
+	  	e_pas = v_init
+		Ra=rasoma
+	}
+	forsec SD {		// For somato-dendritic compartments
+		cm=cmdend
+		g_pas=1/rm
+	}
+	forsec "soma" {
+	  	cm = cmsoma 
+		g_pas=1/rm
+	}
+	forsec Trunk {
+		for (x) {
+			rdist=raddist(x)
+			rmt = rmsoma + (rmend - rmsoma)/(1 + exp((300-rdist)/50))
+			g_pas(x)=1/rmt
+			Ra = rasoma + (raend - rasoma)/(1 + exp((300-rdist)/50))
+		}
+	}	
+}
+
+/**********************************************************************/
+
+proc set_Na_K_rad () {local xdist, ndist
+
+	
+	forsec SD {			
+			insert na3 gbar_na3=gna ar2_na3=1
+			insert kdr gkdrbar_kdr=gkdr
+			insert kad gkabar_kad=gka
+			insert kap gkabar_kap=gka
+			for (x) {
+				rdist=raddist(x)
+				if(rdist<100){
+						gkabar_kap(x)=gka*(1+gkagrad*rdist/100.0)
+						gkabar_kad(x)=0
+				} else {
+					gkabar_kad(x)=gka*(1+gkagrad*rdist/100.0)
+					gkabar_kap(x)=0
+				}
+			}
+	}
+
+	forsec "basal"{
+			insert na3 gbar_na3=gna ar2_na3=1
+			insert kdr gkdrbar_kdr=gkdr
+			gkabar_kad=gka
+			gkabar_kap=gka 
+	}
+  
+	forsec AIS {			
+			insert nax gbar_nax=gna*5
+			insert kdr gkdrbar_kdr=gkdr
+	}
+    
+
+	forsec "apical"{
+		ar2_na3=0.8     // Add Na+ inactivation on apical side.
+	}
+	forall if (ismembrane("na3")||ismembrane("nax")) ena=Ena
+	forall if (ismembrane("kap")||ismembrane("kad")||ismembrane("kdr")) ek=Ek
+}
+
+/**********************************************************************/
+
+proc setactivess () {local xdist, ndist
+
+	forsec SD {	// Trunk
+		insert hd  
+
+		for (x) {
+			xdist=raddist(x)
+			
+			ghdbar_hd(x) = gh*(1+12/(1+exp(-(xdist-320)/50)))
+
+			if (xdist > 100){
+				if (xdist>300) { 
+					ndist=300
+				} else { // 100 <= xdist <= 300
+					ndist=xdist
+				}
+				vhalfl_hd(x)=-82-8*(ndist-100)/200
+			} else {	// xdist < 100
+				vhalfl_hd(x)=-82
+			}	
+
+		}
+	}
+	forsec "soma" {
+		insert hd  ghdbar_hd=gh vhalfl_hd=-82
+	}	
+
+	forsec Basal {
+		insert hd  ghdbar_hd=gh vhalfl_hd=-82
+	}	
+
+	forall if (ismembrane("hd")) ehd_hd=Eh
+	
+}
+/**********************************************************************/
+
+proc set_cat() {local xdist, ndist
+
+	forsec SD {	// Trunk
+  			insert cat
+
+		for (x) {
+			xdist=raddist(x)
+			gcatbar_cat(x)=caT*(1+30/(1+exp(-(xdist-350)/50)))
+
+
+		}
+	}
+		forsec "basal"{
+			insert cat gcatbar_cat=caT
+	}
+}
+
+/**********************************************************************/
+
+proc setactive() {
+	setactivess ()
+	set_Na_K_rad ()
+	set_cat()
+	add_vmax_mechanism()
+	
+	print "all active conductances set"
+}	
+/********************************************************************/
+
+proc current_clamp() {
+	access soma[0]
+	st=new IClamp(0.5)
+	st.amp=stamp
+	st.del=stdel
+	st.dur=stdur
+}
+/**********************************************************************/
+objref ic[10]
+proc current_clamp_train() {
+    
+	for (i=0; i<=9; i+=1){
+		soma [0] ic[i] = new IClamp(0.5)
+		ic[i].amp =stamp
+		ic[i].del= 10 + i*25
+		ic[i].dur= 2
+	}
+    
+}
+/**********************************************************************/
+
+proc init_cell() {
+	setpassive()
+	addaxon()
+    addspine()
+    setactive()
+	access soma[0]	// Reinitializing distance origin
+	distance()
+    
+	finitialize(v_init)
+	fcurrent()
+        forall {
+            for (x) {
+			if (ismembrane("hd")||ismembrane("cat")||ismembrane("na3")||ismembrane("nax")||ismembrane("kdr")||ismembrane("kap")||ismembrane("kad")) {
+		e_pas(x)=v(x)+(ica(x)+i_hd(x)+ina(x)+ik(x))/g_pas(x)
+
+
+                } else {
+        			e_pas(x)=v(x)
+                }
+            }
+        }
+}
+/********************************************************************/
+
+proc update_init(){
+	finitialize(v_init)
+	fcurrent()
+        forall {
+            for (x) {
+				if (ismembrane("hd")||ismembrane("cat")||ismembrane("na3")||ismembrane("nax")||ismembrane("kdr")||ismembrane("kap")||ismembrane("kad")) {
+				e_pas(x)=v(x)+(ica(x)+i_hd(x)+ina(x)+ik(x))/g_pas(x)
+
+
+               } else {
+        			e_pas(x)=v(x)
+                }
+            }
+        }
+}
+
+/**********************************************************************/
+create head1
+create neck1
+//creating the synapse-containing spine at the central location of apical[59] oblique and assign the channel types as well as the calcium handling mechanisms
+proc addspine() {
+
+    head1 {
+        L = 0.5
+        diam = 0.5
+        nseg = 10
+        insert pas
+        insert na3
+        insert kdr
+        insert kad
+        insert cat
+        insert hd
+        insert modcamechs
+        
+        cm = 1 // these values correspond to the oblique segment conductance value from which this spine originates
+        g_pas = 8e-06
+        Ra = 120
+        e_pas=-65
+        gbar_na3 = 0.16
+        gkdrbar_kdr = 0.01
+        gkabar_kad = 0.060547099
+        gcatbar_cat = 0.00028570567
+        ghdbar_hd = 6.8768407e-05
+        
+    }
+    
+    neck1 {
+        L = 1
+        diam = 0.1
+        nseg = 20
+        insert pas
+        insert na3
+        insert kdr
+        insert kad
+        insert cat
+        insert hd
+        insert modcamechs
+        cm = 1
+        g_pas = 8e-06
+        Ra = 120
+        e_pas=-65
+        gbar_na3 = 0.16
+        gkdrbar_kdr = 0.01
+        gkabar_kad = 0.060547099
+        gcatbar_cat = 0.00028570567
+        ghdbar_hd = 6.8768407e-05
+        
+    }
+    connect head1(1), neck1(0)
+    connect neck1(1), apical[59](0.5) //connecting the synapse containing spine to the oblique of choice
+
+}
+/********************************************************************/
+spineno=1000 //no. of spines on the oblique of choice (apical[59])
+create spineheads[spineno]
+create spinenecks[spineno]
+
+//creating 1000 spines and connecting them to the oblique apical[59]
+proc createspines(){
+    for(a=0;a<spineno;a=a+1){
+        spineheads[a] {
+            print a
+            L = 0.5
+            diam = 0.5
+            nseg = 1
+            insert pas
+            insert na3
+            insert kdr
+            insert kad
+            insert cat
+            insert hd
+            insert modcamechs
+        }
+        spinenecks[a] {
+            L = 1
+            diam = 0.1
+            nseg = 1
+            insert pas
+            insert na3
+            insert kdr
+            insert kad
+            insert cat
+            insert hd
+            insert modcamechs
+        }
+        connect spineheads[a](1), spinenecks[a](0)
+    }
+    
+}
+/*****************************************************************/
+
+
+proc load_3dcell() {
+
+	forall delete_section()
+	xopen($s1)
+
+    create head1
+    create neck1
+    create spineheads[1000]
+    create spinenecks[1000]
+    
+	SD = new SectionList()
+	SA = new SectionList()
+	Trunk = new SectionList()
+	Trial = new SectionList()
+	Basal = new SectionList()
+
+	forsec "soma" {
+		SD.append()
+		SA.append()
+	}
+
+	forsec "basal" { 
+		SD.append()
+		Basal.append()
+	}
+
+	forsec "apical"{
+		SD.append()
+		SA.append()
+	}
+
+	// Trunk. 
+
+	soma[0]	Trunk.append()
+	apical[0]  Trunk.append() 
+	apical[4]  Trunk.append() 
+	apical[6]  Trunk.append() 
+	apical[14] Trunk.append() 
+	apical[15] Trunk.append() 
+	apical[16] Trunk.append() 
+	apical[22] Trunk.append() 
+	apical[23] Trunk.append() 
+	apical[25] Trunk.append() 
+	apical[26] Trunk.append() 
+	apical[27] Trunk.append() 
+	apical[41] Trunk.append() 
+	apical[42] Trunk.append() 
+	apical[46] Trunk.append() 
+	apical[48] Trunk.append() 
+	apical[56] Trunk.append() 
+	apical[58] Trunk.append() 
+	apical[60] Trunk.append() 
+	apical[62] Trunk.append() 
+	apical[64] Trunk.append() 
+	apical[65] Trunk.append() 
+	apical[69] Trunk.append() 
+	apical[71] Trunk.append()
+	apical[81] Trunk.append() 
+	apical[83] Trunk.append() 
+	apical[95] Trunk.append()
+	apical[103] Trunk.append()
+	apical[104] Trunk.append()
+
+// here it is rad distacnes
+//	soma[0] Trial.append()
+//	apical[41] Trial.append() // 160 µm
+	apical[71] Trial.append() // 320 µm
+	apical[103] Trial.append() //417
+
+	local_trunk = new SectionList()
+
+	apical[60] local_trunk.append() 
+	apical[62] local_trunk.append() 
+	apical[64] local_trunk.append() 
+	apical[65] local_trunk.append() 
+	apical[69] local_trunk.append() 
+
+
+	// Define obliques
+
+	load_file("oblique-paths.hoc")
+
+	// Compartmentalize 
+
+	setpassive() // Before compartmentalization, set passive
+
+	// The lambda constraint
+	totcomp=0
+	forall { 
+		soma[1] area(0.5)
+		nseg = int((L/(0.1*lambda_f(100))+.9)/2)*2 + 1  
+		totcomp=totcomp+nseg
+	}
+    
+    apical[59]{
+		nseg= 2000//2000
+		update_init()
+    }
+
+	access soma[0]
+	distance()
+
+	init_cell()
+
+}
+
+/**********************************************************************/
+// For cell number n123 on the DSArchive, converted with CVAPP to give
+// HOC file, the following definition holds. This is the same as Poirazi et
+// al. have used in Neuron, 2003. The argument is that the subtree seems
+// so long to be a dendrite, and the cell does not have a specific axon.
+// There is a catch, though, if the morphology is closely scanned, then 
+// basal dendrites would branch from these axonal segments - which
+// may be fine given the amount of ambiguity one has while tracing! 
+
+proc addaxon() {
+
+	AXON = new SectionList()
+	AIS = new SectionList()
+
+	for i = 30,34 basal[i] {
+		AXON.append()
+		Basal.remove()
+	}
+
+	for i = 18,22 basal[i] {
+		AXON.append()
+		AIS.append()
+		Basal.remove()
+	}
+
+	forsec AXON {
+		e_pas=v_init 
+		g_pas = 1/rmaxon 
+		Ra=raaxon 
+		cm=cmaxon
+	}
+}
+/**********************************************************************/
+
+
+proc initsub() {
+	load_3dcell("n123.hoc")
+    handle_calmech ()
+	finitialize(v_init)
+	fcurrent()
+}
+/*****************************************************************/
+ proc handle_calmech () {
+ apical[59]{
+  insert modcamechs
+  insert caminmax
+  }
+ }
+ 
+ /*****************************************************************/
+
+somax=2.497
+somay=-13.006
+somaz=11.12
+double distances[200]
+
+func raddist() {
+	distn0=distance(0)
+	distances[0]=0
+	sum=0
+
+	for i=1,n3d()-1 {
+		xx=(x3d(i)-x3d(i-1))*(x3d(i)-x3d(i-1))
+		yy=(y3d(i)-y3d(i-1))*(y3d(i)-y3d(i-1))
+		zz=(z3d(i)-z3d(i-1))*(z3d(i)-z3d(i-1))
+		sum=sum+sqrt(xx+yy+zz)
+		distances[i]=sum
+	}
+
+	xval=$1
+
+// Amoung the various pt3d's find which one matches the distance of
+// current x closely
+
+	distn=distance(xval)
+	match=distn-distn0
+	matchptdist=100000
+	for i=0,n3d()-1 {		
+		matptdist=(match-distances[i])*(match-distances[i])
+		if(matchptdist>matptdist){
+			matchptdist=matptdist
+			matchi=i
+		}
+	}
+			
+// Find the distance of the closely matched point to the somatic
+// centroid and use that as the distance for this BPAP measurement			
+
+	xx=(x3d(matchi)-somax)*(x3d(matchi)-somax)
+	yy=(y3d(matchi)-somay)*(y3d(matchi)-somay)
+	zz=(z3d(matchi)-somaz)*(z3d(matchi)-somaz)
+	return sqrt(xx+yy+zz)
+}
+
+//**************************************************************//
+// Alpha Function Parameters
+//**************************************************************//
+
+tau=10
+nalpha=5
+totalduration=500
+alphaamp=0.1/exp(-1) // For normalization of the alpha amplitude to 1
+alphafreq=20
+alphadelay=50
+/********************************************************************/
+objref f1
+proc AP_Amp () { local Comp
+	f1=new File()
+	//sprint(rntfilename,"Output/Linearity0_RN_%d.txt",gh*1e6)
+	//f1.wopen(rntfilename)
+	tstop=50
+	count=0
+	f1.wopen("1APAmp_Final.txt")
+	current_clamp()
+
+	update_init()
+	forsec Trunk {
+//	forsec Trial {
+		for(x) {
+			if(x != 0) { // x=0 distance is equal to x=1 of prev section
+//			if(x==0.5) { // x=0 distance is equal to x=1 of prev section
+
+				finitialize(v_init)
+				fcurrent()
+
+				while (t < tstop){
+				fadvance()
+				}
+
+				print count, " ", secname(), " ", x," ", raddist(x)," ", "\t", vm_vmax(x)-v_init
+				f1.printf("%f\n", vm_vmax(x)-v_init)
+				count=count+1
+			}
+		}
+	}
+
+	
+	f1.close()
+}
+/**********************************************************************/
+	
+proc add_vmax_mechanism() {
+
+	forall {
+		insert vmax
+	}
+}
+/**********************************************************************/
+
+objref apamp[620]
+objref apvec[620]
+ 
+proc make_apamps() {local xval
+	
+	forall {
+		insert vmax
+	}
+
+	ApAmpcnt=0
+//	forsec Trunk{
+	forsec Trial{
+		for(x) {
+//			if(x !=0){
+			if(x ==0.5){
+				apamp[ApAmpcnt]=new APAmp(x)
+				//apvec[ApAmpcnt]=new Vector()
+				ApAmpcnt=ApAmpcnt+1
+			}
+		}
+	}
+	
+	//print ApAmpcnt
+
+	for (i=0;i<ApAmpcnt;i+=1) {
+		apamp[i].thresh=-64
+		//apamp[i].record(apvec[i])
+	}
+}
+
+
+/**********************************************************************/
+
+objref f1
+proc AP_Trunk () { local trunk
+	f1=new File()
+    tstop=50
+	f1.wopen("Trunk_AP.txt")
+	current_clamp()
+	make_apamps()
+	update_init()
+			
+	finitialize(v_init)
+	fcurrent()
+	for (i=0;i<ApAmpcnt;i+=1) {
+		apamp[i].max=v_init
+	}
+	
+	while (t < tstop){
+		fadvance()
+	}
+
+	for (i=0;i<ApAmpcnt;i+=1) {
+		if (apamp[i].max>=-64){
+                	f1.printf("%f\n", apamp[i].max-v_init)
+			print i, " ", apamp[i].max-v_init
+
+        	} else {
+			print "Propagation failure!!!!  ", i
+		}
+	}
+	
+	f1.close()
+}
+
+/*****************************************************************/
+objref st
+objref f1
+
+proc RN_Trunk_Trial () {
+	f1=new File()
+	tstop=500
+	cvode.active(1)
+	f1.wopen("Trunk_RN_basemod_trial.txt")
+	update_init()
+	count=0
+	forsec Trial {
+		for(x) {
+			if(x == 0.5) { // x=0 distance is equal to x=1 of prev section
+
+				st=new IClamp(x)
+				st.dur=tstop
+				st.del=50
+				st.amp=-0.1
+	
+				v3=new Vector()
+				v3.record(&v(x))
+			
+				finitialize(v_init)
+				fcurrent()
+	
+				while (t < tstop){
+					fadvance()
+				}
+				f1.printf("%f\n",-((v3.x[v3.size()-1]-v_init)/100e-6)*1e-3)
+				print count, " ", secname(), " ", x," ", distance(x)," ", -((v3.x[v3.size()-1]-v_init)/100e-6)*1e-3
+				
+				count=count+1
+			}		
+		
+		}
+	}
+	print "Count=", count	
+	f1.close()
+}
+
+/*****************************************************************/
+objref st
+objref f1
+
+proc RN_Trunk () {
+	f1=new File()
+	tstop=300
+	cvode.active(1)
+	
+	f1.wopen("Trunk_RN_basemod.txt")
+	
+
+	update_init()
+	count=0
+	forsec Trunk {
+		for(x) {
+			if(x == 0.5) { // x=0 distance is equal to x=1 of prev section
+
+				st=new IClamp(x)
+				st.dur=tstop
+				st.del=50
+				st.amp=-0.1
+	
+				v3=new Vector()
+				v3.record(&v(x))
+			
+				finitialize(v_init)
+				fcurrent()
+	
+				while (t < tstop){
+					fadvance()
+				}
+				f1.printf("%f\n",-((v3.x[v3.size()-1]-v_init)/100e-6)*1e-3)
+				print count, " ", secname(), " ", x," ", distance(x)," ", -((v3.x[v3.size()-1]-v_init)/100e-6)*1e-3
+				
+				count=count+1
+			}		
+		
+		}
+	}
+	print "Count=", count	
+	f1.close()
+}
+
+
+
+/********************************************************************/
+
+proc RN_Fit () {local trunk
+	f1=new File()
+	i_vec=new Vector(11) //current vector
+	stdstt=new Vector(11)	//stdstt=steady state
+	fitvec=new Vector(11)	//for fitting
+	cvode.active(1)
+
+	tstop=500
+			
+	f1.wopen("2Rin_CaT_Final.txt")
+
+	update_init()
+	count=0
+	forsec Trunk {
+		for(x) {
+			if(x != 0) { // x=0 distance is equal to x=1 of prev section
+				st=new IClamp(x)
+				for(i=0;i<=10; i+=1){
+					st.dur=tstop
+					st.del=50
+					st.amp=((i-5)*10)/1000
+					i_vec.x[i]=(i-5)*10/1000
+					v_vec=new Vector(11) //voltage
+					v_vec.record(&v(x))
+
+			
+					finitialize(v_init)
+					fcurrent()
+	
+					while (t < tstop){
+						fadvance()
+					}
+					stdstt.x[i]=(v_vec.x[v_vec.size()-1]-v_init)
+				}	
+				a=stdstt.x[0]/i_vec.x[0]
+				b=0
+
+				error=stdstt.fit(fitvec, "line", i_vec, &a, &b)
+				print secname(), " ", x," ", raddist(x)," ", a
+				f1.printf("%f\n",a)
+				count=count+1
+				
+			}
+		}
+	}
+f1.close()
+
+}
+/********************************************************************/
+
+proc Recorcd_bAP_Vm () {local trunk
+	tstop=50
+	update_init()
+	count=0
+	current_clamp()
+	apical[71] {
+
+				v3=new Vector()
+				v3.record(&v(0.5))
+					
+				f1=new File()
+			
+				finitialize(v_init)
+				fcurrent()
+				while (t < tstop){
+					fadvance()
+				}
+				
+				sprint(rntfilename,"Output/Optimized_Cell2/bAP_Trunk/TrunkbAP_%d.txt",300)
+
+				f1.wopen(rntfilename)
+				v3.printf(f1,"%f\n")
+				f1.close()
+				count=count+1
+		}
+}	
+/********************************************************************/
+
+proc Recorcd_Vm () {local trunk
+	tstop=550
+	update_init()
+	count=0
+	apical[71] {
+		
+				st=new IClamp(0.5)
+				st.dur=300
+				st.del=50
+				st.amp=-0.05
+
+				v3=new Vector()
+				v3.record(&v(x))
+					
+				f1=new File()
+			
+				finitialize(v_init)
+				fcurrent()
+				while (t < tstop){
+					fadvance()
+				}
+				
+				sprint(rntfilename,"Output/Optimized_Cell2/RN_Trunk/TrunkVmH_%d.txt",300)
+
+				f1.wopen(rntfilename)
+				v3.printf(f1,"%f\n")
+				f1.close()
+				count=count+1
+		}
+}	
+/********************************************************************/
+
+proc Recorcd_Vm_RN () {local trunk
+	tstop=550
+	update_init()
+	count=0
+
+	forsec Trial {
+		for(x) {
+			if(x == 0.5) { // x=0 distance is equal to x=1 of prev section
+				st=new IClamp(x)
+				for(i=-50;i<=50; i+=10){
+					st.dur=300
+					st.del=50
+					st.amp=i/1000
+
+					v3=new Vector()
+					v3.record(&v(x))
+						
+					f1=new File()
+				
+					finitialize(v_init)
+					fcurrent()
+					while (t < tstop){
+						fadvance()
+					}
+				
+				sprint(rntfilename,"Output/Vm_Trace_RN/Loc_Amp_%d_%d.txt",count,i)
+
+				f1.wopen(rntfilename)
+				v3.printf(f1,"%f\n")
+				f1.close()
+				}
+				count=count+1
+			}	
+		}
+	}	
+}	
+
+/********************************************************************/
+objectvar Ecellvec, Ecellvec1, f2, FRVec
+strdef rntfilename1, rntfilename2
+proc Firing_Rate () {local trunk
+	tstop = 1100
+	soma[0]{
+		apc=new APCount(0.5)
+		apc.thresh=15
+		Ecellvec = new Vector()
+		v3 = new Vector()
+		FRVec = new Vector(6)
+		count=0
+		
+	for(i=0;i<=250; i+=50){
+				f1=new File()
+				f2=new File()
+				st=new IClamp(0.5)
+				st.dur=1000	//tstop
+				st.del=100
+				st.amp=i/1000
+							
+				finitialize(v_init)
+				fcurrent()
+		
+				while (t < tstop){
+					fadvance()
+				}
+				FRVec.x[count]=apc.n
+				print apc.n
+			
+				
+			count+=1
+		}
+				sprint(rntfilename1,"Output/Firing_Rate.txt")
+				f1.wopen(rntfilename1)
+				FRVec.printf(f1,"%f\n")
+				
+				f1.close()
+		
+		}		
+}
+
+
+/*****************************************************************/
+proc get_gh(){
+	cc=0
+	for(yy=10; yy<=60; yy+=10){
+		print yy
+		set_h()
+		cc+=1
+		update_init()
+		ZAP_Single()
+	}
+
+}
+/*****************************************************************/
+objref randspine
+spinenumber = 1000 // no. of spines
+segnumber = 2002
+double spineloc [segnumber]
+double xlist [segnumber]
+double xindex[spinenumber]
+double spine_cap[spinenumber]
+double spine_memres[spinenumber]
+double spine_axres[spinenumber]
+double spine_restmem[spinenumber]
+double spine_na3[spinenumber]
+double spine_kdr[spinenumber]
+double spine_ka[spinenumber]
+double spine_cat[spinenumber]
+double spine_h[spinenumber]
+
+// This procedure connects 1000 spines in a randomly distributed fashion in the chosen oblique (apical[59]) and assigns all membrane properties of the oblique segment to each each spine originating from that segment
+
+proc spineconnect(){
+    createspines()
+    for(i=0;i<segnumber;i+=1){
+        spineloc[i]=0
+    }
+    randspine = new Random(11)
+    randspine.uniform(0,segnumber)
+    
+    count = 0
+    
+    while(count<spinenumber){
+        x1 = int(randspine.repick())
+        while(spineloc[x1]==1){
+            x1 = int(randspine.repick())
+        }
+        spineloc[x1]=1
+        count+=1
+    }
+    
+    count=0
+    apical[59]{
+        for(x){
+            xlist[count]=x
+            count+=1
+        }
+    }
+    count = 0
+    for(i=0;i<segnumber;i+=1){
+        if (spineloc[i]==1){
+            xindex[count]=xlist[i]
+            count+=1
+        }
+    }
+    access apical[59]
+    count1=0
+    apical[59]{
+        for(x){
+            if(x==(xindex[count1])){
+                connect spinenecks[count1](1), apical[59](x)
+                spine_cap[count1]= 1
+                spine_memres[count1]= g_pas(x)
+                spine_axres[count1]= Ra
+                spine_restmem[count1]= e_pas(x)
+                spine_na3[count1]= gbar_na3(x)
+                spine_kdr[count1]= gkdrbar_kdr(x)
+                spine_ka[count1]= gkabar_kad(x)
+                spine_cat[count1]= gcatbar_cat(x)
+                spine_h[count1]= ghdbar_hd(x)
+                if (count1<spinenumber-1){
+                    count1+=1
+                }
+            }
+        }
+    }
+    
+    for(i=0;i<spinenumber;i+=1){
+        spineheads[i]{
+            for(x){
+                cm = spine_cap[i]
+                g_pas = spine_memres[i]
+                Ra = spine_axres[i]
+                e_pas = spine_restmem[i]
+                gbar_na3 = spine_na3[i]
+                gkdrbar_kdr = spine_kdr[i]
+                gkabar_kad = spine_ka[i]
+                gcatbar_cat = spine_cat[i]
+                ghdbar_hd = spine_h[i]
+            }
+        }
+        spinenecks[i]{
+            for(x){
+                cm = spine_cap[i]
+                g_pas = spine_memres[i]
+                Ra = spine_axres[i]
+                e_pas = spine_restmem[i]
+                gbar_na3 = spine_na3[i]
+                gkdrbar_kdr = spine_kdr[i]
+                gkabar_kad = spine_ka[i]
+                gcatbar_cat = spine_cat[i]
+                ghdbar_hd = spine_h[i]
+            }
+        }
+    }
+}
+
+
+/*****************************************************************/
+objref f1, f2, netlist, s[1], f1, DEND, sapamp, somavec, sampvec, f2
+strdef  str2
+objref s, ampasyn, nmdasyn
+strdef rntfilename2
+//this procedure records the voltage generated at the soma with input to each synapse. Useful for determining what permeability value to use for each synapse
+proc find_epsp_amplitudes() { local x
+	netlist=new List()
+    
+	tstop=40
+    Gstart=3e-8
+    Gend=1
+    f1=new File()
+    f2=new File()
+	sprint(rntfilename,"EPSPAmps_synapse_spine.txt")
+    sprint(rntfilename2,"EPSP_synapse_spine.txt")
+	f1.wopen(rntfilename)
+    f2.wopen(rntfilename2)
+	soma[2] s = new NetStim(0.5)
+	s.interval=1   // ms (mean) time between spikes
+	s.number=1     // (average) number of spikes
+	s.start=2   // ms (mean) start time of first spike
+	s.noise=0      // range 0 to 1. Fractional randomness.
+    
+    countsegment =0
+    head1 {
+            for (x) {
+                if(x!=0 && x<1){
+                    
+                    G=Gstart
+                    ampasyn=new ghkampa(x)
+                    ampasyn.taur=2
+                    ampasyn.taud=10
+                    ampasyn.Pmax=Gstart
+                    netlist.append(new NetCon(s,ampasyn,0,0,0))
+
+                    while(G<=Gend){
+                        ampasyn.Pmax=G
+                        update_init()
+                        
+                        MAX=-65
+                        while (t <tstop){
+                            fadvance()
+                            //print soma[2].v(0.5)
+                            if(soma[2].v(0.5)>MAX) {
+                                MAX=soma[2].v(0.5)
+                            }
+                        }
+                        print secname(), "\t ", x, "\t", " ", G, " ", MAX, "\t" , "\t", 65+MAX
+                        countsegment=countsegment+1
+                        if(MAX>=-64.8) {
+                            print secname(),"reached", " ", x, " ", " ", G, " ", MAX, "\t" , "\t", 65+MAX
+                            f1.printf("%g\t%g\t%g\n",x,G, MAX)
+                            f2.printf("%g\n", G)
+                            update_init()
+                            break
+                        }
+                        G=G+5e-7
+                    }
+                    if(G>=Gend){
+                        print secname(), " ", x," ", -1,  " ", G, " ", MAX, "\t" , "\t", 65+MAX
+                    }
+                    
+                }
+    
+        }
+    }
+    print countsegment
+    f1.close()
+    f2.close()
+}
+/*****************************************************************/
+//added_reshma
+objref ampa, nmda, spikegen, ncl
+objref calcvec[1005],camvec[1005],camca4vec[1005],camkiivec[1005],camkiicamca4vec[1005],pcamkiivec[1005],PP1vec[1005],dPP1vec[1005],voltagevec[1005]
+
+objref f, f1, f5, f6, f8, f9, f10, f13, f14
+strdef filename, filename1, filename3, filename4, filename5, filename6, filename7, filename10, filename11
+create dend, oblique1, apical[59], oblique3
+objref ampa2[1],nmda2[1], ncl3[1], ns2[150]
+/*************************************************************************/
+
+//this procedure adds the NMDA and AMPA synapse at the spine head located at the middle of the chosen oblique:apical[59]
+proc AddSynapse2() {
+    
+    tstop=10000
+    
+    for (i=0;i<30;i+=1){
+        //time=(20+i*200)
+        //print "time=", time
+        head1 ns2[i]= new NetStim(0.3)
+        
+        ns2[i].interval=10 // ms (mean) time between spikes
+        ns2[i].number=5    // (average) number of spikes
+        ns2[i].start= (20+i*200)
+        ns2[i].noise=0      // range 0 to 1. Fractional randomness.
+        
+    }
+    
+    for (i=0;i<=0;i+=1){
+        ampa2[i]= new ghkampa()         // create synapse
+        head1 ampa2[i].loc(0.5)
+        ampa2[i].taur = 2
+        ampa2[i].taud = 10
+        ampa2[i].Pmax = 1.53e-06
+        nmda2[i] = new ghknmda ()
+        head1 nmda2[i].loc(0.5)
+        nmda2[i].taur = 5
+        nmda2[i].taud = 50
+        nmda2[i].Pmax = 1.53e-06 * NAR//NAR stands for NMDA:AMPA ratio
+        
+    }
+    
+    
+    head1 ncl3[0]=new List()
+    for (i=0;i<30;i+=1){
+		head1 ncl3[0].append(new NetCon(ns2[i], ampa2[0], 0, 0, 0.0001))
+        head1 ncl3[0].append(new NetCon(ns2[i], nmda2[0], 0, 0, 0.0001))
+    }
+}
+    /********************************************************************************/
+    
+//This procedure creates the vectors necessary for storing the voltage, calcium, as well as the downstream molecules
+
+objref temp_ca[1005], temp_cam[1005],temp_camca4[1005],temp_camkii[1005],temp_camkiicamca4[1005],temp_pcamkii[1005],temp_dPP1[1005],temp_PP1[1005]
+
+proc Record_species(){ local i
+    
+    segcount=2000
+    print "segcount=", segcount
+    
+    veccount=0
+    i=0
+    tcount=1
+    FIRST=0
+    
+    access apical[59]
+    for(i=0; i<1005; i+=1){         // creating temporary vectors to store all 40 pnts per millisecond for all the species except voltage
+        temp_ca[i]=new Vector(40)
+        temp_cam[i]=new Vector(40)
+        temp_camca4[i]=new Vector(40)
+        temp_camkii[i]=new Vector(40)
+        temp_camkiicamca4[i]=new Vector(40)
+        temp_pcamkii[i]=new Vector(40)
+        temp_dPP1[i]=new Vector(40)
+        temp_PP1[i]=new Vector(40)
+    }
+    
+    i=0
+    
+    
+	//for (x=1000/segcount; x<=1500/segcount; x+=1/segcount) { //while recording voltage, use this, segment 500 to 1000, then 1000 to 1500, otherwise memory allocation error my occur
+    for (x=500/segcount; x<=1500/segcount; x+=1/segcount) { //while recording species other than voltage, use this, for all the 1000 segments around the synptic location
+
+        print x
+        calcvec[i]= new Vector() // creating vectors for saving all species
+        camvec[i]= new Vector()
+        camca4vec[i]= new Vector()
+        camkiivec[i]= new Vector()
+        camkiicamca4vec[i]= new Vector()
+        pcamkiivec[i]= new Vector()
+        PP1vec[i]= new Vector()
+        dPP1vec[i]= new Vector()
+//        voltagevec[i]= new Vector()
+//        voltagevec[i].record (&apical[59].v(x)) // 40 voltage values are recorded every millisecond, to account for faster voltage fluctuations compared to calcium and other downstream species
+
+        i=i+1
+        veccount+=1
+    }
+    
+    print "Veccount=", veccount
+}
+/********************************************************************/
+
+// This function/procedure calls all the previous procedures relevant for handling the calcium mechanisms, adding the spine containing synapse,adding spines, recording all species and finally stores them in .txt files
+
+proc defaultgrad_Dependent(){
+    //calling all necessary functions
+    AddSynapse2()
+    spineconnect()
+    Record_species()
+    tstop= 100//10000 // total run time of simulation
+    
+    //Creating file handles for storing species values
+    f=new File()
+    f1=new File()
+    f5=new File()
+    f6=new File()
+    f8=new File()
+    f9=new File()
+    f10=new File()
+    f13=new File()
+    f14=new File()
+    
+    
+    reccount=0
+    //mscount=0
+    update_init()
+    //print "Starting ka, Cat,h: ", gkabar_kad,gcatbar_cat,ghdbar_hd
+    
+        
+  while (t < tstop) {
+    if (reccount==39) {
+        for (i=0;i<1000;i+=1){                          // storing mean of all 40 values of each species generated every millisecond
+            calcvec[i].append(temp_ca[i].mean())
+            camvec[i].append(temp_cam[i].mean())
+            camca4vec[i].append(temp_camca4[i].mean())
+            camkiivec[i].append(temp_camkii[i].mean())
+            camkiicamca4vec[i].append(temp_camkiicamca4[i].mean())
+            pcamkiivec[i].append(temp_pcamkii[i].mean())
+            PP1vec[i].append(temp_PP1[i].mean())
+            dPP1vec[i].append(temp_dPP1[i].mean())
+        }
+        reccount=0
+        //mscount+=1
+        //print mscount, calcvec[500].x[mscount-1]
+    }
+   
+    i=0
+    apical [59] {
+        for (x) {
+            if (i>=500 && i<1500){
+                temp_ca[i-500].x[reccount]=apical[59].cai(x)        //storing 40 pnts per millisecond for all the species except voltage in the temporary vectors created above
+                temp_cam[i-500].x[reccount]=apical[59].cam_modcamechs[0](x)
+                temp_camca4[i-500].x[reccount]=apical[59].camca4_modcamechs[0](x)
+                temp_camkii[i-500].x[reccount]=apical[59].camkii_modcamechs[0](x)
+                temp_camkiicamca4[i-500].x[reccount]=apical[59].camkii_camca4_modcamechs[0](x)
+                temp_pcamkii[i-500].x[reccount]=apical[59].pcamkii_camca4_modcamechs(x)
+                temp_PP1[i-500].x[reccount]=apical[59].PP1_modcamechs(x)
+                temp_dPP1[i-500].x[reccount]=apical[59].dPP1_modcamechs(x)
+                
+            }
+            i=i+1
+        }
+    }
+    reccount+=1
+    //print reccount
+    fadvance()
+}
+
+print "Done Running "
+    
+         for (i=0; i<veccount; i+=1) { // saving all the vectors to files
+            
+            sprint (filename,"Spine1000_sample/Calcium_%d.txt",i)
+            f.wopen(filename)
+            calcvec[i].printf(f,"%g\n")
+            f.close()
+        
+            sprint (filename4,"Spine1000_sample/Cam_%d.txt",i)
+            f6.wopen(filename4)
+            camvec[i].printf(f6,"%g\n")
+            f6.close()
+        
+            sprint (filename1,"Spine1000_sample/Camca4_%d.txt",i)
+            f1.wopen(filename1)
+            camca4vec[i].printf(f1,"%g\n")
+            f1.close()
+        
+            sprint (filename5,"Spine1000_sample/Camkii_%d.txt",i)
+            f8.wopen(filename5)
+            camkiivec[i].printf(f8,"%g\n")
+            f8.close()
+        
+            sprint (filename3,"Spine1000_sample/CamCamkii_%d.txt",i)
+            f5.wopen(filename3)
+            camkiicamca4vec[i].printf(f5,"%g\n")
+            f5.close()
+        
+            sprint (filename10,"Spine1000_sample/pCamkii_%d.txt",i)
+            f13.wopen(filename10)
+            pcamkiivec[i].printf(f13,"%g\n")
+            f13.close()
+        
+            sprint (filename6,"Spine1000_sample/PP1_%d.txt",i)
+            f9.wopen(filename6)
+            PP1vec[i].printf(f9,"%g\n")
+            f9.close()
+             
+            sprint (filename7,"Spine1000_sample/dPP1_%d.txt",i)
+            f10.wopen(filename7)
+            dPP1vec[i].printf(f10,"%g\n")
+            f10.close()
+        
+//            sprint (filename11,"Spine1000_sample/Voltage_%d.txt",i+500)//change this when u change voltage rec location0->500
+//            f14.wopen(filename11)
+//            voltagevec[i].printf(f14,"%g\n")
+//            f14.close()
+        }
+    print "Done Saving"
+	
+}
+/*****************************************************************/
+
+//calling the necessary functions
+initsub()
+defaultgrad_Dependent()
+
+
+
+
+
+
+
+
+
+
+

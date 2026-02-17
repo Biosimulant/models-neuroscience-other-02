@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: AMultiscaleApproachToAnalyzeCircadianRhyth247713Model'
+description: '{"value": "\" ... We developed a firing rate code model to incorporate
+  known\r\nelectrophysiological properties of SCN (suprachiasmatic nucleus)\r\npacemaker
+  cells, including circadian dependent chang'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:247713
+  source_db: modeldb
+  source_id: '247713'
+  standard: other
+  original_url: https://modeldb.science/247713
+  download_url: https://modeldb.science/download/247713
+  license: ''
+bsim:
+  entrypoint: src.a_multiscale_approach_to_analyze_circadian_rhyth_247713_model:AMultiscaleApproachToAnalyzeCircadianRhyth247713Model
+  init_kwargs:
+    model_path: data/247713.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

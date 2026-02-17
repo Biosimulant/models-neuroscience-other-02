@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: AcetylcholineModulatedPlasticityInRewardDri245018Model'
+description: '{"value": "\"Neuromodulation plays a fundamental role in the acquisition
+  of new behaviours. In previous\r\nexperimental work, we showed that acetylcholine
+  biases hippocampal synaptic plasticity toward'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:245018
+  source_db: modeldb
+  source_id: '245018'
+  standard: other
+  original_url: https://modeldb.science/245018
+  download_url: https://modeldb.science/download/245018
+  license: ''
+bsim:
+  entrypoint: src.acetylcholine_modulated_plasticity_in_reward_dri_245018_model:AcetylcholineModulatedPlasticityInRewardDri245018Model
+  init_kwargs:
+    model_path: data/245018.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

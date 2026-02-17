@@ -1,0 +1,46 @@
+
+/* ===========================================================
+
+        Author: Daniel Keller
+	Institution: Ecole Polytechnique Federale de Lausanne
+	Reference: Keller D, Babai N, Kochubey O, Han Y, Markram H, Schürmann F, et al. (2015) An Exclusion Zone for Ca2+ Channels around Docked Vesicles Explains Release Control by Multiple Channels at a CNS Synapse. PLoS Comput Biol 11(5): e1004253. doi:10.1371/journal.pcbi.1004253
+
+============================================================= */
+
+/* ----- Geometrical Parameters for Cell ---- */
+
+fuzz=1e-5
+gap_size=0.02
+dendrite_width=1.0
+dendrite_length=2.0
+spine_head_width=0.5
+spine_head_length=0.5
+spine_head_size=spine_head_length
+spine_neck_width=0.2
+spine_neck_length=0.5
+head_n_neck_size=spine_head_size+spine_neck_length
+
+bouton_width=0.8
+bouton_height=1.2
+
+mesh_width=0.5
+active_zone_width=0.05
+vesicle_diameter=0.03
+
+height = -0.5*gap_size
+psd_size = 0.7*spine_head_size
+psd_corner = 0.5*(spine_head_size-psd_size)
+
+connector_volume=(0.225*spine_head_size+ 0.2*spine_neck_width)*(0.225*spine_head_size+ 0.2*spine_neck_width)* 0.2 *spine_head_size 
+spine_apparatus_head_volume=(0.45*spine_head_size)^2*(0.45*spine_head_size)+connector_volume
+spine_apparatus_neck_volume=0.4*spine_neck_width*0.4*spine_neck_width*(spine_neck_length-2*fuzz)
+spine_apparatus_volume=spine_apparatus_head_volume+spine_apparatus_neck_volume
+spine_head_volume=spine_head_width^2 * spine_head_length
+spine_neck_volume=spine_neck_width*spine_neck_width*spine_neck_length
+
+spine_and_neck_volume_no_apparatus=spine_head_volume+spine_neck_volume
+
+spine_and_neck_volume_with_apparatus=spine_head_volume-spine_apparatus_head_volume+spine_neck_volume- spine_apparatus_neck_volume
+dendrite_volume=dendrite_width * dendrite_width * dendrite_length
+
+post_synaptic_density_volume = (psd_size-2*fuzz)*(psd_size-2*fuzz)*0.05

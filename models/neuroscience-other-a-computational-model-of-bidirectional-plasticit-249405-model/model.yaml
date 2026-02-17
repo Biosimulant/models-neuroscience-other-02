@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: AComputationalModelOfBidirectionalPlasticit249405Model'
+description: '{"value": "We present a computational model that suggests how calcium-calmodulin
+  dependent protein kinase II can act as a molecular switch in synaptic plasticity
+  induction at an important cerebellar s'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:249405
+  source_db: modeldb
+  source_id: '249405'
+  standard: other
+  original_url: https://modeldb.science/249405
+  download_url: https://modeldb.science/download/249405
+  license: ''
+bsim:
+  entrypoint: src.a_computational_model_of_bidirectional_plasticit_249405_model:AComputationalModelOfBidirectionalPlasticit249405Model
+  init_kwargs:
+    model_path: data/249405.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

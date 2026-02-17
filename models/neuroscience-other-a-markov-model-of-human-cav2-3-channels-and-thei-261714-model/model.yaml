@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: AMarkovModelOfHumanCav23ChannelsAndThei261714Model'
+description: '{"value": "The Markov model for Cav2.3 channel gating in the absence
+  of trace metals was developed based on channel structure, previous modeling studies
+  and the ability to fit the data. Model paramete'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:261714
+  source_db: modeldb
+  source_id: '261714'
+  standard: other
+  original_url: https://modeldb.science/261714
+  download_url: https://modeldb.science/download/261714
+  license: ''
+bsim:
+  entrypoint: src.a_markov_model_of_human_cav2_3_channels_and_thei_261714_model:AMarkovModelOfHumanCav23ChannelsAndThei261714Model
+  init_kwargs:
+    model_path: data/261714.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

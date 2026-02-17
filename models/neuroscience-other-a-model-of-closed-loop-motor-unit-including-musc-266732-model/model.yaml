@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: AModelOfClosedLoopMotorUnitIncludingMusc266732Model'
+description: '{"value": "Persistent inward current generating ion channels are located
+  over spinal motoneurons and actively recruited during normal behaviors. Constructing
+  a realistic computational model of closed-'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:266732
+  source_db: modeldb
+  source_id: '266732'
+  standard: other
+  original_url: https://modeldb.science/266732
+  download_url: https://modeldb.science/download/266732
+  license: ''
+bsim:
+  entrypoint: src.a_model_of_closed_loop_motor_unit_including_musc_266732_model:AModelOfClosedLoopMotorUnitIncludingMusc266732Model
+  init_kwargs:
+    model_path: data/266732.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

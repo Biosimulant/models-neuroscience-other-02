@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: ADetailedPurkinjeCellModelMasoliEtAl2015229585Model'
+description: '{"value": "The Purkinje cell is one of the most complex type of neuron
+  in the central nervous system and is well known for its massive dendritic tree.
+  The initiation of the action potential was theori'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:229585
+  source_db: modeldb
+  source_id: '229585'
+  standard: other
+  original_url: https://modeldb.science/229585
+  download_url: https://modeldb.science/download/229585
+  license: ''
+bsim:
+  entrypoint: src.a_detailed_purkinje_cell_model_masoli_et_al_2015_229585_model:ADetailedPurkinjeCellModelMasoliEtAl2015229585Model
+  init_kwargs:
+    model_path: data/229585.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

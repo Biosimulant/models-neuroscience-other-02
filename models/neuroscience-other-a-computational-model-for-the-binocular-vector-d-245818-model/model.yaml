@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: AComputationalModelForTheBinocularVectorD245818Model'
+description: '{"value": "A biologically-inspired model of disparity estimation: we
+  consider the disparity patterns that arise when artificial and living beings fixate
+  objects in the surrounding environment, in thes'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:245818
+  source_db: modeldb
+  source_id: '245818'
+  standard: other
+  original_url: https://modeldb.science/245818
+  download_url: https://modeldb.science/download/245818
+  license: ''
+bsim:
+  entrypoint: src.a_computational_model_for_the_binocular_vector_d_245818_model:AComputationalModelForTheBinocularVectorD245818Model
+  init_kwargs:
+    model_path: data/245818.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

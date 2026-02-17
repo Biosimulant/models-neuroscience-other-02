@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: AModelOfOptimalLearningWithRedundantSynap225075Model'
+description: '{"value": "This is a detailed neuron model of non-parametric near-optimal
+  latent model acquisition using multisynaptic connections between pre- and postsynaptic
+  neurons.", "attr_id": 24}'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:225075
+  source_db: modeldb
+  source_id: '225075'
+  standard: other
+  original_url: https://modeldb.science/225075
+  download_url: https://modeldb.science/download/225075
+  license: ''
+bsim:
+  entrypoint: src.a_model_of_optimal_learning_with_redundant_synap_225075_model:AModelOfOptimalLearningWithRedundantSynap225075Model
+  init_kwargs:
+    model_path: data/225075.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

@@ -1,0 +1,216 @@
+
+<h1>FlyBrainLab</h1>
+
+  <p>FlyBrainLab is an interactive computing platform for studying the function of executable circuits
+       constructed from fruit fly brain datasets. <p></p>General information about the FlyBrainLab is available at <a href="https://www.fruitflybrain.org">https://www.fruitflybrain.org</a>. Stable and tested FlyBrainLab installation instructions for Linux, MacOS, and Windows are available at <a href="https://github.com/FlyBrainLab/FlyBrainLab">https://github.com/FlyBrainLab/FlyBrainLab</a>.</p>
+
+       A full installation of FlyBrainLab, including all backend and frontend components, is available as a Docker image at <a href="https://hub.docker.com/r/fruitflybrain/fbl">https://hub.docker.com/r/fruitflybrain/fbl</a>. The image requires a Linux host with at least 1 CUDA-enabled GPU and the <a href="https://github.com/NVIDIA/nvidia-docker">nvidia-docker package</a> installed. For a custom installation of the complete FlyBrainLab platform, a shell script is available at <a href="https://github.com/FlyBrainLab/FlyBrainLab">https://github.com/FlyBrainLab/FlyBrainLab</a>.</p>
+    
+<h3>Installation</h3>
+<ul>
+<li>Entry Point: <a href="https://github.com/FlyBrainLab/FlyBrainLab">https://github.com/FlyBrainLab/FlyBrainLab</a></li>
+<li>Docker Image: <a href="https://hub.docker.com/r/fruitflybrain/fbl">https://hub.docker.com/r/fruitflybrain/fbl</a></li>
+</ul>
+
+<h2>FlyBrainLab Resources</h2>
+
+  <p>The main components of the FlyBrainLab software 
+       architecture are depicted in the following figure.</p>
+<center>
+<img src="https://raw.githubusercontent.com/bionet/bionet.github.io/img/img/fbl_main_components.png" alt="FlyBrainLab Architecture" width="80%">  
+</center>
+
+<h3>Server-Side Components</h3>
+<p>The server-side components include the FFBO Processor, the NeuroArch Server, the NeuroNLP Server and the Neurokernel Server.</p>
+
+<p><em>FFBO Processor</em> implements a <a href="https://crossbar.io/">Crossbar.io</a> router that establishes the communication path among connected components and clients. Components communicate using routed Remote Procedure Calls (RPCs) and a publish/subscribe mechanism. The FFBO processor can be hosted locally or in the cloud.</p>
+<p><em>NeuroArch Server</em> hosts the NeuroArch Database implemented with the <a href="https://orientdb.org/">OrientDB</a> graph database. The NeuroArch Database provides a novel data model for representation and storage of connectomic, synaptomic, genetic and neurophysiology data of the fruit fly brain with cross-referenced executable circuits. The Queries of the NeuroArch Database are supported by the NeuroArch Python API. The NeuroArch Server provides high level RPC APIs for remote access of the NeuroArch Database.</p>
+<p><em>Neurokernel Server</em> provides RPC APIs for code execution of model circuits by the Neurokernel Execution Engine. Neurokernel supports the easy combination of independently developed executable circuits towards the realization of a complete whole brain emulation.
+The Neurokernel Execution Engine features:</p>
+<ul>
+<li>the core <em>Neurokernel</em> services providing management capabilities for code execution, and communication between interconnected circuits,</li>
+<li>the <em>Neurodriver</em> services providing low level APIs for code execution on GPUs according to user-specified circuit connectivity, biological spike generators and synapses, and input stimuli.</li>
+</ul>
+<p>The Neurokernel Server directly fetches the specification of executable circuits from the NeuroArch Server, instantiates these circuits and transfers them for execution to the Neurokernel Execution Engine.</p>
+<p><em>NeuroNLP Server</em> provides an RPC API for translating queries written as English sentences, such as "add dopaminergic neurons innervating the mushroom body", into database queries that can be interpreted by the NeuroArch Server API, using the NLP Engine hosted by <strong>NeuroArch_NLP</strong> library. This capability increases the accessibility of the NeuroArch Database to users without prior exposure to database programming, and greatly simplifies the often-demanding task of writing database queries.</p>
+<h4>Code Repositories</h4>
+<table>
+<thead>
+<tr>
+<th>Repository</th>
+<th>Utility</th>
+<th>Source Code</th>
+<th>Documentation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FFBO Processor</td>
+<td>Main Processor and Router</td>
+<td><a href="https://github.com/fruitflybrain/ffbo.processor">GitHub</a></td>
+<td></td>
+</tr>
+<tr>
+<td>NeuroArch Server</td>
+<td>Database Server</td>
+<td><a href="https://github.com/fruitflybrain/ffbo.neuroarch_component">GitHub</a></td>
+<td></td>
+</tr>
+<tr>
+<td>NeuroArch</td>
+<td>Graph Database</td>
+<td><a href="https://github.com/fruitflybrain/neuroarch">GitHub</a></td>
+<td><a href="https://neuroarch.readthedocs.io/en/latest/">Doc</a></td>
+</tr>
+<tr>
+<td>NeuroNLP Server</td>
+<td>Natural Language Processing Server</td>
+<td><a href="https://github.com/fruitflybrain/ffbo.nlp_component">GitHub</a></td>
+<td></td>
+</tr>
+<tr>
+<td>NeuroArch_NLP</td>
+<td>Translation of English Query to NeuroArch Query</td>
+<td><a href="https://github.com/fruitflybrain/ffbo.neuroarch_nlp">GitHub</a></td>
+<td></td>
+</tr>
+<tr>
+<td>Neurokernel Server</td>
+<td>Execution Server</td>
+<td><a href="https://github.com/fruitflybrain/ffbo.neurokernel_component">GitHub</a></td>
+<td></td>
+</tr>
+<tr>
+<td>Neurokernel</td>
+<td>Execution Engine</td>
+<td><a href="https://github.com/neurokernel">GitHub</a></td>
+<td><a href="https://neurokernel.readthedocs.io/en/latest/">Doc</a></td>
+</tr>
+<tr>
+<td>Neurodriver</td>
+<td>Execution Engine</td>
+<td><a href="https://github.com/neurodriver">GitHub</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<h4>NeuroArch Datasets</h4>
+<p>We’ve included a few publicly available datasets in the NeuroArch database for easy accessibility. Users can also load and use custom datasets with their local NeuroArch installations.</p>
+<ul>
+<li>FlyCircuit Adult Data (<code>v1.2</code>): <a href="http://flycircuit.tw/">Reference</a></li>
+<li>Larva L1EM Data: <a href="https://l1em.catmaid.virtualflybrain.org/">Reference</a></li>
+<li>Hemibrain Adult Data (<code>v1.0.1</code>, <code>v1.1</code>, <code>v1.2</code>): <a href="https://www.janelia.org/project-team/flyem/hemibrain">Reference</a></li>
+<li>Medulla 7 Column Data: <a href="https://github.com/janelia-flyem/ConnectomeHackathon2015">Reference</a></li>
+<li>FlyLight Data: <a href="http://flybrain.mrc-lmb.cam.ac.uk/si/bridging/www/brains">Reference</a></li>
+<li>NeuronBridge Data: <a href="https://neuronbridge.janelia.org/about">Reference</a></li>
+</ul>
+<p>Additionally, we provide a <a href="https://github.com/FlyBrainLab/datasets"><b>Datasets Version Tracker</b></a> which includes information about and download links for the NeuroArch Database.</p>
+
+<h3>User-side Components</h3>
+
+<p>The FlyBrainLab user-side components consist of the <em>NeuroMynerva User Interface</em> and the <em>FlyBrainLab Client back-end</em>. The former provides capabilities such as morphology visualization and interactive circuit diagrams, and the latter provides program execution for communicating with the server components.</p>
+<p>A more detailed software architecture of the user-side components is depicted below.</p>
+<center>
+<img src="https://raw.githubusercontent.com/bionet/bionet.github.io/img/img/user-side.jpg" alt="FlyBrainLab Architecture" width="80%">  
+</center>
+
+<p><em>NeuroMynerva</em> is the user-side frontend of FlyBrainLab. It is a browser-based application that substantially extends upon JupyterLab by providing a number of widgets, including a Neu3D widget for 3D visualization of fly brain data, a NeuGFX widget for exploring executable neural circuits with interactive circuit diagrams, and an InfoPanel widget for accessing individual neuron/synapse data. </p>
+<p><em>FlyBrainLab Client back-end (FBLClient)</em> connects to the FFBO processor and accesses services provided by the connected backend servers. FlyBrainLab Client provides program execution APIs for handling requests to the server-side components and parsing of data coming from backend servers. In addition, it handles the communication with the frontend through the Jupyter kernel.</p>
+<p><em>Neuroballad</em> is a Python library that simplifies and accelerates executable circuit construction and simulation using Neurokernel in Jupyter notebooks in FlyBrainLab.</p>
+<p><em>FlyBrainLab Utility Library</em> offers a number of utilities to explicate the graph structure of neural circuits from raw connectome and synaptome data. </p>
+<p><em>FlyBrainLab Circuits Library</em> offer circuit specific tools for analyzing, evaluating and comparing fruit fly brain circuits. In conjunction with the capability of visually constructing circuits enabled by the NeuroMynerva front-end, speeding up the process of creating interactive executable circuit diagrams can substantially reduce the exploratory development cycle. </p>
+<h4>Installation</h4>
+<ul>
+<li>Entry Point: <a href="https://github.com/FlyBrainLab/FlyBrainLab">https://github.com/FlyBrainLab/FlyBrainLab</a></li>
+<li>Docker Image: <a href="https://hub.docker.com/r/fruitflybrain/fbl">https://hub.docker.com/r/fruitflybrain/fbl</a></li>
+</ul>
+<h4>Code Repositories</h4>
+<p><strong>FlyBrainLab User Components</strong></p>
+<table>
+<thead>
+<tr>
+<th>Repository</th>
+<th>Utility</th>
+<th>Source Code</th>
+<th>Documentation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>NeuroMynerva</td>
+<td>User Frontend</td>
+<td><a href="https://github.com/FlyBrainLab/NeuroMynerva">GitHub</a></td>
+<td><a href="https://github.com/FlyBrainLab/NeuroMynerva/wiki/API-Reference">Doc</a></td>
+</tr>
+<tr>
+<td>FBLClient</td>
+<td>User Backend and FlyBrainLab Utility Library</td>
+<td><a href="https://github.com/FlyBrainLab/FBLClient">GitHub</a></td>
+<td><a href="https://flybrainlab.github.io/FBLClient/">Doc</a></td>
+</tr>
+<tr>
+<td>Neuroballad</td>
+<td>High Level API for Circuit Execution</td>
+<td><a href="https://github.com/FlyBrainLab/Neuroballad">GitHub</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><strong>FlyBrainLab Utility Library</strong></p>
+<p>The current <a href="https://github.com/FlyBrainLab/FBLClient/tree/master/flybrainlab/utilities">FlyBrainLab Utility Library</a> includes:</p>
+<ul>
+<li>NeuroEmbed (Cell Classification and Cell Type Discovery),</li>
+<li>NeuroSynapsis (High Level Queries and Analysis of Connectomic and Synaptomic Data),</li>
+<li>NeuroGraph (Connectivity Pattern Discovery and Circuit Visualization Algorithms),</li>
+<li>NeuroWatch (3D Fruit Fly Data Visualization in Jupyter Notebooks),</li>
+<li>NeuroMetry (Morphometric Measurements of Neurons).</li>
+</ul>
+<p>They are built into the FBLClient.</p>
+<p><strong>FlyBrainLab Circuit Library</strong></p>
+<table>
+<thead>
+<tr>
+<th>Repository</th>
+<th>Utility</th>
+<th>Source Code</th>
+<th>Documentation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CXcircuits</td>
+<td>Library for the Central Complex</td>
+<td><a href="https://github.com/FlyBrainLab/CXcircuits">GitHub</a></td>
+<td></td>
+</tr>
+<tr>
+<td>EOScircuits</td>
+<td>Library for the Early Olfactory System</td>
+<td><a href="https://github.com/FlyBrainLab/EOScircuits">GitHub</a></td>
+<td><a href="https://flybrainlab.github.io/EOScircuits/">Doc</a></td>
+</tr>
+<tr>
+<td>OlfTrans</td>
+<td>Library for Molecular Transduction in the Olfactory Sensory Neurons</td>
+<td><a href="https://github.com/FlyBrainLab/OlfTrans">GitHub</a></td>
+<td><a href="https://flybrainlab.github.io/OlfTrans/">Doc</a></td>
+</tr>
+<tr>
+<td>VisTrans</td>
+<td>Library for Phototransduction in the Retina</td>
+<td><a href="https://github.com/FlyBrainLab/VisTrans">GitHub</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<h4>Tutorials</h4>
+<p>Latest tutorials can be found in the <a href="https://github.com/FlyBrainLab/Tutorials">FlyBrainLab/Tutorials</a> repository.</p>
+<ul>
+<li>Usage<ul>
+<li>Basic Usage: Getting Started <a href="https://github.com/FlyBrainLab/Tutorials/tree/master/tutorials/getting_started">Notebooks</a></li>
+<li>Generating Diagrams with FlyBrainLab: <a href="https://github.com/FlyBrainLab/Tutorials/blob/master/tutorials/diagram_generation_tutorial/generate_diagram.ipynb">Notebook</a></li>
+<li>Loading Data into FlyBrainLab: Structure of Retrieved Data and Loading SWC Files
+: <a href="https://github.com/FlyBrainLab/Tutorials/blob/master/tutorials/swc_loading_tutorial/swc_loading.ipynb">Notebook</a></li>
+<li>Retrieving and Parsing Information on Neurons: <a href="https://github.com/FlyBrainLab/Tutorials/blob/master/tutorials/neuron_information_tutorial/neuron_information.ipynb">Notebook</a></li>
+</ul>
+</li>
+<li>Data Loading<ul>
+<li><em>in vivo</em> Antenna Recording (electrophysiology): <a href="https://github.com/FlyBrainLab/Tutorials/blob/master/tutorials/osn_ephys_tutorial/OSN_ephys_tutorial.ipynb">Notebook</a></li>
+</ul>
+</li>
+</ul>
+</div></div>

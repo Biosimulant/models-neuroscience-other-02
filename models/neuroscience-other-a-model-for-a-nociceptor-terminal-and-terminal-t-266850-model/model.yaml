@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: AModelForANociceptorTerminalAndTerminalT266850Model'
+description: '{"value": "This model was used to study how the architecture of the
+  nociceptor terminal tree affects the input-output relation of the primary nociceptive
+  neurons. The model shows that the input-output'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:266850
+  source_db: modeldb
+  source_id: '266850'
+  standard: other
+  original_url: https://modeldb.science/266850
+  download_url: https://modeldb.science/download/266850
+  license: ''
+bsim:
+  entrypoint: src.a_model_for_a_nociceptor_terminal_and_terminal_t_266850_model:AModelForANociceptorTerminalAndTerminalT266850Model
+  init_kwargs:
+    model_path: data/266850.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

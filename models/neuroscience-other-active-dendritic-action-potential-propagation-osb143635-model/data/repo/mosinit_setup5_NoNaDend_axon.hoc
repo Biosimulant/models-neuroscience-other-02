@@ -1,0 +1,7 @@
+{load_file("nrngui.hoc")}
+{load_file("cell_setup5_NoNaDend_axon.hoc")}
+{load_file("rig.ses")}
+{load_file("iclamp.ses")}
+
+
+{load_file("spaceplot.ses")}

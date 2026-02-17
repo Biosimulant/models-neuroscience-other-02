@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: ALayerVCcsTypePyramidalCellInhibitorySyn183424Model'
+description: '{"value": "A layer V crossed-corticostriatal (CCS) \u2018slender untufted\u2019
+  pyramidal cell model of rat frontal cortex was built using Neurolucida tracing as
+  well as 3D reconstructed dendrites of '
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:183424
+  source_db: modeldb
+  source_id: '183424'
+  standard: other
+  original_url: https://modeldb.science/183424
+  download_url: https://modeldb.science/download/183424
+  license: ''
+bsim:
+  entrypoint: src.a_layer_v_ccs_type_pyramidal_cell_inhibitory_syn_183424_model:ALayerVCcsTypePyramidalCellInhibitorySyn183424Model
+  init_kwargs:
+    model_path: data/183424.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

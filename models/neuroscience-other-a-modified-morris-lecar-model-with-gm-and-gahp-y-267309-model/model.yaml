@@ -1,0 +1,34 @@
+schema_version: '2.0'
+title: 'Neuroscience: AModifiedMorrisLecarModelWithGmAndGahpY267309Model'
+description: '{"value": "The model code for BioRxiv https://www.biorxiv.org/content/10.1101/2020.12.04.410787\r\n\r\nPlease
+  see readme.txt to get started. ", "attr_id": 24}'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:267309
+  source_db: modeldb
+  source_id: '267309'
+  standard: other
+  original_url: https://modeldb.science/267309
+  download_url: https://modeldb.science/download/267309
+  license: ''
+bsim:
+  entrypoint: src.a_modified_morris_lecar_model_with_gm_and_gahp_y_267309_model:AModifiedMorrisLecarModelWithGmAndGahpY267309Model
+  init_kwargs:
+    model_path: data/267309.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

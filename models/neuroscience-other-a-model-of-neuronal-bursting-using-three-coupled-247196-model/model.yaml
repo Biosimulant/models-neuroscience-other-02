@@ -1,0 +1,34 @@
+schema_version: '2.0'
+title: 'Neuroscience: AModelOfNeuronalBurstingUsingThreeCoupled247196Model'
+description: '{"value": "R Brette''s Brian 2 implementation of the classic Hindmarsh-Rose
+  1984 dynamical system representing neuronal bursting.", "attr_id": 24}'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:247196
+  source_db: modeldb
+  source_id: '247196'
+  standard: other
+  original_url: https://modeldb.science/247196
+  download_url: https://modeldb.science/download/247196
+  license: ''
+bsim:
+  entrypoint: src.a_model_of_neuronal_bursting_using_three_coupled_247196_model:AModelOfNeuronalBurstingUsingThreeCoupled247196Model
+  init_kwargs:
+    model_path: data/247196.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

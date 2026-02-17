@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: ActivatorProtein1Ap1TranscriptionalRegulat185122Model'
+description: '{"value": "We have developed a mathematical model of AT1R-activated
+  signaling kinases and a downstream transcriptional regulatory network controlling
+  the family of activator protein 1 (AP-1) transcrip'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:185122
+  source_db: modeldb
+  source_id: '185122'
+  standard: other
+  original_url: https://modeldb.science/185122
+  download_url: https://modeldb.science/download/185122
+  license: ''
+bsim:
+  entrypoint: src.activator_protein_1_ap_1_transcriptional_regulat_185122_model:ActivatorProtein1Ap1TranscriptionalRegulat185122Model
+  init_kwargs:
+    model_path: data/185122.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

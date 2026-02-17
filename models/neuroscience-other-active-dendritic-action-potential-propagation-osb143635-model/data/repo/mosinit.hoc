@@ -1,0 +1,2 @@
+load_file("nrngui.hoc")
+load_file("mosinit_setup5_NaDend5025_axon.hoc")

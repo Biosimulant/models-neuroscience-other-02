@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: AModelOfWorkingMemoryForEncodingMultiple267297Model'
+description: '{"value": "We present an original neural network model, based on oscillating
+  neural masses, to investigate mechanisms at the basis of working memory in different
+  conditions. Simulations show that the '
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:267297
+  source_db: modeldb
+  source_id: '267297'
+  standard: other
+  original_url: https://modeldb.science/267297
+  download_url: https://modeldb.science/download/267297
+  license: ''
+bsim:
+  entrypoint: src.a_model_of_working_memory_for_encoding_multiple_267297_model:AModelOfWorkingMemoryForEncodingMultiple267297Model
+  init_kwargs:
+    model_path: data/267297.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

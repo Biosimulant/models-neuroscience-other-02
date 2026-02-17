@@ -1,0 +1,166 @@
+/* ===========================================================
+
+        Author: Daniel Keller
+		Institution: Ecole Polytechnique Federale de Lausanne
+			     Reference: Keller D, Babai N, Kochubey O, Han Y, Markram H, Schürmann F, et al. (2015) An Exclusion Zone for Ca2+ Channels around Docked Vesicles Explains Release Control by Multiple Channels at a CNS Synapse. PLoS Comput Biol 11(5): e1004253. doi:10.1371/journal.pcbi.1004253
+
+============================================================= */
+
+/* --- Define Presynaptic Bouton ---- */
+/*bouton_width+active_zone_width*/
+boutonsensorbox_0 BOX {
+  CORNERS=[0,0,0],[0.0001,0.0001,0.0001]
+    DEFINE_SURFACE_REGIONS{
+    b0_surf{
+      ELEMENT_LIST=[ALL_ELEMENTS]
+      SURFACE_CLASS=transparent_class
+    }
+  }
+  TRANSLATE=[0,0,0.5*gap_size+fuzz+0.005]
+}
+
+boutonsensorbox_1 BOX {
+  CORNERS=[0,0,0],[0.0001,0.0001,0.0001]
+    DEFINE_SURFACE_REGIONS{
+    b1_surf{
+      ELEMENT_LIST=[ALL_ELEMENTS]
+      SURFACE_CLASS=transparent_class
+    }
+  }
+  TRANSLATE=[0,0.01,0.5*gap_size+fuzz+0.005]
+}
+
+boutonsensorbox_2 BOX {
+  CORNERS=[0,0,0],[0.0001,0.0001,0.0001]
+    DEFINE_SURFACE_REGIONS{
+    b2_surf{
+      ELEMENT_LIST=[ALL_ELEMENTS]
+      SURFACE_CLASS=transparent_class
+    }
+  }
+  TRANSLATE=[0,2 *0.01,0.5*gap_size+fuzz+0.005]
+}
+
+boutonsensorbox_3 BOX {
+  CORNERS=[0,0,0],[0.0001,0.0001,0.0001]
+    DEFINE_SURFACE_REGIONS{
+    b3_surf{
+      ELEMENT_LIST=[ALL_ELEMENTS]
+      SURFACE_CLASS=transparent_class
+    }
+  }
+  TRANSLATE=[0,3 * 0.01,0.5*gap_size+fuzz+0.005]
+}
+
+boutonsensorbox_4 BOX {
+  CORNERS=[0,0,0],[0.0001,0.0001,0.0001]
+    DEFINE_SURFACE_REGIONS{
+    b4_surf{
+      ELEMENT_LIST=[ALL_ELEMENTS]
+      SURFACE_CLASS=transparent_class
+    }
+  }
+  TRANSLATE=[0,4 * 0.01,0.5*gap_size+fuzz+0.005]
+}
+
+boutonsensorbox_5 BOX {
+  CORNERS=[0,0,0],[0.0001,0.0001,0.0001]
+    DEFINE_SURFACE_REGIONS{
+    b5_surf{
+      ELEMENT_LIST=[ALL_ELEMENTS]
+      SURFACE_CLASS=transparent_class
+    }
+  }
+  TRANSLATE=[0,5 * 0.01,0.5*gap_size+fuzz+0.005]
+}
+
+
+boutonsensorbox_6 BOX {
+  CORNERS=[0,0,0],[0.0001,0.0001,0.0001]
+    DEFINE_SURFACE_REGIONS{
+    b5_surf{
+      ELEMENT_LIST=[ALL_ELEMENTS]
+      SURFACE_CLASS=transparent_class
+    }
+  }
+  TRANSLATE=[0,6 * 0.01,0.5*gap_size+fuzz+0.005]
+}
+
+boutonsensorbox_7 BOX {
+  CORNERS=[0,0,0],[0.0001,0.0001,0.0001]
+    DEFINE_SURFACE_REGIONS{
+    b5_surf{
+      ELEMENT_LIST=[ALL_ELEMENTS]
+      SURFACE_CLASS=transparent_class
+    }
+  }
+  TRANSLATE=[0,7 * 0.01,0.5*gap_size+fuzz+0.005]
+}
+
+boutonsensorbox_8 BOX {
+  CORNERS=[0,0,0],[0.0001,0.0001,0.0001]
+    DEFINE_SURFACE_REGIONS{
+    b5_surf{
+      ELEMENT_LIST=[ALL_ELEMENTS]
+      SURFACE_CLASS=transparent_class
+    }
+  }
+  TRANSLATE=[0,8 * 0.01,0.5*gap_size+fuzz+0.005]
+}
+
+boutonsensorbox_9 BOX {
+  CORNERS=[0,0,0],[0.0001,0.0001,0.0001]
+    DEFINE_SURFACE_REGIONS{
+    b5_surf{
+      ELEMENT_LIST=[ALL_ELEMENTS]
+      SURFACE_CLASS=transparent_class
+    }
+  }
+  TRANSLATE=[0,9 * 0.01,0.5*gap_size+fuzz+0.005]
+}
+
+boutonsensorbox_10 BOX {
+  CORNERS=[0,0,0],[0.0001,0.0001,0.0001]
+    DEFINE_SURFACE_REGIONS{
+    b5_surf{
+      ELEMENT_LIST=[ALL_ELEMENTS]
+      SURFACE_CLASS=transparent_class
+    }
+  }
+  TRANSLATE=[0,10 * 0.01,0.5*gap_size+fuzz+0.005]
+}
+
+boutonsensorbox_11 BOX {
+  CORNERS=[0,0,0],[0.0001,0.0001,0.0001]
+    DEFINE_SURFACE_REGIONS{
+    b5_surf{
+      ELEMENT_LIST=[ALL_ELEMENTS]
+      SURFACE_CLASS=transparent_class
+    }
+  }
+  TRANSLATE=[0,11 * 0.01,0.5*gap_size+fuzz+0.005]
+}
+
+boutonsensorbox_12 BOX {
+  CORNERS=[0,0,0],[0.0001,0.0001,0.0001]
+    DEFINE_SURFACE_REGIONS{
+    b5_surf{
+      ELEMENT_LIST=[ALL_ELEMENTS]
+      SURFACE_CLASS=transparent_class
+    }
+  }
+  TRANSLATE=[0,12 * 0.01,0.5*gap_size+fuzz+0.005]
+}
+
+
+boutonactivezone BOX {
+  CORNERS=[0,0,0],[active_zone_width,active_zone_width,0.0001]
+    DEFINE_SURFACE_REGIONS{
+    baz_surf{
+      ELEMENT_LIST=[ALL_ELEMENTS]
+      SURFACE_CLASS=transparent_class
+    }
+  }
+  TRANSLATE=[-active_zone_width/2,-active_zone_width/2,0.5*gap_size+fuzz+0.005]
+}
+

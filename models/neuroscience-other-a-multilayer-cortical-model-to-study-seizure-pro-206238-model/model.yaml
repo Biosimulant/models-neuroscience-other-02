@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: AMultilayerCorticalModelToStudySeizurePro206238Model'
+description: '{"value": "A realistic neural network was used to simulate a region
+  of neocortex to obtain extracellular LFPs from \u2018virtual micro-electrodes\u2019
+  and produce test data for comparison with multis'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:206238
+  source_db: modeldb
+  source_id: '206238'
+  standard: other
+  original_url: https://modeldb.science/206238
+  download_url: https://modeldb.science/download/206238
+  license: ''
+bsim:
+  entrypoint: src.a_multilayer_cortical_model_to_study_seizure_pro_206238_model:AMultilayerCorticalModelToStudySeizurePro206238Model
+  init_kwargs:
+    model_path: data/206238.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

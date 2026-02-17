@@ -1,0 +1,158 @@
+{load_file("nrngui.hoc")}
+
+create soma, dend[2]
+objref vc
+soma { nseg=1  L=15  Ra=100
+        /*location 0 attached to cell 0*/
+        /* First segment only */
+        insert morphology { diam=10}
+        insert capacitance { cm=1}
+		insert pas {g_pas = 0.00005 e_pas = -65}
+		insert k_ion {ek = -90}
+		insert na_ion {ena = 60}
+		insert kht {gkhtbar_kht = 0.05}
+		insert na {gbar_na = 200}
+}
+
+dend { nseg=50  L=450  Ra=100
+        soma connect dend (0), soma (1)
+        /* First segment only */
+		insert pas {g_pas = 0.00005 e_pas = -65}
+		insert k_ion {ek = -90}
+		insert na_ion {ena = 60}
+		insert kht {gkhtbar_kht = 0.05}
+		insert na {gbar_na = 100}
+        insert capacitance { cm=2}
+        insert morphology { diam=3}
+}
+
+dend[1] { nseg=5  L=50  Ra=100
+        soma connect dend[1] (0), soma (0)
+        /* First segment only */
+		insert pas {g_pas = 0.00005 e_pas = -65}
+		insert k_ion {ek = -90}
+		insert na_ion {ena = 60}
+		insert kht {gkhtbar_kht = 0.05}
+		insert na {gbar_na = 8000}
+        insert capacitance { cm=1}
+        insert morphology { diam=1}
+}
+access soma
+
+celsius=35
+forall insert mhw
+xpanel("measure")
+  xbutton("measure", "measure()")
+  //xbutton("10 slope_thresh and -40 vtraub","{slope_thresh_mhw=10 vtraub_hh2=-40 tstop=7}")
+  xbutton("20 slope_thresh","{slope_thresh_mhw=20 tstop=10}")
+  xbutton("graph delta t","graph_deltat()")
+  xbutton("graph m_inf, tau_m","m_graphs()")
+  xbutton("graph h_inf, tau_h","h_graphs()")
+  xbutton("graph n_inf, tau_n","n_graphs()")
+xpanel()
+proc measure() {
+  {mode_mhw=1 init() run() mode_mhw=2 init() run()}
+  for i=1,3 {
+    Graph[i].exec_menu("View = plot")
+  }
+}
+slope_thresh_mhw=20
+dend.diam(0:1) = 3.5:1.5
+dend.gbar_na(0:1) = 0:0
+dend.gkhtbar_kht(0:1) = .025:.0125
+
+
+
+soma distance() // initialize the distance function
+
+
+objref delta_t
+objref d_vec
+
+objref deltatg
+
+proc graph_deltat() {
+  d_vec=new Vector()
+  delta_t=new Vector()
+
+  deltatg=new Graph()
+
+  dend for(x,0) {
+    d_vec.append(distance(x))
+    delta_t.append(t0_mhw(x)-soma.t0_mhw(.5))
+  }
+
+  delta_t.line(deltatg, d_vec)
+  deltatg.exec_menu("View = plot")
+}
+
+objref v_vec
+objref m_inf_vec, h_inf_vec, n_inf_vec
+objref tau_m_vec, tau_h_vec, tau_n_vec
+objref m_inf_graph, tau_m_graph, h_inf_graph, tau_h_graph, n_inf_graph, tau_n_graph
+
+v_vec=new Vector()
+for i=-120,60 {
+  v_vec.append(i+.5)
+}
+
+proc m_graphs() {
+  m_inf_vec = new Vector()
+  tau_m_vec = new Vector()
+  for i=-100,50 {
+    v_init=i+.5
+    init()
+    m_inf_vec.append(minf_na)
+    tau_m_vec.append(mtau_na)
+  }
+
+  m_inf_graph = new Graph()
+  tau_m_graph = new Graph()
+
+  m_inf_vec.line(m_inf_graph, v_vec)
+  tau_m_vec.line(tau_m_graph, v_vec)
+
+  m_inf_graph.exec_menu("View = plot")
+  tau_m_graph.exec_menu("View = plot")
+}
+proc h_graphs() {
+  h_inf_vec = new Vector()
+  tau_h_vec = new Vector()
+  for i=-100,50 {
+    v_init=i+.5
+    init()
+    h_inf_vec.append(hinf_na)
+    tau_h_vec.append(htau_na)
+  }
+
+  h_inf_graph = new Graph()
+  tau_h_graph = new Graph()
+
+  h_inf_vec.line(h_inf_graph, v_vec)
+  tau_h_vec.line(tau_h_graph, v_vec)
+
+  h_inf_graph.exec_menu("View = plot")
+  tau_h_graph.exec_menu("View = plot")
+}
+
+proc n_graphs() {
+  n_inf_vec = new Vector()
+  tau_n_vec = new Vector()
+  for i=-100,50 {
+    v_init=i+.5
+    init()
+    n_inf_vec.append(ninf_kht)
+    tau_n_vec.append(ntau_kht)
+  }
+
+  n_inf_graph = new Graph()
+  tau_n_graph = new Graph()
+
+  n_inf_vec.line(n_inf_graph, v_vec)
+  tau_n_vec.line(tau_n_graph, v_vec)
+
+  n_inf_graph.exec_menu("View = plot")
+  tau_n_graph.exec_menu("View = plot")
+}
+
+

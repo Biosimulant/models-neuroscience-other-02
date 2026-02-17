@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: AGeneralModelOfHippocampalAndDorsalStriat266836Model'
+description: '{"value": "Python and Cython implementation of a dual-systems reinforcement
+  learning model that solves navigation and decision tasks using model-free and successor
+  representation strategies. For quest'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:266836
+  source_db: modeldb
+  source_id: '266836'
+  standard: other
+  original_url: https://modeldb.science/266836
+  download_url: https://modeldb.science/download/266836
+  license: ''
+bsim:
+  entrypoint: src.a_general_model_of_hippocampal_and_dorsal_striat_266836_model:AGeneralModelOfHippocampalAndDorsalStriat266836Model
+  init_kwargs:
+    model_path: data/266836.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

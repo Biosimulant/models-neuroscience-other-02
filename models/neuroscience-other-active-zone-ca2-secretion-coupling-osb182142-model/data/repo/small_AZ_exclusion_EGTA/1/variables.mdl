@@ -1,0 +1,169 @@
+/* ===========================================================
+
+        Author: Daniel Keller
+	Institution: Ecole Polytechnique Federale de Lausanne
+
+	"An exclusion zone for Ca2+ channels around docked vesicles explains 
+	release control by multiple channels at a CNS synapse"
+	PLoS Computational Biology, 2015
+
+============================================================= */
+
+/* --- contains (almost) all variables --- */
+ 
+
+chckpnt_state = 1
+currents = 1
+/*epsp_time = 20e-3   Time in seconds */
+
+Cabase=70e-9
+
+D_Ca= 2.2e-6
+D_Glu=2e-6
+D_CB=0
+n_Glu=0 * 2000
+
+Ca_HVA_density_neck=0 * 4
+Ca_HVA_density_head=0 * 4
+Ca_HVA_density_dend=0 * 4
+Ca_LVA_density_neck=0
+Ca_LVA_density_head=0
+Ca_LVA_density_dend=0
+
+
+psd_diameter = 350*1e-3  /* diamter of PSD in nanometers */
+psd_size = 350*1e-3  /* length of square PSD in nanometers */
+
+AMPA_number =0 * 80
+NMDA_number =0 * 10
+
+AMPA_density = AMPA_number / (0.25*psd_diameter*psd_diameter*3.1416)
+NMDA_density = NMDA_number / (0.25*psd_diameter*psd_diameter*3.1416)
+
+GluT_density=1000
+
+/*evenly distributed pumps */
+
+
+NCX_pump_density =0 * 200
+NCX_spine_pump_bound_fraction = 0.3
+NCX_dend_pump_bound_fraction = NCX_spine_pump_bound_fraction
+NCX_pump_density_neck = NCX_pump_density
+NCX_spine_pump_bound_fraction_neck = 0.3
+NCX_dend_pump_bound_fraction_neck = NCX_spine_pump_bound_fraction_neck 
+NCX_pump_density_dendrite = NCX_pump_density
+
+ex_pump_density =  0*  800
+ex_spine_pump_bound_fraction = 0.3
+ex_dend_pump_bound_fraction = ex_spine_pump_bound_fraction
+
+/*ex_pump_density_neck = ex_pump_density*/
+ex_pump_density_neck = 0 * 800
+ex_spine_pump_bound_fraction_neck = 0.3
+ex_dend_pump_bound_fraction_neck =ex_spine_pump_bound_fraction_neck 
+
+ex_pump_density_dendrite =0 * 800
+ex_spine_pump_bound_fraction_dendrite = 0.0
+ex_dend_pump_bound_fraction_dendrite =ex_spine_pump_bound_fraction_dendrite 
+
+EGTA_bound_fraction=EGTA_on * (Cabase)/(EGTA_off+EGTA_on * (Cabase))
+EGTA_unbound_fraction=1-EGTA_bound_fraction
+
+BAPTA_bound_fraction=BAPTA_on * (Cabase)/(BAPTA_off+BAPTA_on * (Cabase))
+BAPTA_unbound_fraction=1-BAPTA_bound_fraction
+
+concentration_to_density = 7.528e6 /* based on sheets 12.5nm apart */
+conversion_to_density= 6.02e8 /*number per mole per cubic micron*/
+
+
+slow_cbp_concentration = 400e-6
+bound_cbp_fraction = ((Cabase) )/((slow_off/slow_on + Cabase) )
+unbound_cbp_fraction = 1 - bound_cbp_fraction
+
+bound_cbp_fraction_spine = bound_cbp_fraction
+unbound_cbp_fraction_spine = 1 - bound_cbp_fraction
+
+bound_cbp_fraction_dend = bound_cbp_fraction
+unbound_cbp_fraction_dend = 1 - bound_cbp_fraction
+
+atp_concentration = 2000e-6
+bound_atp_fraction=(Cabase * katpMgback * katpCafor)/(katpCaback * katpMgback + Cabase * katpMgback * katpCafor + katpCaback * katpMgfor * Mgbase)
+mgbound_atp_fraction=(katpCaback * katpMgfor * Mgbase)/(katpCaback * katpMgback + Cabase * katpMgback * katpCafor + katpCaback * katpMgfor * Mgbase)
+unbound_atp_fraction=(katpCaback * katpMgback)/(katpCaback * katpMgback + Cabase * katpMgback * katpCafor + katpCaback * katpMgfor * Mgbase)
+
+parvalbumin_concentration = 100e-6
+bound_parvalbumin_fraction=(Cabase * kparvMU * kparvUB)/(kparvBU * kparvMU + Cabase * kparvMU * kparvUB + kparvBU * kparvUM * Mgbase)
+mgbound_parvalbumin_fraction=(kparvBU * kparvUM * Mgbase)/(kparvBU * kparvMU + Cabase * kparvMU * kparvUB + kparvBU * kparvUM * Mgbase)
+unbound_parvalbumin_fraction=(kparvBU * kparvMU)/(kparvBU * kparvMU + Cabase * kparvMU * kparvUB + kparvBU * kparvUM * Mgbase)
+
+
+fast_sp_concentration_psd=0 * conversion_to_density
+fast_cbp_concentration = 0e-6 * conversion_to_density
+medium_cbp_concentration = 0e-6 * conversion_to_density
+slow_cbp_concentration = 400e-6 
+v_slow_cbp_concentration = 00e-6 * conversion_to_density
+
+bound_cbp_fraction = ((Cabase) )/((slow_off/slow_on + Cabase) )
+unbound_cbp_fraction = 1 - bound_cbp_fraction
+
+calbindin_concentration =0 * 45e-6 * conversion_to_density 
+
+EGTA_concentration=1.0e-3
+BAPTA_concentration=0e-3
+
+sensor_concentration =  0e-6  * conversion_to_density 
+bound_sensor_fraction_spine = 0.25
+unbound_sensor_fraction_spine = 1 - bound_sensor_fraction_spine
+bound_sensor_fraction_dend = bound_sensor_fraction_spine
+unbound_sensor_fraction_dend = 1 - bound_sensor_fraction_dend
+
+bound_calbindin_H0M0_fraction = 52685 /99741
+bound_calbindin_H1M0_fraction = 15456/99741
+bound_calbindin_H2M0_fraction = 10314/99741
+bound_calbindin_H0M1_fraction = 11194 /99741
+bound_calbindin_H1M1_fraction = 10075/99741
+bound_calbindin_H2M1_fraction = 4/99741
+bound_calbindin_H0M2_fraction = 8 /99741
+bound_calbindin_H1M2_fraction = 0 /99741
+bound_calbindin_H2M2_fraction = 0 /99741
+
+
+
+/*calmodulin_concentration_psd = 260e-6 * 1.5056e7
+calmodulin_concentration_head = 5e-6 * 1.5056e7*/
+/*calmodulin_concentration_psd = 260e-6 * conversion_to_density
+calmodulin_concentration_head = 0 * 5e-6 * conversion_to_density*/
+calmodulin_concentration_psd =  0e-6 * conversion_to_density
+calmodulin_concentration_head = 0e-6 * conversion_to_density
+
+bound_calmodulin_1_fraction = 0.053 
+
+leak_density = 1280
+
+I_HVA = "hva_IV.dat"
+I_LVA = "lva_IV.dat"
+I_NMDA = "nmda_IV.dat"
+I_leak = 0 * 20
+
+dt=0.5e-8
+it=100e4
+/*it=60e4*/
+/*it=1001*/
+grid_density = 20000
+freq=2000 *dt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

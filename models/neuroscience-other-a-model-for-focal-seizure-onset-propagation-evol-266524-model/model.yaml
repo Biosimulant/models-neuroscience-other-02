@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: AModelForFocalSeizureOnsetPropagationEvol266524Model'
+description: '{"value": "We developed a neural network model that can account for
+  major elements common\r\nto human focal seizures. These include the tonic-clonic
+  transition, slow advance of clinical semiology\r\na'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:266524
+  source_db: modeldb
+  source_id: '266524'
+  standard: other
+  original_url: https://modeldb.science/266524
+  download_url: https://modeldb.science/download/266524
+  license: ''
+bsim:
+  entrypoint: src.a_model_for_focal_seizure_onset_propagation_evol_266524_model:AModelForFocalSeizureOnsetPropagationEvol266524Model
+  init_kwargs:
+    model_path: data/266524.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

@@ -1,0 +1,1041 @@
+/* ===========================================================
+
+        Author: Daniel Keller
+	Institution: Ecole Polytechnique Federale de Lausanne
+	Reference: Keller D, Babai N, Kochubey O, Han Y, Markram H, Schürmann F, et al. (2015) An Exclusion Zone for Ca2+ Channels around Docked Vesicles Explains Release Control by Multiple Channels at a CNS Synapse. PLoS Comput Biol 11(5): e1004253. doi:10.1371/journal.pcbi.1004253
+
+============================================================= */
+
+DEFINE_MOLECULES{
+  dummy  {DIFFUSION_CONSTANT_3D=0}
+
+  EGTA.U {DIFFUSION_CONSTANT_3D=D_EGTA}
+  EGTA.B {DIFFUSION_CONSTANT_3D=D_EGTA}
+
+  EGTAimmobile.U {DIFFUSION_CONSTANT_3D=0}
+  EGTAimmobile.B {DIFFUSION_CONSTANT_3D=0}
+
+  ATP.U {DIFFUSION_CONSTANT_3D=D_Ca TARGET_ONLY}
+  ATP.CaB {DIFFUSION_CONSTANT_3D=D_Ca TARGET_ONLY}
+  ATP.MgB {DIFFUSION_CONSTANT_3D=D_Ca TARGET_ONLY}
+
+  BAPTA.U {DIFFUSION_CONSTANT_3D=D_BAPTA}
+  BAPTA.B {DIFFUSION_CONSTANT_3D=D_BAPTA}
+
+  Glu {DIFFUSION_CONSTANT_3D=D_Glu}
+  Ca {DIFFUSION_CONSTANT_3D=D_Ca CUSTOM_TIME_STEP=0.2e-8 }
+
+  Ca_HVA_head.C {DIFFUSION_CONSTANT_2D=0}
+  Ca_HVA_head.O {DIFFUSION_CONSTANT_2D=0}
+  Ca_LVA_head.C {DIFFUSION_CONSTANT_2D=0}
+  Ca_LVA_head.O {DIFFUSION_CONSTANT_2D=0}
+  Ca_HVA_neck.C {DIFFUSION_CONSTANT_2D=0}
+  Ca_HVA_neck.O {DIFFUSION_CONSTANT_2D=0}
+  Ca_LVA_neck.C {DIFFUSION_CONSTANT_2D=0}
+  Ca_LVA_neck.O {DIFFUSION_CONSTANT_2D=0}
+
+  Ca_HVA.C1 {DIFFUSION_CONSTANT_2D=0}
+  Ca_HVA.C2 {DIFFUSION_CONSTANT_2D=0}
+  Ca_HVA.C3 {DIFFUSION_CONSTANT_2D=0}
+  Ca_HVA.C4 {DIFFUSION_CONSTANT_2D=0}
+  Ca_HVA.O5 {DIFFUSION_CONSTANT_2D=0}
+
+  Ca_HH.C0 {DIFFUSION_CONSTANT_2D=0}
+  Ca_HH.C1 {DIFFUSION_CONSTANT_2D=0}
+  Ca_HH.O {DIFFUSION_CONSTANT_2D=0}
+
+  AMPA.C0 {DIFFUSION_CONSTANT_2D=0}
+  AMPA.C1 {DIFFUSION_CONSTANT_2D=0}
+  AMPA.C2 {DIFFUSION_CONSTANT_2D=0}
+  AMPA.C3 {DIFFUSION_CONSTANT_2D=0}
+  AMPA.C4 {DIFFUSION_CONSTANT_2D=0}
+  AMPA.C5 {DIFFUSION_CONSTANT_2D=0}
+  AMPA.O {DIFFUSION_CONSTANT_2D=0}
+
+  NR2B.R {DIFFUSION_CONSTANT_2D=0} 
+  NR2B.RA {DIFFUSION_CONSTANT_2D=0}
+  NR2B.RA2 {DIFFUSION_CONSTANT_2D=0} 
+  NR2B.RA2d1 {DIFFUSION_CONSTANT_2D=0} 
+  NR2B.RA2d2 {DIFFUSION_CONSTANT_2D=0} 
+  NR2B.RA2f {DIFFUSION_CONSTANT_2D=0}
+  NR2B.RA2s {DIFFUSION_CONSTANT_2D=0}
+  NR2B.RA2o {DIFFUSION_CONSTANT_2D=0}
+
+  NR2B.B.R {DIFFUSION_CONSTANT_2D=0} 
+  NR2B.B.RA {DIFFUSION_CONSTANT_2D=0}
+  NR2B.B.RA2 {DIFFUSION_CONSTANT_2D=0} 
+  NR2B.B.RA2d1 {DIFFUSION_CONSTANT_2D=0} 
+  NR2B.B.RA2d2 {DIFFUSION_CONSTANT_2D=0} 
+  NR2B.B.RA2f {DIFFUSION_CONSTANT_2D=0}
+  NR2B.B.RA2s {DIFFUSION_CONSTANT_2D=0}
+  NR2B.B.RA2o {DIFFUSION_CONSTANT_2D=0}
+
+  NMDA_H.CU {DIFFUSION_CONSTANT_2D=0}
+  NMDA_H.CM {DIFFUSION_CONSTANT_2D=0}
+  NMDA_H.C1 {DIFFUSION_CONSTANT_2D=0}
+  NMDA_H.C2 {DIFFUSION_CONSTANT_2D=0}
+  NMDA_H.C3 {DIFFUSION_CONSTANT_2D=0}
+  NMDA_H.O1 {DIFFUSION_CONSTANT_2D=0}
+  NMDA_H.O2 {DIFFUSION_CONSTANT_2D=0}
+  NMDA_M.CU {DIFFUSION_CONSTANT_2D=0}
+  NMDA_M.CM {DIFFUSION_CONSTANT_2D=0}
+  NMDA_M.C1 {DIFFUSION_CONSTANT_2D=0}
+  NMDA_M.C2 {DIFFUSION_CONSTANT_2D=0}
+  NMDA_M.C3 {DIFFUSION_CONSTANT_2D=0}
+  NMDA_M.O1 {DIFFUSION_CONSTANT_2D=0}
+  NMDA_M.O2 {DIFFUSION_CONSTANT_2D=0}
+  NMDA_L.CU {DIFFUSION_CONSTANT_2D=0}
+  NMDA_L.CM {DIFFUSION_CONSTANT_2D=0}
+  NMDA_L.C1 {DIFFUSION_CONSTANT_2D=0}
+  NMDA_L.C2 {DIFFUSION_CONSTANT_2D=0}
+  NMDA_L.C3 {DIFFUSION_CONSTANT_2D=0}
+  NMDA_L.O1 {DIFFUSION_CONSTANT_2D=0}
+  NMDA_L.O2 {DIFFUSION_CONSTANT_2D=0}
+  NMDA_L.D {DIFFUSION_CONSTANT_2D=0}
+  NMDA_L.CUB {DIFFUSION_CONSTANT_2D=0}
+  NMDA_L.CMB {DIFFUSION_CONSTANT_2D=0}
+  NMDA_L.C1B {DIFFUSION_CONSTANT_2D=0}
+  NMDA_L.C2B {DIFFUSION_CONSTANT_2D=0}
+  NMDA_L.C3B {DIFFUSION_CONSTANT_2D=0}
+  NMDA_L.O1B {DIFFUSION_CONSTANT_2D=0}
+  NMDA_L.O2B {DIFFUSION_CONSTANT_2D=0}
+  NMDA_L.DB {DIFFUSION_CONSTANT_2D=0}
+
+  NMDA_simple.C0 {DIFFUSION_CONSTANT_2D=0}
+  NMDA_simple.C1 {DIFFUSION_CONSTANT_2D=0}
+  NMDA_simple.C2 {DIFFUSION_CONSTANT_2D=0}
+  NMDA_simple.D {DIFFUSION_CONSTANT_2D=0}
+  NMDA_simple.O {DIFFUSION_CONSTANT_2D=0}
+
+  NMDA_ljsimple.C1 {DIFFUSION_CONSTANT_2D=0}
+  NMDA_ljsimple.C2 {DIFFUSION_CONSTANT_2D=0}
+  NMDA_ljsimple.O {DIFFUSION_CONSTANT_2D=0}
+
+  NMDA.C0 {DIFFUSION_CONSTANT_2D=0}
+  NMDA.C1 {DIFFUSION_CONSTANT_2D=0}
+  NMDA.C2 {DIFFUSION_CONSTANT_2D=0}
+  NMDA.D {DIFFUSION_CONSTANT_2D=0}
+  NMDA.O {DIFFUSION_CONSTANT_2D=0}
+  NMDA.C0B {DIFFUSION_CONSTANT_2D=0}
+  NMDA.C1B {DIFFUSION_CONSTANT_2D=0}
+  NMDA.C2B {DIFFUSION_CONSTANT_2D=0}
+  NMDA.DB {DIFFUSION_CONSTANT_2D=0}
+  NMDA.OB {DIFFUSION_CONSTANT_2D=0}
+
+  CA_SOURCE.O {DIFFUSION_CONSTANT_2D=0}
+  CA_SOURCE.C {DIFFUSION_CONSTANT_2D=0}
+
+  GluT.T1 {DIFFUSION_CONSTANT_2D=0}
+  GluT.T2 {DIFFUSION_CONSTANT_2D=0}
+  GluT.T3 {DIFFUSION_CONSTANT_2D=0}
+
+  fast_sp.U {DIFFUSION_CONSTANT_3D=D_fast TARGET_ONLY}
+  fast_sp.B {DIFFUSION_CONSTANT_3D=D_fast TARGET_ONLY}
+  medium_sp.U {DIFFUSION_CONSTANT_3D= D_medium TARGET_ONLY}
+  medium_sp.B {DIFFUSION_CONSTANT_3D= D_medium TARGET_ONLY}
+  slow_sp.U {DIFFUSION_CONSTANT_3D= D_slow TARGET_ONLY}
+  slow_sp.B {DIFFUSION_CONSTANT_3D= D_slow TARGET_ONLY}
+  v_slow_sp.U {DIFFUSION_CONSTANT_3D=0 * D_Ca TARGET_ONLY}
+  v_slow_sp.B {DIFFUSION_CONSTANT_3D=0 * D_Ca TARGET_ONLY}
+  parvalbumin.U {DIFFUSION_CONSTANT_3D= 1e-6 TARGET_ONLY}
+  parvalbumin.B {DIFFUSION_CONSTANT_3D= 1e-6 TARGET_ONLY}
+  parvalbumin.M {DIFFUSION_CONSTANT_3D= 1e-6 TARGET_ONLY}
+
+  fluo_four_sp.U {DIFFUSION_CONSTANT_3D= D_Ca CUSTOM_SPACE_STEP = 0.1 TARGET_ONLY}
+  fluo_four_sp.B {DIFFUSION_CONSTANT_3D= D_Ca CUSTOM_SPACE_STEP = 0.1 TARGET_ONLY}
+  fluo_four_ff.U {DIFFUSION_CONSTANT_3D= D_Ind CUSTOM_SPACE_STEP = 0.1 TARGET_ONLY}
+  fluo_four_ff.B {DIFFUSION_CONSTANT_3D= D_Ind CUSTOM_SPACE_STEP = 0.1 TARGET_ONLY}
+  fluo_four_ff.10xmobile.U {DIFFUSION_CONSTANT_3D= D_fluo_four_ff_10xmobile CUSTOM_SPACE_STEP = 0.05 TARGET_ONLY}
+  fluo_four_ff.10xmobile.B {DIFFUSION_CONSTANT_3D= D_fluo_four_ff_10xmobile CUSTOM_SPACE_STEP = 0.05 TARGET_ONLY}
+cal_green_sp.U {DIFFUSION_CONSTANT_3D= D_Ind CUSTOM_SPACE_STEP = 0.1 TARGET_ONLY}
+  cal_green_sp.B {DIFFUSION_CONSTANT_3D= D_Ind CUSTOM_SPACE_STEP = 0.1 TARGET_ONLY}
+  /*cal_green_sp.U {DIFFUSION_CONSTANT_3D= D_Ind CUSTOM_SPACE_STEP = 0.1 TARGET_ONLY}
+  cal_green_sp.B {DIFFUSION_CONSTANT_3D= D_Ind CUSTOM_SPACE_STEP = 0.1 TARGET_ONLY}*/
+  OG_B_1_sp.U {DIFFUSION_CONSTANT_3D= D_Ind CUSTOM_SPACE_STEP = 0.1 TARGET_ONLY}
+  OG_B_1_sp.B {DIFFUSION_CONSTANT_3D= D_Ind CUSTOM_SPACE_STEP = 0.1 TARGET_ONLY}
+  OG_B_1_sp.10xmobile.U {DIFFUSION_CONSTANT_3D= D_OG1_10xmobile CUSTOM_SPACE_STEP = 0.02 TARGET_ONLY}
+  OG_B_1_sp.10xmobile.B {DIFFUSION_CONSTANT_3D= D_OG1_10xmobile CUSTOM_SPACE_STEP = 0.02 TARGET_ONLY}
+  OG_B_5_sp.U {DIFFUSION_CONSTANT_3D= D_OG5 CUSTOM_SPACE_STEP = 0.1 TARGET_ONLY}
+  OG_B_5_sp.B {DIFFUSION_CONSTANT_3D= D_OG5 CUSTOM_SPACE_STEP = 0.1 TARGET_ONLY}
+
+  calbindin.high0medium0 {DIFFUSION_CONSTANT_3D= D_CB CUSTOM_SPACE_STEP = 0.01 TARGET_ONLY}
+  calbindin.high0medium1 {DIFFUSION_CONSTANT_3D= D_CB CUSTOM_SPACE_STEP = 0.01 TARGET_ONLY}
+  calbindin.high0medium2 {DIFFUSION_CONSTANT_3D= D_CB CUSTOM_SPACE_STEP = 0.01 TARGET_ONLY}
+  calbindin.high1medium0 {DIFFUSION_CONSTANT_3D= D_CB CUSTOM_SPACE_STEP = 0.01 TARGET_ONLY}
+  calbindin.high1medium1 {DIFFUSION_CONSTANT_3D= D_CB CUSTOM_SPACE_STEP = 0.01 TARGET_ONLY}
+  calbindin.high1medium2 {DIFFUSION_CONSTANT_3D= D_CB CUSTOM_SPACE_STEP = 0.01 TARGET_ONLY}
+  calbindin.high2medium0 {DIFFUSION_CONSTANT_3D= D_CB CUSTOM_SPACE_STEP = 0.01 TARGET_ONLY}
+  calbindin.high2medium1 {DIFFUSION_CONSTANT_3D= D_CB CUSTOM_SPACE_STEP = 0.01 TARGET_ONLY}
+  calbindin.high2medium2 {DIFFUSION_CONSTANT_3D= D_CB CUSTOM_SPACE_STEP = 0.01 TARGET_ONLY}
+
+  calmodulin.B0 {DIFFUSION_CONSTANT_3D=0 * D_Ca TARGET_ONLY}
+  calmodulin.B1 {DIFFUSION_CONSTANT_3D=0 * D_Ca TARGET_ONLY}
+  calmodulin.B2 {DIFFUSION_CONSTANT_3D=0 * D_Ca TARGET_ONLY}
+  calmodulin.B3 {DIFFUSION_CONSTANT_3D=0 * D_Ca TARGET_ONLY}
+  calmodulin.B4 {DIFFUSION_CONSTANT_3D=0 * D_Ca TARGET_ONLY}
+
+  calmodulin_immobile.B0 {DIFFUSION_CONSTANT_3D=0 TARGET_ONLY}
+  calmodulin_immobile.B1 {DIFFUSION_CONSTANT_3D=0 TARGET_ONLY}
+  calmodulin_immobile.B2 {DIFFUSION_CONSTANT_3D=0 TARGET_ONLY }
+  calmodulin_immobile.B3 {DIFFUSION_CONSTANT_3D=0 TARGET_ONLY}
+  calmodulin_immobile.B4 {DIFFUSION_CONSTANT_3D=0 TARGET_ONLY }
+
+  NCX_pump_spine.U {DIFFUSION_CONSTANT_2D=0}
+  NCX_pump_spine.B {DIFFUSION_CONSTANT_2D=0}
+  NCX_pump_spine.K {DIFFUSION_CONSTANT_2D=0}
+  NCX_pump_neck.U {DIFFUSION_CONSTANT_2D=0}
+  NCX_pump_neck.B {DIFFUSION_CONSTANT_2D=0}
+  NCX_pump_neck.K {DIFFUSION_CONSTANT_2D=0}
+  NCX_pump_dendrite.U {DIFFUSION_CONSTANT_2D=0}
+  NCX_pump_dendrite.B {DIFFUSION_CONSTANT_2D=0}
+  NCX_pump_dendrite.K {DIFFUSION_CONSTANT_2D=0}
+
+  ex_Ca_pump_spine.U {DIFFUSION_CONSTANT_2D=0}
+  ex_Ca_pump_spine.B {DIFFUSION_CONSTANT_2D=0}
+  ex_Ca_pump_spine.K {DIFFUSION_CONSTANT_2D=0}
+  ex_Ca_pump_neck.U {DIFFUSION_CONSTANT_2D=0}
+  ex_Ca_pump_neck.B {DIFFUSION_CONSTANT_2D=0}
+  ex_Ca_pump_neck.K {DIFFUSION_CONSTANT_2D=0}
+  int_Ca_pump_spine.U {DIFFUSION_CONSTANT_2D=0}
+  int_Ca_pump_spine.B {DIFFUSION_CONSTANT_2D=0}
+  int_Ca_pump_spine.K {DIFFUSION_CONSTANT_2D=0}
+  int_Ca_pump_neck.U {DIFFUSION_CONSTANT_2D=0}
+  int_Ca_pump_neck.B {DIFFUSION_CONSTANT_2D=0}
+  int_Ca_pump_neck.K {DIFFUSION_CONSTANT_2D=0}
+
+  SERCA_X1 {DIFFUSION_CONSTANT_2D = 0}
+  SERCA_X1A {DIFFUSION_CONSTANT_2D = 0}
+  SERCA_X2 {DIFFUSION_CONSTANT_2D = 0}
+  SERCA_Y1 {DIFFUSION_CONSTANT_2D = 0}
+  SERCA_Y1A {DIFFUSION_CONSTANT_2D = 0}
+  SERCA_Y2 {DIFFUSION_CONSTANT_2D = 0}
+  ER_leak {DIFFUSION_CONSTANT_2D = 0}
+
+  SERCA.U {DIFFUSION_CONSTANT_2D=0}
+  SERCA.B {DIFFUSION_CONSTANT_2D=0}
+
+  generic_pump.U {DIFFUSION_CONSTANT_2D=0}
+  generic_pump.B {DIFFUSION_CONSTANT_2D=0}
+
+  Ca_leak.O {DIFFUSION_CONSTANT_2D=0} 
+  caremover {DIFFUSION_CONSTANT_3D=0}
+
+
+//this is the five-state release sensor from Schneggenberger 
+  release_sensor0.a.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.a.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.a.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.a.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.a.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.a.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.a.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.b.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.b.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.b.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.b.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.b.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.b.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.b.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.c.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.c.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.c.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.c.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.c.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.c.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.c.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor0.d {DIFFUSION_CONSTANT_3D=0}
+
+  release_sensor1.a.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor1.a.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor1.a.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor1.a.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor1.a.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor1.a.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor1.a.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor1.b.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor1.b.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor1.b.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor1.b.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor1.b.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor1.b.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor1.b.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor1.c.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor1.c.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor1.c.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor1.c.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor1.c.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor1.c.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor1.c.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor1.d {DIFFUSION_CONSTANT_3D=0}
+
+  release_sensor2.a.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor2.a.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor2.a.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor2.a.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor2.a.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor2.a.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor2.a.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor2.b.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor2.b.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor2.b.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor2.b.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor2.b.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor2.b.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor2.b.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor2.c.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor2.c.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor2.c.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor2.c.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor2.c.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor2.c.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor2.c.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor2.d {DIFFUSION_CONSTANT_3D=0}
+
+  release_sensor3.a.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor3.a.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor3.a.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor3.a.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor3.a.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor3.a.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor3.a.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor3.b.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor3.b.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor3.b.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor3.b.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor3.b.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor3.b.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor3.b.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor3.c.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor3.c.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor3.c.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor3.c.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor3.c.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor3.c.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor3.c.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor3.d {DIFFUSION_CONSTANT_3D=0}
+
+  release_sensor4.a.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor4.a.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor4.a.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor4.a.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor4.a.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor4.a.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor4.a.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor4.b.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor4.b.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor4.b.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor4.b.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor4.b.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor4.b.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor4.b.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor4.c.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor4.c.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor4.c.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor4.c.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor4.c.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor4.c.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor4.c.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor4.d {DIFFUSION_CONSTANT_3D=0}
+
+  release_sensor5.a.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor5.a.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor5.a.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor5.a.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor5.a.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor5.a.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor5.a.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor5.b.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor5.b.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor5.b.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor5.b.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor5.b.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor5.b.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor5.b.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor5.c.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor5.c.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor5.c.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor5.c.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor5.c.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor5.c.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor5.c.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor5.d {DIFFUSION_CONSTANT_3D=0}
+
+  release_sensor6.a.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor6.a.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor6.a.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor6.a.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor6.a.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor6.a.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor6.a.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor6.b.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor6.b.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor6.b.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor6.b.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor6.b.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor6.b.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor6.b.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor6.c.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor6.c.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor6.c.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor6.c.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor6.c.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor6.c.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor6.c.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor6.d {DIFFUSION_CONSTANT_3D=0}
+
+  release_sensor7.a.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor7.a.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor7.a.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor7.a.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor7.a.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor7.a.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor7.a.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor7.b.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor7.b.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor7.b.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor7.b.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor7.b.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor7.b.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor7.b.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor7.c.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor7.c.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor7.c.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor7.c.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor7.c.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor7.c.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor7.c.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor7.d {DIFFUSION_CONSTANT_3D=0}
+
+  release_sensor8.a.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor8.a.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor8.a.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor8.a.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor8.a.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor8.a.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor8.a.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor8.b.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor8.b.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor8.b.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor8.b.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor8.b.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor8.b.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor8.b.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor8.c.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor8.c.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor8.c.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor8.c.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor8.c.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor8.c.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor8.c.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor8.d {DIFFUSION_CONSTANT_3D=0}
+
+  release_sensor9.a.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor9.a.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor9.a.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor9.a.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor9.a.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor9.a.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor9.a.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor9.b.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor9.b.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor9.b.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor9.b.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor9.b.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor9.b.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor9.b.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor9.c.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor9.c.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor9.c.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor9.c.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor9.c.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor9.c.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor9.c.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor9.d {DIFFUSION_CONSTANT_3D=0}
+
+  release_sensor10.a.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor10.a.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor10.a.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor10.a.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor10.a.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor10.a.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor10.a.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor10.b.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor10.b.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor10.b.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor10.b.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor10.b.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor10.b.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor10.b.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor10.c.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor10.c.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor10.c.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor10.c.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor10.c.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor10.c.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor10.c.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor10.d {DIFFUSION_CONSTANT_3D=0}
+
+  release_sensor11.a.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor11.a.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor11.a.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor11.a.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor11.a.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor11.a.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor11.a.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor11.b.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor11.b.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor11.b.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor11.b.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor11.b.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor11.b.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor11.b.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor11.c.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor11.c.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor11.c.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor11.c.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor11.c.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor11.c.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor11.c.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor11.d {DIFFUSION_CONSTANT_3D=0}
+
+  release_sensor12.a.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor12.a.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor12.a.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor12.a.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor12.a.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor12.a.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor12.a.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor12.b.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor12.b.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor12.b.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor12.b.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor12.b.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor12.b.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor12.b.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor12.c.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor12.c.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor12.c.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor12.c.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor12.c.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor12.c.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor12.c.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor12.d {DIFFUSION_CONSTANT_3D=0}
+
+  release_sensor13.a.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor13.a.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor13.a.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor13.a.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor13.a.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor13.a.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor13.a.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor13.b.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor13.b.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor13.b.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor13.b.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor13.b.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor13.b.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor13.b.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor13.c.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor13.c.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor13.c.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor13.c.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor13.c.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor13.c.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor13.c.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor13.d {DIFFUSION_CONSTANT_3D=0}
+
+  release_sensor14.a.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor14.a.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor14.a.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor14.a.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor14.a.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor14.a.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor14.a.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor14.b.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor14.b.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor14.b.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor14.b.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor14.b.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor14.b.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor14.b.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor14.c.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor14.c.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor14.c.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor14.c.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor14.c.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor14.c.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor14.c.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor14.d {DIFFUSION_CONSTANT_3D=0}
+
+  release_sensor15.a.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor15.a.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor15.a.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor15.a.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor15.a.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor15.a.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor15.a.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor15.b.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor15.b.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor15.b.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor15.b.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor15.b.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor15.b.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor15.b.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor15.c.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor15.c.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor15.c.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor15.c.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor15.c.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor15.c.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor15.c.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor15.d {DIFFUSION_CONSTANT_3D=0}
+
+  release_sensor16.a.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor16.a.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor16.a.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor16.a.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor16.a.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor16.a.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor16.a.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor16.b.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor16.b.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor16.b.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor16.b.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor16.b.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor16.b.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor16.b.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor16.c.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor16.c.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor16.c.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor16.c.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor16.c.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor16.c.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor16.c.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor16.d {DIFFUSION_CONSTANT_3D=0}
+
+  release_sensor17.a.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor17.a.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor17.a.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor17.a.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor17.a.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor17.a.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor17.a.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor17.b.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor17.b.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor17.b.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor17.b.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor17.b.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor17.b.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor17.b.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor17.c.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor17.c.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor17.c.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor17.c.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor17.c.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor17.c.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor17.c.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor17.d {DIFFUSION_CONSTANT_3D=0}
+
+  release_sensor18.a.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor18.a.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor18.a.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor18.a.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor18.a.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor18.a.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor18.a.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor18.b.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor18.b.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor18.b.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor18.b.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor18.b.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor18.b.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor18.b.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor18.c.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor18.c.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor18.c.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor18.c.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor18.c.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor18.c.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor18.c.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor18.d {DIFFUSION_CONSTANT_3D=0}
+
+  release_sensor19.a.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor19.a.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor19.a.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor19.a.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor19.a.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor19.a.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor19.a.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor19.b.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor19.b.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor19.b.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor19.b.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor19.b.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor19.b.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor19.b.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor19.c.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor19.c.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor19.c.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor19.c.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor19.c.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor19.c.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor19.c.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor19.d {DIFFUSION_CONSTANT_3D=0}
+
+  release_sensor20.a.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor20.a.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor20.a.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor20.a.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor20.a.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor20.a.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor20.a.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor20.b.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor20.b.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor20.b.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor20.b.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor20.b.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor20.b.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor20.b.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor20.c.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor20.c.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor20.c.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor20.c.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor20.c.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor20.c.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor20.c.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor20.d {DIFFUSION_CONSTANT_3D=0}
+
+  release_sensor21.a.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor21.a.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor21.a.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor21.a.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor21.a.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor21.a.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor21.a.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor21.b.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor21.b.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor21.b.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor21.b.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor21.b.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor21.b.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor21.b.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor21.c.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor21.c.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor21.c.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor21.c.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor21.c.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor21.c.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor21.c.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor21.d {DIFFUSION_CONSTANT_3D=0}
+
+  release_sensor22.a.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor22.a.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor22.a.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor22.a.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor22.a.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor22.a.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor22.a.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor22.b.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor22.b.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor22.b.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor22.b.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor22.b.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor22.b.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor22.b.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor22.c.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor22.c.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor22.c.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor22.c.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor22.c.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor22.c.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor22.c.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor22.d {DIFFUSION_CONSTANT_3D=0}
+
+  release_sensor23.a.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor23.a.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor23.a.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor23.a.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor23.a.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor23.a.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor23.a.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor23.b.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor23.b.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor23.b.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor23.b.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor23.b.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor23.b.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor23.b.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor23.c.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor23.c.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor23.c.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor23.c.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor23.c.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor23.c.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor23.c.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor23.d {DIFFUSION_CONSTANT_3D=0}
+
+  release_sensor24.a.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor24.a.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor24.a.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor24.a.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor24.a.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor24.a.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor24.a.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor24.b.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor24.b.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor24.b.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor24.b.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor24.b.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor24.b.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor24.b.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor24.c.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor24.c.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor24.c.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor24.c.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor24.c.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor24.c.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor24.c.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor24.d {DIFFUSION_CONSTANT_3D=0}
+
+  release_sensor25.a.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor25.a.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor25.a.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor25.a.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor25.a.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor25.a.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor25.a.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor25.b.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor25.b.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor25.b.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor25.b.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor25.b.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor25.b.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor25.b.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor25.c.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor25.c.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor25.c.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor25.c.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor25.c.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor25.c.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor25.c.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor25.d {DIFFUSION_CONSTANT_3D=0}
+
+  release_sensor26.a.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor26.a.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor26.a.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor26.a.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor26.a.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor26.a.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor26.a.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor26.b.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor26.b.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor26.b.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor26.b.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor26.b.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor26.b.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor26.b.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor26.c.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor26.c.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor26.c.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor26.c.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor26.c.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor26.c.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor26.c.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor26.d {DIFFUSION_CONSTANT_3D=0}
+
+  release_sensor27.a.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor27.a.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor27.a.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor27.a.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor27.a.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor27.a.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor27.a.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor27.b.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor27.b.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor27.b.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor27.b.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor27.b.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor27.b.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor27.b.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor27.c.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor27.c.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor27.c.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor27.c.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor27.c.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor27.c.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor27.c.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor27.d {DIFFUSION_CONSTANT_3D=0}
+
+  release_sensor28.a.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor28.a.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor28.a.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor28.a.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor28.a.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor28.a.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor28.a.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor28.b.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor28.b.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor28.b.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor28.b.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor28.b.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor28.b.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor28.b.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor28.c.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor28.c.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor28.c.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor28.c.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor28.c.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor28.c.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor28.c.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor28.d {DIFFUSION_CONSTANT_3D=0}
+
+  release_sensor29.a.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor29.a.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor29.a.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor29.a.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor29.a.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor29.a.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor29.a.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor29.b.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor29.b.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor29.b.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor29.b.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor29.b.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor29.b.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor29.b.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor29.c.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor29.c.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor29.c.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor29.c.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor29.c.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor29.c.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor29.c.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor29.d {DIFFUSION_CONSTANT_3D=0}
+
+  release_sensor30.a.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor30.a.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor30.a.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor30.a.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor30.a.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor30.a.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor30.a.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor30.b.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor30.b.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor30.b.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor30.b.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor30.b.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor30.b.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor30.b.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor30.c.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor30.c.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor30.c.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor30.c.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor30.c.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor30.c.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor30.c.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor30.d {DIFFUSION_CONSTANT_3D=0}
+
+  release_sensor31.a.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor31.a.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor31.a.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor31.a.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor31.a.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor31.a.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor31.a.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor31.b.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor31.b.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor31.b.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor31.b.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor31.b.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor31.b.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor31.b.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor31.c.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor31.c.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor31.c.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor31.c.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor31.c.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor31.c.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor31.c.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor31.d {DIFFUSION_CONSTANT_3D=0}
+
+  release_sensor32.a.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor32.a.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor32.a.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor32.a.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor32.a.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor32.a.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor32.a.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor32.b.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor32.b.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor32.b.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor32.b.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor32.b.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor32.b.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor32.b.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor32.c.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor32.c.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor32.c.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor32.c.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor32.c.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor32.c.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor32.c.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor32.d {DIFFUSION_CONSTANT_3D=0}
+
+
+  release_sensor33.a.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor33.a.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor33.a.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor33.a.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor33.a.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor33.a.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor33.a.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor33.b.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor33.b.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor33.b.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor33.b.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor33.b.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor33.b.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor33.b.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor33.c.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor33.c.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor33.c.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor33.c.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor33.c.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor33.c.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor33.c.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor33.d {DIFFUSION_CONSTANT_3D=0}
+
+  release_sensor34.a.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor34.a.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor34.a.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor34.a.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor34.a.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor34.a.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor34.a.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor34.b.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor34.b.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor34.b.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor34.b.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor34.b.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor34.b.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor34.b.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor34.c.x0 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor34.c.x1 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor34.c.x2 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor34.c.x3 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor34.c.x4 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor34.c.x5 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor34.c.x6 {DIFFUSION_CONSTANT_3D=0}
+  release_sensor34.d {DIFFUSION_CONSTANT_3D=0}
+
+//surface version
+  release_sensor_surface0.a.x0 {DIFFUSION_CONSTANT_2D=0}
+  release_sensor_surface0.a.x1 {DIFFUSION_CONSTANT_2D=0}
+  release_sensor_surface0.a.x2 {DIFFUSION_CONSTANT_2D=0}
+  release_sensor_surface0.a.x3 {DIFFUSION_CONSTANT_2D=0}
+  release_sensor_surface0.a.x4 {DIFFUSION_CONSTANT_2D=0}
+  release_sensor_surface0.a.x5 {DIFFUSION_CONSTANT_2D=0}
+  release_sensor_surface0.a.x6 {DIFFUSION_CONSTANT_2D=0}
+
+
+}

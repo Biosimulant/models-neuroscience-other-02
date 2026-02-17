@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: ASpikingNnForAmplificationOfFeatureSelect225301Model'
+description: '{"value": "The model simulates large-scale inhibition-dominated spiking
+  networks with different degrees of recurrent specific connectivity. It shows how
+  feature-specific connectivity leads to a linear'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:225301
+  source_db: modeldb
+  source_id: '225301'
+  standard: other
+  original_url: https://modeldb.science/225301
+  download_url: https://modeldb.science/download/225301
+  license: ''
+bsim:
+  entrypoint: src.a_spiking_nn_for_amplification_of_feature_select_225301_model:ASpikingNnForAmplificationOfFeatureSelect225301Model
+  init_kwargs:
+    model_path: data/225301.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

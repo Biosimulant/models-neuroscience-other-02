@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: ANetworkOfAobMitralCellsThatProducesInfr207695Model'
+description: '{"value": "Infra-slow rhythmic neuronal activity with very long (> 10
+  s) period duration was described in many brain areas but little is known about the
+  role of this activity and the mechanisms that p'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:207695
+  source_db: modeldb
+  source_id: '207695'
+  standard: other
+  original_url: https://modeldb.science/207695
+  download_url: https://modeldb.science/download/207695
+  license: ''
+bsim:
+  entrypoint: src.a_network_of_aob_mitral_cells_that_produces_infr_207695_model:ANetworkOfAobMitralCellsThatProducesInfr207695Model
+  init_kwargs:
+    model_path: data/207695.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

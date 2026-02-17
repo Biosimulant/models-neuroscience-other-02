@@ -1,0 +1,381 @@
+/* ===========================================================
+
+        Author: Daniel Keller
+	Institution: Ecole Polytechnique Federale de Lausanne
+	Reference: Keller D, Babai N, Kochubey O, Han Y, Markram H, Schürmann F, et al. (2015) An Exclusion Zone for Ca2+ Channels around Docked Vesicles Explains Release Control by Multiple Channels at a CNS Synapse. PLoS Comput Biol 11(5): e1004253. doi:10.1371/journal.pcbi.1004253
+
+============================================================= */
+
+
+/* ------ File contains rates that do not change ------ */
+
+chckpnt_state =1    /* - Switch to turn all currents on/off - */
+
+/*Diffusion rates */
+D_Ca=( 2.2e-6)
+D_Glu=2e-6
+D_Ind= 3 * 1.0/3.0 * (0.84e-6)
+D_EGTA=(2.20e-6) 
+D_BAPTA=2.20e-6
+D_fast= 0
+D_medium=0 
+D_slow=0
+D_parv=1e-6
+D_CB=  0 * D_Ind
+D_OG5=1.0/3.0 * (0.84e-6)
+D_OG1_10xmobile= 10 * 1.0/3.0 * (0.84e-6)
+D_fluo_four_ff_10xmobile=10 *3* 1.0/3.0 * (0.84e-6)
+
+/*EGTA rate Nagerl et al 2000*/
+
+EGTA_on=10e6
+EGTA_off=EGTA_on * (70e-9)
+
+/*BAPTA rate Naraghi and Neher 1997*/
+
+BAPTA_on=4e8
+BAPTA_off=BAPTA_on * (220e-9)
+
+/* ------ AMPA rates --------- 
+
+	Rates from Jonas, Major & Sakmann, '93, J. Physiol
+*/
+
+AMPA_kC0C1 = 4.59e6
+AMPA_kC1C0 = 4.26e3
+AMPA_kC1C2 = 28.4e6
+AMPA_kC2C1  = 3.26e3
+AMPA_kC2O = 4.24e3
+AMPA_kOC2 = 900
+AMPA_kC3C4 = 1.27e6
+AMPA_kC4C3 = 45.7
+AMPA_kC1C3 = 2.89e3
+AMPA_kC3C1 = 39.2
+AMPA_kC2C4 = 172
+AMPA_kC4C2 = 0.727
+AMPA_kOC5 = 17.7
+AMPA_kC5O = 4.0
+AMPA_kC4C5 = 16.8
+AMPA_kC5C4  = 190.4
+
+/* ------- NMDA rates ------- */
+/*
+	Rates from Vargas-Caballero and Robinson J Neur 2004
+*/
+
+NMDA_kC0C1 =2* 5.0e6
+NMDA_kC1C0 = 5.5
+NMDA_kC1C2 = 5.0e6
+NMDA_kC2C1 = 2 * 5.5
+NMDA_kC2O = 46.5
+NMDA_kOC2 = 91.6
+NMDA_kC2Ob = 48.5
+NMDA_kOC2b = 287
+NMDA_kC2D = 8.4
+NMDA_kDC2 = 1.8
+
+
+sprintf(file_str_kB,"%s%s",data_header_str,"mg_block_rate3.dat")
+sprintf(file_str_kU,"%s%s",data_header_str,"mg_unblock_rate3.dat")
+
+NMDA_kB = file_str_kB
+NMDA_kU = file_str_kU
+//NMDA_kB = 2000
+//NMDA_kU = "../data_files/ap/mg_block_rate2.dat"
+//NMDA_kB = 10000
+//NMDA_kU = "../data_files/ap/mg_block_rate3.dat"
+//NMDA_kB = 50
+
+/* NR2B Banke and Traynelis, 2003 */
+
+kRRA      = 20e6
+kRAR      = 30
+kRARA2    = 10e6
+kRA2RA    = 60
+kRA2RA2d1 = 45
+kRA2RA2d2 = 70
+kRA2RA2f  = 1557
+kRA2RA2s  = 89
+kRA2d1RA2 = 0.5
+kRA2d2RA2 = 2.8
+kRA2fRA2  = 182
+kRA2fRA2o = 89
+kRA2sRA2  = 135
+kRA2sRA2o = 1557
+kRA2oRA2f = 135
+kRA2oRA2s = 182
+
+/* ------- NMDA rates ------- */
+/* A model based on Popescu Robert Howe Auerbach Nature 2004 */
+
+/*NMDA_H_CU_CM = 41e6
+NMDA_H_CM_C1 = 20e6
+NMDA_H_CM_CU = 58
+NMDA_H_C1_CM = 115*/
+NMDA_H_CU_CM = NMDA_kC0C1
+NMDA_H_CM_C1 = NMDA_kC1C2 
+NMDA_H_CM_CU = NMDA_kC1C0
+NMDA_H_C1_CM = NMDA_kC2C1
+NMDA_H_C1_C2 = 93
+NMDA_H_C2_C1 = 196
+NMDA_H_C2_C3 = 914
+NMDA_H_C3_C2 = 954
+NMDA_H_C3_O1 = 6729
+NMDA_H_O1_O2 = 1343
+NMDA_H_O1_C3 = 321
+NMDA_H_O2_O1 = 247
+
+NMDA_M_CU_CM = 39e6
+NMDA_M_CM_C1 = 19e6
+NMDA_M_CM_CU = 58
+NMDA_M_C1_CM = 116
+/*NMDA_M_CU_CM = NMDA_kC0C1
+NMDA_M_CM_C1 = NMDA_kC1C2 
+NMDA_M_CM_CU = NMDA_kC1C0
+NMDA_M_C1_CM = NMDA_kC2C1*/
+NMDA_M_C1_C2 = 150
+NMDA_M_C2_C1 = 173
+NMDA_M_C2_C3 = 902
+NMDA_M_C3_C2 = 2412
+NMDA_M_C3_O1 = 4467
+NMDA_M_O1_O2 = 4630
+NMDA_M_O1_C3 = 1283
+NMDA_M_O2_O1 = 526
+
+NMDA_L_CU_CM = 40e6
+NMDA_L_CM_C1 = 20e6
+NMDA_L_CM_CU = 60
+NMDA_L_C1_CM = 120
+/*NMDA_L_CU_CM = NMDA_kC0C1
+NMDA_L_CM_C1 = NMDA_kC1C2 
+NMDA_L_CM_CU = NMDA_kC1C0
+NMDA_L_C1_CM = NMDA_kC2C1*/
+NMDA_L_C1_C2 = 120
+NMDA_L_C2_C1 = 130
+NMDA_L_C2_C3 = 600
+NMDA_L_C3_C2 = 2600
+NMDA_L_C3_O1 = 2500
+NMDA_L_O1_O2 = 3500
+NMDA_L_O1_C3 = 2200
+NMDA_L_O2_O1 = 660
+NMDA_L_C1_D = 20
+NMDA_L_D_C1 = 1
+
+/*NMDA_GENERATE_CA=  1.42e6 */
+/*NMDA_GENERATE_CA=  "../data_files/ap/nmda_IV.dat"*/sprintf(file_str,"%s%s",data_header_str,"nmda_IV.dat")
+NMDA_GENERATE_CA= file_str
+//sprintf(file_str_kB,"%s%s",data_header_str,"mg_block_rate3.dat")
+//sprintf(file_str_kU,"%s%s",data_header_str,"mg_unblock_rate3.dat")
+//defined above fot Vargas-Caballero model
+//NMDA_kB = file_str_kB
+//NMDA_kU = file_str_kU
+
+/*release sensor */
+/*using rates from felmy */
+
+b=0.25
+kx01=5 * 1.19e8
+kx10=8745
+kx12=4  * 1.19e8
+kx21=2 * 8745 * 0.25
+kx23=3  * 1.19e8
+kx32=2 * 8745 *b *b
+kx34=2  * 1.19e8
+kx43=4 * 8745 * b * b *b
+kx45=  1.19e8
+kx54=5 * 8745 * b *b *b *b
+kx56=6995
+kx60=5 
+
+/*using rates from wolfel */
+/*b=0.5
+kx01=5 * 1.4e8
+kx10=4000
+kx12=4  * 1.4e8
+kx21=2 * 4000 * b
+kx23=3  * 1.4e8
+kx32=2 * 4000 *b *b
+kx34=2  * 1.4e8
+kx43=4 * 4000 * b * b *b
+kx45=  1.4e8
+kx54=5 * 4000 * b *b *b *b
+lplus=0.0002
+f=31.3*/
+/*kx06=lplus 
+kx16=lplus * f 
+kx26=lplus * f * f 
+kx36=lplus * f * f * f 
+kx46=lplus * f * f * f * f */
+kx06=0
+kx16=0
+kx26=0
+kx36=0
+kx46=0
+/*kx56=lplus * f * f * f * f *f
+kx60=5
+*/
+
+chi=0 * 2.96e6
+delt=0 * 130
+kab= 0 * 2 * chi
+kbc=chi
+kba=delt
+kcb=0 * 2 * b * delt
+kcd=0 * 6995
+
+/* ------- Glutamate Uptake Rates -------- */
+
+/*
+	Rate from Geiger et al, '99, Handbook of Exp. Pharm.
+*/
+GluT_kT1T2 = 18.0e6
+GluT_kT2T1 = 180
+GluT_kT2T3 = 180
+GluT_kT3T1 = 25.7
+
+
+/* --------- NCX Pumps Rates -------------- */
+NCX_pump_for  =3e8
+NCX_pump_back = 300
+NCX_pump_kill = 600
+NCX_pump_return= 1e5
+
+
+//seed 8:
+I_leak_NCX=NCX_pump_kill * NCX_pump_for * (100e-9)/( NCX_pump_for * (100e-9) + NCX_pump_back+ NCX_pump_kill)
+
+//I_leak_NCX=1.12 * 47.97 //works for 50 nM
+
+/* --------- PMCA Pumps Rates -------------- */
+pump_for  = 1.5e8*chckpnt_state
+pump_back =15*chckpnt_state
+pump_kill = 60*chckpnt_state
+pump_return= 1e5*chckpnt_state
+
+I_leak_PMCA=pump_kill * pump_for * (100e-9)/( pump_for * (100e-9) + pump_back+ pump_kill)
+
+//seed 4 & 5:
+//I_leak_PMCA=1.1 * 25 //works for 50 nm
+
+
+/* --------- Pumps Rates -------------- */
+
+/* rates for SERCA Ca Pumps */
+/* From Higgins et al, 2006, Biophys. J. */
+k_SERCA_X1A_X2 = 1.0e8
+k_SERCA_X1_X1A = k_SERCA_X1A_X2
+k_SERCA_X1A_X1 = 75
+k_SERCA_X2_X1A = k_SERCA_X1A_X1
+k_SERCA_X2_Y2 = 0.6
+k_SERCA_Y2_X2 = 1.0
+k_SERCA_Y1A_Y1 = 3.5
+k_SERCA_Y2_Y1A = k_SERCA_Y1A_Y1
+k_SERCA_Y1A_Y2 = 1e5
+k_SERCA_Y1_Y1A = k_SERCA_Y1A_Y2
+k_SERCA_Y1_X1 = 0.4
+k_SERCA_X1_Y1 = 1.0e-3
+
+k_ER_leak = 0.08 //for 100 nM free Ca
+
+//k_ER_leak = 0.06 //works for 50 nM free Ca
+
+/* make a new SERCA pump */
+/* Km = 260 nM */
+/* same forward rate as PMCA */
+/* Means et al 2006 */
+k_SERCA_for  = 5e8*chckpnt_state
+//k_SERCA_back = 95*chckpnt_state
+//k_SERCA_kill = 165*chckpnt_state
+k_SERCA_back = 15*chckpnt_state
+k_SERCA_kill = 120*chckpnt_state
+
+SERCA_bound_fraction = (k_SERCA_for * (100e-9)) /(k_SERCA_for * (100e-9)+k_SERCA_back+k_SERCA_kill)
+k_SERCA_leak= k_SERCA_kill * SERCA_bound_fraction
+//k_SERCA_leak=25.5/10 * 1.48 /1.04
+
+
+/* ------- Calcium Green Rates ---------- */
+/* after Marc Eberhard and Paul Erne 1991 */
+/* Biochemical and Biophysical Research Communications  */
+
+cal_green_on  = 0.79e9
+cal_green_off = 178
+
+/* ------- F5F Rates ---------- */
+
+F5F_on  = 0.57e10
+F5F_off = 4560
+
+/* ------- Magnesium Green Rates ---------- */
+
+mg_green_on  = 0.57e9
+mg_green_off = 3420
+
+/* ------- Fluo Four Rates ---------- */
+
+/*fluo_four_on  = 0.92e9
+fluo_four_off = 8900*/
+
+fluo_four_on  = 0.57e9
+fluo_four_off =  1.39e2
+
+fluo_four_ff_on  = 0.5e9
+fluo_four_ff_off = 4050
+/* ------- Oregon Green BAPTA-1/2 Rates ---------- */
+
+OG_B_1_on  = 4.5e8
+OG_B_1_off = 79
+
+OG_B_5_on  = 4.5e8
+OG_B_5_off = 9000
+
+/* ------ Calmodulin Constants --------- */
+
+cam_for_1 = 6e6
+cam_back_1 = 40
+cam_for_2 = 9.5e6
+cam_back_2 = 40
+cam_for_3 = 8e6
+cam_back_3 = 600
+cam_for_4 = 4.3e7
+cam_back_4 = 600
+
+/* ------- Calbindin Rates ---------- */
+
+/*calbindin_high_on =  0.55e7 
+calbindin_high_off=  2.6
+calbindin_medium_on =  4.35e7
+calbindin_medium_off=  35.8 */
+
+calbindin_high_on = 100 * 0.55e7 
+calbindin_high_off= 100 * 2.6
+calbindin_medium_on = 100 * 4.35e7
+calbindin_medium_off= 100 * 35.8
+
+/* -------- CBP Rate Constants --------- */
+
+/*  w/ All with Kd = 2 uM and Fast kinetics based on BAPTA association rate    */
+
+/*fast_on  = 0.6e9
+fast_off = 1.2e3*/
+fast_on  = 1e9
+fast_off = 10000
+medium_on  = 1e8
+medium_off = 1000
+slow_on  =  1e8
+slow_off =  1000
+v_slow_on =  0.6e6
+v_slow_off = 1.2
+
+/*parvalbumin  */
+Mgbase=0.0003
+kparvUB=4e8
+kparvUM=(1e6)
+kparvBU=4
+kparvMU=30
+
+katpCafor=5e8
+katpCaback=(45000)
+katpMgfor=5e8
+katpMgback=(22500)
+

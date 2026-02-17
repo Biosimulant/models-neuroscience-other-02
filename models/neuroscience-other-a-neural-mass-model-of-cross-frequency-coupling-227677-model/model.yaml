@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: ANeuralMassModelOfCrossFrequencyCoupling227677Model'
+description: '{"value": "\"Electrophysiological signals of cortical activity show
+  a range of possible frequency and\r\namplitude modulations, both within and across
+  regions, collectively known as cross-frequency\r\'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:227677
+  source_db: modeldb
+  source_id: '227677'
+  standard: other
+  original_url: https://modeldb.science/227677
+  download_url: https://modeldb.science/download/227677
+  license: ''
+bsim:
+  entrypoint: src.a_neural_mass_model_of_cross_frequency_coupling_227677_model:ANeuralMassModelOfCrossFrequencyCoupling227677Model
+  init_kwargs:
+    model_path: data/227677.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

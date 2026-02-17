@@ -1,0 +1,21 @@
+
+load_file("nrngui.hoc")
+load_file(1, "Case2.hoc")
+access soma
+
+objref nclist, SG[3], syn[3]
+
+load_file(1, "Figure9BCase2.ses")
+proc con(){
+	nclist = new List()
+	SG[0] = SpikeGenerator[0]
+	SG[1] = SpikeGenerator[1]
+	SG[2] = SpikeGenerator[2]
+	syn[0] = AMPA_S[0]
+	syn[1] = AMPA_S[1]
+	syn[2] = AMPA_S[2]
+	nclist.append(new NetCon(SG[0], syn[0], -20, 0, 1))
+	nclist.append(new NetCon(SG[1], syn[1], -20, 0, 1))
+	nclist.append(new NetCon(SG[2], syn[2], -20, 0, 1))
+}
+con()

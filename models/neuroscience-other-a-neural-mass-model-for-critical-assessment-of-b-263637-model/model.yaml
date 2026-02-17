@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: ANeuralMassModelForCriticalAssessmentOfB263637Model'
+description: '{"value": "We use a neural mass model of interconnected regions of interest
+  to simulate reliable neuroelectrical signals in the cortex. In particular, signals
+  simulating mean field potentials were gen'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:263637
+  source_db: modeldb
+  source_id: '263637'
+  standard: other
+  original_url: https://modeldb.science/263637
+  download_url: https://modeldb.science/download/263637
+  license: ''
+bsim:
+  entrypoint: src.a_neural_mass_model_for_critical_assessment_of_b_263637_model:ANeuralMassModelForCriticalAssessmentOfB263637Model
+  init_kwargs:
+    model_path: data/263637.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

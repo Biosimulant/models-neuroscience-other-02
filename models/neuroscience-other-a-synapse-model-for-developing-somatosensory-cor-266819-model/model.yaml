@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: ASynapseModelForDevelopingSomatosensoryCor266819Model'
+description: '{"value": "We developed a model for an L4-L2/3 synapse in somatosensory
+  cortex to study the role of astrocytes in modulation of t-LTD. Our model includes
+  the one-compartmental presynaptic L4 spiny ste'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:266819
+  source_db: modeldb
+  source_id: '266819'
+  standard: other
+  original_url: https://modeldb.science/266819
+  download_url: https://modeldb.science/download/266819
+  license: ''
+bsim:
+  entrypoint: src.a_synapse_model_for_developing_somatosensory_cor_266819_model:ASynapseModelForDevelopingSomatosensoryCor266819Model
+  init_kwargs:
+    model_path: data/266819.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

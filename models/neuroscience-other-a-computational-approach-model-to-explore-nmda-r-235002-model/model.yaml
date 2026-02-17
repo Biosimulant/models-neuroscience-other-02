@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: AComputationalApproachModelToExploreNmdaR235002Model'
+description: '{"value": "\"...\r\nHere, we describe a general computational method\r\naiming
+  at developing kinetic Markov-chain based models of NMDARs\r\nsubtypes capable of
+  reproducing various experimental\r\nresu'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:235002
+  source_db: modeldb
+  source_id: '235002'
+  standard: other
+  original_url: https://modeldb.science/235002
+  download_url: https://modeldb.science/download/235002
+  license: ''
+bsim:
+  entrypoint: src.a_computational_approach_model_to_explore_nmda_r_235002_model:AComputationalApproachModelToExploreNmdaR235002Model
+  init_kwargs:
+    model_path: data/235002.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

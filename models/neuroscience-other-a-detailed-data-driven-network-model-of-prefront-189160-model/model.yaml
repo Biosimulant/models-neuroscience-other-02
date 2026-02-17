@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: ADetailedDataDrivenNetworkModelOfPrefront189160Model'
+description: '{"value": "Data-based PFC-like circuit with layer 2/3 and 5, synaptic
+  clustering, four types of interneurons and cell-type specific short-term synaptic
+  plasticity; neuron parameters fitted to in vitro'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:189160
+  source_db: modeldb
+  source_id: '189160'
+  standard: other
+  original_url: https://modeldb.science/189160
+  download_url: https://modeldb.science/download/189160
+  license: ''
+bsim:
+  entrypoint: src.a_detailed_data_driven_network_model_of_prefront_189160_model:ADetailedDataDrivenNetworkModelOfPrefront189160Model
+  init_kwargs:
+    model_path: data/189160.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

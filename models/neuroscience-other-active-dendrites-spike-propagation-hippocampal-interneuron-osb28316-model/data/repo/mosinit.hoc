@@ -1,0 +1,41 @@
+load_file("nrngui.hoc")
+
+objref nil // for restart
+strdef tstr
+
+xpanel("Figures for Saraga et al, 2003")
+xlabel("Figures for Saraga et al, 2003")
+xlabel("Click one of the below")
+xradiobutton("8A Long", "restart(\"initFig8Along\")")
+xradiobutton("8A Short", "restart(\"initFig8Ashort\")")
+xradiobutton("8B Long", "restart(\"initFig8Blong\")")
+xradiobutton("8B Short", "restart(\"initFig8Bshort\")")
+xradiobutton("9A Case 2", "restart(\"initFig9ACase2\")")
+xradiobutton("9B Case 2", "restart(\"initFig9BCase2\")",1)
+xpanel(5,100)
+
+pwmcnt = PWManager[0].count // the initial gui should not be dismissed
+
+proc restart() {local i
+	objref graphItem, save_window_
+	for i=0, n_graph_lists-1 {
+		graphList[i].remove_all()
+	}
+	flush_list.remove_all()
+	fast_flush_list.remove_all()
+	doNotify()
+	for (i= PWManager[0].count-1; i >= pwmcnt; i -= 1) {
+		PWManager[0].close(i)
+		doNotify()
+	}
+
+	stoprun = 0
+	cvode_active(0)
+	forall { delete_section() }	// remove any existing sections
+	sprint(tstr, "%s", $s1)
+	load_file(1, tstr)
+	init()
+	run()
+}
+
+restart("initFig9BCase2")

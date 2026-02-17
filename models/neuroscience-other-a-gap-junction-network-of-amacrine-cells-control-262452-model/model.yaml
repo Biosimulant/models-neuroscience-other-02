@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: AGapJunctionNetworkOfAmacrineCellsControl262452Model'
+description: '{"value": "\"... The effects of the neuromodulator nitric oxide (NO)
+  have\r\nbeen studied in many circuits, including in the vertebrate\r\nretina, where
+  it regulates synaptic release, gap junction\r\n'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:262452
+  source_db: modeldb
+  source_id: '262452'
+  standard: other
+  original_url: https://modeldb.science/262452
+  download_url: https://modeldb.science/download/262452
+  license: ''
+bsim:
+  entrypoint: src.a_gap_junction_network_of_amacrine_cells_control_262452_model:AGapJunctionNetworkOfAmacrineCellsControl262452Model
+  init_kwargs:
+    model_path: data/262452.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

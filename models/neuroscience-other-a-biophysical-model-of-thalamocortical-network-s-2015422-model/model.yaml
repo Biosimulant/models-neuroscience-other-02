@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: ABiophysicalModelOfThalamocorticalNetworkS2015422Model'
+description: '{"value": "This is a model of the cortex of (Benita et al., 2012), the
+  thalamus of (Soplata et al., 2017), and simple AMPAergic thalamocortical and corticothalamic
+  connections between them, built usin'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:2015422
+  source_db: modeldb
+  source_id: '2015422'
+  standard: other
+  original_url: https://modeldb.science/2015422
+  download_url: https://modeldb.science/download/2015422
+  license: ''
+bsim:
+  entrypoint: src.a_biophysical_model_of_thalamocortical_network_s_2015422_model:ABiophysicalModelOfThalamocorticalNetworkS2015422Model
+  init_kwargs:
+    model_path: data/2015422.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

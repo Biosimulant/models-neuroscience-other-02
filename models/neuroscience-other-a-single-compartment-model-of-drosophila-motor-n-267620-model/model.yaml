@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: ASingleCompartmentModelOfDrosophilaMotorN267620Model'
+description: '{"value": "This is a single compartment model aparted from Drosophilia
+  larval crawl motor neuron data as described in\r\nMegwa, Pascual, Gunay, Pulver,
+  Prinz (2023). The model contains Fast and Slow P'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:267620
+  source_db: modeldb
+  source_id: '267620'
+  standard: other
+  original_url: https://modeldb.science/267620
+  download_url: https://modeldb.science/download/267620
+  license: ''
+bsim:
+  entrypoint: src.a_single_compartment_model_of_drosophila_motor_n_267620_model:ASingleCompartmentModelOfDrosophilaMotorN267620Model
+  init_kwargs:
+    model_path: data/267620.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

@@ -1,0 +1,36 @@
+This is the readme for the mcell simulation associated with the paper
+
+Keller D, Babai N, Kochubey O, Han Y, Markram H, Schürmann F,
+Schneggenburger R (2015) An Exclusion Zone for Ca2+ Channels around
+Docked Vesicles Explains Release Control by Multiple Channels at a CNS
+Synapse. PLoS Comput Biol 11:e1004253
+
+The directory is organized into supporting subsolders and main
+simulations. The supporting subfolders are:
+
+data_files : data waveforms used for driving reaction rates
+molecules : the base molecules used in the simulations  
+rates : the rates used by the reactions  
+geometry_files : geometry of the system  
+mechanisms : reactions that the molecules undergo         
+parameters : common parameters used by the simulation  
+
+There are four main simulations in the following directories:
+
+small_AZ_random
+small_AZ_exclusion       
+small_AZ_exclusion_EGTA 
+large_AZ_exclusion
+
+Each of these contains a subfolder with an mcell_top.mdl and
+variables.mdl file. The main file is mcell_top.mdl and variables
+contains variables particular to that simulation.
+
+To run the simulation, change to the subdirectory/1.0 and execute:
+
+mcell mcell_top.mdl
+
+In general, many seeds must be run due to the stochasticity of the
+simulation.
+
+Questions can be addressed to: daniel.keller@epfl.ch

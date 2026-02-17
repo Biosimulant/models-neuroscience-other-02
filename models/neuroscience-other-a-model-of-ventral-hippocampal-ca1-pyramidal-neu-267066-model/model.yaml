@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: AModelOfVentralHippocampalCa1PyramidalNeu267066Model'
+description: '{"value": "Gradual decline in cognitive and non-cognitive functions
+  are considered clinical hallmarks of Alzheimer''s Disease (AD). Post-mortem autoptic
+  analysis shows the presence of amyloid \u00df de'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:267066
+  source_db: modeldb
+  source_id: '267066'
+  standard: other
+  original_url: https://modeldb.science/267066
+  download_url: https://modeldb.science/download/267066
+  license: ''
+bsim:
+  entrypoint: src.a_model_of_ventral_hippocampal_ca1_pyramidal_neu_267066_model:AModelOfVentralHippocampalCa1PyramidalNeu267066Model
+  init_kwargs:
+    model_path: data/267066.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

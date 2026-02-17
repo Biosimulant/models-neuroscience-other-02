@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: ActiveIntrinsicConductancesInNetworksTransi267145Model'
+description: '{"value": "\"... we show that by including a small number of additional
+  active conductances we can produce recurrent networks that are both more robust
+  and exhibit firing-rate statistics that are more'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:267145
+  source_db: modeldb
+  source_id: '267145'
+  standard: other
+  original_url: https://modeldb.science/267145
+  download_url: https://modeldb.science/download/267145
+  license: ''
+bsim:
+  entrypoint: src.active_intrinsic_conductances_in_networks_transi_267145_model:ActiveIntrinsicConductancesInNetworksTransi267145Model
+  init_kwargs:
+    model_path: data/267145.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

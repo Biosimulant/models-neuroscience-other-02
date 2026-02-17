@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: Model5NeuronModelOfNeocortexForProducingRealis226812Model'
+description: '{"value": "This is a 5-neuron model of neocortex, containing one tufted
+  layer-5 pyramidal cell, two non-tufted pyramidal cells, and two inhibitory interneurons.
+  It was used to reproduce extracellular '
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:226812
+  source_db: modeldb
+  source_id: '226812'
+  standard: other
+  original_url: https://modeldb.science/226812
+  download_url: https://modeldb.science/download/226812
+  license: ''
+bsim:
+  entrypoint: src.model_5_neuron_model_of_neocortex_for_producing_realis_226812_model:Model5NeuronModelOfNeocortexForProducingRealis226812Model
+  init_kwargs:
+    model_path: data/226812.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

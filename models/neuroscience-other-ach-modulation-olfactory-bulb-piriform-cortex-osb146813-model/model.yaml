@@ -1,0 +1,34 @@
+schema_version: '2.0'
+title: 'Neuroscience: Model146813146813Model'
+description: ACh modulation in olfactory bulb and piriform cortex (de Almeida et al.
+  2013;Devore S, et al. 2014)
+standard: other
+tags:
+- neuroscience
+- other
+- opensourcebrain
+- faithful
+authors:
+- Biosimulant Team
+- Open Source Brain
+upstream:
+  id: opensourcebrain:146813
+  source_db: opensourcebrain
+  source_id: '146813'
+  standard: other
+  original_url: https://github.com/OpenSourceBrain/146813
+  download_url: https://github.com/OpenSourceBrain/146813.git
+  license: ''
+bsim:
+  entrypoint: src.model_146813_146813_model:Model146813146813Model
+  init_kwargs:
+    model_path: data/repo
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state

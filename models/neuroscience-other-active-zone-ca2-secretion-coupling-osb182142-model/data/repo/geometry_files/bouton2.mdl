@@ -1,0 +1,78 @@
+/* ===========================================================
+
+        Author: Daniel Keller
+	Institution: Ecole Polytechnique Federale de Lausanne
+
+	"An exclusion zone for Ca2+ channels around docked vesicles explains 
+	release control by multiple channels at a CNS synapse"
+	PLoS Computational Biology, 2015
+
+============================================================= */
+
+
+bouton OBJECT {
+ bouton0 POLYGON_LIST {
+    VERTEX_LIST {
+      [0,0,0]
+      [0,bouton_width,0]
+      [0,bouton_width,bouton_height]
+      [0,0,bouton_height]
+      [bouton_width,0,bouton_height]
+      [bouton_width,0,0]
+      [bouton_width,bouton_width,0]
+      [bouton_width,bouton_width,bouton_height]
+      [(bouton_width+active_zone_width)/2,(bouton_width+active_zone_width)/2,0]
+      [(bouton_width+active_zone_width)/2,(bouton_width-active_zone_width)/2,0]
+      [(bouton_width-active_zone_width)/2,(bouton_width-active_zone_width)/2,0]
+      [(bouton_width-active_zone_width)/2,(bouton_width+active_zone_width)/2,0]
+}
+        ELEMENT_CONNECTIONS {
+                [0,4,3]
+                [0,5,4]
+                [5,6,7]
+                [5,7,4]
+                [4,7,3]
+                [3,7,2]
+                [0,3,2]
+                [0,2,1]
+                [1,2,7]
+                [1,7,6]
+                [6,8,1]
+                [8,11,1]
+                [1,11,0]
+                [0,11,10]
+                [0,10,5]
+                [5,10,9]
+                [6,5,9]
+                [6,9,8]
+                [8,9,10]
+                [10,11,8]
+  }
+
+        DEFINE_SURFACE_REGIONS {
+                bouton_membrane{
+                        ELEMENT_LIST = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]
+                        VIZ_VALUE = 103
+
+                }
+                active_zone{
+                        ELEMENT_LIST = [18,19]
+                        VIZ_VALUE = 102
+                }
+                active_zone_grid{
+                        ELEMENT_LIST = [10,11,12,13,14,15,16,17,18,19]
+                        VIZ_VALUE = 102
+                }
+		topandbottom{
+                        ELEMENT_LIST = [4,5,10,11,12,13,14,15,16,17,18,19]
+                        VIZ_VALUE = 104
+                }
+
+
+}
+
+  TRANSLATE=[-0.5*bouton_width,-0.5*bouton_width,0.5*gap_size]
+
+    }
+
+}

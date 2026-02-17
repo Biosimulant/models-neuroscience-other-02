@@ -1,0 +1,35 @@
+schema_version: '2.0'
+title: 'Neuroscience: AComputationalModelOfSingleNeuronPerturbat262045Model'
+description: '{"value": "A computational model to study the effect of single-neuron
+  perturbations in large-scale excitatory-inhibitory networks of the primary visual
+  cortex. Neuronal receptive fields and connectivi'
+standard: other
+tags:
+- neuroscience
+- other
+- modeldb
+- faithful
+authors:
+- Biosimulant Team
+- modeldb
+upstream:
+  id: modeldb:262045
+  source_db: modeldb
+  source_id: '262045'
+  standard: other
+  original_url: https://modeldb.science/262045
+  download_url: https://modeldb.science/download/262045
+  license: ''
+bsim:
+  entrypoint: src.a_computational_model_of_single_neuron_perturbat_262045_model:AComputationalModelOfSingleNeuronPerturbat262045Model
+  init_kwargs:
+    model_path: data/262045.zip
+  min_dt: 0.01
+runtime:
+  python_version: '3.12'
+  dependencies:
+    packages:
+    - numpy==1.26.4
+io:
+  outputs:
+  - state
