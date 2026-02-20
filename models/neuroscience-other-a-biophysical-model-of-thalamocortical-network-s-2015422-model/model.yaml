@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/2015422
   download_url: https://modeldb.science/download/2015422
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_biophysical_model_of_thalamocortical_network_s_2015422_model:ABiophysicalModelOfThalamocorticalNetworkS2015422Model
   init_kwargs:
     model_path: data/2015422.zip

@@ -19,7 +19,7 @@ upstream:
   original_url: https://modeldb.science/150288
   download_url: https://modeldb.science/download/150288
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_1000_cell_network_model_for_lateral_amygdala_k_150288_model:A1000CellNetworkModelForLateralAmygdalaK150288Model
   init_kwargs:
     model_path: data/150288.zip

@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/143635
   download_url: https://modeldb.science/download/143635
   license: ''
-bsim:
+biosim:
   entrypoint: src.active_dendritic_action_potential_propagation_ca_143635_model:ActiveDendriticActionPotentialPropagationCa143635Model
   init_kwargs:
     model_path: data/143635.zip

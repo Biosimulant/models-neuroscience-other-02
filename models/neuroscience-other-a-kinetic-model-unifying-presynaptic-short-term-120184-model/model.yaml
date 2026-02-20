@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/120184
   download_url: https://modeldb.science/download/120184
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_kinetic_model_unifying_presynaptic_short_term_120184_model:AKineticModelUnifyingPresynapticShortTerm120184Model
   init_kwargs:
     model_path: data/120184.zip

@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/240961
   download_url: https://modeldb.science/download/240961
   license: ''
-bsim:
+biosim:
   entrypoint: src.actions_of_rotenone_on_ionic_currents_and_mepps_240961_model:ActionsOfRotenoneOnIonicCurrentsAndMepps240961Model
   init_kwargs:
     model_path: data/240961.zip

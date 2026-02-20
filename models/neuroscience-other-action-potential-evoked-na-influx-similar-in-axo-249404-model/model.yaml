@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/249404
   download_url: https://modeldb.science/download/249404
   license: ''
-bsim:
+biosim:
   entrypoint: src.action_potential_evoked_na_influx_similar_in_axo_249404_model:ActionPotentialEvokedNaInfluxSimilarInAxo249404Model
   init_kwargs:
     model_path: data/249404.zip

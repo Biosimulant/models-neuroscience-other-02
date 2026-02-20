@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/267066
   download_url: https://modeldb.science/download/267066
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_model_of_ventral_hippocampal_ca1_pyramidal_neu_267066_model:AModelOfVentralHippocampalCa1PyramidalNeu267066Model
   init_kwargs:
     model_path: data/267066.zip

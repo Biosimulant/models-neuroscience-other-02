@@ -16,13 +16,13 @@ from pathlib import Path
 from typing import Any, Dict, Optional, Set, TYPE_CHECKING
 
 if TYPE_CHECKING:  # pragma: no cover - typing only
-    from bsim import BioWorld
+    from biosim import BioWorld
 
-import bsim
-from bsim.signals import BioSignal, SignalMetadata
+import biosim
+from biosim.signals import BioSignal, SignalMetadata
 
 
-class OtherATwoStageModelOfDendriticIntegrationInCa1Pyramidal(bsim.BioModule):
+class OtherATwoStageModelOfDendriticIntegrationInCa1Pyramidal(biosim.BioModule):
     """Placeholder BioModule wrapper for: A two-stage model of dendritic integration in CA1 pyramidal neurons (Katz et al. 2009).
 
     This model's original format is not directly supported by the auto-generator.

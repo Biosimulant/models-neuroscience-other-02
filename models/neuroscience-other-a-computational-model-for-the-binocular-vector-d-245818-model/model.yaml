@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/245818
   download_url: https://modeldb.science/download/245818
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_computational_model_for_the_binocular_vector_d_245818_model:AComputationalModelForTheBinocularVectorD245818Model
   init_kwargs:
     model_path: data/245818.zip

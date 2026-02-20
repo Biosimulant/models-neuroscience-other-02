@@ -18,7 +18,7 @@ upstream:
   original_url: https://github.com/OpenSourceBrain/8284
   download_url: https://github.com/OpenSourceBrain/8284.git
   license: ''
-bsim:
+biosim:
   entrypoint: src.model_8284_8284_model:Model82848284Model
   init_kwargs:
     model_path: data/repo

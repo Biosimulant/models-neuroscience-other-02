@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/2016218
   download_url: https://modeldb.science/download/2016218
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_model_of_rodent_mechanoreceptors_ltmrs_medlock_2016218_model:AModelOfRodentMechanoreceptorsLtmrsMedlock2016218Model
   init_kwargs:
     model_path: data/2016218.zip

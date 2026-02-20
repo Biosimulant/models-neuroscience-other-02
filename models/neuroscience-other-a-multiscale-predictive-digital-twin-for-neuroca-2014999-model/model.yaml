@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/2014999
   download_url: https://modeldb.science/download/2014999
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_multiscale_predictive_digital_twin_for_neuroca_2014999_model:AMultiscalePredictiveDigitalTwinForNeuroca2014999Model
   init_kwargs:
     model_path: data/2014999.zip

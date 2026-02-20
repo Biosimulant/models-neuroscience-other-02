@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/71317
   download_url: https://modeldb.science/download/71317
   license: ''
-bsim:
+biosim:
   entrypoint: src.activity_dependent_changes_in_motoneurones_dai_y_71317_model:ActivityDependentChangesInMotoneuronesDaiY71317Model
   init_kwargs:
     model_path: data/71317.zip

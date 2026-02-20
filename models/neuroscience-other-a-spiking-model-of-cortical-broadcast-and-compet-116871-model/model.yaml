@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/116871
   download_url: https://modeldb.science/download/116871
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_spiking_model_of_cortical_broadcast_and_compet_116871_model:ASpikingModelOfCorticalBroadcastAndCompet116871Model
   init_kwargs:
     model_path: data/116871.zip

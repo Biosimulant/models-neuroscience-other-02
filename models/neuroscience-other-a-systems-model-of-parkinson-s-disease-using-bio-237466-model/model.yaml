@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/237466
   download_url: https://modeldb.science/download/237466
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_systems_model_of_parkinson_s_disease_using_bio_237466_model:ASystemsModelOfParkinsonSDiseaseUsingBio237466Model
   init_kwargs:
     model_path: data/237466.zip

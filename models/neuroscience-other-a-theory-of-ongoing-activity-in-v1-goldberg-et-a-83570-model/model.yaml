@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/83570
   download_url: https://modeldb.science/download/83570
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_theory_of_ongoing_activity_in_v1_goldberg_et_a_83570_model:ATheoryOfOngoingActivityInV1GoldbergEtA83570Model
   init_kwargs:
     model_path: data/83570.zip

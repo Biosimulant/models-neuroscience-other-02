@@ -19,7 +19,7 @@ upstream:
   original_url: https://modeldb.science/187473
   download_url: https://modeldb.science/download/187473
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_model_of_the_t_junction_of_a_c_fiber_sensory_n_187473_model:AModelOfTheTJunctionOfACFiberSensoryN187473Model
   init_kwargs:
     model_path: data/187473.zip

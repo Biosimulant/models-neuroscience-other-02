@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/244261
   download_url: https://modeldb.science/download/244261
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_full_scale_cortical_microcircuit_spiking_netwo_244261_model:AFullScaleCorticalMicrocircuitSpikingNetwo244261Model
   init_kwargs:
     model_path: data/244261.zip

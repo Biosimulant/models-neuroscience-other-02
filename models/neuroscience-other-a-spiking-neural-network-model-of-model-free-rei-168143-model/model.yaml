@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/168143
   download_url: https://modeldb.science/download/168143
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_spiking_neural_network_model_of_model_free_rei_168143_model:ASpikingNeuralNetworkModelOfModelFreeRei168143Model
   init_kwargs:
     model_path: data/168143.zip

@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/267297
   download_url: https://modeldb.science/download/267297
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_model_of_working_memory_for_encoding_multiple_267297_model:AModelOfWorkingMemoryForEncodingMultiple267297Model
   init_kwargs:
     model_path: data/267297.zip

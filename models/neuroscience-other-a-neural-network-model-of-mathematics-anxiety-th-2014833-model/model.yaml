@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/2014833
   download_url: https://modeldb.science/download/2014833
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_neural_network_model_of_mathematics_anxiety_th_2014833_model:ANeuralNetworkModelOfMathematicsAnxietyTh2014833Model
   init_kwargs:
     model_path: data/2014833.zip

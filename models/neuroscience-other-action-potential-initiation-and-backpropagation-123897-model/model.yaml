@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/123897
   download_url: https://modeldb.science/download/123897
   license: ''
-bsim:
+biosim:
   entrypoint: src.action_potential_initiation_and_backpropagation_123897_model:ActionPotentialInitiationAndBackpropagation123897Model
   init_kwargs:
     model_path: data/123897.zip

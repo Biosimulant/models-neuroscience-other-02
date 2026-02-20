@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/261714
   download_url: https://modeldb.science/download/261714
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_markov_model_of_human_cav2_3_channels_and_thei_261714_model:AMarkovModelOfHumanCav23ChannelsAndThei261714Model
   init_kwargs:
     model_path: data/261714.zip

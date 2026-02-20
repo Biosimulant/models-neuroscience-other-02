@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/141192
   download_url: https://modeldb.science/download/141192
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_four_compartmental_model_for_abpd_complex_in_c_141192_model:AFourCompartmentalModelForAbpdComplexInC141192Model
   init_kwargs:
     model_path: data/141192.zip

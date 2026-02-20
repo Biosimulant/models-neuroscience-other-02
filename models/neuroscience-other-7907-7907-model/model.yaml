@@ -18,7 +18,7 @@ upstream:
   original_url: https://github.com/OpenSourceBrain/7907
   download_url: https://github.com/OpenSourceBrain/7907.git
   license: ''
-bsim:
+biosim:
   entrypoint: src.model_7907_7907_model:Model79077907Model
   init_kwargs:
     model_path: data/repo

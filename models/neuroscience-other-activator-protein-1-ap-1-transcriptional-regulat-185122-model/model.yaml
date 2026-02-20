@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/185122
   download_url: https://modeldb.science/download/185122
   license: ''
-bsim:
+biosim:
   entrypoint: src.activator_protein_1_ap_1_transcriptional_regulat_185122_model:ActivatorProtein1Ap1TranscriptionalRegulat185122Model
   init_kwargs:
     model_path: data/185122.zip

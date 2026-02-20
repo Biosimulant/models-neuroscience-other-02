@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/262187
   download_url: https://modeldb.science/download/262187
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_single_cell_spiking_model_for_the_origin_of_gr_262187_model:ASingleCellSpikingModelForTheOriginOfGr262187Model
   init_kwargs:
     model_path: data/262187.zip

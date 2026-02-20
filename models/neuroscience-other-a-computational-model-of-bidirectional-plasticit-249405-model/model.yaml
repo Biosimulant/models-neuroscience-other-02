@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/249405
   download_url: https://modeldb.science/download/249405
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_computational_model_of_bidirectional_plasticit_249405_model:AComputationalModelOfBidirectionalPlasticit249405Model
   init_kwargs:
     model_path: data/249405.zip

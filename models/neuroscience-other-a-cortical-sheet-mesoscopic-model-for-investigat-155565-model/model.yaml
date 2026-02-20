@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/155565
   download_url: https://modeldb.science/download/155565
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_cortical_sheet_mesoscopic_model_for_investigat_155565_model:ACorticalSheetMesoscopicModelForInvestigat155565Model
   init_kwargs:
     model_path: data/155565.zip

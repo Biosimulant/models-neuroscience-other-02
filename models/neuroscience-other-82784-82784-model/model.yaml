@@ -19,7 +19,7 @@ upstream:
   original_url: https://github.com/OpenSourceBrain/82784
   download_url: https://github.com/OpenSourceBrain/82784.git
   license: ''
-bsim:
+biosim:
   entrypoint: src.model_82784_82784_model:Model8278482784Model
   init_kwargs:
     model_path: data/repo

@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/267145
   download_url: https://modeldb.science/download/267145
   license: ''
-bsim:
+biosim:
   entrypoint: src.active_intrinsic_conductances_in_networks_transi_267145_model:ActiveIntrinsicConductancesInNetworksTransi267145Model
   init_kwargs:
     model_path: data/267145.zip

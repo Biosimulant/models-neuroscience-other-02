@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/182758
   download_url: https://modeldb.science/download/182758
   license: ''
-bsim:
+biosim:
   entrypoint: src.activity_patterns_in_a_subthalamopallidal_networ_182758_model:ActivityPatternsInASubthalamopallidalNetwor182758Model
   init_kwargs:
     model_path: data/182758.zip

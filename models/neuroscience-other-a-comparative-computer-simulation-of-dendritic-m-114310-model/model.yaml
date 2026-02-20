@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/114310
   download_url: https://modeldb.science/download/114310
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_comparative_computer_simulation_of_dendritic_m_114310_model:AComparativeComputerSimulationOfDendriticM114310Model
   init_kwargs:
     model_path: data/114310.zip

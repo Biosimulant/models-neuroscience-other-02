@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/153660
   download_url: https://modeldb.science/download/153660
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_threshold_equation_for_action_potential_initia_153660_model:AThresholdEquationForActionPotentialInitia153660Model
   init_kwargs:
     model_path: data/153660.zip

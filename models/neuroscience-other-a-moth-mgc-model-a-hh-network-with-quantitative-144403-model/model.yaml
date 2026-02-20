@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/144403
   download_url: https://modeldb.science/download/144403
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_moth_mgc_model_a_hh_network_with_quantitative_144403_model:AMothMgcModelAHhNetworkWithQuantitative144403Model
   init_kwargs:
     model_path: data/144403.zip

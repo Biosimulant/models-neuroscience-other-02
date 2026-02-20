@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/267165
   download_url: https://modeldb.science/download/267165
   license: ''
-bsim:
+biosim:
   entrypoint: src.accelerating_with_flybrainlab_discovery_of_the_f_267165_model:AcceleratingWithFlybrainlabDiscoveryOfTheF267165Model
   init_kwargs:
     model_path: data/267165.zip

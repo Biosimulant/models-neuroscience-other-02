@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/168866
   download_url: https://modeldb.science/download/168866
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_spatial_model_of_the_intermediate_superior_col_168866_model:ASpatialModelOfTheIntermediateSuperiorCol168866Model
   init_kwargs:
     model_path: data/168866.zip

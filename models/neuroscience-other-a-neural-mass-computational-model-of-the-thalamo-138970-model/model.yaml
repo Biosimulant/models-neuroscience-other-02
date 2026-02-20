@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/138970
   download_url: https://modeldb.science/download/138970
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_neural_mass_computational_model_of_the_thalamo_138970_model:ANeuralMassComputationalModelOfTheThalamo138970Model
   init_kwargs:
     model_path: data/138970.zip

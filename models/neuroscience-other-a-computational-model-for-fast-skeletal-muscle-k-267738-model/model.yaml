@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/267738
   download_url: https://modeldb.science/download/267738
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_computational_model_for_fast_skeletal_muscle_k_267738_model:AComputationalModelForFastSkeletalMuscleK267738Model
   init_kwargs:
     model_path: data/267738.zip

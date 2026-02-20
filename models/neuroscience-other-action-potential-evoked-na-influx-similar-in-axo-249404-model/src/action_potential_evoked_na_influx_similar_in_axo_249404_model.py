@@ -16,13 +16,13 @@ from pathlib import Path
 from typing import Any, Dict, Optional, Set, TYPE_CHECKING
 
 if TYPE_CHECKING:  # pragma: no cover - typing only
-    from bsim import BioWorld
+    from biosim import BioWorld
 
-import bsim
-from bsim.signals import BioSignal, SignalMetadata
+import biosim
+from biosim.signals import BioSignal, SignalMetadata
 
 
-class OtherActionPotentialEvokedNaInfluxSimilarInAxonAndSoma(bsim.BioModule):
+class OtherActionPotentialEvokedNaInfluxSimilarInAxonAndSoma(biosim.BioModule):
     """Placeholder BioModule wrapper for: Action potential-evoked Na+ influx similar in axon and soma (Fleidervish et al. 2010) (Python).
 
     This model's original format is not directly supported by the auto-generator.

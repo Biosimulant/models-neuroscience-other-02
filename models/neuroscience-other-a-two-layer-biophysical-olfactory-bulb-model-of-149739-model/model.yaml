@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/149739
   download_url: https://modeldb.science/download/149739
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_two_layer_biophysical_olfactory_bulb_model_of_149739_model:ATwoLayerBiophysicalOlfactoryBulbModelOf149739Model
   init_kwargs:
     model_path: data/149739.zip

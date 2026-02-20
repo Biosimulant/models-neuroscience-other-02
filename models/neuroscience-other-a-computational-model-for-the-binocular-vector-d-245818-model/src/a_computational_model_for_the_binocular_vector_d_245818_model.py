@@ -16,13 +16,13 @@ from pathlib import Path
 from typing import Any, Dict, Optional, Set, TYPE_CHECKING
 
 if TYPE_CHECKING:  # pragma: no cover - typing only
-    from bsim import BioWorld
+    from biosim import BioWorld
 
-import bsim
-from bsim.signals import BioSignal, SignalMetadata
+import biosim
+from biosim.signals import BioSignal, SignalMetadata
 
 
-class OtherAComputationalModelForTheBinocularVectorDisparity(bsim.BioModule):
+class OtherAComputationalModelForTheBinocularVectorDisparity(biosim.BioModule):
     """Placeholder BioModule wrapper for: A Computational Model for the Binocular Vector Disparity Estimation (Chessa & Solari 2018).
 
     This model's original format is not directly supported by the auto-generator.

@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/267499
   download_url: https://modeldb.science/download/267499
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_focal_seizure_model_with_ion_concentration_cha_267499_model:AFocalSeizureModelWithIonConcentrationCha267499Model
   init_kwargs:
     model_path: data/267499.zip

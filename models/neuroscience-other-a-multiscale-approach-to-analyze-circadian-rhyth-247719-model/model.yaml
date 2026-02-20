@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/247719
   download_url: https://modeldb.science/download/247719
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_multiscale_approach_to_analyze_circadian_rhyth_247719_model:AMultiscaleApproachToAnalyzeCircadianRhyth247719Model
   init_kwargs:
     model_path: data/247719.zip

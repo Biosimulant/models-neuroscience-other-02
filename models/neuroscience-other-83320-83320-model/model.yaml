@@ -19,7 +19,7 @@ upstream:
   original_url: https://github.com/OpenSourceBrain/83320
   download_url: https://github.com/OpenSourceBrain/83320.git
   license: ''
-bsim:
+biosim:
   entrypoint: src.model_83320_83320_model:Model8332083320Model
   init_kwargs:
     model_path: data/repo

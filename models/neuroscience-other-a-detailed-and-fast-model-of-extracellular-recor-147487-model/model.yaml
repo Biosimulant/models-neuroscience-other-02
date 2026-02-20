@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/147487
   download_url: https://modeldb.science/download/147487
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_detailed_and_fast_model_of_extracellular_recor_147487_model:ADetailedAndFastModelOfExtracellularRecor147487Model
   init_kwargs:
     model_path: data/147487.zip

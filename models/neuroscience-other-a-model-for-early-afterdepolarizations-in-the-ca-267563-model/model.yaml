@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/267563
   download_url: https://modeldb.science/download/267563
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_model_for_early_afterdepolarizations_in_the_ca_267563_model:AModelForEarlyAfterdepolarizationsInTheCa267563Model
   init_kwargs:
     model_path: data/267563.zip

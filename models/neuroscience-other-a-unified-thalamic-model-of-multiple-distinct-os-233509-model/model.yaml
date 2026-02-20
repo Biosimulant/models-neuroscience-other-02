@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/233509
   download_url: https://modeldb.science/download/233509
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_unified_thalamic_model_of_multiple_distinct_os_233509_model:AUnifiedThalamicModelOfMultipleDistinctOs233509Model
   init_kwargs:
     model_path: data/233509.zip

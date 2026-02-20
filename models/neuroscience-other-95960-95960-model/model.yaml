@@ -19,7 +19,7 @@ upstream:
   original_url: https://github.com/OpenSourceBrain/95960
   download_url: https://github.com/OpenSourceBrain/95960.git
   license: ''
-bsim:
+biosim:
   entrypoint: src.model_95960_95960_model:Model9596095960Model
   init_kwargs:
     model_path: data/repo

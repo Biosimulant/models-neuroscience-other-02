@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/262452
   download_url: https://modeldb.science/download/262452
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_gap_junction_network_of_amacrine_cells_control_262452_model:AGapJunctionNetworkOfAmacrineCellsControl262452Model
   init_kwargs:
     model_path: data/262452.zip

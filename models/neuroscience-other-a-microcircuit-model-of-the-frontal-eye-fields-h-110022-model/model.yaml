@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/110022
   download_url: https://modeldb.science/download/110022
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_microcircuit_model_of_the_frontal_eye_fields_h_110022_model:AMicrocircuitModelOfTheFrontalEyeFieldsH110022Model
   init_kwargs:
     model_path: data/110022.zip

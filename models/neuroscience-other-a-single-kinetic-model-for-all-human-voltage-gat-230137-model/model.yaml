@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/230137
   download_url: https://modeldb.science/download/230137
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_single_kinetic_model_for_all_human_voltage_gat_230137_model:ASingleKineticModelForAllHumanVoltageGat230137Model
   init_kwargs:
     model_path: data/230137.zip

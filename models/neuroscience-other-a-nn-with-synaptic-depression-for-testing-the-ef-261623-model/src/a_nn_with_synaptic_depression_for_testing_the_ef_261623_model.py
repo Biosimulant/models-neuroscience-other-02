@@ -16,13 +16,13 @@ from pathlib import Path
 from typing import Any, Dict, Optional, Set, TYPE_CHECKING
 
 if TYPE_CHECKING:  # pragma: no cover - typing only
-    from bsim import BioWorld
+    from biosim import BioWorld
 
-import bsim
-from bsim.signals import BioSignal, SignalMetadata
+import biosim
+from biosim.signals import BioSignal, SignalMetadata
 
 
-class OtherANnWithSynapticDepressionForTestingTheEffectsOf(bsim.BioModule):
+class OtherANnWithSynapticDepressionForTestingTheEffectsOf(biosim.BioModule):
     """Placeholder BioModule wrapper for: A NN with synaptic depression for testing the effects of connectivity on dynamics (Jacob et al 2019).
 
     This model's original format is not directly supported by the auto-generator.

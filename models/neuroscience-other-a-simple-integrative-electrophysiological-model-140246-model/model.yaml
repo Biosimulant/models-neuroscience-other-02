@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/140246
   download_url: https://modeldb.science/download/140246
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_simple_integrative_electrophysiological_model_140246_model:ASimpleIntegrativeElectrophysiologicalModel140246Model
   init_kwargs:
     model_path: data/140246.zip

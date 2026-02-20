@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/152112
   download_url: https://modeldb.science/download/152112
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_model_of_local_field_potentials_generated_by_m_152112_model:AModelOfLocalFieldPotentialsGeneratedByM152112Model
   init_kwargs:
     model_path: data/152112.zip

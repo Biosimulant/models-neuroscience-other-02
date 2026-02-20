@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/207695
   download_url: https://modeldb.science/download/207695
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_network_of_aob_mitral_cells_that_produces_infr_207695_model:ANetworkOfAobMitralCellsThatProducesInfr207695Model
   init_kwargs:
     model_path: data/207695.zip

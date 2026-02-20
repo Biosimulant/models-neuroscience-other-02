@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/266732
   download_url: https://modeldb.science/download/266732
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_model_of_closed_loop_motor_unit_including_musc_266732_model:AModelOfClosedLoopMotorUnitIncludingMusc266732Model
   init_kwargs:
     model_path: data/266732.zip

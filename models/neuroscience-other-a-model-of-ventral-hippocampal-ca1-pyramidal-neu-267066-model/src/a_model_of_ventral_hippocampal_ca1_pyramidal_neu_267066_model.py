@@ -16,13 +16,13 @@ from pathlib import Path
 from typing import Any, Dict, Optional, Set, TYPE_CHECKING
 
 if TYPE_CHECKING:  # pragma: no cover - typing only
-    from bsim import BioWorld
+    from biosim import BioWorld
 
-import bsim
-from bsim.signals import BioSignal, SignalMetadata
+import biosim
+from biosim.signals import BioSignal, SignalMetadata
 
 
-class OtherAModelOfVentralHippocampalCa1PyramidalNeuronsOf(bsim.BioModule):
+class OtherAModelOfVentralHippocampalCa1PyramidalNeuronsOf(biosim.BioModule):
     """Placeholder BioModule wrapper for: A model of ventral Hippocampal CA1 pyramidal neurons of Tg2576 AD mice (Spoleti et al. 2021).
 
     This model's original format is not directly supported by the auto-generator.

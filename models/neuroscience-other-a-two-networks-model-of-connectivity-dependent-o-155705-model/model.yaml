@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/155705
   download_url: https://modeldb.science/download/155705
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_two_networks_model_of_connectivity_dependent_o_155705_model:ATwoNetworksModelOfConnectivityDependentO155705Model
   init_kwargs:
     model_path: data/155705.zip

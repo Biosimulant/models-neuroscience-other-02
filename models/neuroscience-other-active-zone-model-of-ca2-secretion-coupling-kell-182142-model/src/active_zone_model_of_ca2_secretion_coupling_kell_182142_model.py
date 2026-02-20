@@ -16,13 +16,13 @@ from pathlib import Path
 from typing import Any, Dict, Optional, Set, TYPE_CHECKING
 
 if TYPE_CHECKING:  # pragma: no cover - typing only
-    from bsim import BioWorld
+    from biosim import BioWorld
 
-import bsim
-from bsim.signals import BioSignal, SignalMetadata
+import biosim
+from biosim.signals import BioSignal, SignalMetadata
 
 
-class OtherActiveZoneModelOfCa2SecretionCouplingKellerEtAl(bsim.BioModule):
+class OtherActiveZoneModelOfCa2SecretionCouplingKellerEtAl(biosim.BioModule):
     """Placeholder BioModule wrapper for: Active zone model of Ca2+ secretion coupling (Keller et al. 2015).
 
     This model's original format is not directly supported by the auto-generator.

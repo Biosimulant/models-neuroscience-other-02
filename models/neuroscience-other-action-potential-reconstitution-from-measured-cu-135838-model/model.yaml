@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/135838
   download_url: https://modeldb.science/download/135838
   license: ''
-bsim:
+biosim:
   entrypoint: src.action_potential_reconstitution_from_measured_cu_135838_model:ActionPotentialReconstitutionFromMeasuredCu135838Model
   init_kwargs:
     model_path: data/135838.zip

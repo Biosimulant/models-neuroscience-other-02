@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/245018
   download_url: https://modeldb.science/download/245018
   license: ''
-bsim:
+biosim:
   entrypoint: src.acetylcholine_modulated_plasticity_in_reward_dri_245018_model:AcetylcholineModulatedPlasticityInRewardDri245018Model
   init_kwargs:
     model_path: data/245018.zip

@@ -19,7 +19,7 @@ upstream:
   original_url: https://github.com/OpenSourceBrain/85112
   download_url: https://github.com/OpenSourceBrain/85112.git
   license: ''
-bsim:
+biosim:
   entrypoint: src.model_85112_85112_model:Model8511285112Model
   init_kwargs:
     model_path: data/repo

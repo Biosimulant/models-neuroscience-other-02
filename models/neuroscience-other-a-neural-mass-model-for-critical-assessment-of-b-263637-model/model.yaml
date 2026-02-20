@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/263637
   download_url: https://modeldb.science/download/263637
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_neural_mass_model_for_critical_assessment_of_b_263637_model:ANeuralMassModelForCriticalAssessmentOfB263637Model
   init_kwargs:
     model_path: data/263637.zip

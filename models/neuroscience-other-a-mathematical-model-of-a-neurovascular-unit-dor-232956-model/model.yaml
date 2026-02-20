@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/232956
   download_url: https://modeldb.science/download/232956
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_mathematical_model_of_a_neurovascular_unit_dor_232956_model:AMathematicalModelOfANeurovascularUnitDor232956Model
   init_kwargs:
     model_path: data/232956.zip

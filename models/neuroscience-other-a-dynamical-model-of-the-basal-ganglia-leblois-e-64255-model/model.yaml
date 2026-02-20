@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/64255
   download_url: https://modeldb.science/download/64255
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_dynamical_model_of_the_basal_ganglia_leblois_e_64255_model:ADynamicalModelOfTheBasalGangliaLebloisE64255Model
   init_kwargs:
     model_path: data/64255.zip

@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/237604
   download_url: https://modeldb.science/download/237604
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_model_of_neurovascular_coupling_and_the_bold_r_237604_model:AModelOfNeurovascularCouplingAndTheBoldR237604Model
   init_kwargs:
     model_path: data/237604.zip

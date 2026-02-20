@@ -19,7 +19,7 @@ upstream:
   original_url: https://modeldb.science/247196
   download_url: https://modeldb.science/download/247196
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_model_of_neuronal_bursting_using_three_coupled_247196_model:AModelOfNeuronalBurstingUsingThreeCoupled247196Model
   init_kwargs:
     model_path: data/247196.zip

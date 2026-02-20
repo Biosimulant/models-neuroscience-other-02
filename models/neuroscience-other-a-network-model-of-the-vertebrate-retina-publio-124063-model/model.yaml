@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/124063
   download_url: https://modeldb.science/download/124063
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_network_model_of_the_vertebrate_retina_publio_124063_model:ANetworkModelOfTheVertebrateRetinaPublio124063Model
   init_kwargs:
     model_path: data/124063.zip

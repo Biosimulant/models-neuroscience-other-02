@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/112348
   download_url: https://modeldb.science/download/112348
   license: ''
-bsim:
+biosim:
   entrypoint: src.activity_constraints_on_stable_neuronal_or_netwo_112348_model:ActivityConstraintsOnStableNeuronalOrNetwo112348Model
   init_kwargs:
     model_path: data/112348.zip

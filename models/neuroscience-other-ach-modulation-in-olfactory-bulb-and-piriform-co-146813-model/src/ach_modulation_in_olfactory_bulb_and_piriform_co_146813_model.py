@@ -16,13 +16,13 @@ from pathlib import Path
 from typing import Any, Dict, Optional, Set, TYPE_CHECKING
 
 if TYPE_CHECKING:  # pragma: no cover - typing only
-    from bsim import BioWorld
+    from biosim import BioWorld
 
-import bsim
-from bsim.signals import BioSignal, SignalMetadata
+import biosim
+from biosim.signals import BioSignal, SignalMetadata
 
 
-class OtherAchModulationInOlfactoryBulbAndPiriformCortexDe(bsim.BioModule):
+class OtherAchModulationInOlfactoryBulbAndPiriformCortexDe(biosim.BioModule):
     """Placeholder BioModule wrapper for: ACh modulation in olfactory bulb and piriform cortex (de Almeida et al. 2013;Devore S, et al. 2014).
 
     This model's original format is not directly supported by the auto-generator.

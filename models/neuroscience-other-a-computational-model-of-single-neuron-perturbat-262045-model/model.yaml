@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/262045
   download_url: https://modeldb.science/download/262045
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_computational_model_of_single_neuron_perturbat_262045_model:AComputationalModelOfSingleNeuronPerturbat262045Model
   init_kwargs:
     model_path: data/262045.zip

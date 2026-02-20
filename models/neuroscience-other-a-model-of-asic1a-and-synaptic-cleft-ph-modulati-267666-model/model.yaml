@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/267666
   download_url: https://modeldb.science/download/267666
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_model_of_asic1a_and_synaptic_cleft_ph_modulati_267666_model:AModelOfAsic1aAndSynapticCleftPhModulati267666Model
   init_kwargs:
     model_path: data/267666.zip

@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/189344
   download_url: https://modeldb.science/download/189344
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_mathematical_model_of_evoked_calcium_dynamics_189344_model:AMathematicalModelOfEvokedCalciumDynamics189344Model
   init_kwargs:
     model_path: data/189344.zip

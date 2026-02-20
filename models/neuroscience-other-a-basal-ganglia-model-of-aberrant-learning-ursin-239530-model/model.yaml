@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/239530
   download_url: https://modeldb.science/download/239530
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_basal_ganglia_model_of_aberrant_learning_ursin_239530_model:ABasalGangliaModelOfAberrantLearningUrsin239530Model
   init_kwargs:
     model_path: data/239530.zip

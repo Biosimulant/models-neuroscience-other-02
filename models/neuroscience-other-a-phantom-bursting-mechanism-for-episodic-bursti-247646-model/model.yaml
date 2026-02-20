@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/247646
   download_url: https://modeldb.science/download/247646
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_phantom_bursting_mechanism_for_episodic_bursti_247646_model:APhantomBurstingMechanismForEpisodicBursti247646Model
   init_kwargs:
     model_path: data/247646.zip

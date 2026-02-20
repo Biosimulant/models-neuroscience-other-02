@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/267395
   download_url: https://modeldb.science/download/267395
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_sensorimotor_spinal_cord_model_hoshino_et_al_2_267395_model:ASensorimotorSpinalCordModelHoshinoEtAl2267395Model
   init_kwargs:
     model_path: data/267395.zip

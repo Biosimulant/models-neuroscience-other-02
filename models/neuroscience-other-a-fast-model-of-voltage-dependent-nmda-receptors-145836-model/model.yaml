@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/145836
   download_url: https://modeldb.science/download/145836
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_fast_model_of_voltage_dependent_nmda_receptors_145836_model:AFastModelOfVoltageDependentNmdaReceptors145836Model
   init_kwargs:
     model_path: data/145836.zip

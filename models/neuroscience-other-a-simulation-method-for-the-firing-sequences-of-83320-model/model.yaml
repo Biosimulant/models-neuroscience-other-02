@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/83320
   download_url: https://modeldb.science/download/83320
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_simulation_method_for_the_firing_sequences_of_83320_model:ASimulationMethodForTheFiringSequencesOf83320Model
   init_kwargs:
     model_path: data/83320.zip

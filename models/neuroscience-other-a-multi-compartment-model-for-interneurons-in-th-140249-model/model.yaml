@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/140249
   download_url: https://modeldb.science/download/140249
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_multi_compartment_model_for_interneurons_in_th_140249_model:AMultiCompartmentModelForInterneuronsInTh140249Model
   init_kwargs:
     model_path: data/140249.zip

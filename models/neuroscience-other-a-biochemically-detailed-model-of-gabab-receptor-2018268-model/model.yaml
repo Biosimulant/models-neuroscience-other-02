@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/2018268
   download_url: https://modeldb.science/download/2018268
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_biochemically_detailed_model_of_gabab_receptor_2018268_model:ABiochemicallyDetailedModelOfGababReceptor2018268Model
   init_kwargs:
     model_path: data/2018268.zip

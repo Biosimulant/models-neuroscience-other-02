@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/62272
   download_url: https://modeldb.science/download/62272
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_model_for_pituitary_gh_3_lactotroph_wu_and_cha_62272_model:AModelForPituitaryGh3LactotrophWuAndCha62272Model
   init_kwargs:
     model_path: data/62272.zip

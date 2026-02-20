@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/267617
   download_url: https://modeldb.science/download/267617
   license: ''
-bsim:
+biosim:
   entrypoint: src.activity_dependent_broadening_of_axonal_spikes_b_267617_model:ActivityDependentBroadeningOfAxonalSpikesB267617Model
   init_kwargs:
     model_path: data/267617.zip

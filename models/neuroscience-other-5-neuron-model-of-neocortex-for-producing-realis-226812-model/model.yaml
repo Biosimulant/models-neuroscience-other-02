@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/226812
   download_url: https://modeldb.science/download/226812
   license: ''
-bsim:
+biosim:
   entrypoint: src.model_5_neuron_model_of_neocortex_for_producing_realis_226812_model:Model5NeuronModelOfNeocortexForProducingRealis226812Model
   init_kwargs:
     model_path: data/226812.zip

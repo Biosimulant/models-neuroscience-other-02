@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/266524
   download_url: https://modeldb.science/download/266524
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_model_for_focal_seizure_onset_propagation_evol_266524_model:AModelForFocalSeizureOnsetPropagationEvol266524Model
   init_kwargs:
     model_path: data/266524.zip

@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/126637
   download_url: https://modeldb.science/download/126637
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_simplified_cerebellar_purkinje_neuron_the_ppr_126637_model:ASimplifiedCerebellarPurkinjeNeuronThePpr126637Model
   init_kwargs:
     model_path: data/126637.zip

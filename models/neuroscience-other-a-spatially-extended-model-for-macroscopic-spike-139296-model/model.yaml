@@ -19,7 +19,7 @@ upstream:
   original_url: https://modeldb.science/139296
   download_url: https://modeldb.science/download/139296
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_spatially_extended_model_for_macroscopic_spike_139296_model:ASpatiallyExtendedModelForMacroscopicSpike139296Model
   init_kwargs:
     model_path: data/139296.zip

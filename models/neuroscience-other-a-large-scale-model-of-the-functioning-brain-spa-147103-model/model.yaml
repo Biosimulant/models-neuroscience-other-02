@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/147103
   download_url: https://modeldb.science/download/147103
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_large_scale_model_of_the_functioning_brain_spa_147103_model:ALargeScaleModelOfTheFunctioningBrainSpa147103Model
   init_kwargs:
     model_path: data/147103.zip

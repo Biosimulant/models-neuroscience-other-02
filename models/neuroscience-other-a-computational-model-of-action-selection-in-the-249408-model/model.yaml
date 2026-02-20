@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/249408
   download_url: https://modeldb.science/download/249408
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_computational_model_of_action_selection_in_the_249408_model:AComputationalModelOfActionSelectionInThe249408Model
   init_kwargs:
     model_path: data/249408.zip

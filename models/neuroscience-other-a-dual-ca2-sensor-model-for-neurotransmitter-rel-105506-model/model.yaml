@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/105506
   download_url: https://modeldb.science/download/105506
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_dual_ca2_sensor_model_for_neurotransmitter_rel_105506_model:ADualCa2SensorModelForNeurotransmitterRel105506Model
   init_kwargs:
     model_path: data/105506.zip

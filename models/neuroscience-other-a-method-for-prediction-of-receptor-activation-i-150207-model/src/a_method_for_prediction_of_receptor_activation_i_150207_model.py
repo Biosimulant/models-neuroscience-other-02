@@ -16,13 +16,13 @@ from pathlib import Path
 from typing import Any, Dict, Optional, Set, TYPE_CHECKING
 
 if TYPE_CHECKING:  # pragma: no cover - typing only
-    from bsim import BioWorld
+    from biosim import BioWorld
 
-import bsim
-from bsim.signals import BioSignal, SignalMetadata
+import biosim
+from biosim.signals import BioSignal, SignalMetadata
 
 
-class OtherAMethodForPredictionOfReceptorActivationInThe(bsim.BioModule):
+class OtherAMethodForPredictionOfReceptorActivationInThe(biosim.BioModule):
     """Placeholder BioModule wrapper for: A Method for Prediction of Receptor Activation in the Simulation of Synapses (Montes et al. 2013).
 
     This model's original format is not directly supported by the auto-generator.

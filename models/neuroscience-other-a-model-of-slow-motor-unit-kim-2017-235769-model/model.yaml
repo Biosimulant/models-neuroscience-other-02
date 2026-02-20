@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/235769
   download_url: https://modeldb.science/download/235769
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_model_of_slow_motor_unit_kim_2017_235769_model:AModelOfSlowMotorUnitKim2017235769Model
   init_kwargs:
     model_path: data/235769.zip

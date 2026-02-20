@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/234118
   download_url: https://modeldb.science/download/234118
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_spiking_neural_network_model_of_the_lateral_ge_234118_model:ASpikingNeuralNetworkModelOfTheLateralGe234118Model
   init_kwargs:
     model_path: data/234118.zip

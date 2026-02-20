@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/124111
   download_url: https://modeldb.science/download/124111
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_contracting_model_of_the_basal_ganglia_girard_124111_model:AContractingModelOfTheBasalGangliaGirard124111Model
   init_kwargs:
     model_path: data/124111.zip

@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/235377
   download_url: https://modeldb.science/download/235377
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_model_for_recurrent_spreading_depolarizations_235377_model:AModelForRecurrentSpreadingDepolarizations235377Model
   init_kwargs:
     model_path: data/235377.zip

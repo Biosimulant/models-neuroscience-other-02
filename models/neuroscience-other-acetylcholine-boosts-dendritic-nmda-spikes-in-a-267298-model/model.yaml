@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/267298
   download_url: https://modeldb.science/download/267298
   license: ''
-bsim:
+biosim:
   entrypoint: src.acetylcholine_boosts_dendritic_nmda_spikes_in_a_267298_model:AcetylcholineBoostsDendriticNmdaSpikesInA267298Model
   init_kwargs:
     model_path: data/267298.zip

@@ -16,13 +16,13 @@ from pathlib import Path
 from typing import Any, Dict, Optional, Set, TYPE_CHECKING
 
 if TYPE_CHECKING:  # pragma: no cover - typing only
-    from bsim import BioWorld
+    from biosim import BioWorld
 
-import bsim
-from bsim.signals import BioSignal, SignalMetadata
+import biosim
+from biosim.signals import BioSignal, SignalMetadata
 
 
-class OtherAMathematicalModelOfANeurovascularUnitDormannsEtAl(bsim.BioModule):
+class OtherAMathematicalModelOfANeurovascularUnitDormannsEtAl(biosim.BioModule):
     """Placeholder BioModule wrapper for: A mathematical model of a neurovascular unit (Dormanns et al 2015, 2016) (Farrs & David 2011).
 
     This model's original format is not directly supported by the auto-generator.

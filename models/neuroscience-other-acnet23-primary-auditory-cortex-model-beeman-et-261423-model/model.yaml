@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/261423
   download_url: https://modeldb.science/download/261423
   license: ''
-bsim:
+biosim:
   entrypoint: src.acnet23_primary_auditory_cortex_model_beeman_et_261423_model:Acnet23PrimaryAuditoryCortexModelBeemanEt261423Model
   init_kwargs:
     model_path: data/261423.zip

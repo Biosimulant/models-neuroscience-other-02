@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/238912
   download_url: https://modeldb.science/download/238912
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_state_space_model_to_quantify_common_input_to_238912_model:AStateSpaceModelToQuantifyCommonInputTo238912Model
   init_kwargs:
     model_path: data/238912.zip

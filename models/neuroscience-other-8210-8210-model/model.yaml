@@ -18,7 +18,7 @@ upstream:
   original_url: https://github.com/OpenSourceBrain/8210
   download_url: https://github.com/OpenSourceBrain/8210.git
   license: ''
-bsim:
+biosim:
   entrypoint: src.model_8210_8210_model:Model82108210Model
   init_kwargs:
     model_path: data/repo

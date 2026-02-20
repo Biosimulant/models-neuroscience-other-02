@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/168856
   download_url: https://modeldb.science/download/168856
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_bistable_model_of_spike_wave_seizure_and_backg_168856_model:ABistableModelOfSpikeWaveSeizureAndBackg168856Model
   init_kwargs:
     model_path: data/168856.zip

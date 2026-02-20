@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/120835
   download_url: https://modeldb.science/download/120835
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_model_of_beta_adrenergic_modulation_of_iks_in_120835_model:AModelOfBetaAdrenergicModulationOfIksIn120835Model
   init_kwargs:
     model_path: data/120835.zip

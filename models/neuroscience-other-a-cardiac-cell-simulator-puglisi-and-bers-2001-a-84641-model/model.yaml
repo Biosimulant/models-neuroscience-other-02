@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/84641
   download_url: https://modeldb.science/download/84641
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_cardiac_cell_simulator_puglisi_and_bers_2001_a_84641_model:ACardiacCellSimulatorPuglisiAndBers2001A84641Model
   init_kwargs:
     model_path: data/84641.zip

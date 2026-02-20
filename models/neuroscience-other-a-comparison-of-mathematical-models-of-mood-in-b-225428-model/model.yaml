@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/225428
   download_url: https://modeldb.science/download/225428
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_comparison_of_mathematical_models_of_mood_in_b_225428_model:AComparisonOfMathematicalModelsOfMoodInB225428Model
   init_kwargs:
     model_path: data/225428.zip

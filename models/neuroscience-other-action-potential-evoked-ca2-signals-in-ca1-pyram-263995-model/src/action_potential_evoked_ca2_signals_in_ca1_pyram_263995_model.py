@@ -16,13 +16,13 @@ from pathlib import Path
 from typing import Any, Dict, Optional, Set, TYPE_CHECKING
 
 if TYPE_CHECKING:  # pragma: no cover - typing only
-    from bsim import BioWorld
+    from biosim import BioWorld
 
-import bsim
-from bsim.signals import BioSignal, SignalMetadata
+import biosim
+from biosim.signals import BioSignal, SignalMetadata
 
 
-class OtherActionPotentialEvokedCa2SignalsInCa1PyramidalCell(bsim.BioModule):
+class OtherActionPotentialEvokedCa2SignalsInCa1PyramidalCell(biosim.BioModule):
     """Placeholder BioModule wrapper for: Action potential-evoked Ca2+ signals in CA1 pyramidal cell presynaptic terminals (Hamid et al 2019).
 
     This model's original format is not directly supported by the auto-generator.

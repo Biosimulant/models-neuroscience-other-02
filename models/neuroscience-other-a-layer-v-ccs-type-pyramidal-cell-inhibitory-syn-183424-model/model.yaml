@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/183424
   download_url: https://modeldb.science/download/183424
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_layer_v_ccs_type_pyramidal_cell_inhibitory_syn_183424_model:ALayerVCcsTypePyramidalCellInhibitorySyn183424Model
   init_kwargs:
     model_path: data/183424.zip

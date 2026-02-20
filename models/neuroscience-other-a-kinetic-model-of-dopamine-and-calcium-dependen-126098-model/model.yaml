@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/126098
   download_url: https://modeldb.science/download/126098
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_kinetic_model_of_dopamine_and_calcium_dependen_126098_model:AKineticModelOfDopamineAndCalciumDependen126098Model
   init_kwargs:
     model_path: data/126098.zip

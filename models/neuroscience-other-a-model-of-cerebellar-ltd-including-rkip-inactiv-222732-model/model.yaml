@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/222732
   download_url: https://modeldb.science/download/222732
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_model_of_cerebellar_ltd_including_rkip_inactiv_222732_model:AModelOfCerebellarLtdIncludingRkipInactiv222732Model
   init_kwargs:
     model_path: data/222732.zip

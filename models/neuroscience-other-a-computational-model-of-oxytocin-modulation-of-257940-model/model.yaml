@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/257940
   download_url: https://modeldb.science/download/257940
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_computational_model_of_oxytocin_modulation_of_257940_model:AComputationalModelOfOxytocinModulationOf257940Model
   init_kwargs:
     model_path: data/257940.zip

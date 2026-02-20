@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/225301
   download_url: https://modeldb.science/download/225301
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_spiking_nn_for_amplification_of_feature_select_225301_model:ASpikingNnForAmplificationOfFeatureSelect225301Model
   init_kwargs:
     model_path: data/225301.zip

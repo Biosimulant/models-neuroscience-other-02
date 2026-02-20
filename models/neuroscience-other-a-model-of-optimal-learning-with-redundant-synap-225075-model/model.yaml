@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/225075
   download_url: https://modeldb.science/download/225075
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_model_of_optimal_learning_with_redundant_synap_225075_model:AModelOfOptimalLearningWithRedundantSynap225075Model
   init_kwargs:
     model_path: data/225075.zip

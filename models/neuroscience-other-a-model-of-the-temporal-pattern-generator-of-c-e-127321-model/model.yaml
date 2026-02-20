@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/127321
   download_url: https://modeldb.science/download/127321
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_model_of_the_temporal_pattern_generator_of_c_e_127321_model:AModelOfTheTemporalPatternGeneratorOfCE127321Model
   init_kwargs:
     model_path: data/127321.zip

@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/114342
   download_url: https://modeldb.science/download/114342
   license: ''
-bsim:
+biosim:
   entrypoint: src.activity_dependent_changes_in_dendritic_spine_de_114342_model:ActivityDependentChangesInDendriticSpineDe114342Model
   init_kwargs:
     model_path: data/114342.zip

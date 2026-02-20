@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/116313
   download_url: https://modeldb.science/download/116313
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_model_of_selection_between_stimulus_and_place_116313_model:AModelOfSelectionBetweenStimulusAndPlace116313Model
   init_kwargs:
     model_path: data/116313.zip

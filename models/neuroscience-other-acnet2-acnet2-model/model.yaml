@@ -18,7 +18,7 @@ upstream:
   original_url: https://github.com/OpenSourceBrain/ACnet2
   download_url: https://github.com/OpenSourceBrain/ACnet2.git
   license: ''
-bsim:
+biosim:
   entrypoint: src.acnet2_acnet2_model:Acnet2Acnet2Model
   init_kwargs:
     model_path: data/repo

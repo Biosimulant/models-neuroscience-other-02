@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/182142
   download_url: https://modeldb.science/download/182142
   license: ''
-bsim:
+biosim:
   entrypoint: src.active_zone_model_of_ca2_secretion_coupling_kell_182142_model:ActiveZoneModelOfCa2SecretionCouplingKell182142Model
   init_kwargs:
     model_path: data/182142.zip

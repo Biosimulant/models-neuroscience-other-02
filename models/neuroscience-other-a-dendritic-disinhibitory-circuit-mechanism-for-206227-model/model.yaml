@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/206227
   download_url: https://modeldb.science/download/206227
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_dendritic_disinhibitory_circuit_mechanism_for_206227_model:ADendriticDisinhibitoryCircuitMechanismFor206227Model
   init_kwargs:
     model_path: data/206227.zip

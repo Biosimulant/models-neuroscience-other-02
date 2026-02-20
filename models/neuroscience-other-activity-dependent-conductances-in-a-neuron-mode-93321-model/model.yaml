@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/93321
   download_url: https://modeldb.science/download/93321
   license: ''
-bsim:
+biosim:
   entrypoint: src.activity_dependent_conductances_in_a_neuron_mode_93321_model:ActivityDependentConductancesInANeuronMode93321Model
   init_kwargs:
     model_path: data/93321.zip

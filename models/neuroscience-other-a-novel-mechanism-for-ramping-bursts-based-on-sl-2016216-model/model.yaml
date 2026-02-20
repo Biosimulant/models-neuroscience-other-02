@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/2016216
   download_url: https://modeldb.science/download/2016216
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_novel_mechanism_for_ramping_bursts_based_on_sl_2016216_model:ANovelMechanismForRampingBurstsBasedOnSl2016216Model
   init_kwargs:
     model_path: data/2016216.zip

@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/206238
   download_url: https://modeldb.science/download/206238
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_multilayer_cortical_model_to_study_seizure_pro_206238_model:AMultilayerCorticalModelToStudySeizurePro206238Model
   init_kwargs:
     model_path: data/206238.zip

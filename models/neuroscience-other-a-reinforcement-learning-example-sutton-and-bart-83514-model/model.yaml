@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/83514
   download_url: https://modeldb.science/download/83514
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_reinforcement_learning_example_sutton_and_bart_83514_model:AReinforcementLearningExampleSuttonAndBart83514Model
   init_kwargs:
     model_path: data/83514.zip

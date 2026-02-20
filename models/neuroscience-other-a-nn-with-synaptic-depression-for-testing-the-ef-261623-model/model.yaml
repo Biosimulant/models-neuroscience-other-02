@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/261623
   download_url: https://modeldb.science/download/261623
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_nn_with_synaptic_depression_for_testing_the_ef_261623_model:ANnWithSynapticDepressionForTestingTheEf261623Model
   init_kwargs:
     model_path: data/261623.zip

@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/263995
   download_url: https://modeldb.science/download/263995
   license: ''
-bsim:
+biosim:
   entrypoint: src.action_potential_evoked_ca2_signals_in_ca1_pyram_263995_model:ActionPotentialEvokedCa2SignalsInCa1Pyram263995Model
   init_kwargs:
     model_path: data/263995.zip

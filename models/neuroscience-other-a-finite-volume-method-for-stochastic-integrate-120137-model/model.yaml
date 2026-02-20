@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/120137
   download_url: https://modeldb.science/download/120137
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_finite_volume_method_for_stochastic_integrate_120137_model:AFiniteVolumeMethodForStochasticIntegrate120137Model
   init_kwargs:
     model_path: data/120137.zip

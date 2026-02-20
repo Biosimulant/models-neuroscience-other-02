@@ -19,7 +19,7 @@ upstream:
   original_url: https://github.com/OpenSourceBrain/97850
   download_url: https://github.com/OpenSourceBrain/97850.git
   license: ''
-bsim:
+biosim:
   entrypoint: src.model_97850_97850_model:Model9785097850Model
   init_kwargs:
     model_path: data/repo

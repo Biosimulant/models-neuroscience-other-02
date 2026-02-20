@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/79238
   download_url: https://modeldb.science/download/79238
   license: ''
-bsim:
+biosim:
   entrypoint: src.action_potential_of_striated_muscle_fiber_adrian_79238_model:ActionPotentialOfStriatedMuscleFiberAdrian79238Model
   init_kwargs:
     model_path: data/79238.zip

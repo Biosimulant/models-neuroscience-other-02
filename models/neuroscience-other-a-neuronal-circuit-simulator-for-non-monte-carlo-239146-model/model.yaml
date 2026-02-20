@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/239146
   download_url: https://modeldb.science/download/239146
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_neuronal_circuit_simulator_for_non_monte_carlo_239146_model:ANeuronalCircuitSimulatorForNonMonteCarlo239146Model
   init_kwargs:
     model_path: data/239146.zip

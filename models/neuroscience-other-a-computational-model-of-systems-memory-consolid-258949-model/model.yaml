@@ -19,7 +19,7 @@ upstream:
   original_url: https://modeldb.science/258949
   download_url: https://modeldb.science/download/258949
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_computational_model_of_systems_memory_consolid_258949_model:AComputationalModelOfSystemsMemoryConsolid258949Model
   init_kwargs:
     model_path: data/258949.zip

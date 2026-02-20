@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/266842
   download_url: https://modeldb.science/download/266842
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_cerebellar_model_of_phase_locked_tacs_for_esse_266842_model:ACerebellarModelOfPhaseLockedTacsForEsse266842Model
   init_kwargs:
     model_path: data/266842.zip

@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/267363
   download_url: https://modeldb.science/download/267363
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_modified_morris_lecar_with_trpc4_and_girk_tian_267363_model:AModifiedMorrisLecarWithTrpc4AndGirkTian267363Model
   init_kwargs:
     model_path: data/267363.zip

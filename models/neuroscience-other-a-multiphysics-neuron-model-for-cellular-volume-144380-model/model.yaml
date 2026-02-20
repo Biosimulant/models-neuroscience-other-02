@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/144380
   download_url: https://modeldb.science/download/144380
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_multiphysics_neuron_model_for_cellular_volume_144380_model:AMultiphysicsNeuronModelForCellularVolume144380Model
   init_kwargs:
     model_path: data/144380.zip

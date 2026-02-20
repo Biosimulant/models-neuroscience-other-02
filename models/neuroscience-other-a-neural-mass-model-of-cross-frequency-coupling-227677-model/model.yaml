@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/227677
   download_url: https://modeldb.science/download/227677
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_neural_mass_model_of_cross_frequency_coupling_227677_model:ANeuralMassModelOfCrossFrequencyCoupling227677Model
   init_kwargs:
     model_path: data/227677.zip

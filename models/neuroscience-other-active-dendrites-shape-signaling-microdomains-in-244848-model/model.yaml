@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/244848
   download_url: https://modeldb.science/download/244848
   license: ''
-bsim:
+biosim:
   entrypoint: src.active_dendrites_shape_signaling_microdomains_in_244848_model:ActiveDendritesShapeSignalingMicrodomainsIn244848Model
   init_kwargs:
     model_path: data/244848.zip

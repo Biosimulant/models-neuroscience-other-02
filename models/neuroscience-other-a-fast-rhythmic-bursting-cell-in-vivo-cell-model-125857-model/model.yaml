@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/125857
   download_url: https://modeldb.science/download/125857
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_fast_rhythmic_bursting_cell_in_vivo_cell_model_125857_model:AFastRhythmicBurstingCellInVivoCellModel125857Model
   init_kwargs:
     model_path: data/125857.zip

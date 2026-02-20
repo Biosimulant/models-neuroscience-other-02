@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/222932
   download_url: https://modeldb.science/download/222932
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_simple_model_of_neuromodulatory_state_dependen_222932_model:ASimpleModelOfNeuromodulatoryStateDependen222932Model
   init_kwargs:
     model_path: data/222932.zip

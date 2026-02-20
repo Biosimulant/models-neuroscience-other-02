@@ -18,7 +18,7 @@ upstream:
   original_url: https://github.com/OpenSourceBrain/83570
   download_url: https://github.com/OpenSourceBrain/83570.git
   license: ''
-bsim:
+biosim:
   entrypoint: src.model_83570_83570_model:Model8357083570Model
   init_kwargs:
     model_path: data/repo

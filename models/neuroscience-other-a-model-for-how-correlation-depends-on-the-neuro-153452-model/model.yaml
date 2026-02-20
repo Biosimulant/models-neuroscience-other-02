@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/153452
   download_url: https://modeldb.science/download/153452
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_model_for_how_correlation_depends_on_the_neuro_153452_model:AModelForHowCorrelationDependsOnTheNeuro153452Model
   init_kwargs:
     model_path: data/153452.zip

@@ -18,7 +18,7 @@ upstream:
   original_url: https://github.com/OpenSourceBrain/7400
   download_url: https://github.com/OpenSourceBrain/7400.git
   license: ''
-bsim:
+biosim:
   entrypoint: src.model_7400_7400_model:Model74007400Model
   init_kwargs:
     model_path: data/repo

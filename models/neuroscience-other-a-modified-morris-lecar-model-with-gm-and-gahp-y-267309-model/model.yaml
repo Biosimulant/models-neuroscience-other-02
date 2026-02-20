@@ -19,7 +19,7 @@ upstream:
   original_url: https://modeldb.science/267309
   download_url: https://modeldb.science/download/267309
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_modified_morris_lecar_model_with_gm_and_gahp_y_267309_model:AModifiedMorrisLecarModelWithGmAndGahpY267309Model
   init_kwargs:
     model_path: data/267309.zip

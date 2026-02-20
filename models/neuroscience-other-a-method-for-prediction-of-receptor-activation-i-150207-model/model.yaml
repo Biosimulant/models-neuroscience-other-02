@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/150207
   download_url: https://modeldb.science/download/150207
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_method_for_prediction_of_receptor_activation_i_150207_model:AMethodForPredictionOfReceptorActivationI150207Model
   init_kwargs:
     model_path: data/150207.zip

@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/257028
   download_url: https://modeldb.science/download/257028
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_cortico_cerebello_thalamo_cortical_loop_model_257028_model:ACorticoCerebelloThalamoCorticalLoopModel257028Model
   init_kwargs:
     model_path: data/257028.zip

@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/267391
   download_url: https://modeldb.science/download/267391
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_3d_population_model_of_midget_retinal_ganglion_267391_model:A3dPopulationModelOfMidgetRetinalGanglion267391Model
   init_kwargs:
     model_path: data/267391.zip

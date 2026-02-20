@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/264591
   download_url: https://modeldb.science/download/264591
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_computational_model_of_a_small_drg_neuron_to_e_264591_model:AComputationalModelOfASmallDrgNeuronToE264591Model
   init_kwargs:
     model_path: data/264591.zip

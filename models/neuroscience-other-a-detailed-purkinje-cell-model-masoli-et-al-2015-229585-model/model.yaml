@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/229585
   download_url: https://modeldb.science/download/229585
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_detailed_purkinje_cell_model_masoli_et_al_2015_229585_model:ADetailedPurkinjeCellModelMasoliEtAl2015229585Model
   init_kwargs:
     model_path: data/229585.zip

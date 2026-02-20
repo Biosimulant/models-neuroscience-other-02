@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/267620
   download_url: https://modeldb.science/download/267620
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_single_compartment_model_of_drosophila_motor_n_267620_model:ASingleCompartmentModelOfDrosophilaMotorN267620Model
   init_kwargs:
     model_path: data/267620.zip

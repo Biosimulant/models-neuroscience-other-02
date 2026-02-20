@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/226471
   download_url: https://modeldb.science/download/226471
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_model_of_antennal_lobe_of_bee_chen_jy_et_al_20_226471_model:AModelOfAntennalLobeOfBeeChenJyEtAl20226471Model
   init_kwargs:
     model_path: data/226471.zip

@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/243842
   download_url: https://modeldb.science/download/243842
   license: ''
-bsim:
+biosim:
   entrypoint: src.action_potential_of_mouse_urinary_bladder_smooth_243842_model:ActionPotentialOfMouseUrinaryBladderSmooth243842Model
   init_kwargs:
     model_path: data/243842.zip

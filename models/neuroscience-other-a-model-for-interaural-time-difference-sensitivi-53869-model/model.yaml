@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/53869
   download_url: https://modeldb.science/download/53869
   license: ''
-bsim:
+biosim:
   entrypoint: src.a_model_for_interaural_time_difference_sensitivi_53869_model:AModelForInterauralTimeDifferenceSensitivi53869Model
   init_kwargs:
     model_path: data/53869.zip

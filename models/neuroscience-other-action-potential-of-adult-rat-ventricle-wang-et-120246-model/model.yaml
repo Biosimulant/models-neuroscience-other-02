@@ -20,7 +20,7 @@ upstream:
   original_url: https://modeldb.science/120246
   download_url: https://modeldb.science/download/120246
   license: ''
-bsim:
+biosim:
   entrypoint: src.action_potential_of_adult_rat_ventricle_wang_et_120246_model:ActionPotentialOfAdultRatVentricleWangEt120246Model
   init_kwargs:
     model_path: data/120246.zip
