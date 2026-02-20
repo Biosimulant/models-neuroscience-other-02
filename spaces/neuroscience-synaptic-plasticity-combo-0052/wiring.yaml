@@ -1,0 +1,36 @@
+modules:
+  a_single_1:
+    class: src.a_single_cell_spiking_model_for_the_origin_of_gr_262187_model:ASingleCellSpikingModelForTheOriginOfGr262187Model
+    args:
+      model_path: data/262187.zip
+  a_spiking_2:
+    class: src.a_spiking_neural_network_model_of_the_lateral_ge_234118_model:ASpikingNeuralNetworkModelOfTheLateralGe234118Model
+    args:
+      model_path: data/234118.zip
+  a_threshold_3:
+    class: src.a_threshold_equation_for_action_potential_initia_153660_model:AThresholdEquationForActionPotentialInitia153660Model
+    args:
+      model_path: data/153660.zip
+  state_compare_mon:
+    class: src.state_comparison_monitor:StateComparisonMonitor
+    args:
+      max_points: 2000
+      min_dt: 1.0
+  state_metrics_mon:
+    class: src.state_metrics_monitor:StateMetricsMonitor
+    args:
+      max_points: 2000
+      min_dt: 1.0
+wiring:
+- from: a_single_1.state
+  to:
+  - state_compare_mon.state_a
+  - state_metrics_mon.state_a
+- from: a_spiking_2.state
+  to:
+  - state_compare_mon.state_b
+  - state_metrics_mon.state_b
+- from: a_threshold_3.state
+  to:
+  - state_compare_mon.state_c
+  - state_metrics_mon.state_c

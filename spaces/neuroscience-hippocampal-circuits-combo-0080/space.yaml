@@ -1,0 +1,86 @@
+schema_version: '2.0'
+title: 'Neuroscience: Hippocampal Circuits (COMBO_0080)'
+description: Neuroscience hippocampal circuits comparative space with 4 models, configured
+  as non-causal co-simulation.
+models:
+- repo: Biosimulant/models-neuroscience-other-02
+  alias: a_neurocomputati_1
+  manifest_path: models/neuroscience-other-a-neurocomputational-model-of-classical-conditio-138634-model/model.yaml
+  parameters:
+    model_path: data/138634.zip
+- repo: Biosimulant/models-neuroscience-other-02
+  alias: a_two_2
+  manifest_path: models/neuroscience-other-a-two-stage-model-of-dendritic-integration-in-ca-127351-model/model.yaml
+  parameters:
+    model_path: data/127351.zip
+- repo: Biosimulant/models-neuroscience-other-02
+  alias: acetylcholine_bo_3
+  manifest_path: models/neuroscience-other-acetylcholine-boosts-dendritic-nmda-spikes-ca3-pyramidal-neuron-osb267298-model/model.yaml
+  parameters:
+    model_path: data/repo
+- repo: Biosimulant/models-neuroscience-other-02
+  alias: acetylcholine_bo_4
+  manifest_path: models/neuroscience-other-acetylcholine-boosts-dendritic-nmda-spikes-in-a-267298-model/model.yaml
+  parameters:
+    model_path: data/267298.zip
+- repo: Biosimulant/models-observability
+  alias: state_compare_mon
+  manifest_path: models/observability-state-comparison-monitor/model.yaml
+  parameters:
+    max_points: 2000
+    min_dt: 1.0
+- repo: Biosimulant/models-observability
+  alias: state_metrics_mon
+  manifest_path: models/observability-state-metrics-monitor/model.yaml
+  parameters:
+    max_points: 2000
+    min_dt: 1.0
+runtime:
+  duration: 0.3
+  tick_dt: 0.01
+  initial_inputs: {}
+wiring:
+- from: a_neurocomputati_1.state
+  to:
+  - state_compare_mon.state_a
+  - state_metrics_mon.state_a
+- from: a_two_2.state
+  to:
+  - state_compare_mon.state_b
+  - state_metrics_mon.state_b
+- from: acetylcholine_bo_3.state
+  to:
+  - state_compare_mon.state_c
+  - state_metrics_mon.state_c
+- from: acetylcholine_bo_4.state
+  to:
+  - state_compare_mon.state_d
+  - state_metrics_mon.state_d
+scientific_context:
+  question: How do recurrent hippocampal motifs shape network dynamics over time?
+  mode: comparative
+  assumptions:
+  - Model implementations are used as published in their curated manifests without
+    biological reinterpretation.
+  - Time integration uses a shared global tick compatible with model min_dt constraints.
+  - Comparative (non-causal) mode is used because full deterministic IO coverage for
+    causal coupling was not satisfied.
+  expected_observables:
+  - Model output trajectories under shared runtime settings.
+  - Cross-model agreement/divergence in key state or metric signals.
+  - Relative behavior comparison without causal linkage claims.
+  limitations:
+  - No new biology is introduced beyond what upstream models encode.
+  - Cross-model semantic matching is rule-based and may under-connect uncertain routes.
+  provenance:
+  - 'neuroscience-other-a-neurocomputational-model-of-classical-conditio-138634-model
+    :: modeldb:138634 :: https://modeldb.science/138634'
+  - 'neuroscience-other-a-two-stage-model-of-dendritic-integration-in-ca-127351-model
+    :: modeldb:127351 :: https://modeldb.science/127351'
+  - 'neuroscience-other-acetylcholine-boosts-dendritic-nmda-spikes-ca3-pyramidal-neuron-osb267298-model
+    :: opensourcebrain:267298 :: https://github.com/OpenSourceBrain/267298'
+  - 'neuroscience-other-acetylcholine-boosts-dendritic-nmda-spikes-in-a-267298-model
+    :: modeldb:267298 :: https://modeldb.science/267298'
+  visualization_rationale: A dedicated monitor model receives all participating model
+    state streams (`state_a..state_d`) so trajectories can be compared in one place
+    without claiming causal coupling when IO semantics are incomplete.

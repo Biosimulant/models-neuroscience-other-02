@@ -1,0 +1,44 @@
+modules:
+  a_multilayer_1:
+    class: src.a_multilayer_cortical_model_to_study_seizure_pro_206238_model:AMultilayerCorticalModelToStudySeizurePro206238Model
+    args:
+      model_path: data/206238.zip
+  a_neural_2:
+    class: src.a_neural_mass_computational_model_of_the_thalamo_138970_model:ANeuralMassComputationalModelOfTheThalamo138970Model
+    args:
+      model_path: data/138970.zip
+  a_neural_3:
+    class: src.a_neural_mass_model_of_cross_frequency_coupling_227677_model:ANeuralMassModelOfCrossFrequencyCoupling227677Model
+    args:
+      model_path: data/227677.zip
+  a_novel_4:
+    class: src.a_novel_mechanism_for_ramping_bursts_based_on_sl_2016216_model:ANovelMechanismForRampingBurstsBasedOnSl2016216Model
+    args:
+      model_path: data/2016216.zip
+  state_compare_mon:
+    class: src.state_comparison_monitor:StateComparisonMonitor
+    args:
+      max_points: 2000
+      min_dt: 1.0
+  state_metrics_mon:
+    class: src.state_metrics_monitor:StateMetricsMonitor
+    args:
+      max_points: 2000
+      min_dt: 1.0
+wiring:
+- from: a_multilayer_1.state
+  to:
+  - state_compare_mon.state_a
+  - state_metrics_mon.state_a
+- from: a_neural_2.state
+  to:
+  - state_compare_mon.state_b
+  - state_metrics_mon.state_b
+- from: a_neural_3.state
+  to:
+  - state_compare_mon.state_c
+  - state_metrics_mon.state_c
+- from: a_novel_4.state
+  to:
+  - state_compare_mon.state_d
+  - state_metrics_mon.state_d

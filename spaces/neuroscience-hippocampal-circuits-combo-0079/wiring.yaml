@@ -1,0 +1,44 @@
+modules:
+  a_general_1:
+    class: src.a_general_model_of_hippocampal_and_dorsal_striat_266836_model:AGeneralModelOfHippocampalAndDorsalStriat266836Model
+    args:
+      model_path: data/266836.zip
+  a_model_2:
+    class: src.a_model_for_how_correlation_depends_on_the_neuro_153452_model:AModelForHowCorrelationDependsOnTheNeuro153452Model
+    args:
+      model_path: data/153452.zip
+  a_model_3:
+    class: src.a_model_of_unitary_responses_from_a_c_and_pp_syn_137259_model:AModelOfUnitaryResponsesFromACAndPpSyn137259Model
+    args:
+      model_path: data/137259.zip
+  a_model_4:
+    class: src.a_model_of_ventral_hippocampal_ca1_pyramidal_neu_267066_model:AModelOfVentralHippocampalCa1PyramidalNeu267066Model
+    args:
+      model_path: data/267066.zip
+  state_compare_mon:
+    class: src.state_comparison_monitor:StateComparisonMonitor
+    args:
+      max_points: 2000
+      min_dt: 1.0
+  state_metrics_mon:
+    class: src.state_metrics_monitor:StateMetricsMonitor
+    args:
+      max_points: 2000
+      min_dt: 1.0
+wiring:
+- from: a_general_1.state
+  to:
+  - state_compare_mon.state_a
+  - state_metrics_mon.state_a
+- from: a_model_2.state
+  to:
+  - state_compare_mon.state_b
+  - state_metrics_mon.state_b
+- from: a_model_3.state
+  to:
+  - state_compare_mon.state_c
+  - state_metrics_mon.state_c
+- from: a_model_4.state
+  to:
+  - state_compare_mon.state_d
+  - state_metrics_mon.state_d

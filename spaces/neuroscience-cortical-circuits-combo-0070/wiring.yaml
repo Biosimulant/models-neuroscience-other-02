@@ -1,0 +1,44 @@
+modules:
+  a_full_1:
+    class: src.a_full_scale_cortical_microcircuit_spiking_netwo_244261_model:AFullScaleCorticalMicrocircuitSpikingNetwo244261Model
+    args:
+      model_path: data/244261.zip
+  a_gap_2:
+    class: src.a_gap_junction_network_of_amacrine_cells_control_262452_model:AGapJunctionNetworkOfAmacrineCellsControl262452Model
+    args:
+      model_path: data/262452.zip
+  a_layer_3:
+    class: src.a_layer_v_ccs_type_pyramidal_cell_inhibitory_syn_183424_model:ALayerVCcsTypePyramidalCellInhibitorySyn183424Model
+    args:
+      model_path: data/183424.zip
+  a_model_4:
+    class: src.a_model_circuit_of_thalamocortical_convergence_b_150240_model:AModelCircuitOfThalamocorticalConvergenceB150240Model
+    args:
+      model_path: data/150240.zip
+  state_compare_mon:
+    class: src.state_comparison_monitor:StateComparisonMonitor
+    args:
+      max_points: 2000
+      min_dt: 1.0
+  state_metrics_mon:
+    class: src.state_metrics_monitor:StateMetricsMonitor
+    args:
+      max_points: 2000
+      min_dt: 1.0
+wiring:
+- from: a_full_1.state
+  to:
+  - state_compare_mon.state_a
+  - state_metrics_mon.state_a
+- from: a_gap_2.state
+  to:
+  - state_compare_mon.state_b
+  - state_metrics_mon.state_b
+- from: a_layer_3.state
+  to:
+  - state_compare_mon.state_c
+  - state_metrics_mon.state_c
+- from: a_model_4.state
+  to:
+  - state_compare_mon.state_d
+  - state_metrics_mon.state_d

@@ -1,0 +1,36 @@
+modules:
+  a_network_1:
+    class: src.a_network_model_of_the_vertebrate_retina_publio_124063_model:ANetworkModelOfTheVertebrateRetinaPublio124063Model
+    args:
+      model_path: data/124063.zip
+  a_neurite_2:
+    class: src.a_neurite_to_measure_epsp_and_ap_amplitude_after_266881_model:ANeuriteToMeasureEpspAndApAmplitudeAfter266881Model
+    args:
+      model_path: data/266881.zip
+  a_nn_3:
+    class: src.a_nn_with_synaptic_depression_for_testing_the_ef_261623_model:ANnWithSynapticDepressionForTestingTheEf261623Model
+    args:
+      model_path: data/261623.zip
+  state_compare_mon:
+    class: src.state_comparison_monitor:StateComparisonMonitor
+    args:
+      max_points: 2000
+      min_dt: 1.0
+  state_metrics_mon:
+    class: src.state_metrics_monitor:StateMetricsMonitor
+    args:
+      max_points: 2000
+      min_dt: 1.0
+wiring:
+- from: a_network_1.state
+  to:
+  - state_compare_mon.state_a
+  - state_metrics_mon.state_a
+- from: a_neurite_2.state
+  to:
+  - state_compare_mon.state_b
+  - state_metrics_mon.state_b
+- from: a_nn_3.state
+  to:
+  - state_compare_mon.state_c
+  - state_metrics_mon.state_c

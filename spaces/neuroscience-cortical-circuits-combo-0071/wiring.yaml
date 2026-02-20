@@ -1,0 +1,44 @@
+modules:
+  a_model_1:
+    class: src.a_model_for_focal_seizure_onset_propagation_evol_266524_model:AModelForFocalSeizureOnsetPropagationEvol266524Model
+    args:
+      model_path: data/266524.zip
+  a_model_2:
+    class: src.a_model_for_recurrent_spreading_depolarizations_235377_model:AModelForRecurrentSpreadingDepolarizations235377Model
+    args:
+      model_path: data/235377.zip
+  a_model_3:
+    class: src.a_model_of_antennal_lobe_of_bee_chen_jy_et_al_20_226471_model:AModelOfAntennalLobeOfBeeChenJyEtAl20226471Model
+    args:
+      model_path: data/226471.zip
+  a_model_4:
+    class: src.a_model_of_slow_motor_unit_kim_2017_235769_model:AModelOfSlowMotorUnitKim2017235769Model
+    args:
+      model_path: data/235769.zip
+  state_compare_mon:
+    class: src.state_comparison_monitor:StateComparisonMonitor
+    args:
+      max_points: 2000
+      min_dt: 1.0
+  state_metrics_mon:
+    class: src.state_metrics_monitor:StateMetricsMonitor
+    args:
+      max_points: 2000
+      min_dt: 1.0
+wiring:
+- from: a_model_1.state
+  to:
+  - state_compare_mon.state_a
+  - state_metrics_mon.state_a
+- from: a_model_2.state
+  to:
+  - state_compare_mon.state_b
+  - state_metrics_mon.state_b
+- from: a_model_3.state
+  to:
+  - state_compare_mon.state_c
+  - state_metrics_mon.state_c
+- from: a_model_4.state
+  to:
+  - state_compare_mon.state_d
+  - state_metrics_mon.state_d

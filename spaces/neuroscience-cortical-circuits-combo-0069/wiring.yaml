@@ -1,0 +1,44 @@
+modules:
+  a_cortico_1:
+    class: src.a_cortico_cerebello_thalamo_cortical_loop_model_257028_model:ACorticoCerebelloThalamoCorticalLoopModel257028Model
+    args:
+      model_path: data/257028.zip
+  a_detailed_2:
+    class: src.a_detailed_data_driven_network_model_of_prefront_189160_model:ADetailedDataDrivenNetworkModelOfPrefront189160Model
+    args:
+      model_path: data/189160.zip
+  a_detailed_3:
+    class: src.a_detailed_purkinje_cell_model_masoli_et_al_2015_229585_model:ADetailedPurkinjeCellModelMasoliEtAl2015229585Model
+    args:
+      model_path: data/229585.zip
+  a_fast_4:
+    class: src.a_fast_rhythmic_bursting_cell_in_vivo_cell_model_125857_model:AFastRhythmicBurstingCellInVivoCellModel125857Model
+    args:
+      model_path: data/125857.zip
+  state_compare_mon:
+    class: src.state_comparison_monitor:StateComparisonMonitor
+    args:
+      max_points: 2000
+      min_dt: 1.0
+  state_metrics_mon:
+    class: src.state_metrics_monitor:StateMetricsMonitor
+    args:
+      max_points: 2000
+      min_dt: 1.0
+wiring:
+- from: a_cortico_1.state
+  to:
+  - state_compare_mon.state_a
+  - state_metrics_mon.state_a
+- from: a_detailed_2.state
+  to:
+  - state_compare_mon.state_b
+  - state_metrics_mon.state_b
+- from: a_detailed_3.state
+  to:
+  - state_compare_mon.state_c
+  - state_metrics_mon.state_c
+- from: a_fast_4.state
+  to:
+  - state_compare_mon.state_d
+  - state_metrics_mon.state_d

@@ -1,0 +1,86 @@
+schema_version: '2.0'
+title: 'Neuroscience: Cortical Circuits (COMBO_0073)'
+description: Neuroscience cortical circuits comparative space with 4 models, configured
+  as non-causal co-simulation.
+models:
+- repo: Biosimulant/models-neuroscience-other-02
+  alias: a_sensorimotor_1
+  manifest_path: models/neuroscience-other-a-sensorimotor-spinal-cord-model-hoshino-et-al-2-267395-model/model.yaml
+  parameters:
+    model_path: data/267395.zip
+- repo: Biosimulant/models-neuroscience-other-02
+  alias: a_set_2
+  manifest_path: models/neuroscience-other-a-set-of-reduced-models-of-layer-5-pyramidal-neu-146026-model/model.yaml
+  parameters:
+    model_path: data/146026.zip
+- repo: Biosimulant/models-neuroscience-other-02
+  alias: a_simple_3
+  manifest_path: models/neuroscience-other-a-simple-model-of-neuromodulatory-state-dependen-222932-model/model.yaml
+  parameters:
+    model_path: data/222932.zip
+- repo: Biosimulant/models-neuroscience-other-02
+  alias: a_single_4
+  manifest_path: models/neuroscience-other-a-single-kinetic-model-for-all-human-voltage-gat-230137-model/model.yaml
+  parameters:
+    model_path: data/230137.zip
+- repo: Biosimulant/models-observability
+  alias: state_compare_mon
+  manifest_path: models/observability-state-comparison-monitor/model.yaml
+  parameters:
+    max_points: 2000
+    min_dt: 1.0
+- repo: Biosimulant/models-observability
+  alias: state_metrics_mon
+  manifest_path: models/observability-state-metrics-monitor/model.yaml
+  parameters:
+    max_points: 2000
+    min_dt: 1.0
+runtime:
+  duration: 0.3
+  tick_dt: 0.01
+  initial_inputs: {}
+wiring:
+- from: a_sensorimotor_1.state
+  to:
+  - state_compare_mon.state_a
+  - state_metrics_mon.state_a
+- from: a_set_2.state
+  to:
+  - state_compare_mon.state_b
+  - state_metrics_mon.state_b
+- from: a_simple_3.state
+  to:
+  - state_compare_mon.state_c
+  - state_metrics_mon.state_c
+- from: a_single_4.state
+  to:
+  - state_compare_mon.state_d
+  - state_metrics_mon.state_d
+scientific_context:
+  question: How do cortical circuit motifs transform and propagate activity?
+  mode: comparative
+  assumptions:
+  - Model implementations are used as published in their curated manifests without
+    biological reinterpretation.
+  - Time integration uses a shared global tick compatible with model min_dt constraints.
+  - Comparative (non-causal) mode is used because full deterministic IO coverage for
+    causal coupling was not satisfied.
+  expected_observables:
+  - Model output trajectories under shared runtime settings.
+  - Cross-model agreement/divergence in key state or metric signals.
+  - Relative behavior comparison without causal linkage claims.
+  limitations:
+  - No new biology is introduced beyond what upstream models encode.
+  - Cross-model semantic matching is rule-based and may under-connect uncertain routes.
+  provenance:
+  - 'neuroscience-other-a-sensorimotor-spinal-cord-model-hoshino-et-al-2-267395-model
+    :: modeldb:267395 :: https://modeldb.science/267395'
+  - 'neuroscience-other-a-set-of-reduced-models-of-layer-5-pyramidal-neu-146026-model
+    :: modeldb:146026 :: https://modeldb.science/146026'
+  - 'neuroscience-other-a-simple-model-of-neuromodulatory-state-dependen-222932-model
+    :: modeldb:222932 :: https://modeldb.science/222932'
+  - 'neuroscience-other-a-single-kinetic-model-for-all-human-voltage-gat-230137-model
+    :: modeldb:230137 :: https://modeldb.science/230137'
+  visualization_rationale: A dedicated monitor model receives all participating model
+    state streams (`state_a..state_d`) so trajectories can be compared in one place
+    without claiming causal coupling when IO semantics are incomplete.

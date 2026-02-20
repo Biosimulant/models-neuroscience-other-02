@@ -1,0 +1,36 @@
+modules:
+  a_model_1:
+    class: src.a_model_of_asic1a_and_synaptic_cleft_ph_modulati_267666_model:AModelOfAsic1aAndSynapticCleftPhModulati267666Model
+    args:
+      model_path: data/267666.zip
+  a_model_2:
+    class: src.a_model_of_cerebellar_ltd_including_rkip_inactiv_222732_model:AModelOfCerebellarLtdIncludingRkipInactiv222732Model
+    args:
+      model_path: data/222732.zip
+  a_model_3:
+    class: src.a_model_of_optimal_learning_with_redundant_synap_225075_model:AModelOfOptimalLearningWithRedundantSynap225075Model
+    args:
+      model_path: data/225075.zip
+  state_compare_mon:
+    class: src.state_comparison_monitor:StateComparisonMonitor
+    args:
+      max_points: 2000
+      min_dt: 1.0
+  state_metrics_mon:
+    class: src.state_metrics_monitor:StateMetricsMonitor
+    args:
+      max_points: 2000
+      min_dt: 1.0
+wiring:
+- from: a_model_1.state
+  to:
+  - state_compare_mon.state_a
+  - state_metrics_mon.state_a
+- from: a_model_2.state
+  to:
+  - state_compare_mon.state_b
+  - state_metrics_mon.state_b
+- from: a_model_3.state
+  to:
+  - state_compare_mon.state_c
+  - state_metrics_mon.state_c

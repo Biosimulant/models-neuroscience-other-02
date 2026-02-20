@@ -1,0 +1,36 @@
+modules:
+  a_computational_1:
+    class: src.a_computational_model_of_bidirectional_plasticit_249405_model:AComputationalModelOfBidirectionalPlasticit249405Model
+    args:
+      model_path: data/249405.zip
+  a_kinetic_2:
+    class: src.a_kinetic_model_unifying_presynaptic_short_term_120184_model:AKineticModelUnifyingPresynapticShortTerm120184Model
+    args:
+      model_path: data/120184.zip
+  a_method_3:
+    class: src.a_method_for_prediction_of_receptor_activation_i_150207_model:AMethodForPredictionOfReceptorActivationI150207Model
+    args:
+      model_path: data/150207.zip
+  state_compare_mon:
+    class: src.state_comparison_monitor:StateComparisonMonitor
+    args:
+      max_points: 2000
+      min_dt: 1.0
+  state_metrics_mon:
+    class: src.state_metrics_monitor:StateMetricsMonitor
+    args:
+      max_points: 2000
+      min_dt: 1.0
+wiring:
+- from: a_computational_1.state
+  to:
+  - state_compare_mon.state_a
+  - state_metrics_mon.state_a
+- from: a_kinetic_2.state
+  to:
+  - state_compare_mon.state_b
+  - state_metrics_mon.state_b
+- from: a_method_3.state
+  to:
+  - state_compare_mon.state_c
+  - state_metrics_mon.state_c

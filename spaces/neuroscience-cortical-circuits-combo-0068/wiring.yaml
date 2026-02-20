@@ -1,0 +1,44 @@
+modules:
+  model_1:
+    class: src.model_87278_87278_model:Model8727887278Model
+    args:
+      model_path: data/repo
+  model_2:
+    class: src.model_97747_97747_model:Model9774797747Model
+    args:
+      model_path: data/repo
+  a_biophysical_3:
+    class: src.a_biophysical_model_of_thalamocortical_network_s_2015422_model:ABiophysicalModelOfThalamocorticalNetworkS2015422Model
+    args:
+      model_path: data/2015422.zip
+  a_cortical_4:
+    class: src.a_cortical_sheet_mesoscopic_model_for_investigat_155565_model:ACorticalSheetMesoscopicModelForInvestigat155565Model
+    args:
+      model_path: data/155565.zip
+  state_compare_mon:
+    class: src.state_comparison_monitor:StateComparisonMonitor
+    args:
+      max_points: 2000
+      min_dt: 1.0
+  state_metrics_mon:
+    class: src.state_metrics_monitor:StateMetricsMonitor
+    args:
+      max_points: 2000
+      min_dt: 1.0
+wiring:
+- from: model_1.state
+  to:
+  - state_compare_mon.state_a
+  - state_metrics_mon.state_a
+- from: model_2.state
+  to:
+  - state_compare_mon.state_b
+  - state_metrics_mon.state_b
+- from: a_biophysical_3.state
+  to:
+  - state_compare_mon.state_c
+  - state_metrics_mon.state_c
+- from: a_cortical_4.state
+  to:
+  - state_compare_mon.state_d
+  - state_metrics_mon.state_d

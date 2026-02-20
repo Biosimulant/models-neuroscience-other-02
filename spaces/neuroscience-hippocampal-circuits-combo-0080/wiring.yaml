@@ -1,0 +1,44 @@
+modules:
+  a_neurocomputati_1:
+    class: src.a_neurocomputational_model_of_classical_conditio_138634_model:ANeurocomputationalModelOfClassicalConditio138634Model
+    args:
+      model_path: data/138634.zip
+  a_two_2:
+    class: src.a_two_stage_model_of_dendritic_integration_in_ca_127351_model:ATwoStageModelOfDendriticIntegrationInCa127351Model
+    args:
+      model_path: data/127351.zip
+  acetylcholine_bo_3:
+    class: src.model_267298_267298_model:Model267298267298Model
+    args:
+      model_path: data/repo
+  acetylcholine_bo_4:
+    class: src.acetylcholine_boosts_dendritic_nmda_spikes_in_a_267298_model:AcetylcholineBoostsDendriticNmdaSpikesInA267298Model
+    args:
+      model_path: data/267298.zip
+  state_compare_mon:
+    class: src.state_comparison_monitor:StateComparisonMonitor
+    args:
+      max_points: 2000
+      min_dt: 1.0
+  state_metrics_mon:
+    class: src.state_metrics_monitor:StateMetricsMonitor
+    args:
+      max_points: 2000
+      min_dt: 1.0
+wiring:
+- from: a_neurocomputati_1.state
+  to:
+  - state_compare_mon.state_a
+  - state_metrics_mon.state_a
+- from: a_two_2.state
+  to:
+  - state_compare_mon.state_b
+  - state_metrics_mon.state_b
+- from: acetylcholine_bo_3.state
+  to:
+  - state_compare_mon.state_c
+  - state_metrics_mon.state_c
+- from: acetylcholine_bo_4.state
+  to:
+  - state_compare_mon.state_d
+  - state_metrics_mon.state_d

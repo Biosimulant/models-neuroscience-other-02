@@ -1,0 +1,36 @@
+modules:
+  model_1:
+    class: src.model_9888_9888_model:Model98889888Model
+    args:
+      model_path: data/repo
+  a_cell_2:
+    class: src.a_1000_cell_network_model_for_lateral_amygdala_k_150288_model:A1000CellNetworkModelForLateralAmygdalaK150288Model
+    args:
+      model_path: data/150288.zip
+  a_biophysical_3:
+    class: src.a_biophysical_model_of_vestibular_ganglion_neuro_244202_model:ABiophysicalModelOfVestibularGanglionNeuro244202Model
+    args:
+      model_path: data/244202.zip
+  state_compare_mon:
+    class: src.state_comparison_monitor:StateComparisonMonitor
+    args:
+      max_points: 2000
+      min_dt: 1.0
+  state_metrics_mon:
+    class: src.state_metrics_monitor:StateMetricsMonitor
+    args:
+      max_points: 2000
+      min_dt: 1.0
+wiring:
+- from: model_1.state
+  to:
+  - state_compare_mon.state_a
+  - state_metrics_mon.state_a
+- from: a_cell_2.state
+  to:
+  - state_compare_mon.state_b
+  - state_metrics_mon.state_b
+- from: a_biophysical_3.state
+  to:
+  - state_compare_mon.state_c
+  - state_metrics_mon.state_c

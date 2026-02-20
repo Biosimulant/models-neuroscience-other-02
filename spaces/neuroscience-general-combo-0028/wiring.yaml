@@ -1,0 +1,28 @@
+modules:
+  model_1:
+    class: src.model_83575_83575_model:Model8357583575Model
+    args:
+      model_path: data/repo
+  model_2:
+    class: src.model_83590_83590_model:Model8359083590Model
+    args:
+      model_path: data/repo
+  state_compare_mon:
+    class: src.state_comparison_monitor:StateComparisonMonitor
+    args:
+      max_points: 2000
+      min_dt: 1.0
+  state_metrics_mon:
+    class: src.state_metrics_monitor:StateMetricsMonitor
+    args:
+      max_points: 2000
+      min_dt: 1.0
+wiring:
+- from: model_1.state
+  to:
+  - state_compare_mon.state_a
+  - state_metrics_mon.state_a
+- from: model_2.state
+  to:
+  - state_compare_mon.state_b
+  - state_metrics_mon.state_b
