@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ALayerVCcsTypePyramidalCellInhibitorySyn183424Model'
-description: '{"value": "A layer V crossed-corticostriatal (CCS) \u2018slender untufted\u2019
-  pyramidal cell model of rat frontal cortex was built using Neurolucida tracing as
-  well as 3D reconstructed dendrites of '
+description: "{\"value\": \"A layer V crossed-corticostriatal (CCS) \\u2018slender untufted\\u2019 pyramidal cell model of rat frontal cortex was built using Neurolucida tracing as well as 3D reconstructed dendrites of. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

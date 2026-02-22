@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ADetailedPurkinjeCellModelMasoliEtAl2015229585Model'
-description: '{"value": "The Purkinje cell is one of the most complex type of neuron
-  in the central nervous system and is well known for its massive dendritic tree.
-  The initiation of the action potential was theori'
+description: "{\"value\": \"The Purkinje cell is one of the most complex type of neuron in the central nervous system and is well known for its massive dendritic tree. The initiation of the action potential was theori."
 standard: other
 tags:
 - neuroscience

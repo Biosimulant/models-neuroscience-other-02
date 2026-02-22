@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: AComputationalModelForTheBinocularVectorD245818Model'
-description: '{"value": "A biologically-inspired model of disparity estimation: we
-  consider the disparity patterns that arise when artificial and living beings fixate
-  objects in the surrounding environment, in thes'
+description: "{\"value\": \"A biologically-inspired model of disparity estimation: we consider the disparity patterns that arise when artificial and living beings fixate objects in the surrounding environment, in thes. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

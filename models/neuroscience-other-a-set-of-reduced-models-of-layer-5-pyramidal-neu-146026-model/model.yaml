@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ASetOfReducedModelsOfLayer5PyramidalNeu146026Model'
-description: '{"value": "These are the NEURON files for 10 different models of a reduced
-  L5 pyramidal neuron. The parameters were obtained by automatically fitting the models
-  to experimental data using a multi obje'
+description: "{\"value\": \"These are the NEURON files for 10 different models of a reduced L5 pyramidal neuron. The parameters were obtained by automatically fitting the models to experimental data using a multi obje."
 standard: other
 tags:
 - neuroscience

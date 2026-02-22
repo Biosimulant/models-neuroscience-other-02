@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ActionPotentialOfMouseUrinaryBladderSmooth243842Model'
-description: '{"value": "Urinary incontinence is associated with enhanced spontaneous
-  phasic contractions of the detrusor smooth muscle (DSM). Although a complete understanding
-  of the etiology of these spontaneous '
+description: "{\"value\": \"Urinary incontinence is associated with enhanced spontaneous phasic contractions of the detrusor smooth muscle (DSM). Although a complete understanding of the etiology of these spontaneous."
 standard: other
 tags:
 - neuroscience

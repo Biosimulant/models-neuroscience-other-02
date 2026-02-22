@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ABiophysicalModelOfThalamocorticalNetworkS2015422Model'
-description: '{"value": "This is a model of the cortex of (Benita et al., 2012), the
-  thalamus of (Soplata et al., 2017), and simple AMPAergic thalamocortical and corticothalamic
-  connections between them, built usin'
+description: "{\"value\": \"This is a model of the cortex of (Benita et al., 2012), the thalamus of (Soplata et al., 2017), and simple AMPAergic thalamocortical and corticothalamic connections between them, built usin. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

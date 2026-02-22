@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model6267662676Model'
-description: Markovian model for single-channel recordings of Ik_1 in ventricular
-  cells (Matsuoka et al 2003)
+description: "Markovian model for single-channel recordings of Ik_1 in ventricular cells (Matsuoka et al 2003). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

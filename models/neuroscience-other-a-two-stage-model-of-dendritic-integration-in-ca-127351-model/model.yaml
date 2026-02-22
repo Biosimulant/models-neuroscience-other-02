@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ATwoStageModelOfDendriticIntegrationInCa127351Model'
-description: '{"value": "\"... In a two-stage integration model, inputs contribute
-  directly to dendritic spikes, and outputs from multiple branches sum in the axon.
-  ... We used serial-section electron microscopy to'
+description: "{\"value\": \"\\\"... In a two-stage integration model, inputs contribute directly to dendritic spikes, and outputs from multiple branches sum in the axon."
 standard: other
 tags:
 - neuroscience

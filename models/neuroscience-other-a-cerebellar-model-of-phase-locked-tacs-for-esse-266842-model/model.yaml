@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ACerebellarModelOfPhaseLockedTacsForEsse266842Model'
-description: '{"value": "This model is a supplementary material for Schreglmann, Sebastian
-  R., et al. \"Non-invasive suppression of essential tremor via phase-locked disruption
-  of its temporal coherence\" Nature Co'
+description: "{\"value\": \"This model is a supplementary material for Schreglmann, Sebastian R., et al. \\\"Non-invasive suppression of essential tremor via phase-locked disruption of its temporal coherence\\\" Nature Co."
 standard: other
 tags:
 - neuroscience

@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model6228762287Model'
-description: Kv4.3, Kv1.4 encoded K(+) channel in heart cells (Greenstein et al 2000)
-  (XPP)
+description: "Kv4.3, Kv1.4 encoded K(+) channel in heart cells (Greenstein et al 2000) (XPP). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

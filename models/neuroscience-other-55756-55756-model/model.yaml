@@ -1,6 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model5575655756Model'
-description: A dynamic model of the canine ventricular myocyte (Hund, Rudy 2004)
+description: "A dynamic model of the canine ventricular myocyte (Hund, Rudy 2004). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ABiochemicallyDetailedModelOfGababReceptor2018268Model'
-description: '{"value": "Mass-action-law based model of GABAB-receptor activation
-  and its effects on GIRK channel and N-type Ca2+ channel activity. The model is simulated
-  as a single compartment model and integrate'
+description: "{\"value\": \"Mass-action-law based model of GABAB-receptor activation and its effects on GIRK channel and N-type Ca2+ channel activity. The model is simulated as a single compartment model and integrate."
 standard: other
 tags:
 - neuroscience

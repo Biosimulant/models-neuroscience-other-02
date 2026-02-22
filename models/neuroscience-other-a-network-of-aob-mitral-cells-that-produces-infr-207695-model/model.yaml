@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ANetworkOfAobMitralCellsThatProducesInfr207695Model'
-description: '{"value": "Infra-slow rhythmic neuronal activity with very long (> 10
-  s) period duration was described in many brain areas but little is known about the
-  role of this activity and the mechanisms that p'
+description: "{\"value\": \"Infra-slow rhythmic neuronal activity with very long (> 10 s) period duration was described in many brain areas but little is known about the role of this activity and the mechanisms that p. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: AModelOfSelectionBetweenStimulusAndPlace116313Model'
-description: '{"value": "\"In behavioral experiments, the hawkmoth Deilephila elpenor
-  can learn both the \r\ncolor and the position of artificial flowers.\r\n\r\n...\r\n\r\nWe
-  show how a computational model can rep'
+description: "{\"value\": \"\\\"In behavioral experiments, the hawkmoth Deilephila elpenor can learn both the \\r\\ncolor and the position of artificial flowers.\\r\\n\\r\\n...\\r\\n\\r\\nWe show how a computational model can rep. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

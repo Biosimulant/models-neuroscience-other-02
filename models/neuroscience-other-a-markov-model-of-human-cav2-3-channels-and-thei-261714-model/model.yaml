@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: AMarkovModelOfHumanCav23ChannelsAndThei261714Model'
-description: '{"value": "The Markov model for Cav2.3 channel gating in the absence
-  of trace metals was developed based on channel structure, previous modeling studies
-  and the ability to fit the data. Model paramete'
+description: "{\"value\": \"The Markov model for Cav2.3 channel gating in the absence of trace metals was developed based on channel structure, previous modeling studies and the ability to fit the data. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

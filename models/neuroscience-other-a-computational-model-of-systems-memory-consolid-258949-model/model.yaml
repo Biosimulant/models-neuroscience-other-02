@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: AComputationalModelOfSystemsMemoryConsolid258949Model'
-description: '{"value": "A neural-network framework for modeling systems memory consolidation
-  and reconsolidation.", "attr_id": 24}'
+description: "A neural-network framework for modeling systems memory consolidation and reconsolidation. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

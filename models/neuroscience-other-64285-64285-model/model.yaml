@@ -1,6 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model6428564285Model'
-description: Dopaminergic cell bursting model (Kuznetsov et al 2006)
+description: "Dopaminergic cell bursting model (Kuznetsov et al 2006). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

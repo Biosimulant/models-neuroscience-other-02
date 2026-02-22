@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ATwoLayerBiophysicalOlfactoryBulbModelOf149739Model'
-description: '{"value": "This is a two-layer biophysical olfactory bulb (OB) network
-  model to study cholinergic neuromodulation. Simulations show that nicotinic receptor
-  activation sharpens mitral cell receptive fi'
+description: "{\"value\": \"This is a two-layer biophysical olfactory bulb (OB) network model to study cholinergic neuromodulation. Simulations show that nicotinic receptor activation sharpens mitral cell receptive fi."
 standard: other
 tags:
 - neuroscience

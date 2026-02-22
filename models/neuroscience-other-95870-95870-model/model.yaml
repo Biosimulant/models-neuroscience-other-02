@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model9587095870Model'
-description: Rod photoreceptor (Barnes and Hille 1989, Publio et al. 2006, Kourennyi
-  and Liu et al. 2004)
+description: "Rod photoreceptor (Barnes and Hille 1989, Publio et al. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

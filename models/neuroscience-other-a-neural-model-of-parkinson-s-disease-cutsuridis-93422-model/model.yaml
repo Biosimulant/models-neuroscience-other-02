@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ANeuralModelOfParkinsonSDiseaseCutsuridis93422Model'
-description: '{"value": "\"A neural model of neuromodulatory (dopamine) control of
-  arm movements in Parkinson\u2019s disease (PD) bradykinesia was recently introduced
-  [1, 2]. The model is multi-modular consisting o'
+description: "{\"value\": \"\\\"A neural model of neuromodulatory (dopamine) control of arm movements in Parkinson\\u2019s disease (PD) bradykinesia was recently introduced [1, 2]. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

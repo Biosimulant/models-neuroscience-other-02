@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model9341693416Model'
-description: Periodicity in Na channel properties alters model neuron excitability
-  (Majumdar and Sikdar 2007)
+description: "Periodicity in Na channel properties alters model neuron excitability (Majumdar and Sikdar 2007). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

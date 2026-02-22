@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model8727887278Model'
-description: Markov models of SCN1A (NaV1.1) applied to abnormal gating and epilepsy
-  (Clancy and Kass 2004)
+description: "Markov models of SCN1A (NaV1.1) applied to abnormal gating and epilepsy (Clancy and Kass 2004). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

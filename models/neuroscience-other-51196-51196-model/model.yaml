@@ -1,6 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model5119651196Model'
-description: LTP in cerebellar mossy fiber-granule cell synapses (Saftenku 2002)
+description: "LTP in cerebellar mossy fiber-granule cell synapses (Saftenku 2002). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

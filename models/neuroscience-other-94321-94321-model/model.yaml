@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model9432194321Model'
-description: Inferring connection proximity in electrically coupled networks (Cali
-  et al. 2007)
+description: "Inferring connection proximity in electrically coupled networks (Cali et al. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

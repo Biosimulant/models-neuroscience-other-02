@@ -1,6 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model5039250392Model'
-description: Fast oscillations in inhibitory networks (Maex, De Schutter 2003)
+description: "Fast oscillations in inhibitory networks (Maex, De Schutter 2003). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

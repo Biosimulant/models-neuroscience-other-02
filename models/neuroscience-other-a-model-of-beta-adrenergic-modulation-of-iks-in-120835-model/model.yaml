@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: AModelOfBetaAdrenergicModulationOfIksIn120835Model'
-description: '{"value": "Detailed understanding of IKs gating complexity may provide
-  clues on the mechanisms of cardiac repolarization instability and the resulting
-  arrhythmias. We developed and tested a kinetic Ma'
+description: "{\"value\": \"Detailed understanding of IKs gating complexity may provide clues on the mechanisms of cardiac repolarization instability and the resulting arrhythmias. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

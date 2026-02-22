@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ANetworkModelOfTheVertebrateRetinaPublio124063Model'
-description: '{"value": "In this work, we use a minimal conductance-based model of
-  the ON rod pathways in the vertebrate retina to study the effects of electrical
-  synaptic coupling via gap junctions among rods and '
+description: "{\"value\": \"In this work, we use a minimal conductance-based model of the ON rod pathways in the vertebrate retina to study the effects of electrical synaptic coupling via gap junctions among rods and. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

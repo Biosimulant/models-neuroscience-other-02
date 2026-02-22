@@ -1,6 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model5355953559Model'
-description: S cell network (Moss et al 2005)
+description: "Neuroscience Model5355953559Model represents neuroscience 53559 53559 mechanisms from opensourcebrain reference opensourcebrain:53559. When you run it, you can inspect state and compare temporal behavior between baseline and adjusted inputs."
 standard: other
 tags:
 - neuroscience

@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model237326237326Model'
-description: Active dendritic integration in robust and precise grid cell firing (Schmidt-Hieber
-  et al 2017)
+description: "Active dendritic integration in robust and precise grid cell firing (Schmidt-Hieber et al 2017). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

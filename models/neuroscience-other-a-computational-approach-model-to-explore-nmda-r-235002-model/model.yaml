@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: AComputationalApproachModelToExploreNmdaR235002Model'
-description: '{"value": "\"...\r\nHere, we describe a general computational method\r\naiming
-  at developing kinetic Markov-chain based models of NMDARs\r\nsubtypes capable of
-  reproducing various experimental\r\nresu'
+description: "{\"value\": \"\\\"...\\r\\nHere, we describe a general computational method\\r\\naiming at developing kinetic Markov-chain based models of NMDARs\\r\\nsubtypes capable of reproducing various experimental\\r\\nresu. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

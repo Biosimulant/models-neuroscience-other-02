@@ -1,6 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model6422864228Model'
-description: Simulated light response in rod photoreceptors (Liu and Kourennyi 2004)
+description: "Simulated light response in rod photoreceptors (Liu and Kourennyi 2004). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

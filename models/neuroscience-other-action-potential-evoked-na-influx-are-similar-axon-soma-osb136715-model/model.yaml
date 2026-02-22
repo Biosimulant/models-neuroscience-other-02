@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model136715136715Model'
-description: Action potential-evoked Na+ influx are similar in axon and soma (Fleidervish
-  et al. 2010)
+description: "Action potential-evoked Na+ influx are similar in axon and soma (Fleidervish et al. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

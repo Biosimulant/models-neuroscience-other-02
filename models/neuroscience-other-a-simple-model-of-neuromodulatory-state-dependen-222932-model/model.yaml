@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ASimpleModelOfNeuromodulatoryStateDependen222932Model'
-description: '{"value": "The model is used to illustrate the role of neuromodulators
-  in cortical plasticity. The model consists of a feedforward network with 1 postsynaptic
-  neuron with plastic synaptic weights. The'
+description: "{\"value\": \"The model is used to illustrate the role of neuromodulators in cortical plasticity. The model consists of a feedforward network with 1 postsynaptic neuron with plastic synaptic weights."
 standard: other
 tags:
 - neuroscience

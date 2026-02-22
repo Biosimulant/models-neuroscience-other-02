@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ACardiacCellSimulatorPuglisiAndBers2001A84641Model'
-description: '{"value": "\"LabHEART is an easy to use program that simulates the cardiac
-  action potential, calcium transient and ionic currents. Key parameters such as ionic
-  concentration, stimulus waveform and cha'
+description: "{\"value\": \"\\\"LabHEART is an easy to use program that simulates the cardiac action potential, calcium transient and ionic currents. Key parameters such as ionic concentration, stimulus waveform and cha."
 standard: other
 tags:
 - neuroscience

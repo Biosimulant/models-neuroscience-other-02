@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ANeuralMassModelOfCrossFrequencyCoupling227677Model'
-description: '{"value": "\"Electrophysiological signals of cortical activity show
-  a range of possible frequency and\r\namplitude modulations, both within and across
-  regions, collectively known as cross-frequency\r\'
+description: "{\"value\": \"\\\"Electrophysiological signals of cortical activity show a range of possible frequency and\\r\\namplitude modulations, both within and across regions, collectively known as cross-frequency\\r\\. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model8776287762Model'
-description: The role of ATP-sensitive potassium channels in a hippocampal neuron
-  (Huang et al. 2007)
+description: "The role of ATP-sensitive potassium channels in a hippocampal neuron (Huang et al. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

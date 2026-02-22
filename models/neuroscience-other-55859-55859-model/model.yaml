@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model5585955859Model'
-description: Ventricular cell model (Guinea-pig-type) (Luo, Rudy 1991, +11 other papers!)
-  (C++)
+description: "Ventricular cell model (Guinea-pig-type) (Luo, Rudy 1991, +11 other papers!) (C++). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

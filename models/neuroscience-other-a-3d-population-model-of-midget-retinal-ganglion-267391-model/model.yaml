@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: A3dPopulationModelOfMidgetRetinalGanglion267391Model'
-description: '{"value": "A robust means of generating eccentricity-dependent and morphologically
-  realistic and three-dimensional populations of midget retinal ganglion cells at
-  the central human retina (specificall'
+description: "{\"value\": \"A robust means of generating eccentricity-dependent and morphologically realistic and three-dimensional populations of midget retinal ganglion cells at the central human retina (specificall. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model8236482364Model'
-description: Ih levels roles in bursting and regular-spiking subiculum pyramidal neurons
-  (van Welie et al 2006)
+description: "Ih levels roles in bursting and regular-spiking subiculum pyramidal neurons (van Welie et al 2006). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

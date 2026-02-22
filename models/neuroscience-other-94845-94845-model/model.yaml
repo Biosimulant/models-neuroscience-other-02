@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model9484594845Model'
-description: Turtle visual cortex model (Nenadic et al. 2003, Wang et al. 2005, Wang
-  et al. 2006)
+description: "Turtle visual cortex model (Nenadic et al. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

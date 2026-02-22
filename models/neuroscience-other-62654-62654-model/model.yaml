@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model6265462654Model'
-description: Kv4.3, Kv1.4 encoded K channel in heart cells & tachy. (Winslow et al
-  1999, Greenstein et al 2000)
+description: "Kv4.3, Kv1.4 encoded K channel in heart cells & tachy. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

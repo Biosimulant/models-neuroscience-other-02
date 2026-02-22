@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: AMultiscaleApproachToAnalyzeCircadianRhyth247719Model'
-description: '{"value": "\" ... We developed a firing rate code model to incorporate
-  known\r\nelectrophysiological properties of SCN (suprachiasmatic nucleus)\r\npacemaker
-  cells, including circadian dependent chang'
+description: "{\"value\": \"\\\" ... We developed a firing rate code model to incorporate known\\r\\nelectrophysiological properties of SCN (suprachiasmatic nucleus)\\r\\npacemaker cells, including circadian dependent chang."
 standard: other
 tags:
 - neuroscience

@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ASpikingModelOfCorticalBroadcastAndCompet116871Model'
-description: '{"value": "\"This paper presents a computer model of cortical broadcast
-  and competition based on spiking neurons and inspired by\r\nthe hypothesis of a
-  global neuronal workspace underlying conscious i'
+description: "{\"value\": \"\\\"This paper presents a computer model of cortical broadcast and competition based on spiking neurons and inspired by\\r\\nthe hypothesis of a global neuronal workspace underlying conscious i. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

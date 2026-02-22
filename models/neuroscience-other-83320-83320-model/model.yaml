@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model8332083320Model'
-description: A simulation method for the firing sequences of motor units (Jiang et
-  al 2006)
+description: "A simulation method for the firing sequences of motor units (Jiang et al 2006). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

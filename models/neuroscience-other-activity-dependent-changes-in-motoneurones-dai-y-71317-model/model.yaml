@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ActivityDependentChangesInMotoneuronesDaiY71317Model'
-description: '{''value'': ''These two papers review various experimental papers and
-  examine the effects of activity on motoneurons in a similar 5 compartment model
-  with 10 active conductances. Included are slow (S) an'
+description: "{'value': 'These two papers review various experimental papers and examine the effects of activity on motoneurons in a similar 5 compartment model with 10 active conductances. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

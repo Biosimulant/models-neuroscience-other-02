@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model5386953869Model'
-description: A model for interaural time difference sensitivity in the medial superior
-  olive (Zhou et al 2005)
+description: "A model for interaural time difference sensitivity in the medial superior olive (Zhou et al 2005). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

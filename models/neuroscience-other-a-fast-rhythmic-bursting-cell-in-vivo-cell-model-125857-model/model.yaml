@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: AFastRhythmicBurstingCellInVivoCellModel125857Model'
-description: '{"value": "One of the cellular mechanisms underlying the generation
-  of gamma oscillations is a type of cortical pyramidal neuron named fast rhythmic
-  bursting (FRB) cells. After cells from cats'' primar'
+description: "{\"value\": \"One of the cellular mechanisms underlying the generation of gamma oscillations is a type of cortical pyramidal neuron named fast rhythmic bursting (FRB) cells. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

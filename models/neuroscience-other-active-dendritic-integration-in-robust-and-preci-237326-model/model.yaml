@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ActiveDendriticIntegrationInRobustAndPreci237326Model'
-description: '{"value": "\"... Whether active dendrites contribute to the generation
-  of the\r\ndual temporal and rate codes characteristic of grid cell output is\r\nunknown.
-  We show that dendrites of medial entorhi'
+description: "{\"value\": \"\\\"... Whether active dendrites contribute to the generation of the\\r\\ndual temporal and rate codes characteristic of grid cell output is\\r\\nunknown."
 standard: other
 tags:
 - neuroscience

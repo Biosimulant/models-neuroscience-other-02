@@ -1,6 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model6426164261Model'
-description: "Learning spatial transformations through STDP (Davison, Fr\xE9gnac 2006)"
+description: "Learning spatial transformations through STDP (Davison, Fr\u00e9gnac 2006). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

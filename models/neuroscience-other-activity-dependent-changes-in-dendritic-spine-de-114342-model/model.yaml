@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ActivityDependentChangesInDendriticSpineDe114342Model'
-description: '{"value": "\"... In this work, we extend previous modeling studies [27]
-  by combining a model for activity-dependent spine density with one for\r\ncalcium-mediated
-  spine stem restructuring.\r\n... Addi'
+description: "{\"value\": \"\\\"... In this work, we extend previous modeling studies [27] by combining a model for activity-dependent spine density with one for\\r\\ncalcium-mediated spine stem restructuring.\\r\\n..."
 standard: other
 tags:
 - neuroscience

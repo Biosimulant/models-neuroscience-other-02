@@ -1,6 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model6266162661Model'
-description: Markovian model for cardiac sodium channel (Clancy, Rudy 2002)
+description: "Markovian model for cardiac sodium channel (Clancy, Rudy 2002). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

@@ -1,6 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model9798397983Model'
-description: Neuronal population models of intracerebral EEG (Wendling et al. 2005)
+description: "Neuronal population models of intracerebral EEG (Wendling et al. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

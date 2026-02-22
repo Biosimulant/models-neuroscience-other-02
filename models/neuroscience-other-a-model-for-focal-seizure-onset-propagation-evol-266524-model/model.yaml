@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: AModelForFocalSeizureOnsetPropagationEvol266524Model'
-description: '{"value": "We developed a neural network model that can account for
-  major elements common\r\nto human focal seizures. These include the tonic-clonic
-  transition, slow advance of clinical semiology\r\na'
+description: "{\"value\": \"We developed a neural network model that can account for major elements common\\r\\nto human focal seizures. These include the tonic-clonic transition, slow advance of clinical semiology\\r\\na."
 standard: other
 tags:
 - neuroscience

@@ -1,6 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model5396553965Model'
-description: T channel currents (Vitko et al 2005)
+description: "Neuroscience Model5396553965Model represents neuroscience 53965 53965 mechanisms from opensourcebrain reference opensourcebrain:53965. When you run it, you can inspect state and compare temporal behavior between baseline and adjusted inputs."
 standard: other
 tags:
 - neuroscience

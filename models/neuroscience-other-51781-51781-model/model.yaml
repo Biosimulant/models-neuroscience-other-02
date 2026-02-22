@@ -1,6 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model5178151781Model'
-description: Dentate gyrus network model (Santhakumar et al 2005)
+description: "Dentate gyrus network model (Santhakumar et al 2005). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

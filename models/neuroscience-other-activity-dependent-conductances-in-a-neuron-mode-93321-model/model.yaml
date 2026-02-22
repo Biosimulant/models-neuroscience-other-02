@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ActivityDependentConductancesInANeuronMode93321Model'
-description: '{"value": "\"... We present a model of a\r\nstomatogastric ganglion
-  (STG) neuron in which several Ca2+-dependent\r\npathways are used to regulate the
-  maximal conductances of membrane\r\ncurrents in an'
+description: "{\"value\": \"\\\"... We present a model of a\\r\\nstomatogastric ganglion (STG) neuron in which several Ca2+-dependent\\r\\npathways are used to regulate the maximal conductances of membrane\\r\\ncurrents in an."
 standard: other
 tags:
 - neuroscience

@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: AModelOfSlowMotorUnitKim2017235769Model'
-description: '{"value": "Cav1.3 channels in motoneuron dendrites are actively involved
-  during normal motor activities. To investigate the effects of the activation of
-  motoneuron Cav1.3 channels on force production,'
+description: "{\"value\": \"Cav1.3 channels in motoneuron dendrites are actively involved during normal motor activities. To investigate the effects of the activation of motoneuron Cav1.3 channels on force production,."
 standard: other
 tags:
 - neuroscience

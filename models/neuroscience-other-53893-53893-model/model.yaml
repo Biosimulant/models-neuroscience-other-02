@@ -1,6 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model5389353893Model'
-description: T-type Ca current in thalamic neurons (Wang et al 1991)
+description: "T-type Ca current in thalamic neurons (Wang et al 1991). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

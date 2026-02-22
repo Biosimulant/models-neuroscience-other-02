@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ASpikingNeuralNetworkModelOfModelFreeRei168143Model'
-description: '{"value": "\"Spiking neural\r\nnetworks provide a theoretically grounded
-  means to test computational\r\nhypotheses on neurally plausible algorithms of reinforcement
-  learning\r\nthrough numerical simul'
+description: "{\"value\": \"\\\"Spiking neural\\r\\nnetworks provide a theoretically grounded means to test computational\\r\\nhypotheses on neurally plausible algorithms of reinforcement learning\\r\\nthrough numerical simul. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

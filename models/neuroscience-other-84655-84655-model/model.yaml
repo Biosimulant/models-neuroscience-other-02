@@ -1,6 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model8465584655Model'
-description: Recording from rod bipolar axon terminals in situ (Oltedal et al 2007)
+description: "Recording from rod bipolar axon terminals in situ (Oltedal et al 2007). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

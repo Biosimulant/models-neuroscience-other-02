@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model8355883558Model'
-description: Role of active dendrites in rhythmically-firing neurons (Goldberg et
-  al 2006)
+description: "Role of active dendrites in rhythmically-firing neurons (Goldberg et al 2006). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

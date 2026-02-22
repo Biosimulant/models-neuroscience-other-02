@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: AMultilayerCorticalModelToStudySeizurePro206238Model'
-description: '{"value": "A realistic neural network was used to simulate a region
-  of neocortex to obtain extracellular LFPs from \u2018virtual micro-electrodes\u2019
-  and produce test data for comparison with multis'
+description: "{\"value\": \"A realistic neural network was used to simulate a region of neocortex to obtain extracellular LFPs from \\u2018virtual micro-electrodes\\u2019 and produce test data for comparison with multis. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

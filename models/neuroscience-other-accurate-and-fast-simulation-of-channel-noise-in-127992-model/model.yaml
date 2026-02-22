@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: AccurateAndFastSimulationOfChannelNoiseIn127992Model'
-description: '{"value": "We introduce and operatively present a general method to
-  simulate channel noise in conductance-based model neurons, with modest computational
-  overheads.\r\n\r\nOur approach may be considere'
+description: "{\"value\": \"We introduce and operatively present a general method to simulate channel noise in conductance-based model neurons, with modest computational overheads.\\r\\n\\r\\nOur approach may be considere. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

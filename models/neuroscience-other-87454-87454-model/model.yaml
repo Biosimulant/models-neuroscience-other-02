@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model8745487454Model'
-description: Oscillating neurons in the cochlear nucleus (Bahmer Langner 2006a, b,
-  and 2007)
+description: "Oscillating neurons in the cochlear nucleus (Bahmer Langner 2006a, b, and 2007). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

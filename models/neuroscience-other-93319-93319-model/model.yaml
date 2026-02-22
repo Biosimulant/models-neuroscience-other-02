@@ -1,6 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model9331993319Model'
-description: Lamprey spinal CPG neuron (Huss et al. 2007)
+description: "Neuroscience Model9331993319Model captures neuroscience 93319 93319 behavior in the context of neuroscience, opensourcebrain, 93319 using a opensourcebrain-sourced OTHER model. When you run it, you can observe state and evaluate how the modeled system changes across runs."
 standard: other
 tags:
 - neuroscience

@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ACorfComputationalModelOfASimpleCellThat145882Model'
-description: '{"value": "\"...\r\n\r\nWe propose a computational model that uses as
-  afferent inputs the responses of model LGN cells with center-surround receptive
-  fields (RFs) and we refer to it as a Combination o'
+description: "{\"value\": \"\\\"...\\r\\n\\r\\nWe propose a computational model that uses as afferent inputs the responses of model LGN cells with center-surround receptive fields (RFs) and we refer to it as a Combination o. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

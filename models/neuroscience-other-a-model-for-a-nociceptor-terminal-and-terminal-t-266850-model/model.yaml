@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: AModelForANociceptorTerminalAndTerminalT266850Model'
-description: '{"value": "This model was used to study how the architecture of the
-  nociceptor terminal tree affects the input-output relation of the primary nociceptive
-  neurons. The model shows that the input-output'
+description: "{\"value\": \"This model was used to study how the architecture of the nociceptor terminal tree affects the input-output relation of the primary nociceptive neurons. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

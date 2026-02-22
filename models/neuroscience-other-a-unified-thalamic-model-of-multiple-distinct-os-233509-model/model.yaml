@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: AUnifiedThalamicModelOfMultipleDistinctOs233509Model'
-description: '{"value": "We present a unified model of the thalamus that is capable
-  of independently generating multiple distinct oscillations (delta, spindle, alpha
-  and gamma oscillations) under different levels o'
+description: "{\"value\": \"We present a unified model of the thalamus that is capable of independently generating multiple distinct oscillations (delta, spindle, alpha and gamma oscillations) under different levels o. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model8758587585Model'
-description: Sodium channel mutations causing generalized epilepsy with febrile seizures
-  + (Barela et al. 2006)
+description: "Sodium channel mutations causing generalized epilepsy with febrile seizures + (Barela et al. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

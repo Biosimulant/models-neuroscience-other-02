@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ASystemsModelOfParkinsonSDiseaseUsingBio237466Model'
-description: '{"value": "Major pathways involving in Parkinson''s disease (PD) such
-  as alphasynuclein aggregation, dopamine \r\nsynthesis, lewy body formation, tau
-  phosphorylation, parkin, and apoptosis were modeled'
+description: "{\"value\": \"Major pathways involving in Parkinson's disease (PD) such as alphasynuclein aggregation, dopamine \\r\\nsynthesis, lewy body formation, tau phosphorylation, parkin, and apoptosis were modeled. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

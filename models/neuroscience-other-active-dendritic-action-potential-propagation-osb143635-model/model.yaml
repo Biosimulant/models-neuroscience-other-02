@@ -1,6 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model143635143635Model'
-description: Active dendritic action potential propagation (Casale & McCormick 2011)
+description: "Active dendritic action potential propagation (Casale & McCormick 2011). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

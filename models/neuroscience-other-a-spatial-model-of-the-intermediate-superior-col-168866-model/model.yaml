@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ASpatialModelOfTheIntermediateSuperiorCol168866Model'
-description: '{"value": "A spatial model of the intermediate superior colliculus.
-  It reproduces the collicular saccade-generating output profile from NMDA receptor-driven
-  burst neurons, shaped by integrative inhibi'
+description: "{\"value\": \"A spatial model of the intermediate superior colliculus. It reproduces the collicular saccade-generating output profile from NMDA receptor-driven burst neurons, shaped by integrative inhibi."
 standard: other
 tags:
 - neuroscience

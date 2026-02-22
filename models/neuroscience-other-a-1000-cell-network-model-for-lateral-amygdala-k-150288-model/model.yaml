@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: A1000CellNetworkModelForLateralAmygdalaK150288Model'
-description: '{"value": "1000 Cell Lateral Amygdala model for investigation of plasticity
-  and memory storage during Pavlovian Conditioning.", "attr_id": 24}'
+description: "1000 Cell Lateral Amygdala model for investigation of plasticity and memory storage during Pavlovian Conditioning. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

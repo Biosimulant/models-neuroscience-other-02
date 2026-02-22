@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: AComparativeComputerSimulationOfDendriticM114310Model'
-description: '{''value'': ''Morphological aspects of dendritic branching such branch
-  lengths, taper rates,ratios of daughter radii, and bifurcation probabilities are
-  measured from real cells. These morphometrics are t'
+description: "{'value': 'Morphological aspects of dendritic branching such branch lengths, taper rates,ratios of daughter radii, and bifurcation probabilities are measured from real cells. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

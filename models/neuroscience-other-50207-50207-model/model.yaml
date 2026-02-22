@@ -1,6 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model5020750207Model'
-description: Kinetic NMDA receptor model (Kampa et al 2004)
+description: "Neuroscience Model5020750207Model captures neuroscience 50207 50207 behavior in the context of neuroscience, opensourcebrain, 50207 using a opensourcebrain-sourced OTHER model. When you run it, you can observe state and evaluate how the modeled system changes across runs."
 standard: other
 tags:
 - neuroscience

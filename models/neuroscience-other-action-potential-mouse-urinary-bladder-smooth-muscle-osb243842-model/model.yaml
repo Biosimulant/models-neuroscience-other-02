@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model243842243842Model'
-description: Action potential of mouse urinary bladder smooth muscle (Mahapatra et
-  al 2018)
+description: "Action potential of mouse urinary bladder smooth muscle (Mahapatra et al 2018). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

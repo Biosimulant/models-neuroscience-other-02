@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model7131771317Model'
-description: Activity dependent changes in motoneurones (Dai Y et al 2002, Gardiner
-  et al 2002)
+description: "Activity dependent changes in motoneurones (Dai Y et al 2002, Gardiner et al 2002). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

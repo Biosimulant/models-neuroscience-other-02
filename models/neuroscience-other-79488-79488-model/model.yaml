@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model7948879488Model'
-description: 'Dynamic dopamine modulation in the basal ganglia: Learning in Parkinson
-  (Frank et al 2004,2005)'
+description: "Dynamic dopamine modulation in the basal ganglia: Learning in Parkinson (Frank et al 2004,2005). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

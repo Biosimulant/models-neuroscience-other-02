@@ -1,6 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model9339893398Model'
-description: Mapping function onto neuronal morphology (Stiefel and Sejnowski 2007)
+description: "Mapping function onto neuronal morphology (Stiefel and Sejnowski 2007). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

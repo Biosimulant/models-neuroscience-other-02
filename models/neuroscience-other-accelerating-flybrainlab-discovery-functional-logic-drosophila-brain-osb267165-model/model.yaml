@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model267165267165Model'
-description: Accelerating with FlyBrainLab discovery of the functional logic of Drosophila
-  brain (Lazar et al 21)
+description: "Accelerating with FlyBrainLab discovery of the functional logic of Drosophila brain (Lazar et al 21). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model8238582385Model'
-description: Information-processing in lamina-specific cortical microcircuits (Haeusler
-  and Maass 2006)
+description: "Information-processing in lamina-specific cortical microcircuits (Haeusler and Maass 2006). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

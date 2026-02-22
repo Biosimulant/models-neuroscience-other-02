@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ATwoNetworksModelOfConnectivityDependentO155705Model'
-description: '{"value": "Activity in a cortical network may express a single oscillation
-  frequency, alternate between two or more distinct frequencies, or continually express
-  multiple frequencies. In addition, osci'
+description: "{\"value\": \"Activity in a cortical network may express a single oscillation frequency, alternate between two or more distinct frequencies, or continually express multiple frequencies. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model98539853Model'
-description: Current flow during PAP in squid axon at diameter change (Joyner et al
-  1980)
+description: "Current flow during PAP in squid axon at diameter change (Joyner et al 1980). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

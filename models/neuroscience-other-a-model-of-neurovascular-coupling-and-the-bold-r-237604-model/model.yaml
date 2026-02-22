@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: AModelOfNeurovascularCouplingAndTheBoldR237604Model'
-description: '{"value": "Here a lumped parameter numerical model of a neurovascular
-  unit is presented, representing an intercellular communication system based on ion
-  exchange through pumps and channels between neu'
+description: "{\"value\": \"Here a lumped parameter numerical model of a neurovascular unit is presented, representing an intercellular communication system based on ion exchange through pumps and channels between neu. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

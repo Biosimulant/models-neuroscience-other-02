@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model9344993449Model'
-description: Optimal deep brain stimulation of the subthalamic nucleus-a computational
-  study (Feng et al. 2007)
+description: "Optimal deep brain stimulation of the subthalamic nucleus-a computational study (Feng et al. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

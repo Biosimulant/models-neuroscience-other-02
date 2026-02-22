@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model146813146813Model'
-description: ACh modulation in olfactory bulb and piriform cortex (de Almeida et al.
-  2013;Devore S, et al. 2014)
+description: "ACh modulation in olfactory bulb and piriform cortex (de Almeida et al. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

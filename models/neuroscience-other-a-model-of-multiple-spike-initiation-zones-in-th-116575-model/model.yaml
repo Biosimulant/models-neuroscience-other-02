@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: AModelOfMultipleSpikeInitiationZonesInTh116575Model'
-description: '{"value": "The leech C-interneuron and its electrical synapse with the
-  S-interneuron exhibit unusual properties: an asymmetric delay when impulses travel
-  from one soma to the other, and graded C-inter'
+description: "{\"value\": \"The leech C-interneuron and its electrical synapse with the S-interneuron exhibit unusual properties: an asymmetric delay when impulses travel from one soma to the other, and graded C-inter. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: AKineticModelUnifyingPresynapticShortTerm120184Model'
-description: '{"value": "\"...\r\n\r\nHere, we propose a unified theory of synaptic
-  short-term plasticity based on realistic yet tractable and testable model descriptions
-  of the underlying intracellular biochemical'
+description: "{\"value\": \"\\\"...\\r\\n\\r\\nHere, we propose a unified theory of synaptic short-term plasticity based on realistic yet tractable and testable model descriptions of the underlying intracellular biochemical. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

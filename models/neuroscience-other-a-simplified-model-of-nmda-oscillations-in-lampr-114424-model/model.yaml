@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ASimplifiedModelOfNmdaOscillationsInLampr114424Model'
-description: '{''value'': ''Using experiments in conjunction with this simplified
-  model, we sought to understand the basic mechanisms behind NMDA-induced oscillations
-  in lamprey locomotor neurons, specifically (a) how'
+description: "{'value': 'Using experiments in conjunction with this simplified model, we sought to understand the basic mechanisms behind NMDA-induced oscillations in lamprey locomotor neurons, specifically (a) how. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: AModelForHowCorrelationDependsOnTheNeuro153452Model'
-description: '{"value": "\u201c\r\n\u2026\r\nUsing simulations and experiments in
-  rat hippocampal neurons, we show here that pairs of neurons receiving correlated
-  input also exhibit correlations arising from precis'
+description: "{\"value\": \"\\u201c\\r\\n\\u2026\\r\\nUsing simulations and experiments in rat hippocampal neurons, we show here that pairs of neurons receiving correlated input also exhibit correlations arising from precis. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

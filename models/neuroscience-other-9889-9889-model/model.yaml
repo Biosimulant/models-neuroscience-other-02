@@ -1,6 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model98899889Model'
-description: Thalamic quiescence of spike and wave seizures (Lytton et al 1997)
+description: "Thalamic quiescence of spike and wave seizures (Lytton et al 1997). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

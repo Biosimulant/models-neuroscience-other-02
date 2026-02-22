@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: AModifiedMorrisLecarWithTrpc4AndGirkTian267363Model'
-description: '{"value": "Simulates differential activation of TRPC4 and GIRK channel
-  to reproduce various spiking patterns underlying Gq/11\u2013Gi/o coincidence signals.\r\nThe
-  attached code reproduces Fig.5B-F in'
+description: "{\"value\": \"Simulates differential activation of TRPC4 and GIRK channel to reproduce various spiking patterns underlying Gq/11\\u2013Gi/o coincidence signals.\\r\\nThe attached code reproduces Fig.5B-F in. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

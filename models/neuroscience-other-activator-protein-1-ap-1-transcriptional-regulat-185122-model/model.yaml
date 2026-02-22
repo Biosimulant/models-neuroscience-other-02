@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ActivatorProtein1Ap1TranscriptionalRegulat185122Model'
-description: '{"value": "We have developed a mathematical model of AT1R-activated
-  signaling kinases and a downstream transcriptional regulatory network controlling
-  the family of activator protein 1 (AP-1) transcrip'
+description: "{\"value\": \"We have developed a mathematical model of AT1R-activated signaling kinases and a downstream transcriptional regulatory network controlling the family of activator protein 1 (AP-1) transcrip. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

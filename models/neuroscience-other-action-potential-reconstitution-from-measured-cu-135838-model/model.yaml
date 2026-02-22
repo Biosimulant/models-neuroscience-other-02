@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ActionPotentialReconstitutionFromMeasuredCu135838Model'
-description: '{"value": "This NEURON code reconstitutes action potentials in a model
-  of a hippocampal mossy fiber from experimentally measured sodium, potassium and
-  calcium current waveforms as described in Alle et'
+description: "{\"value\": \"This NEURON code reconstitutes action potentials in a model of a hippocampal mossy fiber from experimentally measured sodium, potassium and calcium current waveforms as described in Alle et. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

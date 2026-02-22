@@ -1,6 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model8351783517Model'
-description: Fixed point attractor (Hasselmo et al 1995)
+description: "Neuroscience Model8351783517Model models neuroscience 83517 83517 dynamics as a OTHER simulation curated from opensourcebrain (opensourcebrain:83517), focused on neuroscience, opensourcebrain, 83517. When you run it, you can track state over time and compare response patterns across parameter settings."
 standard: other
 tags:
 - neuroscience

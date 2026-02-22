@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model185122185122Model'
-description: Activator protein 1(AP-1) transcriptional regulatory model in brainstem
-  neurons (Makadia et al 2015)
+description: "Activator protein 1(AP-1) transcriptional regulatory model in brainstem neurons (Makadia et al 2015). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

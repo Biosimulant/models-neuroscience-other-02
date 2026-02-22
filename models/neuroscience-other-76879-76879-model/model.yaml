@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model7687976879Model'
-description: Excitatory and inhibitory interactions in populations of model neurons
-  (Wilson and Cowan 1972)
+description: "Excitatory and inhibitory interactions in populations of model neurons (Wilson and Cowan 1972). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

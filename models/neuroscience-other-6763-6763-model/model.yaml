@@ -1,6 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model67636763Model'
-description: 'Midbrain dopamine neuron: firing patterns (Canavier 1999)'
+description: "Midbrain dopamine neuron: firing patterns (Canavier 1999). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

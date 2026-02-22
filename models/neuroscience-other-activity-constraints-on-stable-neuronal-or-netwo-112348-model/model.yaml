@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ActivityConstraintsOnStableNeuronalOrNetwo112348Model'
-description: '{"value": "\"In this study, we developed a general description of parameter
-  combinations for which specified\r\ncharacteristics of neuronal or network activity
-  are constant.\r\nOur approach is based o'
+description: "{\"value\": \"\\\"In this study, we developed a general description of parameter combinations for which specified\\r\\ncharacteristics of neuronal or network activity are constant.\\r\\nOur approach is based o. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

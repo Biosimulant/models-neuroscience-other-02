@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ActionsOfRotenoneOnIonicCurrentsAndMepps240961Model'
-description: '{"value": "\" ... With the aid of patch-clamp technology and simulation
-  modeling,\r\nthe effects of (Rotenone) Rot on membrane ion currents present in\r\nmHippoE-14
-  cells were investigated. Results: A'
+description: "{\"value\": \"\\\" ... With the aid of patch-clamp technology and simulation modeling,\\r\\nthe effects of (Rotenone) Rot on membrane ion currents present in\\r\\nmHippoE-14 cells were investigated."
 standard: other
 tags:
 - neuroscience

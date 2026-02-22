@@ -1,6 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model182142182142Model'
-description: Active zone model of Ca2+ secretion coupling (Keller et al. 2015)
+description: "Active zone model of Ca2+ secretion coupling (Keller et al. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

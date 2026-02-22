@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ActionPotentialEvokedCa2SignalsInCa1Pyram263995Model'
-description: '{"value": "The attached file contains models for 4 different MCell simulations
-  of the same presynaptic terminal model. \r\n\r\nCalbindin22_40uM_files - model of
-  Ca entry, buffering and extrusion from '
+description: "{\"value\": \"The attached file contains models for 4 different MCell simulations of the same presynaptic terminal model. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

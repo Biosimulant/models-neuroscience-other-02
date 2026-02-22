@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model9797297972Model'
-description: Roles of subthalamic nucleus and DBS in reinforcement conflict-based
-  decision making (Frank 2006)
+description: "Roles of subthalamic nucleus and DBS in reinforcement conflict-based decision making (Frank 2006). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

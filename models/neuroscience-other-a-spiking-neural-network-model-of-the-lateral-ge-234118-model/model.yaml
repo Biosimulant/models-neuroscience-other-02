@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ASpikingNeuralNetworkModelOfTheLateralGe234118Model'
-description: '{"value": "Using Izhikevich''s spiking neuron models, to build a network
-  with a biologically informed synaptic layout emulating the Lateral Geniculate Nucleus.",
-  "attr_id": 24}'
+description: "Using Izhikevich's spiking neuron models, to build a network with a biologically informed synaptic layout emulating the Lateral Geniculate Nucleus. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

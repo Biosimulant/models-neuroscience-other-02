@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model5NeuronModelOfNeocortexForProducingRealis226812Model'
-description: '{"value": "This is a 5-neuron model of neocortex, containing one tufted
-  layer-5 pyramidal cell, two non-tufted pyramidal cells, and two inhibitory interneurons.
-  It was used to reproduce extracellular '
+description: "{\"value\": \"This is a 5-neuron model of neocortex, containing one tufted layer-5 pyramidal cell, two non-tufted pyramidal cells, and two inhibitory interneurons. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

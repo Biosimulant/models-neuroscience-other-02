@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: AchModulationInOlfactoryBulbAndPiriformCo146813Model'
-description: '{"value": "This matlab code was used in the papers de Almeida, Idiart
-  and Linster, (2013), Devore S, de Almeida L, Linster C (2014) .\r\nThis work uses
-  a computational model of the OB and PC and their'
+description: "{\"value\": \"This matlab code was used in the papers de Almeida, Idiart and Linster, (2013), Devore S, de Almeida L, Linster C (2014) .\\r\\nThis work uses a computational model of the OB and PC and their. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

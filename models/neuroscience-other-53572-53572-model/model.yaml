@@ -1,6 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model5357253572Model'
-description: Rat phrenic motor neuron (Amini et al 2004)
+description: "Neuroscience Model5357253572Model captures neuroscience 53572 53572 behavior in the context of neuroscience, opensourcebrain, 53572 using a opensourcebrain-sourced OTHER model. When you run it, you can observe state and evaluate how the modeled system changes across runs."
 standard: other
 tags:
 - neuroscience

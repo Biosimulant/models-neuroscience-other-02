@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: AStateSpaceModelToQuantifyCommonInputTo238912Model'
-description: '{"value": "\"... We introduce a space-state model in which the discharge
-  activity\r\nof motor neurons is modeled as inhomogeneous Poisson processes\r\nand
-  propose a method to quantify an abstract late'
+description: "{\"value\": \"\\\"... We introduce a space-state model in which the discharge activity\\r\\nof motor neurons is modeled as inhomogeneous Poisson processes\\r\\nand propose a method to quantify an abstract late."
 standard: other
 tags:
 - neuroscience

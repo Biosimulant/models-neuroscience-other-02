@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: AFastModelOfVoltageDependentNmdaReceptors145836Model'
-description: '{"value": "These are two or triple-exponential models of the voltage-dependent
-  NMDA receptors. Conductance of these receptors increase voltage-dependently with
-  a \"Hodgkin and Huxley-type\" gating sty'
+description: "{\"value\": \"These are two or triple-exponential models of the voltage-dependent NMDA receptors. Conductance of these receptors increase voltage-dependently with a \\\"Hodgkin and Huxley-type\\\" gating sty."
 standard: other
 tags:
 - neuroscience

@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ADendriticDisinhibitoryCircuitMechanismFor206227Model'
-description: '{"value": "\"While reading a book in a noisy caf\u00e9, how does your
-  brain \u2018gate in\u2019 visual information while filtering out auditory stimuli?
-  Here we propose a mechanism for such flexible r'
+description: "{\"value\": \"\\\"While reading a book in a noisy caf\\u00e9, how does your brain \\u2018gate in\\u2019 visual information while filtering out auditory stimuli? Here we propose a mechanism for such flexible r."
 standard: other
 tags:
 - neuroscience

@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model9596095960Model'
-description: 'Dentate gyrus granule cell: subthreshold signal processing (Schmidt-Hieber
-  et al. 2007)'
+description: "Dentate gyrus granule cell: subthreshold signal processing (Schmidt-Hieber et al. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

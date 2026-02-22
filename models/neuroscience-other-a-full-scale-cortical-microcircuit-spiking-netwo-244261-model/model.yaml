@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: AFullScaleCorticalMicrocircuitSpikingNetwo244261Model'
-description: '{"value": "Reimplementation in BRIAN 2 simulator of a full-scale cortical
-  microcircuit containing two cell types (excitatory and inhibitory) distributed in
-  four layers, and represents the cortical net'
+description: "{\"value\": \"Reimplementation in BRIAN 2 simulator of a full-scale cortical microcircuit containing two cell types (excitatory and inhibitory) distributed in four layers, and represents the cortical net. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

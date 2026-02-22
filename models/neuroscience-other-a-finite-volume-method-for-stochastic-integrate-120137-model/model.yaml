@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: AFiniteVolumeMethodForStochasticIntegrate120137Model'
-description: '{"value": "\"The stochastic integrate and fire neuron is\r\none of the
-  most commonly used stochastic models\r\nin neuroscience.\r\n\r\nAlthough some cases
-  are analytically\r\ntractable, a full analysi'
+description: "{\"value\": \"\\\"The stochastic integrate and fire neuron is\\r\\none of the most commonly used stochastic models\\r\\nin neuroscience.\\r\\n\\r\\nAlthough some cases are analytically\\r\\ntractable, a full analysi. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

@@ -1,6 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model8462784627Model'
-description: Method for counting motor units in mice (Major et al 2007)
+description: "Method for counting motor units in mice (Major et al 2007). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

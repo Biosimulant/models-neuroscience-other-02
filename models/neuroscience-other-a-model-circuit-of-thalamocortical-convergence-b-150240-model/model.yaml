@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: AModelCircuitOfThalamocorticalConvergenceB150240Model'
-description: '{"value": "\u201c\u2026\r\nUsing dynamic-clamp techniques in thalamic
-  slices in vitro, we combined theoretical and experimental\r\napproaches to implement
-  a realistic hybrid retino-thalamo-cortical pa'
+description: "{\"value\": \"\\u201c\\u2026\\r\\nUsing dynamic-clamp techniques in thalamic slices in vitro, we combined theoretical and experimental\\r\\napproaches to implement a realistic hybrid retino-thalamo-cortical pa. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

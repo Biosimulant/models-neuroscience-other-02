@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ANeuriteToMeasureEpspAndApAmplitudeAfter266881Model'
-description: '{"value": "Increasing temperatures overwhelmingly shunts dendritic electrical
-  spread in a crustacean motor neuron (LG) leading to the disruption of a vital pattern
-  generator. LG recieves synaptic inpu'
+description: "{\"value\": \"Increasing temperatures overwhelmingly shunts dendritic electrical spread in a crustacean motor neuron (LG) leading to the disruption of a vital pattern generator. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

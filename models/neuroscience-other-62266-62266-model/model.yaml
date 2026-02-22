@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model6226662266Model'
-description: Excitability of the soma in central nervous system neurons (Safronov
-  et al 2000)
+description: "Excitability of the soma in central nervous system neurons (Safronov et al 2000). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

@@ -1,6 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model8464984649Model'
-description: Squid axon (Hodgkin, Huxley 1952) (LabAXON)
+description: "Neuroscience Model8464984649Model represents neuroscience 84649 84649 mechanisms from opensourcebrain reference opensourcebrain:84649. When you run it, you can inspect state and compare temporal behavior between baseline and adjusted inputs."
 standard: other
 tags:
 - neuroscience

@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ACorticoCerebelloThalamoCorticalLoopModel257028Model'
-description: '{"value": "We investigated the origins of oscillations under essential
-  tremor (ET) by building a computational model of the cortico-cerebello-thalamo-cortical
-  loop. It showed that an alteration of amp'
+description: "{\"value\": \"We investigated the origins of oscillations under essential tremor (ET) by building a computational model of the cortico-cerebello-thalamo-cortical loop. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

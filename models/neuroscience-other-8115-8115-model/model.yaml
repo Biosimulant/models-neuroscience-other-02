@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model81158115Model'
-description: Fluctuating synaptic conductances recreate in-vivo-like activity (Destexhe
-  et al 2001)
+description: "Fluctuating synaptic conductances recreate in-vivo-like activity (Destexhe et al 2001). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

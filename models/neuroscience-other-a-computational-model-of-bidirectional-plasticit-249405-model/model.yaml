@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: AComputationalModelOfBidirectionalPlasticit249405Model'
-description: '{"value": "We present a computational model that suggests how calcium-calmodulin
-  dependent protein kinase II can act as a molecular switch in synaptic plasticity
-  induction at an important cerebellar s'
+description: "{\"value\": \"We present a computational model that suggests how calcium-calmodulin dependent protein kinase II can act as a molecular switch in synaptic plasticity induction at an important cerebellar s. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

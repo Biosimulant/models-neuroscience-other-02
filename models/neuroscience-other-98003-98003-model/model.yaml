@@ -1,6 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model9800398003Model'
-description: Theta phase precession in a model CA3 place cell (Baker and Olds 2007)
+description: "Theta phase precession in a model CA3 place cell (Baker and Olds 2007). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

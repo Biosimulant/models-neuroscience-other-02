@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model4850648506Model'
-description: 'Pyramidal neurons: IKHT offsets activation of IKLT to increase gain
-  (Fernandez et al 2005)'
+description: "Pyramidal neurons: IKHT offsets activation of IKLT to increase gain (Fernandez et al 2005). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

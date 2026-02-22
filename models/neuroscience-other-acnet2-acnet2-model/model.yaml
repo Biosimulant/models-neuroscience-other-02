@@ -1,6 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Acnet2Acnet2Model'
-description: Primary Auditory Cortex model by Dave Beeman
+description: "Neuroscience Acnet2Acnet2Model represents neuroscience acnet2 acnet2 mechanisms from opensourcebrain reference opensourcebrain:ACnet2. When you run it, you can inspect state and compare temporal behavior between baseline and adjusted inputs."
 standard: other
 tags:
 - neuroscience

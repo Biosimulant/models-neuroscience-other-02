@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: AMicrocircuitModelOfTheFrontalEyeFieldsH110022Model'
-description: '{"value": "\" ... we show that the canonical circuit (Douglas et al.
-  1989, Douglas and Martin 1991) can,\r\nwith a few modifications, model the primate
-  FEF. The spike-based network of integrate-and-fi'
+description: "{\"value\": \"\\\" ... It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

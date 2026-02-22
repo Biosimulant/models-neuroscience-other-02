@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ASynapseModelForDevelopingSomatosensoryCor266819Model'
-description: '{"value": "We developed a model for an L4-L2/3 synapse in somatosensory
-  cortex to study the role of astrocytes in modulation of t-LTD. Our model includes
-  the one-compartmental presynaptic L4 spiny ste'
+description: "{\"value\": \"We developed a model for an L4-L2/3 synapse in somatosensory cortex to study the role of astrocytes in modulation of t-LTD. Our model includes the one-compartmental presynaptic L4 spiny ste."
 standard: other
 tags:
 - neuroscience

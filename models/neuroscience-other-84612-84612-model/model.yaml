@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model8461284612Model'
-description: Differential modulation of pattern and rate in a dopamine neuron model
-  (Canavier and Landry 2006)
+description: "Differential modulation of pattern and rate in a dopamine neuron model (Canavier and Landry 2006). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

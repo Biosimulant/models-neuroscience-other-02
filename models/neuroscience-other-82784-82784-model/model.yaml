@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model8278482784Model'
-description: Irregular spiking in NMDA-driven prefrontal cortex neurons (Durstewitz
-  and Gabriel 2006)
+description: "Irregular spiking in NMDA-driven prefrontal cortex neurons (Durstewitz and Gabriel 2006). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

@@ -1,6 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model5574855748Model'
-description: Role of KCNQ1 and IKs in cardiac repolarization (Silva, Rudy 2005)
+description: "Role of KCNQ1 and IKs in cardiac repolarization (Silva, Rudy 2005). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

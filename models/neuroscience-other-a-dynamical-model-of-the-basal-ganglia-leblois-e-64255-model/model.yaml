@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ADynamicalModelOfTheBasalGangliaLebloisE64255Model'
-description: "{'value': 'We propose a new model for the function and dysfunction of\
-  \ the basal ganglia (BG). \r\nThe basal ganglia are a set of cerebral structures\
-  \ involved in motor control which \r\ndysfunction cau"
+description: "{'value': 'We propose a new model for the function and dysfunction of the basal ganglia (BG). The basal ganglia are a set of cerebral structures involved in motor control which dysfunction cau."
 standard: other
 tags:
 - neuroscience

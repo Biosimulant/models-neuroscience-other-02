@@ -1,6 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model9339093390Model'
-description: Efficient estimation of detailed single-neuron models (Huys et al. 2006)
+description: "Efficient estimation of detailed single-neuron models (Huys et al. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

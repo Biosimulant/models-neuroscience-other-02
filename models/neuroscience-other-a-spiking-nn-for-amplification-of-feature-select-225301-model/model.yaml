@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ASpikingNnForAmplificationOfFeatureSelect225301Model'
-description: '{"value": "The model simulates large-scale inhibition-dominated spiking
-  networks with different degrees of recurrent specific connectivity. It shows how
-  feature-specific connectivity leads to a linear'
+description: "{\"value\": \"The model simulates large-scale inhibition-dominated spiking networks with different degrees of recurrent specific connectivity. It shows how feature-specific connectivity leads to a linear."
 standard: other
 tags:
 - neuroscience

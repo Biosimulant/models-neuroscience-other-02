@@ -1,6 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model8349183491Model'
-description: INa and IKv4.3 heterogeneity in canine LV myocytes (Flaim et al 2006)
+description: "INa and IKv4.3 heterogeneity in canine LV myocytes (Flaim et al 2006). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

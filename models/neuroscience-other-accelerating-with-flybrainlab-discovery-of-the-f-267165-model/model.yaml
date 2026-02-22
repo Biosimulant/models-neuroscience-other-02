@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: AcceleratingWithFlybrainlabDiscoveryOfTheF267165Model'
-description: '{"value": "In recent years, a wealth of Drosophila neuroscience data
-  have become available including cell type and connectome/synaptome datasets for
-  both the larva and adult fly. To facilitate integra'
+description: "{\"value\": \"In recent years, a wealth of Drosophila neuroscience data have become available including cell type and connectome/synaptome datasets for both the larva and adult fly. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

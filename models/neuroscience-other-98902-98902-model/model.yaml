@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model9890298902Model'
-description: Studies of stimulus parameters for seizure disruption using NN simulations
-  (Anderson et al. 2007)
+description: "Studies of stimulus parameters for seizure disruption using NN simulations (Anderson et al. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

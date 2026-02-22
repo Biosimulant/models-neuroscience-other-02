@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: AModelOfVentralHippocampalCa1PyramidalNeu267066Model'
-description: '{"value": "Gradual decline in cognitive and non-cognitive functions
-  are considered clinical hallmarks of Alzheimer''s Disease (AD). Post-mortem autoptic
-  analysis shows the presence of amyloid \u00df de'
+description: "{\"value\": \"Gradual decline in cognitive and non-cognitive functions are considered clinical hallmarks of Alzheimer's Disease (AD). Post-mortem autoptic analysis shows the presence of amyloid \\u00df de."
 standard: other
 tags:
 - neuroscience

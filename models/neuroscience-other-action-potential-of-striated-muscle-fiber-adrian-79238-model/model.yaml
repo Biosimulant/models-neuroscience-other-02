@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ActionPotentialOfStriatedMuscleFiberAdrian79238Model'
-description: "{'value': '1. Membrane currents during step depolarizations were determined\
-  \ by \r\na method in which three electrodes were inserted near the end of a \r\n\
-  fibre in the frog's sartorius muscle. The theo"
+description: "{'value': '1. Membrane currents during step depolarizations were determined by a method in which three electrodes were inserted near the end of a fibre in the frog's sartorius muscle."
 standard: other
 tags:
 - neuroscience

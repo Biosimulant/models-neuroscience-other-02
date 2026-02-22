@@ -1,6 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model98529852Model'
-description: Site of impulse initiation in a neuron (Moore et al 1983)
+description: "Site of impulse initiation in a neuron (Moore et al 1983). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

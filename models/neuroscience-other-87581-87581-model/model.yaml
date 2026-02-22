@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model8758187581Model'
-description: Slow wave propagation in the guinea-pig gastric antrum (Hirst et al.
-  2006, Edwards and Hirst 2006)
+description: "Slow wave propagation in the guinea-pig gastric antrum (Hirst et al. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

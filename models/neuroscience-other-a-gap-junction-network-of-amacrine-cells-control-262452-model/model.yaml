@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: AGapJunctionNetworkOfAmacrineCellsControl262452Model'
-description: '{"value": "\"... The effects of the neuromodulator nitric oxide (NO)
-  have\r\nbeen studied in many circuits, including in the vertebrate\r\nretina, where
-  it regulates synaptic release, gap junction\r\n'
+description: "{\"value\": \"\\\"... The effects of the neuromodulator nitric oxide (NO) have\\r\\nbeen studied in many circuits, including in the vertebrate\\r\\nretina, where it regulates synaptic release, gap junction\\r\\n."
 standard: other
 tags:
 - neuroscience

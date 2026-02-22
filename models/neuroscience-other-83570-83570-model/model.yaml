@@ -1,6 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model8357083570Model'
-description: A theory of ongoing activity in V1 (Goldberg et al 2004)
+description: "A theory of ongoing activity in V1 (Goldberg et al 2004). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

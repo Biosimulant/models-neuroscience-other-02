@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ANnWithSynapticDepressionForTestingTheEf261623Model'
-description: '{"value": "Here we used a 10,000 neuron model. The neurons are a mixture
-  of excitatory and inhibitory integrate-and-fire neurons connected with synapses
-  that exhibit synaptic depression. Three differe'
+description: "{\"value\": \"Here we used a 10,000 neuron model. The neurons are a mixture of excitatory and inhibitory integrate-and-fire neurons connected with synapses that exhibit synaptic depression."
 standard: other
 tags:
 - neuroscience

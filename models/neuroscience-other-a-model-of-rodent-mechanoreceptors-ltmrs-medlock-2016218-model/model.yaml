@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: AModelOfRodentMechanoreceptorsLtmrsMedlock2016218Model'
-description: '{"value": "\"... unlike the dichotomous frequency preference characteristic
-  of RA1 and RA2/Pacinian afferents in other species, rodent RAs fell along a continuum.
-  Fitting generalized linear models (GL'
+description: "{\"value\": \"\\\"... unlike the dichotomous frequency preference characteristic of RA1 and RA2/Pacinian afferents in other species, rodent RAs fell along a continuum."
 standard: other
 tags:
 - neuroscience

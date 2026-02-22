@@ -1,6 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model8459384593Model'
-description: Temporal decorrelation by intrinsic cellular dynamics (Wang et al 2003)
+description: "Temporal decorrelation by intrinsic cellular dynamics (Wang et al 2003). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

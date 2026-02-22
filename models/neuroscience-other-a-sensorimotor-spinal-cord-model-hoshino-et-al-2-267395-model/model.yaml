@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ASensorimotorSpinalCordModelHoshinoEtAl2267395Model'
-description: '{"value": "To elucidate how the flattening of sensory tuning due to
-  a deficit in tonic inhibition slows motor responses, we simulated a neural network
-  model in which a sensory cortical network (NS) an'
+description: "{\"value\": \"To elucidate how the flattening of sensory tuning due to a deficit in tonic inhibition slows motor responses, we simulated a neural network model in which a sensory cortical network (NS) an. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

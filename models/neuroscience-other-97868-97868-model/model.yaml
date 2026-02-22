@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model9786897868Model'
-description: NEURON interfaces to MySQL and the SPUD feature extraction algorithm
-  (Neymotin et al. 2008)
+description: "NEURON interfaces to MySQL and the SPUD feature extraction algorithm (Neymotin et al. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

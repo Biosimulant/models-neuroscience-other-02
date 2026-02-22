@@ -1,6 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model5099750997Model'
-description: Ribbon Synapse (Sikora et al 2005)
+description: "Neuroscience Model5099750997Model models neuroscience 50997 50997 dynamics as a OTHER simulation curated from opensourcebrain (opensourcebrain:50997), focused on neuroscience, opensourcebrain, 50997. When you run it, you can track state over time and compare response patterns across parameter settings."
 standard: other
 tags:
 - neuroscience

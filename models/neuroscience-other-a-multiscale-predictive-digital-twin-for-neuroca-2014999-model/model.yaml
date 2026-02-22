@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: AMultiscalePredictiveDigitalTwinForNeuroca2014999Model'
-description: '{"value": "Cardiac function is tightly regulated by the autonomic nervous
-  system (ANS). Activation of the sympathetic nervous system increases cardiac output
-  by increasing heart rate and stroke volume'
+description: "{\"value\": \"Cardiac function is tightly regulated by the autonomic nervous system (ANS). Activation of the sympathetic nervous system increases cardiac output by increasing heart rate and stroke volume."
 standard: other
 tags:
 - neuroscience

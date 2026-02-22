@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: AFocalSeizureModelWithIonConcentrationCha267499Model'
-description: '{"value": "Computer model was used to investigate the possible mechanisms
-  of seizure initiation, progression and termination. The model was developed by complementing
-  the Hodgkin-Huxley equations with'
+description: "{\"value\": \"Computer model was used to investigate the possible mechanisms of seizure initiation, progression and termination. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

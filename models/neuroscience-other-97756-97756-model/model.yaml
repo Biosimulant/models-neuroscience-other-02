@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model9775697756Model'
-description: Ion channel modeling with whole cell and a genetic algorithm (Gurkiewicz
-  and Korngreen 2007)
+description: "Ion channel modeling with whole cell and a genetic algorithm (Gurkiewicz and Korngreen 2007). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

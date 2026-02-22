@@ -1,6 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model6426664266Model'
-description: Simple model of barrel-specific segregation in cortex (Lu et al 2006)
+description: "Simple model of barrel-specific segregation in cortex (Lu et al 2006). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

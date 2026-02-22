@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ASingleKineticModelForAllHumanVoltageGat230137Model'
-description: '{"value": "Code for simulating macroscopic currents of sodium channels
-  (Nav1.1. to Nav1.9), by means of a single kinetic model. Intensity-voltage curves,
-  normalized conductance-voltage relationship, s'
+description: "{\"value\": \"Code for simulating macroscopic currents of sodium channels (Nav1.1. to Nav1.9), by means of a single kinetic model."
 standard: other
 tags:
 - neuroscience

@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: AMathematicalModelOfEvokedCalciumDynamics189344Model'
-description: '{"value": "\" ...Here we present a qualitative analysis of a recent
-  mathematical model of astrocyte calcium responses. We show how the major response
-  types are generated in the model as a result of th'
+description: "{\"value\": \"\\\" ...Here we present a qualitative analysis of a recent mathematical model of astrocyte calcium responses. We show how the major response types are generated in the model as a result of th."
 standard: other
 tags:
 - neuroscience

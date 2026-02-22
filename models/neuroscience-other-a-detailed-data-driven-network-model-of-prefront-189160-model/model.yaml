@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ADetailedDataDrivenNetworkModelOfPrefront189160Model'
-description: '{"value": "Data-based PFC-like circuit with layer 2/3 and 5, synaptic
-  clustering, four types of interneurons and cell-type specific short-term synaptic
-  plasticity; neuron parameters fitted to in vitro'
+description: "{\"value\": \"Data-based PFC-like circuit with layer 2/3 and 5, synaptic clustering, four types of interneurons and cell-type specific short-term synaptic plasticity; neuron parameters fitted to in vitro. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

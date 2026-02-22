@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model9342293422Model'
-description: A neural model of Parkinson`s disease (Cutsuridis and Perantonis 2006,
-  Cutsuridis 2006, 2007)
+description: "A neural model of Parkinson`s disease (Cutsuridis and Perantonis 2006, Cutsuridis 2006, 2007). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

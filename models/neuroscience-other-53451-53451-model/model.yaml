@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model5345153451Model'
-description: Spatial gridding and temporal accuracy in NEURON (Hines and Carnevale
-  2001)
+description: "Spatial gridding and temporal accuracy in NEURON (Hines and Carnevale 2001). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

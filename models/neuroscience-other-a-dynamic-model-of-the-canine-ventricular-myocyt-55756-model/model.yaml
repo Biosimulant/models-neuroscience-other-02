@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ADynamicModelOfTheCanineVentricularMyocyt55756Model'
-description: '{''value'': ''The Hund-Rudy dynamic (HRd) model is based on data from
-  the canine epicardial ventricular myocyte. Rate-dependent phenomena associated with
-  ion channel kinetics, action potential properties'
+description: "{'value': 'The Hund-Rudy dynamic (HRd) model is based on data from the canine epicardial ventricular myocyte. Rate-dependent phenomena associated with ion channel kinetics, action potential properties."
 standard: other
 tags:
 - neuroscience

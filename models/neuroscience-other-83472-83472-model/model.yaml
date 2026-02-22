@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model8347283472Model'
-description: Homosynaptic plasticity in the tail withdrawal circuit (TWC) of Aplysia
-  (Baxter and Byrne 2006)
+description: "Homosynaptic plasticity in the tail withdrawal circuit (TWC) of Aplysia (Baxter and Byrne 2006). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

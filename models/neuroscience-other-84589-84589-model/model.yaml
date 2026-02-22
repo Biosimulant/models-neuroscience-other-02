@@ -1,6 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model8458984589Model'
-description: Extracellular Action Potential Simulations (Gold et al 2007)
+description: "Extracellular Action Potential Simulations (Gold et al 2007). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

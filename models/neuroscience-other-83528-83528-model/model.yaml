@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model8352883528Model'
-description: Cortex learning models (Weber at al. 2006, Weber and Triesch, 2006, Weber
-  and Wermter 2006/7)
+description: "Cortex learning models (Weber at al. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

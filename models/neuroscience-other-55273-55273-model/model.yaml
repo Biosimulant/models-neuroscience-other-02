@@ -1,6 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model5527355273Model'
-description: Regulation of KCNQ2/KCNQ3 current by G protein cycling (Suh et al 2004)
+description: "Regulation of KCNQ2/KCNQ3 current by G protein cycling (Suh et al 2004). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

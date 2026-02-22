@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: AModelForRecurrentSpreadingDepolarizations235377Model'
-description: '{"value": "A detailed biophysical model for a neuron/astrocyte network
-  is developed in order to explore mechanisms responsible for cortical spreading depolarizations.
-  This includes a model for the Na+'
+description: "{\"value\": \"A detailed biophysical model for a neuron/astrocyte network is developed in order to explore mechanisms responsible for cortical spreading depolarizations. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model6416764167Model'
-description: Dichotomy of action-potential backpropagation in CA1 pyramidal neuron
-  dendrites (Golding et al 2001)
+description: "Dichotomy of action-potential backpropagation in CA1 pyramidal neuron dendrites (Golding et al 2001). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

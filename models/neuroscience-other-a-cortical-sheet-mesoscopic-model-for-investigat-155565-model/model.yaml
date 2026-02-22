@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ACorticalSheetMesoscopicModelForInvestigat155565Model'
-description: '{"value": "The model uses realistically coupled, discretised, Wilson-Cowan
-  units to describe the spatio-temporal activity of a cortical sheet. This model has
-  been used the investigate the dynamic onse'
+description: "{\"value\": \"The model uses realistically coupled, discretised, Wilson-Cowan units to describe the spatio-temporal activity of a cortical sheet. This model has been used the investigate the dynamic onse."
 standard: other
 tags:
 - neuroscience

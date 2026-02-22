@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: AFourCompartmentalModelForAbpdComplexInC141192Model'
-description: '{"value": "\"Central pattern generators (CPGs) frequently include bursting
-  neurons that serve as pacemakers for rhythm generation.\r\n\r\nPhase resetting curves
-  (PRCs) can provide insight into mechani'
+description: "{\"value\": \"\\\"Central pattern generators (CPGs) frequently include bursting neurons that serve as pacemakers for rhythm generation.\\r\\n\\r\\nPhase resetting curves (PRCs) can provide insight into mechani. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

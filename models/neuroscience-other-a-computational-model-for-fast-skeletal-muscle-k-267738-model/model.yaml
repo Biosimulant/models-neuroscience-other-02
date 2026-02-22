@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: AComputationalModelForFastSkeletalMuscleK267738Model'
-description: '{"value": "A computational framework for investigating the dynamic variation
-  in the calcium-force relationship during force generation under physiological conditions
-  of neural excitation and muscle le'
+description: "{\"value\": \"A computational framework for investigating the dynamic variation in the calcium-force relationship during force generation under physiological conditions of neural excitation and muscle le. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

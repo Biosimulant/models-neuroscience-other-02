@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model8275882758Model'
-description: Hysteresis in voltage gating of HCN channels (Elinder et al 2006, Mannikko
-  et al 2005)
+description: "Hysteresis in voltage gating of HCN channels (Elinder et al 2006, Mannikko et al 2005). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

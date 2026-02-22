@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ADetailedAndFastModelOfExtracellularRecor147487Model'
-description: '{"value": "\"We present a novel method to generate realistic simulations
-  of extracellular recordings. The simulations were obtained by superimposing the
-  activity of neurons placed randomly in a cube o'
+description: "{\"value\": \"\\\"We present a novel method to generate realistic simulations of extracellular recordings. The simulations were obtained by superimposing the activity of neurons placed randomly in a cube o."
 standard: other
 tags:
 - neuroscience

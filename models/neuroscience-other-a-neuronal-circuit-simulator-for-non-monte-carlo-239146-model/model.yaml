@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ANeuronalCircuitSimulatorForNonMonteCarlo239146Model'
-description: '{"value": "cirsiumNeuron is a neuronal circuit simulator that can directly
-  and efficiently compute characterizations of stochastic behavior, i.e., noise, for
-  multi-neuron circuits. In cirsiumNeuron, w'
+description: "{\"value\": \"cirsiumNeuron is a neuronal circuit simulator that can directly and efficiently compute characterizations of stochastic behavior, i.e., noise, for multi-neuron circuits. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

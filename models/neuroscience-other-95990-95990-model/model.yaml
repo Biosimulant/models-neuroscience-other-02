@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model9599095990Model'
-description: Kinetics of the P2X7 receptor as expressed in Xenopus oocytes (Riedel
-  et al. 2007a,b)
+description: "Kinetics of the P2X7 receptor as expressed in Xenopus oocytes (Riedel et al. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

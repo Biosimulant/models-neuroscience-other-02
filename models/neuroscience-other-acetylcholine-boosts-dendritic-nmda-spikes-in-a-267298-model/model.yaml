@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: AcetylcholineBoostsDendriticNmdaSpikesInA267298Model'
-description: '{"value": "This model was used to compare the nonlinearity of NMDA inputs
-  between dendritic sections in a CA3 pyramidal neuron as well as investigate the
-  effect of cholinergic modulation/potassium cha'
+description: "{\"value\": \"This model was used to compare the nonlinearity of NMDA inputs between dendritic sections in a CA3 pyramidal neuron as well as investigate the effect of cholinergic modulation/potassium cha. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

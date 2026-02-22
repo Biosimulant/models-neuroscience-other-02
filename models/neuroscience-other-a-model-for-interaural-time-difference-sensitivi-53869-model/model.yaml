@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: AModelForInterauralTimeDifferenceSensitivi53869Model'
-description: '{''value'': ''This model simulates responses of neurons to interaural
-  time difference (ITD) in the medial superior olive (MSO) of the mammalian brainstem.
-  The model has a bipolar cell structure and incor'
+description: "{'value': 'This model simulates responses of neurons to interaural time difference (ITD) in the medial superior olive (MSO) of the mammalian brainstem. The model has a bipolar cell structure and incor."
 standard: other
 tags:
 - neuroscience

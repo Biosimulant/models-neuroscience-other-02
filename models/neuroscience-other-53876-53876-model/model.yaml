@@ -1,6 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model5387653876Model'
-description: Medial vestibular neuron models (Quadroni and Knopfel 1994)
+description: "Medial vestibular neuron models (Quadroni and Knopfel 1994). It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

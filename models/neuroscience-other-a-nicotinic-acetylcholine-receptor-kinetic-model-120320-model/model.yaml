@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ANicotinicAcetylcholineReceptorKineticModel120320Model'
-description: '{"value": "Nicotinic acetylcholine receptors are transmembrane\r\noligomeric
-  proteins that mediate interconversions\r\nbetween open and closed channel states
-  under the\r\ncontrol of neurotransmitters.'
+description: "{\"value\": \"Nicotinic acetylcholine receptors are transmembrane\\r\\noligomeric proteins that mediate interconversions\\r\\nbetween open and closed channel states under the\\r\\ncontrol of neurotransmitters. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

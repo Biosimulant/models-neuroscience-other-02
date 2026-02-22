@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ATheoryOfOngoingActivityInV1GoldbergEtA83570Model'
-description: "{'value': 'Ongoing spontaneous activity in the cerebral cortex exhibits\r\
-  \ncomplex spatiotemporal patterns in the absence of sensory stimuli. To elucidate\
-  \ the nature of\r\nthis ongoing activity, we pr"
+description: "{'value': 'Ongoing spontaneous activity in the cerebral cortex exhibits complex spatiotemporal patterns in the absence of sensory stimuli. To elucidate the nature of this ongoing activity, we pr."
 standard: other
 tags:
 - neuroscience

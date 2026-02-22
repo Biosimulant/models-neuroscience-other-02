@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ActionPotentialInitiationAndBackpropagation123897Model'
-description: '{"value": "\"...Previous computational studies have yielded conflicting
-  conclusions\r\nabout the role of Na+ channel density and biophysical properties
-  in\r\naction potential initiation as a result of'
+description: "{\"value\": \"\\\"...Previous computational studies have yielded conflicting conclusions\\r\\nabout the role of Na+ channel density and biophysical properties in\\r\\naction potential initiation as a result of. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

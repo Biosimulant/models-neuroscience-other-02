@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: AGeneralModelOfHippocampalAndDorsalStriat266836Model'
-description: '{"value": "Python and Cython implementation of a dual-systems reinforcement
-  learning model that solves navigation and decision tasks using model-free and successor
-  representation strategies. For quest'
+description: "{\"value\": \"Python and Cython implementation of a dual-systems reinforcement learning model that solves navigation and decision tasks using model-free and successor representation strategies. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

@@ -1,6 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model6421264212Model'
-description: Vomeronasal sensory neuron (Shimazaki et al 2006)
+description: "Neuroscience Model6421264212Model represents neuroscience 64212 64212 mechanisms from opensourcebrain reference opensourcebrain:64212. When you run it, you can inspect state and compare temporal behavior between baseline and adjusted inputs."
 standard: other
 tags:
 - neuroscience

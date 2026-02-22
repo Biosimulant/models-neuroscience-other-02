@@ -1,6 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model9786097860Model'
-description: Rejuvenation model of dopamine neuron (Chan et al. 2007)
+description: "Rejuvenation model of dopamine neuron (Chan et al. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

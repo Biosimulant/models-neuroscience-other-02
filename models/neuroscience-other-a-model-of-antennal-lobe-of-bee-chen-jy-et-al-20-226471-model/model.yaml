@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: AModelOfAntennalLobeOfBeeChenJyEtAl20226471Model'
-description: '{"value": "\" ... Here we use calcium imaging to reveal how responses
-  across antennal lobe projection neurons change after association of an input odor
-  with appetitive reinforcement. After appetitive '
+description: "{\"value\": \"\\\" ... Here we use calcium imaging to reveal how responses across antennal lobe projection neurons change after association of an input odor with appetitive reinforcement."
 standard: other
 tags:
 - neuroscience

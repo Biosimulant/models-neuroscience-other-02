@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: AModelOfTheTemporalPatternGeneratorOfCE127321Model'
-description: '{"value": "\"... We suggest that the HSN neuron is the executive neuron
-  driving egg-laying events. We propose that the VC neurons act as \"single egg counters\"
-  that inhibit HSN activity for short per'
+description: "{\"value\": \"\\\"... We suggest that the HSN neuron is the executive neuron driving egg-laying events."
 standard: other
 tags:
 - neuroscience

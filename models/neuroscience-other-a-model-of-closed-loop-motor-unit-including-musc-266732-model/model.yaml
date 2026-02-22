@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: AModelOfClosedLoopMotorUnitIncludingMusc266732Model'
-description: '{"value": "Persistent inward current generating ion channels are located
-  over spinal motoneurons and actively recruited during normal behaviors. Constructing
-  a realistic computational model of closed-'
+description: "{\"value\": \"Persistent inward current generating ion channels are located over spinal motoneurons and actively recruited during normal behaviors. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

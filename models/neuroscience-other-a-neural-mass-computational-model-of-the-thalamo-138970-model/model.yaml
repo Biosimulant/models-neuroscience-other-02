@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: ANeuralMassComputationalModelOfTheThalamo138970Model'
-description: '{"value": "The model presented here is a bio-physically plausible version
-  of a simple thalamo-cortical neural mass computational model proposed by Lopes da
-  Silva in 1974 to simulate brain EEG activity'
+description: "{\"value\": \"The model presented here is a bio-physically plausible version of a simple thalamo-cortical neural mass computational model proposed by Lopes da Silva in 1974 to simulate brain EEG activity. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

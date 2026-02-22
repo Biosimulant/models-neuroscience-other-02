@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model9790397903Model'
-description: Determinants of fast calcium dynamics in dendritic spines and dendrites
-  (Cornelisse et al. 2007)
+description: "Determinants of fast calcium dynamics in dendritic spines and dendrites (Cornelisse et al. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

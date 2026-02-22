@@ -1,8 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Acnet23PrimaryAuditoryCortexModelBeemanEt261423Model'
-description: '{"value": "These scripts were used to model a patch of layer 2/3 primary
-  auditory cortex,\r\nmaking use of the the improvements to PGENESIS by Crone, et
-  al. (2019).\r\nThis single layer model contains'
+description: "{\"value\": \"These scripts were used to model a patch of layer 2/3 primary auditory cortex,\\r\\nmaking use of the the improvements to PGENESIS by Crone, et al. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

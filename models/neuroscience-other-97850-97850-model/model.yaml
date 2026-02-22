@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: Model9785097850Model'
-description: Study of augmented Rubin and Terman 2004 deep brain stim. model in Parkinsons
-  (Pascual et al. 2006)
+description: "Study of augmented Rubin and Terman 2004 deep brain stim. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience

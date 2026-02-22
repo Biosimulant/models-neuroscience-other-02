@@ -1,7 +1,6 @@
 schema_version: '2.0'
 title: 'Neuroscience: AModelOfNeuronalBurstingUsingThreeCoupled247196Model'
-description: '{"value": "R Brette''s Brian 2 implementation of the classic Hindmarsh-Rose
-  1984 dynamical system representing neuronal bursting.", "attr_id": 24}'
+description: "R Brette's Brian 2 implementation of the classic Hindmarsh-Rose 1984 dynamical system representing neuronal bursting. It can be used to explore neural activity dynamics and compare response patterns across conditions."
 standard: other
 tags:
 - neuroscience
