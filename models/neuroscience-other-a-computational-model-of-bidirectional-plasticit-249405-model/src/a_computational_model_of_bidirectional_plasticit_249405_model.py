@@ -20,7 +20,7 @@ import biosim
 from biosim.signals import BioSignal, SignalMetadata
 
 class OtherAComputationalModelOfBidirectionalPlasticity(biosim.BioModule):
-    """BioModule wrapper for: A Computational Model of Bidirectional Plasticity Regulation by betaCaMKII (Pinto et al. 2019).""""""
+    """BioModule wrapper for: A Computational Model of Bidirectional Plasticity Regulation by betaCaMKII (Pinto et al. 2019)."""
 
     def __init__(self, model_path: str = "data/249405.zip", min_dt: float = 0.01) -> None:
         self.min_dt = min_dt
@@ -87,7 +87,7 @@ class OtherAComputationalModelOfBidirectionalPlasticity(biosim.BioModule):
         return {"state"}
 
     def advance_to(self, t: float) -> None:
-        """Advance simulation — dispatches to detected simulator."""
+        """Advance simulation - dispatches to detected simulator."""
         if self._extracted_dir is None:
             self.setup()
 

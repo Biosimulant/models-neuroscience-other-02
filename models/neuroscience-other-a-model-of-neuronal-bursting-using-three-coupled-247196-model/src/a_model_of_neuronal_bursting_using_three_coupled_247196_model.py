@@ -20,7 +20,7 @@ import biosim
 from biosim.signals import BioSignal, SignalMetadata
 
 class OtherAModelOfNeuronalBurstingUsingThreeCoupledFirst(biosim.BioModule):
-    """BioModule wrapper for: A model of neuronal bursting using three coupled first order diff. eqs. (Hindmarsh & Rose 1984).""""""
+    """BioModule wrapper for: A model of neuronal bursting using three coupled first order diff. eqs. (Hindmarsh & Rose 1984)."""
 
     def __init__(self, model_path: str = "data/247196.zip", min_dt: float = 0.01) -> None:
         self.min_dt = min_dt
@@ -87,7 +87,7 @@ class OtherAModelOfNeuronalBurstingUsingThreeCoupledFirst(biosim.BioModule):
         return {"state"}
 
     def advance_to(self, t: float) -> None:
-        """Advance simulation — dispatches to detected simulator."""
+        """Advance simulation - dispatches to detected simulator."""
         if self._extracted_dir is None:
             self.setup()
 

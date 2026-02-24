@@ -20,7 +20,7 @@ import biosim
 from biosim.signals import BioSignal, SignalMetadata
 
 class OtherA3dPopulationModelOfMidgetRetinalGanglionCellsAt(biosim.BioModule):
-    """BioModule wrapper for: A 3D population model of midget retinal ganglion cells at the human fovea (Italiano et al, 2022).""""""
+    """BioModule wrapper for: A 3D population model of midget retinal ganglion cells at the human fovea (Italiano et al, 2022)."""
 
     def __init__(self, model_path: str = "data/267391.zip", min_dt: float = 0.01) -> None:
         self.min_dt = min_dt
@@ -87,7 +87,7 @@ class OtherA3dPopulationModelOfMidgetRetinalGanglionCellsAt(biosim.BioModule):
         return {"state"}
 
     def advance_to(self, t: float) -> None:
-        """Advance simulation — dispatches to detected simulator."""
+        """Advance simulation - dispatches to detected simulator."""
         if self._extracted_dir is None:
             self.setup()
 

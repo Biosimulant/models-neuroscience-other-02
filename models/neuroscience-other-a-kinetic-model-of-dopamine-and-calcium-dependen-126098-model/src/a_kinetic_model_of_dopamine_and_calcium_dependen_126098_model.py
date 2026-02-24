@@ -20,7 +20,7 @@ import biosim
 from biosim.signals import BioSignal, SignalMetadata
 
 class OtherAKineticModelOfDopamineAndCalciumDependentStriatal(biosim.BioModule):
-    """BioModule wrapper for: A kinetic model of dopamine- and calcium-dependent striatal synaptic plasticity (Nakano et al. 2010).""""""
+    """BioModule wrapper for: A kinetic model of dopamine- and calcium-dependent striatal synaptic plasticity (Nakano et al. 2010)."""
 
     def __init__(self, model_path: str = "data/126098.zip", min_dt: float = 0.01) -> None:
         self.min_dt = min_dt
@@ -87,7 +87,7 @@ class OtherAKineticModelOfDopamineAndCalciumDependentStriatal(biosim.BioModule):
         return {"state"}
 
     def advance_to(self, t: float) -> None:
-        """Advance simulation — dispatches to detected simulator."""
+        """Advance simulation - dispatches to detected simulator."""
         if self._extracted_dir is None:
             self.setup()
 

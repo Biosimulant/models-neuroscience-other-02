@@ -20,7 +20,7 @@ import biosim
 from biosim.signals import BioSignal, SignalMetadata
 
 class OtherANeuralModelOfParkinsonSDiseaseCutsuridisAnd(biosim.BioModule):
-    """BioModule wrapper for: A neural model of Parkinson`s disease (Cutsuridis and Perantonis 2006, Cutsuridis 2006, 2007).""""""
+    """BioModule wrapper for: A neural model of Parkinson`s disease (Cutsuridis and Perantonis 2006, Cutsuridis 2006, 2007)."""
 
     def __init__(self, model_path: str = "data/93422.zip", min_dt: float = 0.01) -> None:
         self.min_dt = min_dt
@@ -87,7 +87,7 @@ class OtherANeuralModelOfParkinsonSDiseaseCutsuridisAnd(biosim.BioModule):
         return {"state"}
 
     def advance_to(self, t: float) -> None:
-        """Advance simulation — dispatches to detected simulator."""
+        """Advance simulation - dispatches to detected simulator."""
         if self._extracted_dir is None:
             self.setup()
 

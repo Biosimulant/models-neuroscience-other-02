@@ -20,7 +20,7 @@ import biosim
 from biosim.signals import BioSignal, SignalMetadata
 
 class OtherACardiacCellSimulatorPuglisiAndBers2001AppliedTo(biosim.BioModule):
-    """BioModule wrapper for: A cardiac cell simulator (Puglisi and Bers 2001), applied to the QT interval (Busjahn et al 2004).""""""
+    """BioModule wrapper for: A cardiac cell simulator (Puglisi and Bers 2001), applied to the QT interval (Busjahn et al 2004)."""
 
     def __init__(self, model_path: str = "data/84641.zip", min_dt: float = 0.01) -> None:
         self.min_dt = min_dt
@@ -87,7 +87,7 @@ class OtherACardiacCellSimulatorPuglisiAndBers2001AppliedTo(biosim.BioModule):
         return {"state"}
 
     def advance_to(self, t: float) -> None:
-        """Advance simulation — dispatches to detected simulator."""
+        """Advance simulation - dispatches to detected simulator."""
         if self._extracted_dir is None:
             self.setup()
 

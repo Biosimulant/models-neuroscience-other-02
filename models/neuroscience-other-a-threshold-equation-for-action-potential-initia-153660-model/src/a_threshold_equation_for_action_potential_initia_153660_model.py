@@ -20,7 +20,7 @@ import biosim
 from biosim.signals import BioSignal, SignalMetadata
 
 class OtherAThresholdEquationForActionPotentialInitiation(biosim.BioModule):
-    """BioModule wrapper for: A threshold equation for action potential initiation (Platkiewicz & Brette 2010).""""""
+    """BioModule wrapper for: A threshold equation for action potential initiation (Platkiewicz & Brette 2010)."""
 
     def __init__(self, model_path: str = "data/153660.zip", min_dt: float = 0.01) -> None:
         self.min_dt = min_dt
@@ -87,7 +87,7 @@ class OtherAThresholdEquationForActionPotentialInitiation(biosim.BioModule):
         return {"state"}
 
     def advance_to(self, t: float) -> None:
-        """Advance simulation — dispatches to detected simulator."""
+        """Advance simulation - dispatches to detected simulator."""
         if self._extracted_dir is None:
             self.setup()
 

@@ -20,7 +20,7 @@ import biosim
 from biosim.signals import BioSignal, SignalMetadata
 
 class OtherASpikingNeuralNetworkModelOfModelFreeReinforcement(biosim.BioModule):
-    """BioModule wrapper for: A spiking neural network model of model-free reinforcement learning (Nakano et al 2015).""""""
+    """BioModule wrapper for: A spiking neural network model of model-free reinforcement learning (Nakano et al 2015)."""
 
     def __init__(self, model_path: str = "data/168143.zip", min_dt: float = 0.01) -> None:
         self.min_dt = min_dt
@@ -87,7 +87,7 @@ class OtherASpikingNeuralNetworkModelOfModelFreeReinforcement(biosim.BioModule):
         return {"state"}
 
     def advance_to(self, t: float) -> None:
-        """Advance simulation — dispatches to detected simulator."""
+        """Advance simulation - dispatches to detected simulator."""
         if self._extracted_dir is None:
             self.setup()
 

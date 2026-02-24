@@ -20,7 +20,7 @@ import biosim
 from biosim.signals import BioSignal, SignalMetadata
 
 class OtherACorfComputationalModelOfASimpleCellThatReliesOn(biosim.BioModule):
-    """BioModule wrapper for: A CORF computational model of a simple cell that relies on LGN input (Azzopardi & Petkov 2012).""""""
+    """BioModule wrapper for: A CORF computational model of a simple cell that relies on LGN input (Azzopardi & Petkov 2012)."""
 
     def __init__(self, model_path: str = "data/145882.zip", min_dt: float = 0.01) -> None:
         self.min_dt = min_dt
@@ -87,7 +87,7 @@ class OtherACorfComputationalModelOfASimpleCellThatReliesOn(biosim.BioModule):
         return {"state"}
 
     def advance_to(self, t: float) -> None:
-        """Advance simulation — dispatches to detected simulator."""
+        """Advance simulation - dispatches to detected simulator."""
         if self._extracted_dir is None:
             self.setup()
 

@@ -20,7 +20,7 @@ import biosim
 from biosim.signals import BioSignal, SignalMetadata
 
 class OtherActionsOfRotenoneOnIonicCurrentsAndMeppsInMouse(biosim.BioModule):
-    """BioModule wrapper for: Actions of Rotenone on ionic currents and MEPPs in Mouse Hippocampal Neurons (Huang et al 2018).""""""
+    """BioModule wrapper for: Actions of Rotenone on ionic currents and MEPPs in Mouse Hippocampal Neurons (Huang et al 2018)."""
 
     def __init__(self, model_path: str = "data/240961.zip", min_dt: float = 0.01) -> None:
         self.min_dt = min_dt
@@ -87,7 +87,7 @@ class OtherActionsOfRotenoneOnIonicCurrentsAndMeppsInMouse(biosim.BioModule):
         return {"state"}
 
     def advance_to(self, t: float) -> None:
-        """Advance simulation — dispatches to detected simulator."""
+        """Advance simulation - dispatches to detected simulator."""
         if self._extracted_dir is None:
             self.setup()
 

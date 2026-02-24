@@ -20,7 +20,7 @@ import biosim
 from biosim.signals import BioSignal, SignalMetadata
 
 class OtherAModelOfNeurovascularCouplingAndTheBoldResponse(biosim.BioModule):
-    """BioModule wrapper for: A model of neurovascular coupling and the BOLD response (Mathias et al 2017, Kenny et al 2018).""""""
+    """BioModule wrapper for: A model of neurovascular coupling and the BOLD response (Mathias et al 2017, Kenny et al 2018)."""
 
     def __init__(self, model_path: str = "data/237604.zip", min_dt: float = 0.01) -> None:
         self.min_dt = min_dt
@@ -87,7 +87,7 @@ class OtherAModelOfNeurovascularCouplingAndTheBoldResponse(biosim.BioModule):
         return {"state"}
 
     def advance_to(self, t: float) -> None:
-        """Advance simulation — dispatches to detected simulator."""
+        """Advance simulation - dispatches to detected simulator."""
         if self._extracted_dir is None:
             self.setup()
 

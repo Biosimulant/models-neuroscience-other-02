@@ -20,7 +20,7 @@ import biosim
 from biosim.signals import BioSignal, SignalMetadata
 
 class OtherADualCa2SensorModelForNeurotransmitterReleaseInA(biosim.BioModule):
-    """BioModule wrapper for: A dual-Ca2+-sensor model for neurotransmitter release in a central synapse (Sun et al. 2007).""""""
+    """BioModule wrapper for: A dual-Ca2+-sensor model for neurotransmitter release in a central synapse (Sun et al. 2007)."""
 
     def __init__(self, model_path: str = "data/105506.zip", min_dt: float = 0.01) -> None:
         self.min_dt = min_dt
@@ -87,7 +87,7 @@ class OtherADualCa2SensorModelForNeurotransmitterReleaseInA(biosim.BioModule):
         return {"state"}
 
     def advance_to(self, t: float) -> None:
-        """Advance simulation — dispatches to detected simulator."""
+        """Advance simulation - dispatches to detected simulator."""
         if self._extracted_dir is None:
             self.setup()
 

@@ -20,7 +20,7 @@ import biosim
 from biosim.signals import BioSignal, SignalMetadata
 
 class OtherASpikingNnForAmplificationOfFeatureSelectivityWith(biosim.BioModule):
-    """BioModule wrapper for: A spiking NN for amplification of feature-selectivity with specific connectivity (Sadeh et al 2015).""""""
+    """BioModule wrapper for: A spiking NN for amplification of feature-selectivity with specific connectivity (Sadeh et al 2015)."""
 
     def __init__(self, model_path: str = "data/225301.zip", min_dt: float = 0.01) -> None:
         self.min_dt = min_dt
@@ -87,7 +87,7 @@ class OtherASpikingNnForAmplificationOfFeatureSelectivityWith(biosim.BioModule):
         return {"state"}
 
     def advance_to(self, t: float) -> None:
-        """Advance simulation — dispatches to detected simulator."""
+        """Advance simulation - dispatches to detected simulator."""
         if self._extracted_dir is None:
             self.setup()
 

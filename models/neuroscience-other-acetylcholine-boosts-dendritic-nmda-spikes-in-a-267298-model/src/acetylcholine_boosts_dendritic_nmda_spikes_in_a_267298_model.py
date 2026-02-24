@@ -20,7 +20,7 @@ import biosim
 from biosim.signals import BioSignal, SignalMetadata
 
 class OtherAcetylcholineBoostsDendriticNmdaSpikesInACa3(biosim.BioModule):
-    """BioModule wrapper for: Acetylcholine Boosts Dendritic NMDA Spikes in a CA3 Pyramidal Neuron Model (Humphries et al., 2021).""""""
+    """BioModule wrapper for: Acetylcholine Boosts Dendritic NMDA Spikes in a CA3 Pyramidal Neuron Model (Humphries et al., 2021)."""
 
     def __init__(self, model_path: str = "data/267298.zip", min_dt: float = 0.01) -> None:
         self.min_dt = min_dt
@@ -87,7 +87,7 @@ class OtherAcetylcholineBoostsDendriticNmdaSpikesInACa3(biosim.BioModule):
         return {"state"}
 
     def advance_to(self, t: float) -> None:
-        """Advance simulation — dispatches to detected simulator."""
+        """Advance simulation - dispatches to detected simulator."""
         if self._extracted_dir is None:
             self.setup()
 

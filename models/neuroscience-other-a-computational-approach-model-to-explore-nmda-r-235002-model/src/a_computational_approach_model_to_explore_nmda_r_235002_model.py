@@ -20,7 +20,7 @@ import biosim
 from biosim.signals import BioSignal, SignalMetadata
 
 class OtherAComputationalApproachModelToExploreNmdaReceptors(biosim.BioModule):
-    """BioModule wrapper for: A computational approach/model to explore NMDA receptors functions (Keller et al 2017).""""""
+    """BioModule wrapper for: A computational approach/model to explore NMDA receptors functions (Keller et al 2017)."""
 
     def __init__(self, model_path: str = "data/235002.zip", min_dt: float = 0.01) -> None:
         self.min_dt = min_dt
@@ -87,7 +87,7 @@ class OtherAComputationalApproachModelToExploreNmdaReceptors(biosim.BioModule):
         return {"state"}
 
     def advance_to(self, t: float) -> None:
-        """Advance simulation — dispatches to detected simulator."""
+        """Advance simulation - dispatches to detected simulator."""
         if self._extracted_dir is None:
             self.setup()
 

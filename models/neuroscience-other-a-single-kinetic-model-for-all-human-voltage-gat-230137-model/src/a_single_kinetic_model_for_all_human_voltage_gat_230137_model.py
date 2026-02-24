@@ -20,7 +20,7 @@ import biosim
 from biosim.signals import BioSignal, SignalMetadata
 
 class OtherASingleKineticModelForAllHumanVoltageGatedSodium(biosim.BioModule):
-    """BioModule wrapper for: A single kinetic model for all human voltage-gated sodium channels (Balbi et al, 2017).""""""
+    """BioModule wrapper for: A single kinetic model for all human voltage-gated sodium channels (Balbi et al, 2017)."""
 
     def __init__(self, model_path: str = "data/230137.zip", min_dt: float = 0.01) -> None:
         self.min_dt = min_dt
@@ -87,7 +87,7 @@ class OtherASingleKineticModelForAllHumanVoltageGatedSodium(biosim.BioModule):
         return {"state"}
 
     def advance_to(self, t: float) -> None:
-        """Advance simulation — dispatches to detected simulator."""
+        """Advance simulation - dispatches to detected simulator."""
         if self._extracted_dir is None:
             self.setup()
 

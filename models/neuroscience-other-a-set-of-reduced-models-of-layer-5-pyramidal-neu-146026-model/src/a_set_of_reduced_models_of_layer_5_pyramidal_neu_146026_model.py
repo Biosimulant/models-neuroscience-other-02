@@ -20,7 +20,7 @@ import biosim
 from biosim.signals import BioSignal, SignalMetadata
 
 class OtherASetOfReducedModelsOfLayer5PyramidalNeuronsBahl(biosim.BioModule):
-    """BioModule wrapper for: A set of reduced models of layer 5 pyramidal neurons (Bahl et al. 2012).""""""
+    """BioModule wrapper for: A set of reduced models of layer 5 pyramidal neurons (Bahl et al. 2012)."""
 
     def __init__(self, model_path: str = "data/146026.zip", min_dt: float = 0.01) -> None:
         self.min_dt = min_dt
@@ -87,7 +87,7 @@ class OtherASetOfReducedModelsOfLayer5PyramidalNeuronsBahl(biosim.BioModule):
         return {"state"}
 
     def advance_to(self, t: float) -> None:
-        """Advance simulation — dispatches to detected simulator."""
+        """Advance simulation - dispatches to detected simulator."""
         if self._extracted_dir is None:
             self.setup()
 
