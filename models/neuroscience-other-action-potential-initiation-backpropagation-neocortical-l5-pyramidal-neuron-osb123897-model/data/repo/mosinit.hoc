@@ -1,3 +1,0 @@
-//moddir mechanism
-load_file("nrngui.hoc")
-load_file("init.hoc")
